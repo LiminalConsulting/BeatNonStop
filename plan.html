@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beat Nonstop — Lua Nova | Event Plan</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #13131c;
+      --surface2: #1c1c2e;
+      --border: #2a2a40;
+      --accent: #c8a84b;
+      --accent2: #7b5ea7;
+      --text: #e8e8f0;
+      --muted: #888899;
+      --green: #4caf7d;
+      --red: #e05c5c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3rem;
+    }
+
+    header .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    header .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    header .meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    header .meta-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    header .meta-item span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .card.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-icon {
+      font-size: 1.4rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .countdown-unit {
+      text-align: center;
+    }
+
+    .countdown-unit .num {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .countdown-unit .unit {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.45rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.28rem;
+      top: 0.45rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-item.done::before { background: var(--green); }
+    .timeline-item.active::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+    .timeline-item.upcoming::before { background: var(--border); }
+
+    .timeline-week {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent2);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-task {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .timeline-item.done .timeline-task {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    /* Tickets table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    tr:hover td { background: var(--surface2); }
+
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-gold { background: rgba(200,168,75,0.15); color: var(--accent); }
+    .badge-purple { background: rgba(123,94,167,0.2); color: #a97fd6; }
+    .badge-green { background: rgba(76,175,125,0.15); color: var(--green); }
+
+    /* Budget */
+    .budget-bar {
+      background: var(--surface2);
+      border-radius: 6px;
+      height: 8px;
+      margin-top: 0.4rem;
+      overflow: hidden;
+    }
+
+    .budget-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+    }
+
+    .budget-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .budget-label { font-size: 0.9rem; }
+    .budget-amount { font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+
+    .profit-box {
+      background: rgba(76,175,125,0.1);
+      border: 1px solid rgba(76,175,125,0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .profit-box .profit-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--green);
+    }
+
+    .profit-box .profit-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    /* Checklist */
+    .checklist { list-style: none; }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      transition: all 0.2s;
+    }
+
+    .check.done {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .check.done::after { content: '✓'; font-size: 11px; color: white; }
+
+    .checklist li.checked .task-text {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    /* VIP cards */
+    .vip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .vip-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .vip-card .vip-size {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .vip-card .vip-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .vip-card .vip-includes {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* Ticket provider */
+    .provider-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .provider-card.recommended {
+      border-color: var(--accent);
+      background: rgba(200,168,75,0.05);
+    }
+
+    .provider-name {
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .provider-fee {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .provider-pros {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Merch */
+    .merch-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .merch-item:last-child { border-bottom: none; }
+
+    .merch-name { font-weight: 600; }
+    .merch-detail { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+
+    .merch-prices {
+      text-align: right;
+    }
+
+    .merch-prices .sell { font-weight: 700; color: var(--accent); }
+    .merch-prices .margin { font-size: 0.78rem; color: var(--green); }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">Event Planning Dashboard</div>
+  <h1>Beat Nonstop — Lua Nova</h1>
+  <div class="subtitle">Ribeira da Neiva, Vila Verde, Braga &nbsp;·&nbsp; 18:00 → 04:00</div>
+  <div class="meta">
+    <div class="meta-item">Date <span>May 16, 2026</span></div>
+    <div class="meta-item">Capacity <span>2,000</span></div>
+    <div class="meta-item">Artists <span>~8</span></div>
+    <div class="meta-item">Budget <span>€10,000</span></div>
+  </div>
+</header>
+
+<div class="grid">
+
+  <!-- COUNTDOWN -->
+  <div class="card full-width" style="text-align:center">
+    <div class="card-header" style="justify-content:center">
+      <span class="card-icon">🌕</span>
+      <span class="card-title">Time Until Lua Nova</span>
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit">Days</div></div>
+      <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit">Hours</div></div>
+      <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit">Minutes</div></div>
+      <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit">Seconds</div></div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">📅</span>
+      <span class="card-title">37-Day Timeline</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item active">
+        <div class="timeline-week">Week 1 — Now</div>
+        <div class="timeline-task">Set up Shotgun/Billetto · Launch Early Bird (200 spots @ €12) · Create event page</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="timeline-week">Week 2 — Apr 16</div>
+        <div class="timeline-task">Social media team starts posting · Artist teaser reveals · Location visuals</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="timeline-week">Week 3 — Apr 23</div>
+        <div class="timeline-task">Close Early Bird · Push Standard (€18) · VIP table push begins · Order merch</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="timeline-week">Week 4 — Apr 30</div>
+        <div class="timeline-task">Full lineup reveal · Merch available online · Invite Mykina · Pre-event barbecue confirmed</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="timeline-week">Week 5 — May 7</div>
+        <div class="timeline-task">"X tickets remaining" urgency campaign · Highlight door price (€25) · Final social push</div>
+      </div>
+      <div class="timeline-item upcoming">
+        <div class="timeline-week">May 15 — Eve</div>
+        <div class="timeline-task">Pre-sale closes · Final headcount · Logistics locked · Crew briefing</div>
+      </div>
+      <div class="timeline-item upcoming" style="margin-bottom:0">
+        <div class="timeline-week" style="color:var(--accent)">May 16 — EVENT DAY 🎉</div>
+        <div class="timeline-task">Doors 18:00 · Party until 03:00–04:00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">✅</span>
+      <span class="card-title">Action Checklist</span>
+    </div>
+    <ul class="checklist" id="checklist">
+      <li data-id="0"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Sign up on Shotgun or Billetto</span></li>
+      <li data-id="1"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Create event page with full info</span></li>
+      <li data-id="2"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Launch Early Bird tickets (200 max @ €12)</span></li>
+      <li data-id="3"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Set up VIP table packages</span></li>
+      <li data-id="4"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Brief social media team with event link</span></li>
+      <li data-id="5"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Design t-shirt / merch artwork</span></li>
+      <li data-id="6"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Find local Braga printer or use Printful</span></li>
+      <li data-id="7"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Confirm all ~8 artists on lineup</span></li>
+      <li data-id="8"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Invite Mykina + confirm barbecue</span></li>
+      <li data-id="9"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Book security team</span></li>
+      <li data-id="10"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Confirm stage, lights, CO2, screens production</span></li>
+      <li data-id="11"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Sort bottle/snack suppliers for VIP tables</span></li>
+    </ul>
+  </div>
+
+  <!-- TICKET PRICING -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🎟️</span>
+      <span class="card-title">Ticket Pricing</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Tier</th><th>Price</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Early Bird <span class="badge badge-green">Limited 200</span></td>
+          <td>€12</td>
+          <td style="color:var(--muted);font-size:0.82rem">Launch now · creates urgency</td>
+        </tr>
+        <tr>
+          <td>Standard Pre-sale</td>
+          <td>€18</td>
+          <td style="color:var(--muted);font-size:0.82rem">Main volume driver</td>
+        </tr>
+        <tr>
+          <td>Door</td>
+          <td>€25</td>
+          <td style="color:var(--muted);font-size:0.82rem">Walk-ins + cash flow</td>
+        </tr>
+        <tr>
+          <td>Ticket + T-shirt bundle</td>
+          <td>€30</td>
+          <td style="color:var(--muted);font-size:0.82rem">Saves €13 vs separate</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VIP PACKAGES -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">👑</span>
+      <span class="card-title">VIP Table Packages</span>
+    </div>
+    <div class="vip-grid">
+      <div class="vip-card">
+        <div class="vip-size">Table for 4</div>
+        <div class="vip-price">€200</div>
+        <div class="vip-includes">4 tickets<br>1 bottle<br>Mixer tray<br>Snack platter</div>
+      </div>
+      <div class="vip-card" style="border-color:var(--accent)">
+        <div class="vip-size">Table for 6 ⭐</div>
+        <div class="vip-price">€280</div>
+        <div class="vip-includes">6 tickets<br>2 bottles<br>2 mixer trays<br>Snack platter</div>
+      </div>
+      <div class="vip-card">
+        <div class="vip-size">Table for 10</div>
+        <div class="vip-price">€420</div>
+        <div class="vip-includes">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</div>
+      </div>
+    </div>
+    <div style="margin-top:1rem;font-size:0.82rem;color:var(--muted)">
+      Add-ons: Extra bottle €40 &nbsp;·&nbsp; Snack platter €20 &nbsp;·&nbsp; Reserved parking €10
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">💶</span>
+      <span class="card-title">Revenue Projection</span>
+    </div>
+
+    <div class="budget-row">
+      <div><div class="budget-label">400× Early Bird @ €12</div><div class="budget-bar"><div class="budget-fill" style="width:20%"></div></div></div>
+      <div class="budget-amount">€4,800</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-label">500× Standard @ €18</div><div class="budget-bar"><div class="budget-fill" style="width:38%"></div></div></div>
+      <div class="budget-amount">€9,000</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-label">200× Door @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:21%"></div></div></div>
+      <div class="budget-amount">€5,000</div>
+    </div>
+    <div class="budget-row">
+      <div><div class="budget-label">8 VIP Tables (avg €280)</div><div class="budget-bar"><div class="budget-fill" style="width:12%"></div></div></div>
+      <div class="budget-amount">€2,240</div>
+    </div>
+    <div class="budget-row" style="margin-bottom:0">
+      <div><div class="budget-label">100 T-shirts @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:11%"></div></div></div>
+      <div class="budget-amount">€2,500</div>
+    </div>
+
+    <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;justify-content:space-between">
+      <span style="color:var(--muted)">Total Revenue</span>
+      <span style="font-weight:700">€23,540</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top:0.3rem">
+      <span style="color:var(--muted)">Costs</span>
+      <span style="color:var(--red);font-weight:700">-€10,000</span>
+    </div>
+
+    <div class="profit-box">
+      <div class="profit-label">Estimated Profit</div>
+      <div class="profit-num">€13,540</div>
+    </div>
+  </div>
+
+  <!-- TICKET PROVIDERS -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🎫</span>
+      <span class="card-title">Ticket Provider</span>
+    </div>
+
+    <div class="provider-card recommended">
+      <div class="provider-name">⭐ Shotgun <span class="badge badge-gold">Recommended</span></div>
+      <div class="provider-fee">Fee: Not publicly listed — built for electronic music</div>
+      <div class="provider-pros">✓ Designed for festivals &amp; electronic music &nbsp;·&nbsp; ✓ Strong social media integration &nbsp;·&nbsp; ✓ Your audience already uses it &nbsp;·&nbsp; ✓ QR codes &nbsp;·&nbsp; ✓ Tiered pricing</div>
+    </div>
+
+    <div class="provider-card">
+      <div class="provider-name">Billetto <span class="badge badge-purple">Runner-up</span></div>
+      <div class="provider-fee">Fee: 3.90% + ~€0.90/ticket (paid by buyer) · Payout in 3–5 days</div>
+      <div class="provider-pros">✓ Lowest fees &nbsp;·&nbsp; ✓ No subscription &nbsp;·&nbsp; ✓ Easy setup &nbsp;·&nbsp; ✓ Social media tools &nbsp;·&nbsp; ✓ QR codes</div>
+    </div>
+
+    <div style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem">
+      Avoid: Ticketline, BOL, Blueticket — all 6%+ fees, built for large commercial events.
+    </div>
+  </div>
+
+  <!-- MERCH -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">👕</span>
+      <span class="card-title">Merch Strategy</span>
+    </div>
+
+    <div class="merch-item">
+      <div>
+        <div class="merch-name">Oversize T-shirt — Black</div>
+        <div class="merch-detail">Lua Nova / Beat Nonstop print · Order 100–150 units · Local Braga printer or Printful</div>
+      </div>
+      <div class="merch-prices">
+        <div class="sell">€25</div>
+        <div class="margin">~€15 margin</div>
+      </div>
+    </div>
+
+    <div class="merch-item">
+      <div>
+        <div class="merch-name">Tote Bag</div>
+        <div class="merch-detail">Optional · Low cost · Easy to stock</div>
+      </div>
+      <div class="merch-prices">
+        <div class="sell">€12</div>
+        <div class="margin">~€8 margin</div>
+      </div>
+    </div>
+
+    <div class="merch-item" style="border-bottom:none">
+      <div>
+        <div class="merch-name">Ticket + T-shirt Bundle</div>
+        <div class="merch-detail">Upsell at ticket checkout · Drives online merch sales</div>
+      </div>
+      <div class="merch-prices">
+        <div class="sell">€30</div>
+        <div class="margin" style="color:var(--accent)">saves buyer €13</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTION -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-icon">🎛️</span>
+      <span class="card-title">Production Setup</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Element</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Stage (large)</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>Lighting rig</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>CO2 cannons (5m jets)</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>Smoke machines</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>LED screens</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>Sound system</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>Security team</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>~8 Artists</td><td><span class="badge badge-green">In progress</span></td></tr>
+        <tr><td>Mykina invite</td><td><span class="badge badge-purple">To confirm</span></td></tr>
+        <tr><td>Pre-event barbecue</td><td><span class="badge badge-green">Planned</span></td></tr>
+        <tr><td>Social media team</td><td><span class="badge badge-green">Confirmed ✓</span></td></tr>
+        <tr><td>After movie</td><td><span class="badge badge-green">Confirmed ✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  Beat Nonstop — Lua Nova &nbsp;·&nbsp; Updated April 2026 &nbsp;·&nbsp; Open plan.html in your browser to view
+</footer>
+
+<script>
+  // Countdown
+  function updateCountdown() {
+    const event = new Date('2026-05-16T18:00:00');
+    const now = new Date();
+    const diff = event - now;
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML = '<div style="font-size:2rem;color:var(--accent)">🎉 Tonight\'s the night!</div>';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-min').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-sec').textContent = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Checklist persistence
+  const STORAGE_KEY = 'beatnonstop_checklist';
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+  document.querySelectorAll('#checklist li').forEach(li => {
+    const id = li.dataset.id;
+    const check = li.querySelector('.check');
+    if (saved[id]) {
+      check.classList.add('done');
+      li.classList.add('checked');
+    }
+  });
+
+  function toggleCheck(el) {
+    const li = el.closest('li');
+    const id = li.dataset.id;
+    const isDone = el.classList.toggle('done');
+    li.classList.toggle('checked', isDone);
+    const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    if (isDone) state[id] = true; else delete state[id];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+</script>
+
+</body>
+</html>
