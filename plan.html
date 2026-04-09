@@ -6,30 +6,20 @@
   <title>Beat Nonstop — Lua Nova | Event Plan</title>
   <style>
     :root {
-      /* Exact colors from BNS logo & banner */
       --bg:        #080810;
       --surface:   #0f0f1a;
       --surface2:  #161626;
       --border:    #1e1e35;
       --border2:   #2a2a48;
-
-      /* Brand gradient: cyan → violet → pink */
       --cyan:      #4de8d8;
       --violet:    #8b5cf6;
       --pink:      #d946ef;
-
-      /* Glow versions */
-      --cyan-glow:   rgba(77, 232, 216, 0.18);
-      --violet-glow: rgba(139, 92, 246, 0.18);
-      --pink-glow:   rgba(217, 70, 239, 0.18);
-
-      --text:  #e2e2f0;
-      --muted: #6b6b8a;
-      --green: #34d399;
-      --red:   #f87171;
-
-      --grad: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
-      --grad-h: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      --text:      #e2e2f0;
+      --muted:     #6b6b8a;
+      --green:     #34d399;
+      --red:       #f87171;
+      --grad:      linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
+      --grad-h:    linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +32,43 @@
       line-height: 1.6;
     }
 
-    /* ── HERO BANNER ── */
+    /* ── LANG SWITCHER ── */
+    .lang-bar {
+      position: fixed;
+      top: 1rem;
+      right: 1.25rem;
+      z-index: 100;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .lang-btn {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.7rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover { border-color: var(--violet); color: var(--text); }
+
+    .lang-btn.active {
+      background: var(--grad-h);
+      border-color: transparent;
+      color: var(--bg);
+    }
+
+    /* hide/show by lang */
+    [data-lang="pt"] { display: none; }
+    body.pt [data-lang="pt"] { display: revert; }
+    body.pt [data-lang="en"] { display: none; }
+
+    /* ── HERO ── */
     .hero {
       position: relative;
       width: 100%;
@@ -57,7 +83,6 @@
       object-position: center;
     }
 
-    /* Subtle bottom fade so banner merges into page bg */
     .hero::after {
       content: '';
       position: absolute;
@@ -71,7 +96,6 @@
     header {
       text-align: center;
       padding: 1.5rem 2rem 2rem;
-      margin-bottom: 0;
     }
 
     header .label {
@@ -100,7 +124,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* thin gradient rule */
     .divider {
       width: 120px;
       height: 2px;
@@ -153,7 +176,6 @@
       overflow: hidden;
     }
 
-    /* top-edge glow accent */
     .card::before {
       content: '';
       position: absolute;
@@ -267,11 +289,7 @@
     }
 
     .timeline-task { font-size: 0.88rem; color: var(--text); }
-
-    .timeline-item.done .timeline-task {
-      color: var(--muted);
-      text-decoration: line-through;
-    }
+    .timeline-item.done .timeline-task { color: var(--muted); text-decoration: line-through; }
 
     /* ── TABLES ── */
     table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
@@ -287,11 +305,7 @@
       border-bottom: 1px solid var(--border);
     }
 
-    td {
-      padding: 0.6rem 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
+    td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: var(--surface2); }
 
@@ -307,9 +321,7 @@
 
     .badge-cyan   { background: rgba(77,232,216,0.12);  color: var(--cyan); }
     .badge-violet { background: rgba(139,92,246,0.15);  color: #a78bfa; }
-    .badge-pink   { background: rgba(217,70,239,0.12);  color: var(--pink); }
     .badge-green  { background: rgba(52,211,153,0.12);  color: var(--green); }
-    .badge-muted  { background: var(--surface2); color: var(--muted); }
 
     /* ── BUDGET ── */
     .budget-row {
@@ -331,11 +343,7 @@
       max-width: 200px;
     }
 
-    .budget-fill {
-      height: 100%;
-      border-radius: 4px;
-      background: var(--grad-h);
-    }
+    .budget-fill { height: 100%; border-radius: 4px; background: var(--grad-h); }
 
     .budget-amount {
       font-weight: 700;
@@ -402,19 +410,12 @@
 
     .check:hover { border-color: var(--cyan); }
 
-    .check.done {
-      background: var(--grad-h);
-      border-color: transparent;
-    }
-
+    .check.done { background: var(--grad-h); border-color: transparent; }
     .check.done::after { content: '✓'; font-size: 10px; color: var(--bg); font-weight: 800; }
 
-    .checklist li.checked .task-text {
-      color: var(--muted);
-      text-decoration: line-through;
-    }
+    .checklist li.checked .task-text { color: var(--muted); text-decoration: line-through; }
 
-    /* ── VIP CARDS ── */
+    /* ── VIP ── */
     .vip-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -427,7 +428,6 @@
       border-radius: 10px;
       padding: 1.1rem;
       text-align: center;
-      transition: border-color 0.2s;
     }
 
     .vip-card.featured {
@@ -459,7 +459,7 @@
       line-height: 1.6;
     }
 
-    /* ── PROVIDER CARDS ── */
+    /* ── PROVIDERS ── */
     .provider-card {
       background: var(--surface2);
       border: 1px solid var(--border2);
@@ -473,14 +473,7 @@
       box-shadow: 0 0 20px rgba(77,232,216,0.1);
     }
 
-    .provider-name {
-      font-weight: 700;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
+    .provider-name { font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
     .provider-fee { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
     .provider-pros { font-size: 0.78rem; color: var(--muted); margin-top: 0.45rem; line-height: 1.6; }
 
@@ -497,7 +490,6 @@
     .merch-item:last-child { border-bottom: none; }
     .merch-name { font-weight: 600; font-size: 0.9rem; }
     .merch-detail { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
-
     .merch-prices { text-align: right; flex-shrink: 0; }
 
     .merch-prices .sell {
@@ -522,22 +514,39 @@
 </head>
 <body>
 
+<!-- LANG SWITCHER -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('pt')">PT</button>
+</div>
+
 <!-- HERO BANNER -->
 <div class="hero">
-  <img class="banner" src="Banner futurista com ondas sonoras.PNG" alt="Beat Nonstop — Lua Nova banner" />
+  <img class="banner" src="Banner futurista com ondas sonoras.PNG" alt="Beat Nonstop — Lua Nova" />
 </div>
 
 <!-- HEADER -->
 <header>
-  <div class="label">Event Planning Dashboard</div>
+  <div class="label">
+    <span data-lang="en">Event Planning Dashboard</span>
+    <span data-lang="pt">Painel de Planeamento do Evento</span>
+  </div>
   <h1>Beat Nonstop — Lua Nova</h1>
   <div class="subtitle">Ribeira da Neiva, Vila Verde, Braga &nbsp;·&nbsp; 18:00 → 04:00</div>
   <div class="divider"></div>
   <div class="meta">
-    <div class="meta-item">Date <span>May 16, 2026</span></div>
-    <div class="meta-item">Capacity <span>2,000</span></div>
-    <div class="meta-item">Artists <span>~8</span></div>
-    <div class="meta-item">Budget <span>€10,000</span></div>
+    <div class="meta-item">
+      <span data-lang="en">Date </span><span data-lang="pt">Data </span><span>16 Mai 2026</span>
+    </div>
+    <div class="meta-item">
+      <span data-lang="en">Capacity </span><span data-lang="pt">Capacidade </span><span>2.000</span>
+    </div>
+    <div class="meta-item">
+      <span data-lang="en">Artists </span><span data-lang="pt">Artistas </span><span>~8</span>
+    </div>
+    <div class="meta-item">
+      <span data-lang="en">Budget </span><span data-lang="pt">Orçamento </span><span>€10.000</span>
+    </div>
   </div>
 </header>
 
@@ -545,15 +554,30 @@
 
   <!-- COUNTDOWN -->
   <div class="card full-width" style="text-align:center">
-    <div class="card-header" style="justify-content:center; border-bottom:none; margin-bottom:0.5rem; padding-bottom:0">
+    <div class="card-header" style="justify-content:center;border-bottom:none;margin-bottom:0.5rem;padding-bottom:0">
       <span class="card-icon">🌑</span>
-      <span class="card-title">Time Until Lua Nova</span>
+      <span class="card-title">
+        <span data-lang="en">Time Until Lua Nova</span>
+        <span data-lang="pt">Tempo até à Lua Nova</span>
+      </span>
     </div>
     <div class="countdown" id="countdown">
-      <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit">Days</div></div>
-      <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit">Hours</div></div>
-      <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit">Minutes</div></div>
-      <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit">Seconds</div></div>
+      <div class="countdown-unit">
+        <div class="num" id="cd-days">--</div>
+        <div class="unit"><span data-lang="en">Days</span><span data-lang="pt">Dias</span></div>
+      </div>
+      <div class="countdown-unit">
+        <div class="num" id="cd-hours">--</div>
+        <div class="unit"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span></div>
+      </div>
+      <div class="countdown-unit">
+        <div class="num" id="cd-min">--</div>
+        <div class="unit"><span data-lang="en">Minutes</span><span data-lang="pt">Minutos</span></div>
+      </div>
+      <div class="countdown-unit">
+        <div class="num" id="cd-sec">--</div>
+        <div class="unit"><span data-lang="en">Seconds</span><span data-lang="pt">Segundos</span></div>
+      </div>
     </div>
   </div>
 
@@ -561,37 +585,90 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">📅</span>
-      <span class="card-title">37-Day Timeline</span>
+      <span class="card-title">
+        <span data-lang="en">37-Day Timeline</span>
+        <span data-lang="pt">Cronograma de 37 Dias</span>
+      </span>
     </div>
     <div class="timeline">
+
       <div class="timeline-item active">
-        <div class="timeline-week">Week 1 — Now</div>
-        <div class="timeline-task">Set up Shotgun/Billetto · Launch Early Bird (200 spots @ €12) · Create event page</div>
+        <div class="timeline-week">
+          <span data-lang="en">Week 1 — Now</span>
+          <span data-lang="pt">Semana 1 — Agora</span>
+        </div>
+        <div class="timeline-task">
+          <span data-lang="en">Set up Shotgun/Billetto · Launch Early Bird (200 spots @ €12) · Create event page</span>
+          <span data-lang="pt">Criar conta Shotgun/Billetto · Lançar Early Bird (200 lugares @ €12) · Criar página do evento</span>
+        </div>
       </div>
+
       <div class="timeline-item upcoming">
-        <div class="timeline-week">Week 2 — Apr 16</div>
-        <div class="timeline-task">Social media team starts posting · Artist teaser reveals · Location visuals</div>
+        <div class="timeline-week">
+          <span data-lang="en">Week 2 — Apr 16</span>
+          <span data-lang="pt">Semana 2 — 16 Abr</span>
+        </div>
+        <div class="timeline-task">
+          <span data-lang="en">Social media team starts posting · Artist teaser reveals · Location visuals</span>
+          <span data-lang="pt">Equipa de redes sociais começa a publicar · Teasers de artistas · Visuais do local</span>
+        </div>
       </div>
+
       <div class="timeline-item upcoming">
-        <div class="timeline-week">Week 3 — Apr 23</div>
-        <div class="timeline-task">Close Early Bird · Push Standard (€18) · VIP table push begins · Order merch</div>
+        <div class="timeline-week">
+          <span data-lang="en">Week 3 — Apr 23</span>
+          <span data-lang="pt">Semana 3 — 23 Abr</span>
+        </div>
+        <div class="timeline-task">
+          <span data-lang="en">Close Early Bird · Push Standard (€18) · VIP table push begins · Order merch</span>
+          <span data-lang="pt">Fechar Early Bird · Impulsionar bilhetes Standard (€18) · Início da venda VIP · Encomendar merch</span>
+        </div>
       </div>
+
       <div class="timeline-item upcoming">
-        <div class="timeline-week">Week 4 — Apr 30</div>
-        <div class="timeline-task">Full lineup reveal · Merch available online · Invite Mykina · Pre-event barbecue confirmed</div>
+        <div class="timeline-week">
+          <span data-lang="en">Week 4 — Apr 30</span>
+          <span data-lang="pt">Semana 4 — 30 Abr</span>
+        </div>
+        <div class="timeline-task">
+          <span data-lang="en">Full lineup reveal · Merch available online · Invite Mykina · Pre-event barbecue confirmed</span>
+          <span data-lang="pt">Revelação do alinhamento completo · Merch disponível online · Convidar Mykina · Barbecue pré-evento confirmado</span>
+        </div>
       </div>
+
       <div class="timeline-item upcoming">
-        <div class="timeline-week">Week 5 — May 7</div>
-        <div class="timeline-task">"X tickets remaining" urgency campaign · Highlight door price (€25) · Final social push</div>
+        <div class="timeline-week">
+          <span data-lang="en">Week 5 — May 7</span>
+          <span data-lang="pt">Semana 5 — 7 Mai</span>
+        </div>
+        <div class="timeline-task">
+          <span data-lang="en">"X tickets remaining" urgency campaign · Highlight door price (€25) · Final social push</span>
+          <span data-lang="pt">Campanha de urgência "X bilhetes restantes" · Destaque para bilhete à porta (€25) · Push final nas redes</span>
+        </div>
       </div>
+
       <div class="timeline-item upcoming">
-        <div class="timeline-week">May 15 — Eve</div>
-        <div class="timeline-task">Pre-sale closes · Final headcount · Logistics locked · Crew briefing</div>
+        <div class="timeline-week">
+          <span data-lang="en">May 15 — Eve</span>
+          <span data-lang="pt">15 Mai — Véspera</span>
+        </div>
+        <div class="timeline-task">
+          <span data-lang="en">Pre-sale closes · Final headcount · Logistics locked · Crew briefing</span>
+          <span data-lang="pt">Pré-venda encerra · Contagem final · Logística fechada · Briefing à equipa</span>
+        </div>
       </div>
+
       <div class="timeline-item upcoming" style="margin-bottom:0">
-        <div class="timeline-week" style="color:var(--cyan)">May 16 — Event Day 🎉</div>
-        <div class="timeline-task">Doors 18:00 · Party until 03:00–04:00</div>
+        <div class="timeline-week" style="color:var(--cyan)">
+          <span data-lang="en">May 16 — Event Day 🎉</span>
+          <span data-lang="pt">16 Mai — Dia do Evento 🎉</span>
+        </div>
+        <div class="timeline-task">
+          <span data-lang="en">Doors 18:00 · Party until 03:00–04:00</span>
+          <span data-lang="pt">Portas às 18:00 · Festa até às 03:00–04:00</span>
+        </div>
       </div>
+
     </div>
   </div>
 
@@ -599,21 +676,24 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">✅</span>
-      <span class="card-title">Action Checklist</span>
+      <span class="card-title">
+        <span data-lang="en">Action Checklist</span>
+        <span data-lang="pt">Lista de Ações</span>
+      </span>
     </div>
     <ul class="checklist" id="checklist">
-      <li data-id="0"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Sign up on Shotgun or Billetto</span></li>
-      <li data-id="1"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Create event page with full info</span></li>
-      <li data-id="2"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Launch Early Bird tickets (200 max @ €12)</span></li>
-      <li data-id="3"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Set up VIP table packages</span></li>
-      <li data-id="4"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Brief social media team with event link</span></li>
-      <li data-id="5"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Design t-shirt / merch artwork</span></li>
-      <li data-id="6"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Find local Braga printer or use Printful</span></li>
-      <li data-id="7"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Confirm all ~8 artists on lineup</span></li>
-      <li data-id="8"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Invite Mykina + confirm barbecue</span></li>
-      <li data-id="9"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Book security team</span></li>
-      <li data-id="10"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Confirm stage, lights, CO2, screens production</span></li>
-      <li data-id="11"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text">Sort bottle/snack suppliers for VIP tables</span></li>
+      <li data-id="0"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Sign up on Shotgun or Billetto</span><span data-lang="pt">Criar conta no Shotgun ou Billetto</span></span></li>
+      <li data-id="1"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Create event page with full info</span><span data-lang="pt">Criar página do evento com toda a informação</span></span></li>
+      <li data-id="2"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Launch Early Bird tickets (200 max @ €12)</span><span data-lang="pt">Lançar bilhetes Early Bird (máx. 200 @ €12)</span></span></li>
+      <li data-id="3"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Set up VIP table packages</span><span data-lang="pt">Configurar pacotes de mesa VIP</span></span></li>
+      <li data-id="4"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Brief social media team with event link</span><span data-lang="pt">Informar equipa de redes sociais com o link do evento</span></span></li>
+      <li data-id="5"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Design t-shirt / merch artwork</span><span data-lang="pt">Criar design da t-shirt / merch</span></span></li>
+      <li data-id="6"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Find local Braga printer or use Printful</span><span data-lang="pt">Encontrar gráfica local em Braga ou usar Printful</span></span></li>
+      <li data-id="7"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Confirm all ~8 artists on lineup</span><span data-lang="pt">Confirmar todos os ~8 artistas do alinhamento</span></span></li>
+      <li data-id="8"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Invite Mykina + confirm barbecue</span><span data-lang="pt">Convidar Mykina + confirmar barbecue</span></span></li>
+      <li data-id="9"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Book security team</span><span data-lang="pt">Contratar equipa de segurança</span></span></li>
+      <li data-id="10"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Confirm stage, lights, CO2, screens production</span><span data-lang="pt">Confirmar palco, luzes, CO2 e ecrãs</span></span></li>
+      <li data-id="11"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Sort bottle/snack suppliers for VIP tables</span><span data-lang="pt">Arranjar fornecedores de bebidas/snacks para mesas VIP</span></span></li>
     </ul>
   </div>
 
@@ -621,32 +701,39 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">🎟️</span>
-      <span class="card-title">Ticket Pricing</span>
+      <span class="card-title">
+        <span data-lang="en">Ticket Pricing</span>
+        <span data-lang="pt">Preços dos Bilhetes</span>
+      </span>
     </div>
     <table>
       <thead>
-        <tr><th>Tier</th><th>Price</th><th>Notes</th></tr>
+        <tr>
+          <th><span data-lang="en">Tier</span><span data-lang="pt">Tipo</span></th>
+          <th><span data-lang="en">Price</span><span data-lang="pt">Preço</span></th>
+          <th><span data-lang="en">Notes</span><span data-lang="pt">Notas</span></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Early Bird &nbsp;<span class="badge badge-green">Limited 200</span></td>
+          <td>Early Bird &nbsp;<span class="badge badge-green"><span data-lang="en">Limited 200</span><span data-lang="pt">Limitado 200</span></span></td>
           <td style="font-weight:700">€12</td>
-          <td style="color:var(--muted);font-size:0.8rem">Launch now · creates urgency</td>
+          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Launch now · creates urgency</span><span data-lang="pt">Lançar agora · cria urgência</span></td>
         </tr>
         <tr>
-          <td>Standard Pre-sale</td>
+          <td><span data-lang="en">Standard Pre-sale</span><span data-lang="pt">Pré-venda Standard</span></td>
           <td style="font-weight:700">€18</td>
-          <td style="color:var(--muted);font-size:0.8rem">Main volume driver</td>
+          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Main volume driver</span><span data-lang="pt">Principal motor de vendas</span></td>
         </tr>
         <tr>
-          <td>Door</td>
+          <td><span data-lang="en">Door</span><span data-lang="pt">Porta</span></td>
           <td style="font-weight:700">€25</td>
-          <td style="color:var(--muted);font-size:0.8rem">Walk-ins + cash flow</td>
+          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Walk-ins + cash flow</span><span data-lang="pt">Entrada direta + cash flow</span></td>
         </tr>
         <tr>
-          <td>Ticket + T-shirt Bundle</td>
+          <td><span data-lang="en">Ticket + T-shirt Bundle</span><span data-lang="pt">Bilhete + T-shirt</span></td>
           <td style="font-weight:700">€30</td>
-          <td style="color:var(--muted);font-size:0.8rem">Saves buyer €13</td>
+          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Saves buyer €13</span><span data-lang="pt">Poupa €13 ao comprador</span></td>
         </tr>
       </tbody>
     </table>
@@ -656,27 +743,40 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">👑</span>
-      <span class="card-title">VIP Table Packages</span>
+      <span class="card-title">
+        <span data-lang="en">VIP Table Packages</span>
+        <span data-lang="pt">Pacotes de Mesa VIP</span>
+      </span>
     </div>
     <div class="vip-grid">
       <div class="vip-card">
-        <div class="vip-size">Table for 4</div>
+        <div class="vip-size"><span data-lang="en">Table for 4</span><span data-lang="pt">Mesa para 4</span></div>
         <div class="vip-price">€200</div>
-        <div class="vip-includes">4 tickets<br>1 bottle<br>Mixer tray<br>Snack platter</div>
+        <div class="vip-includes">
+          <span data-lang="en">4 tickets<br>1 bottle<br>Mixer tray<br>Snack platter</span>
+          <span data-lang="pt">4 bilhetes<br>1 garrafa<br>Tabuleiro de mistura<br>Snacks</span>
+        </div>
       </div>
       <div class="vip-card featured">
-        <div class="vip-size">Table for 6 ★</div>
+        <div class="vip-size"><span data-lang="en">Table for 6 ★</span><span data-lang="pt">Mesa para 6 ★</span></div>
         <div class="vip-price">€280</div>
-        <div class="vip-includes">6 tickets<br>2 bottles<br>2 mixer trays<br>Snack platter</div>
+        <div class="vip-includes">
+          <span data-lang="en">6 tickets<br>2 bottles<br>2 mixer trays<br>Snack platter</span>
+          <span data-lang="pt">6 bilhetes<br>2 garrafas<br>2 tabuleiros<br>Snacks</span>
+        </div>
       </div>
       <div class="vip-card">
-        <div class="vip-size">Table for 10</div>
+        <div class="vip-size"><span data-lang="en">Table for 10</span><span data-lang="pt">Mesa para 10</span></div>
         <div class="vip-price">€420</div>
-        <div class="vip-includes">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</div>
+        <div class="vip-includes">
+          <span data-lang="en">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</span>
+          <span data-lang="pt">10 bilhetes<br>3 garrafas<br>Mesa completa<br>Entrada prioritária</span>
+        </div>
       </div>
     </div>
     <div style="margin-top:1rem;font-size:0.78rem;color:var(--muted)">
-      Add-ons: Extra bottle €40 &nbsp;·&nbsp; Snack platter €20 &nbsp;·&nbsp; Reserved parking €10
+      <span data-lang="en">Add-ons: Extra bottle €40 &nbsp;·&nbsp; Snack platter €20 &nbsp;·&nbsp; Reserved parking €10</span>
+      <span data-lang="pt">Extras: Garrafa adicional €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Estacionamento reservado €10</span>
     </div>
   </div>
 
@@ -684,42 +784,60 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">💶</span>
-      <span class="card-title">Revenue Projection</span>
+      <span class="card-title">
+        <span data-lang="en">Revenue Projection</span>
+        <span data-lang="pt">Projeção de Receitas</span>
+      </span>
     </div>
 
     <div class="budget-row">
-      <div style="flex:1"><div class="budget-label">400× Early Bird @ €12</div><div class="budget-bar"><div class="budget-fill" style="width:20%"></div></div></div>
-      <div class="budget-amount">€4,800</div>
+      <div style="flex:1">
+        <div class="budget-label"><span data-lang="en">400× Early Bird @ €12</span><span data-lang="pt">400× Early Bird @ €12</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:20%"></div></div>
+      </div>
+      <div class="budget-amount">€4.800</div>
     </div>
     <div class="budget-row">
-      <div style="flex:1"><div class="budget-label">500× Standard @ €18</div><div class="budget-bar"><div class="budget-fill" style="width:38%"></div></div></div>
-      <div class="budget-amount">€9,000</div>
+      <div style="flex:1">
+        <div class="budget-label"><span data-lang="en">500× Standard @ €18</span><span data-lang="pt">500× Standard @ €18</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:38%"></div></div>
+      </div>
+      <div class="budget-amount">€9.000</div>
     </div>
     <div class="budget-row">
-      <div style="flex:1"><div class="budget-label">200× Door @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:21%"></div></div></div>
-      <div class="budget-amount">€5,000</div>
+      <div style="flex:1">
+        <div class="budget-label"><span data-lang="en">200× Door @ €25</span><span data-lang="pt">200× Porta @ €25</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:21%"></div></div>
+      </div>
+      <div class="budget-amount">€5.000</div>
     </div>
     <div class="budget-row">
-      <div style="flex:1"><div class="budget-label">8 VIP Tables (avg €280)</div><div class="budget-bar"><div class="budget-fill" style="width:12%"></div></div></div>
-      <div class="budget-amount">€2,240</div>
+      <div style="flex:1">
+        <div class="budget-label"><span data-lang="en">8 VIP Tables (avg €280)</span><span data-lang="pt">8 Mesas VIP (média €280)</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:12%"></div></div>
+      </div>
+      <div class="budget-amount">€2.240</div>
     </div>
     <div class="budget-row" style="margin-bottom:0">
-      <div style="flex:1"><div class="budget-label">100 T-shirts @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:11%"></div></div></div>
-      <div class="budget-amount">€2,500</div>
+      <div style="flex:1">
+        <div class="budget-label"><span data-lang="en">100 T-shirts @ €25</span><span data-lang="pt">100 T-shirts @ €25</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:11%"></div></div>
+      </div>
+      <div class="budget-amount">€2.500</div>
     </div>
 
     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;justify-content:space-between">
-      <span style="color:var(--muted);font-size:0.88rem">Total Revenue</span>
-      <span style="font-weight:700">€23,540</span>
+      <span style="color:var(--muted);font-size:0.88rem"><span data-lang="en">Total Revenue</span><span data-lang="pt">Receita Total</span></span>
+      <span style="font-weight:700">€23.540</span>
     </div>
     <div style="display:flex;justify-content:space-between;margin-top:0.3rem">
-      <span style="color:var(--muted);font-size:0.88rem">Costs</span>
-      <span style="color:var(--red);font-weight:700">−€10,000</span>
+      <span style="color:var(--muted);font-size:0.88rem"><span data-lang="en">Costs</span><span data-lang="pt">Custos</span></span>
+      <span style="color:var(--red);font-weight:700">−€10.000</span>
     </div>
 
     <div class="profit-box">
-      <div class="profit-label">Estimated Profit</div>
-      <div class="profit-num">€13,540</div>
+      <div class="profit-label"><span data-lang="en">Estimated Profit</span><span data-lang="pt">Lucro Estimado</span></div>
+      <div class="profit-num">€13.540</div>
     </div>
   </div>
 
@@ -727,23 +845,33 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">🎫</span>
-      <span class="card-title">Ticket Provider</span>
+      <span class="card-title">
+        <span data-lang="en">Ticket Provider</span>
+        <span data-lang="pt">Plataforma de Bilhetes</span>
+      </span>
     </div>
 
     <div class="provider-card recommended">
-      <div class="provider-name">Shotgun &nbsp;<span class="badge badge-cyan">Recommended</span></div>
-      <div class="provider-fee">Fee: Not publicly listed — contact directly</div>
-      <div class="provider-pros">✓ Built for electronic music &amp; festivals &nbsp;·&nbsp; ✓ Your audience already uses it &nbsp;·&nbsp; ✓ Strong social media integration &nbsp;·&nbsp; ✓ QR codes &nbsp;·&nbsp; ✓ Tiered pricing</div>
+      <div class="provider-name">Shotgun &nbsp;<span class="badge badge-cyan"><span data-lang="en">Recommended</span><span data-lang="pt">Recomendado</span></span></div>
+      <div class="provider-fee"><span data-lang="en">Fee: Not publicly listed — contact directly</span><span data-lang="pt">Taxa: Não publicada — contactar diretamente</span></div>
+      <div class="provider-pros">
+        <span data-lang="en">✓ Built for electronic music &amp; festivals &nbsp;·&nbsp; ✓ Your audience already uses it &nbsp;·&nbsp; ✓ Strong social media integration &nbsp;·&nbsp; ✓ QR codes &nbsp;·&nbsp; ✓ Tiered pricing</span>
+        <span data-lang="pt">✓ Feito para música eletrónica e festivais &nbsp;·&nbsp; ✓ O teu público já usa &nbsp;·&nbsp; ✓ Forte integração nas redes sociais &nbsp;·&nbsp; ✓ Códigos QR &nbsp;·&nbsp; ✓ Preços escalonados</span>
+      </div>
     </div>
 
     <div class="provider-card">
-      <div class="provider-name">Billetto &nbsp;<span class="badge badge-violet">Runner-up</span></div>
-      <div class="provider-fee">Fee: 3.90% + ~€0.90/ticket (paid by buyer) · Payout 3–5 days</div>
-      <div class="provider-pros">✓ Lowest fees &nbsp;·&nbsp; ✓ No subscription &nbsp;·&nbsp; ✓ Simple setup &nbsp;·&nbsp; ✓ Social media tools &nbsp;·&nbsp; ✓ QR codes</div>
+      <div class="provider-name">Billetto &nbsp;<span class="badge badge-violet"><span data-lang="en">Runner-up</span><span data-lang="pt">Alternativa</span></span></div>
+      <div class="provider-fee"><span data-lang="en">Fee: 3.90% + ~€0.90/ticket (paid by buyer) · Payout 3–5 days</span><span data-lang="pt">Taxa: 3,90% + ~€0,90/bilhete (pago pelo comprador) · Pagamento em 3–5 dias</span></div>
+      <div class="provider-pros">
+        <span data-lang="en">✓ Lowest fees &nbsp;·&nbsp; ✓ No subscription &nbsp;·&nbsp; ✓ Simple setup &nbsp;·&nbsp; ✓ Social media tools &nbsp;·&nbsp; ✓ QR codes</span>
+        <span data-lang="pt">✓ Taxas mais baixas &nbsp;·&nbsp; ✓ Sem subscrição &nbsp;·&nbsp; ✓ Configuração simples &nbsp;·&nbsp; ✓ Ferramentas para redes sociais &nbsp;·&nbsp; ✓ Códigos QR</span>
+      </div>
     </div>
 
     <div style="font-size:0.78rem;color:var(--muted)">
-      Avoid: Ticketline, BOL, Blueticket — 6%+ fees, built for large commercial events.
+      <span data-lang="en">Avoid: Ticketline, BOL, Blueticket — 6%+ fees, built for large commercial events.</span>
+      <span data-lang="pt">Evitar: Ticketline, BOL, Blueticket — taxas de 6%+, criadas para grandes eventos comerciais.</span>
     </div>
   </div>
 
@@ -751,39 +879,42 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">👕</span>
-      <span class="card-title">Merch Strategy</span>
+      <span class="card-title">
+        <span data-lang="en">Merch Strategy</span>
+        <span data-lang="pt">Estratégia de Merch</span>
+      </span>
     </div>
 
     <div class="merch-item">
       <div>
-        <div class="merch-name">Oversize T-shirt — Black</div>
-        <div class="merch-detail">Lua Nova / Beat Nonstop print · 100–150 units · Local Braga printer or Printful</div>
+        <div class="merch-name"><span data-lang="en">Oversize T-shirt — Black</span><span data-lang="pt">T-shirt Oversize — Preta</span></div>
+        <div class="merch-detail"><span data-lang="en">Lua Nova / Beat Nonstop print · 100–150 units · Local Braga printer or Printful</span><span data-lang="pt">Estampa Lua Nova / Beat Nonstop · 100–150 unidades · Gráfica local em Braga ou Printful</span></div>
       </div>
       <div class="merch-prices">
         <div class="sell">€25</div>
-        <div class="margin">~€15 margin</div>
+        <div class="margin"><span data-lang="en">~€15 margin</span><span data-lang="pt">~€15 margem</span></div>
       </div>
     </div>
 
     <div class="merch-item">
       <div>
         <div class="merch-name">Tote Bag</div>
-        <div class="merch-detail">Optional · Low cost · Easy to stock at door</div>
+        <div class="merch-detail"><span data-lang="en">Optional · Low cost · Easy to stock at door</span><span data-lang="pt">Opcional · Baixo custo · Fácil de ter à porta</span></div>
       </div>
       <div class="merch-prices">
         <div class="sell">€12</div>
-        <div class="margin">~€8 margin</div>
+        <div class="margin"><span data-lang="en">~€8 margin</span><span data-lang="pt">~€8 margem</span></div>
       </div>
     </div>
 
     <div class="merch-item">
       <div>
-        <div class="merch-name">Ticket + T-shirt Bundle</div>
-        <div class="merch-detail">Upsell at checkout · Drives pre-event merch sales</div>
+        <div class="merch-name"><span data-lang="en">Ticket + T-shirt Bundle</span><span data-lang="pt">Pack Bilhete + T-shirt</span></div>
+        <div class="merch-detail"><span data-lang="en">Upsell at checkout · Drives pre-event merch sales</span><span data-lang="pt">Upsell no checkout · Impulsiona vendas de merch antes do evento</span></div>
       </div>
       <div class="merch-prices">
         <div class="sell">€30</div>
-        <div class="margin" style="color:var(--cyan)">saves buyer €13</div>
+        <div class="margin" style="color:var(--cyan)"><span data-lang="en">saves buyer €13</span><span data-lang="pt">poupa €13 ao comprador</span></div>
       </div>
     </div>
   </div>
@@ -792,25 +923,31 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">🎛️</span>
-      <span class="card-title">Production Status</span>
+      <span class="card-title">
+        <span data-lang="en">Production Status</span>
+        <span data-lang="pt">Estado da Produção</span>
+      </span>
     </div>
     <table>
       <thead>
-        <tr><th>Element</th><th>Status</th></tr>
+        <tr>
+          <th><span data-lang="en">Element</span><span data-lang="pt">Elemento</span></th>
+          <th><span data-lang="en">Status</span><span data-lang="pt">Estado</span></th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>Stage (large)</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>Lighting rig</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>CO2 cannons (5m jets)</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>Smoke machines</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>LED screens</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>Sound system</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>Security team</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>~8 Artists</td><td><span class="badge badge-cyan">In progress</span></td></tr>
-        <tr><td>Mykina invite</td><td><span class="badge badge-violet">To confirm</span></td></tr>
-        <tr><td>Pre-event barbecue</td><td><span class="badge badge-cyan">Planned</span></td></tr>
-        <tr><td>Social media team</td><td><span class="badge badge-green">Confirmed ✓</span></td></tr>
-        <tr><td>After movie</td><td><span class="badge badge-green">Confirmed ✓</span></td></tr>
+        <tr><td><span data-lang="en">Stage (large)</span><span data-lang="pt">Palco (grande)</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Lighting rig</span><span data-lang="pt">Estrutura de luzes</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">CO2 cannons (5m jets)</span><span data-lang="pt">Canhões de CO2 (5m)</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Smoke machines</span><span data-lang="pt">Máquinas de fumo</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">LED screens</span><span data-lang="pt">Ecrãs LED</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Sound system</span><span data-lang="pt">Sistema de som</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Security team</span><span data-lang="pt">Equipa de segurança</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">~8 Artists</span><span data-lang="pt">~8 Artistas</span></td><td><span class="badge badge-cyan"><span data-lang="en">In progress</span><span data-lang="pt">Em curso</span></span></td></tr>
+        <tr><td><span data-lang="en">Mykina invite</span><span data-lang="pt">Convite Mykina</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Pre-event barbecue</span><span data-lang="pt">Barbecue pré-evento</span></td><td><span class="badge badge-cyan"><span data-lang="en">Planned</span><span data-lang="pt">Planeado</span></span></td></tr>
+        <tr><td><span data-lang="en">Social media team</span><span data-lang="pt">Equipa de redes sociais</span></td><td><span class="badge badge-green"><span data-lang="en">Confirmed ✓</span><span data-lang="pt">Confirmado ✓</span></span></td></tr>
+        <tr><td><span data-lang="en">After movie</span><span data-lang="pt">After movie</span></td><td><span class="badge badge-green"><span data-lang="en">Confirmed ✓</span><span data-lang="pt">Confirmado ✓</span></span></td></tr>
       </tbody>
     </table>
   </div>
@@ -818,36 +955,42 @@
 </div>
 
 <footer>
-  Beat Nonstop — Lua Nova &nbsp;·&nbsp; Ribeira da Neiva &nbsp;·&nbsp; May 16, 2026
+  Beat Nonstop — Lua Nova &nbsp;·&nbsp; Ribeira da Neiva &nbsp;·&nbsp;
+  <span data-lang="en">May 16, 2026</span>
+  <span data-lang="pt">16 de Maio de 2026</span>
 </footer>
 
 <script>
+  // ── LANGUAGE ──
+  const LANG_KEY = 'bns_lang';
+  function setLang(lang) {
+    document.body.classList.toggle('pt', lang === 'pt');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+    localStorage.setItem(LANG_KEY, lang);
+  }
+  setLang(localStorage.getItem(LANG_KEY) || 'en');
+
+  // ── COUNTDOWN ──
   function updateCountdown() {
     const event = new Date('2026-05-16T18:00:00');
-    const now = new Date();
-    const diff = event - now;
+    const diff = event - new Date();
     if (diff <= 0) {
       document.getElementById('countdown').innerHTML = '<div style="font-size:2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🎉 Tonight\'s the night!</div>';
       return;
     }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
-    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-min').textContent   = String(m).padStart(2,'0');
-    document.getElementById('cd-sec').textContent   = String(s).padStart(2,'0');
+    document.getElementById('cd-days').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-min').textContent   = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    document.getElementById('cd-sec').textContent   = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
+  // ── CHECKLIST ──
   const STORAGE_KEY = 'bns_checklist_v1';
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-
   document.querySelectorAll('#checklist li').forEach(li => {
-    const id = li.dataset.id;
-    if (saved[id]) {
+    if (saved[li.dataset.id]) {
       li.querySelector('.check').classList.add('done');
       li.classList.add('checked');
     }
@@ -855,11 +998,10 @@
 
   function toggleCheck(el) {
     const li = el.closest('li');
-    const id = li.dataset.id;
     const isDone = el.classList.toggle('done');
     li.classList.toggle('checked', isDone);
     const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-    if (isDone) state[id] = true; else delete state[id];
+    if (isDone) state[li.dataset.id] = true; else delete state[li.dataset.id];
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 </script>
