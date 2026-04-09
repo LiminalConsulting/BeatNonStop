@@ -6,16 +6,30 @@
   <title>Beat Nonstop — Lua Nova | Event Plan</title>
   <style>
     :root {
-      --bg: #0a0a0f;
-      --surface: #13131c;
-      --surface2: #1c1c2e;
-      --border: #2a2a40;
-      --accent: #c8a84b;
-      --accent2: #7b5ea7;
-      --text: #e8e8f0;
-      --muted: #888899;
-      --green: #4caf7d;
-      --red: #e05c5c;
+      /* Exact colors from BNS logo & banner */
+      --bg:        #080810;
+      --surface:   #0f0f1a;
+      --surface2:  #161626;
+      --border:    #1e1e35;
+      --border2:   #2a2a48;
+
+      /* Brand gradient: cyan → violet → pink */
+      --cyan:      #4de8d8;
+      --violet:    #8b5cf6;
+      --pink:      #d946ef;
+
+      /* Glow versions */
+      --cyan-glow:   rgba(77, 232, 216, 0.18);
+      --violet-glow: rgba(139, 92, 246, 0.18);
+      --pink-glow:   rgba(217, 70, 239, 0.18);
+
+      --text:  #e2e2f0;
+      --muted: #6b6b8a;
+      --green: #34d399;
+      --red:   #f87171;
+
+      --grad: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
+      --grad-h: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,131 +37,187 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       font-size: 15px;
       line-height: 1.6;
-      padding: 2rem;
     }
 
+    /* ── HERO BANNER ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero img.banner {
+      width: 100%;
+      display: block;
+      max-height: 320px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Subtle bottom fade so banner merges into page bg */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60%;
+      background: linear-gradient(to top, var(--bg), transparent);
+      pointer-events: none;
+    }
+
+    /* ── HEADER ── */
     header {
       text-align: center;
-      padding: 3rem 0 2rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 3rem;
+      padding: 1.5rem 2rem 2rem;
+      margin-bottom: 0;
     }
 
     header .label {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
+      color: var(--violet);
+      margin-bottom: 0.6rem;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
     header .subtitle {
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-top: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* thin gradient rule */
+    .divider {
+      width: 120px;
+      height: 2px;
+      background: var(--grad-h);
+      border-radius: 2px;
+      margin: 1.25rem auto;
+      opacity: 0.6;
     }
 
     header .meta {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin-top: 1.5rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
 
     header .meta-item {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      padding: 0.45rem 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
     }
 
     header .meta-item span {
-      color: var(--accent);
-      font-weight: 600;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
     }
 
+    /* ── GRID ── */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
+      gap: 1.25rem;
       max-width: 1400px;
-      margin: 0 auto;
+      margin: 2rem auto 0;
+      padding: 0 2rem 3rem;
     }
 
     .card {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      border: 1px solid var(--border2);
+      border-radius: 14px;
       padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .card.full-width {
-      grid-column: 1 / -1;
+    /* top-edge glow accent */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--grad-h);
+      opacity: 0.4;
     }
+
+    .card.full-width { grid-column: 1 / -1; }
 
     .card-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       margin-bottom: 1.25rem;
       padding-bottom: 0.75rem;
       border-bottom: 1px solid var(--border);
     }
 
-    .card-icon {
-      font-size: 1.4rem;
-    }
+    .card-icon { font-size: 1.2rem; }
 
     .card-title {
-      font-size: 1rem;
+      font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
+      letter-spacing: 0.12em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* Countdown */
+    /* ── COUNTDOWN ── */
     .countdown {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem 0;
+      gap: 2rem;
+      padding: 0.75rem 0;
       flex-wrap: wrap;
     }
 
-    .countdown-unit {
-      text-align: center;
-    }
+    .countdown-unit { text-align: center; }
 
     .countdown-unit .num {
-      font-size: 3rem;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
       font-weight: 800;
-      color: var(--accent);
       line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 12px rgba(77,232,216,0.3));
     }
 
     .countdown-unit .unit {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       color: var(--muted);
+      margin-top: 0.2rem;
     }
 
-    /* Timeline */
+    /* ── TIMELINE ── */
     .timeline {
       position: relative;
       padding-left: 1.5rem;
@@ -156,106 +226,92 @@
     .timeline::before {
       content: '';
       position: absolute;
-      left: 0.45rem;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
+      left: 0.42rem;
+      top: 0.5rem;
+      bottom: 0.5rem;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--cyan), var(--violet), var(--pink));
+      opacity: 0.3;
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.25rem;
     }
 
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -1.28rem;
-      top: 0.45rem;
-      width: 10px;
-      height: 10px;
+      left: -1.27rem;
+      top: 0.42rem;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: var(--border);
+      background: var(--border2);
       border: 2px solid var(--bg);
     }
 
+    .timeline-item.active::before {
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+    }
+
     .timeline-item.done::before { background: var(--green); }
-    .timeline-item.active::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
-    .timeline-item.upcoming::before { background: var(--border); }
 
     .timeline-week {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent2);
-      margin-bottom: 0.2rem;
+      letter-spacing: 0.14em;
+      color: var(--violet);
+      margin-bottom: 0.15rem;
     }
 
-    .timeline-task {
-      font-size: 0.9rem;
-      color: var(--text);
-    }
+    .timeline-task { font-size: 0.88rem; color: var(--text); }
 
     .timeline-item.done .timeline-task {
       color: var(--muted);
       text-decoration: line-through;
     }
 
-    /* Tickets table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
+    /* ── TABLES ── */
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
 
     th {
       text-align: left;
       color: var(--muted);
       font-weight: 600;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.5rem 0.75rem;
+      letter-spacing: 0.12em;
+      padding: 0.45rem 0.75rem;
       border-bottom: 1px solid var(--border);
     }
 
     td {
-      padding: 0.65rem 0.75rem;
+      padding: 0.6rem 0.75rem;
       border-bottom: 1px solid var(--border);
     }
 
     tr:last-child td { border-bottom: none; }
-
     tr:hover td { background: var(--surface2); }
 
+    /* ── BADGES ── */
     .badge {
       display: inline-block;
-      padding: 0.2rem 0.6rem;
+      padding: 0.15rem 0.55rem;
       border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
     }
 
-    .badge-gold { background: rgba(200,168,75,0.15); color: var(--accent); }
-    .badge-purple { background: rgba(123,94,167,0.2); color: #a97fd6; }
-    .badge-green { background: rgba(76,175,125,0.15); color: var(--green); }
+    .badge-cyan   { background: rgba(77,232,216,0.12);  color: var(--cyan); }
+    .badge-violet { background: rgba(139,92,246,0.15);  color: #a78bfa; }
+    .badge-pink   { background: rgba(217,70,239,0.12);  color: var(--pink); }
+    .badge-green  { background: rgba(52,211,153,0.12);  color: var(--green); }
+    .badge-muted  { background: var(--surface2); color: var(--muted); }
 
-    /* Budget */
-    .budget-bar {
-      background: var(--surface2);
-      border-radius: 6px;
-      height: 8px;
-      margin-top: 0.4rem;
-      overflow: hidden;
-    }
-
-    .budget-fill {
-      height: 100%;
-      border-radius: 6px;
-      background: linear-gradient(90deg, var(--accent2), var(--accent));
-    }
-
+    /* ── BUDGET ── */
     .budget-row {
       display: flex;
       justify-content: space-between;
@@ -263,32 +319,60 @@
       margin-bottom: 1rem;
     }
 
-    .budget-label { font-size: 0.9rem; }
-    .budget-amount { font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+    .budget-label { font-size: 0.88rem; }
+
+    .budget-bar {
+      background: var(--surface2);
+      border-radius: 4px;
+      height: 5px;
+      margin-top: 0.4rem;
+      overflow: hidden;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .budget-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--grad-h);
+    }
+
+    .budget-amount {
+      font-weight: 700;
+      font-size: 0.95rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+      margin-left: 1rem;
+      flex-shrink: 0;
+    }
 
     .profit-box {
-      background: rgba(76,175,125,0.1);
-      border: 1px solid rgba(76,175,125,0.3);
-      border-radius: 8px;
+      background: rgba(52,211,153,0.07);
+      border: 1px solid rgba(52,211,153,0.25);
+      border-radius: 10px;
       padding: 1rem;
       text-align: center;
       margin-top: 1rem;
     }
 
     .profit-box .profit-label {
-      font-size: 0.75rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       color: var(--green);
     }
 
     .profit-box .profit-num {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 800;
       color: var(--green);
+      filter: drop-shadow(0 0 8px rgba(52,211,153,0.4));
     }
 
-    /* Checklist */
+    /* ── CHECKLIST ── */
     .checklist { list-style: none; }
 
     .checklist li {
@@ -297,144 +381,158 @@
       gap: 0.75rem;
       padding: 0.55rem 0;
       border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .checklist li:last-child { border-bottom: none; }
 
     .check {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       border-radius: 4px;
-      border: 2px solid var(--border);
+      border: 1.5px solid var(--border2);
       flex-shrink: 0;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 2px;
+      margin-top: 3px;
       transition: all 0.2s;
     }
 
+    .check:hover { border-color: var(--cyan); }
+
     .check.done {
-      background: var(--green);
-      border-color: var(--green);
+      background: var(--grad-h);
+      border-color: transparent;
     }
 
-    .check.done::after { content: '✓'; font-size: 11px; color: white; }
+    .check.done::after { content: '✓'; font-size: 10px; color: var(--bg); font-weight: 800; }
 
     .checklist li.checked .task-text {
       color: var(--muted);
       text-decoration: line-through;
     }
 
-    /* VIP cards */
+    /* ── VIP CARDS ── */
     .vip-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 0.85rem;
     }
 
     .vip-card {
       background: var(--surface2);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border2);
       border-radius: 10px;
-      padding: 1.2rem;
+      padding: 1.1rem;
       text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .vip-card.featured {
+      border-color: var(--violet);
+      box-shadow: 0 0 20px rgba(139,92,246,0.15);
     }
 
     .vip-card .vip-size {
-      font-size: 0.75rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       color: var(--muted);
       margin-bottom: 0.3rem;
     }
 
     .vip-card .vip-price {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-weight: 800;
-      color: var(--accent);
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .vip-card .vip-includes {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--muted);
       margin-top: 0.5rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    /* Ticket provider */
+    /* ── PROVIDER CARDS ── */
     .provider-card {
       background: var(--surface2);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border2);
       border-radius: 10px;
-      padding: 1.2rem;
-      margin-bottom: 1rem;
+      padding: 1.1rem;
+      margin-bottom: 0.85rem;
     }
 
     .provider-card.recommended {
-      border-color: var(--accent);
-      background: rgba(200,168,75,0.05);
+      border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(77,232,216,0.1);
     }
 
     .provider-name {
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .provider-fee {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
+    .provider-fee { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+    .provider-pros { font-size: 0.78rem; color: var(--muted); margin-top: 0.45rem; line-height: 1.6; }
 
-    .provider-pros {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
-    }
-
-    /* Merch */
+    /* ── MERCH ── */
     .merch-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 0;
+      padding: 0.7rem 0;
       border-bottom: 1px solid var(--border);
+      gap: 1rem;
     }
 
     .merch-item:last-child { border-bottom: none; }
+    .merch-name { font-weight: 600; font-size: 0.9rem; }
+    .merch-detail { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
 
-    .merch-name { font-weight: 600; }
-    .merch-detail { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+    .merch-prices { text-align: right; flex-shrink: 0; }
 
-    .merch-prices {
-      text-align: right;
+    .merch-prices .sell {
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .merch-prices .sell { font-weight: 700; color: var(--accent); }
-    .merch-prices .margin { font-size: 0.78rem; color: var(--green); }
+    .merch-prices .margin { font-size: 0.75rem; color: var(--green); }
 
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem 2.5rem;
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
 <body>
 
+<!-- HERO BANNER -->
+<div class="hero">
+  <img class="banner" src="Banner futurista com ondas sonoras.PNG" alt="Beat Nonstop — Lua Nova banner" />
+</div>
+
+<!-- HEADER -->
 <header>
   <div class="label">Event Planning Dashboard</div>
   <h1>Beat Nonstop — Lua Nova</h1>
   <div class="subtitle">Ribeira da Neiva, Vila Verde, Braga &nbsp;·&nbsp; 18:00 → 04:00</div>
+  <div class="divider"></div>
   <div class="meta">
     <div class="meta-item">Date <span>May 16, 2026</span></div>
     <div class="meta-item">Capacity <span>2,000</span></div>
@@ -447,8 +545,8 @@
 
   <!-- COUNTDOWN -->
   <div class="card full-width" style="text-align:center">
-    <div class="card-header" style="justify-content:center">
-      <span class="card-icon">🌕</span>
+    <div class="card-header" style="justify-content:center; border-bottom:none; margin-bottom:0.5rem; padding-bottom:0">
+      <span class="card-icon">🌑</span>
       <span class="card-title">Time Until Lua Nova</span>
     </div>
     <div class="countdown" id="countdown">
@@ -491,7 +589,7 @@
         <div class="timeline-task">Pre-sale closes · Final headcount · Logistics locked · Crew briefing</div>
       </div>
       <div class="timeline-item upcoming" style="margin-bottom:0">
-        <div class="timeline-week" style="color:var(--accent)">May 16 — EVENT DAY 🎉</div>
+        <div class="timeline-week" style="color:var(--cyan)">May 16 — Event Day 🎉</div>
         <div class="timeline-task">Doors 18:00 · Party until 03:00–04:00</div>
       </div>
     </div>
@@ -531,24 +629,24 @@
       </thead>
       <tbody>
         <tr>
-          <td>Early Bird <span class="badge badge-green">Limited 200</span></td>
-          <td>€12</td>
-          <td style="color:var(--muted);font-size:0.82rem">Launch now · creates urgency</td>
+          <td>Early Bird &nbsp;<span class="badge badge-green">Limited 200</span></td>
+          <td style="font-weight:700">€12</td>
+          <td style="color:var(--muted);font-size:0.8rem">Launch now · creates urgency</td>
         </tr>
         <tr>
           <td>Standard Pre-sale</td>
-          <td>€18</td>
-          <td style="color:var(--muted);font-size:0.82rem">Main volume driver</td>
+          <td style="font-weight:700">€18</td>
+          <td style="color:var(--muted);font-size:0.8rem">Main volume driver</td>
         </tr>
         <tr>
           <td>Door</td>
-          <td>€25</td>
-          <td style="color:var(--muted);font-size:0.82rem">Walk-ins + cash flow</td>
+          <td style="font-weight:700">€25</td>
+          <td style="color:var(--muted);font-size:0.8rem">Walk-ins + cash flow</td>
         </tr>
         <tr>
-          <td>Ticket + T-shirt bundle</td>
-          <td>€30</td>
-          <td style="color:var(--muted);font-size:0.82rem">Saves €13 vs separate</td>
+          <td>Ticket + T-shirt Bundle</td>
+          <td style="font-weight:700">€30</td>
+          <td style="color:var(--muted);font-size:0.8rem">Saves buyer €13</td>
         </tr>
       </tbody>
     </table>
@@ -566,8 +664,8 @@
         <div class="vip-price">€200</div>
         <div class="vip-includes">4 tickets<br>1 bottle<br>Mixer tray<br>Snack platter</div>
       </div>
-      <div class="vip-card" style="border-color:var(--accent)">
-        <div class="vip-size">Table for 6 ⭐</div>
+      <div class="vip-card featured">
+        <div class="vip-size">Table for 6 ★</div>
         <div class="vip-price">€280</div>
         <div class="vip-includes">6 tickets<br>2 bottles<br>2 mixer trays<br>Snack platter</div>
       </div>
@@ -577,7 +675,7 @@
         <div class="vip-includes">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</div>
       </div>
     </div>
-    <div style="margin-top:1rem;font-size:0.82rem;color:var(--muted)">
+    <div style="margin-top:1rem;font-size:0.78rem;color:var(--muted)">
       Add-ons: Extra bottle €40 &nbsp;·&nbsp; Snack platter €20 &nbsp;·&nbsp; Reserved parking €10
     </div>
   </div>
@@ -590,33 +688,33 @@
     </div>
 
     <div class="budget-row">
-      <div><div class="budget-label">400× Early Bird @ €12</div><div class="budget-bar"><div class="budget-fill" style="width:20%"></div></div></div>
+      <div style="flex:1"><div class="budget-label">400× Early Bird @ €12</div><div class="budget-bar"><div class="budget-fill" style="width:20%"></div></div></div>
       <div class="budget-amount">€4,800</div>
     </div>
     <div class="budget-row">
-      <div><div class="budget-label">500× Standard @ €18</div><div class="budget-bar"><div class="budget-fill" style="width:38%"></div></div></div>
+      <div style="flex:1"><div class="budget-label">500× Standard @ €18</div><div class="budget-bar"><div class="budget-fill" style="width:38%"></div></div></div>
       <div class="budget-amount">€9,000</div>
     </div>
     <div class="budget-row">
-      <div><div class="budget-label">200× Door @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:21%"></div></div></div>
+      <div style="flex:1"><div class="budget-label">200× Door @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:21%"></div></div></div>
       <div class="budget-amount">€5,000</div>
     </div>
     <div class="budget-row">
-      <div><div class="budget-label">8 VIP Tables (avg €280)</div><div class="budget-bar"><div class="budget-fill" style="width:12%"></div></div></div>
+      <div style="flex:1"><div class="budget-label">8 VIP Tables (avg €280)</div><div class="budget-bar"><div class="budget-fill" style="width:12%"></div></div></div>
       <div class="budget-amount">€2,240</div>
     </div>
     <div class="budget-row" style="margin-bottom:0">
-      <div><div class="budget-label">100 T-shirts @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:11%"></div></div></div>
+      <div style="flex:1"><div class="budget-label">100 T-shirts @ €25</div><div class="budget-bar"><div class="budget-fill" style="width:11%"></div></div></div>
       <div class="budget-amount">€2,500</div>
     </div>
 
     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;justify-content:space-between">
-      <span style="color:var(--muted)">Total Revenue</span>
+      <span style="color:var(--muted);font-size:0.88rem">Total Revenue</span>
       <span style="font-weight:700">€23,540</span>
     </div>
     <div style="display:flex;justify-content:space-between;margin-top:0.3rem">
-      <span style="color:var(--muted)">Costs</span>
-      <span style="color:var(--red);font-weight:700">-€10,000</span>
+      <span style="color:var(--muted);font-size:0.88rem">Costs</span>
+      <span style="color:var(--red);font-weight:700">−€10,000</span>
     </div>
 
     <div class="profit-box">
@@ -625,7 +723,7 @@
     </div>
   </div>
 
-  <!-- TICKET PROVIDERS -->
+  <!-- TICKET PROVIDER -->
   <div class="card">
     <div class="card-header">
       <span class="card-icon">🎫</span>
@@ -633,19 +731,19 @@
     </div>
 
     <div class="provider-card recommended">
-      <div class="provider-name">⭐ Shotgun <span class="badge badge-gold">Recommended</span></div>
-      <div class="provider-fee">Fee: Not publicly listed — built for electronic music</div>
-      <div class="provider-pros">✓ Designed for festivals &amp; electronic music &nbsp;·&nbsp; ✓ Strong social media integration &nbsp;·&nbsp; ✓ Your audience already uses it &nbsp;·&nbsp; ✓ QR codes &nbsp;·&nbsp; ✓ Tiered pricing</div>
+      <div class="provider-name">Shotgun &nbsp;<span class="badge badge-cyan">Recommended</span></div>
+      <div class="provider-fee">Fee: Not publicly listed — contact directly</div>
+      <div class="provider-pros">✓ Built for electronic music &amp; festivals &nbsp;·&nbsp; ✓ Your audience already uses it &nbsp;·&nbsp; ✓ Strong social media integration &nbsp;·&nbsp; ✓ QR codes &nbsp;·&nbsp; ✓ Tiered pricing</div>
     </div>
 
     <div class="provider-card">
-      <div class="provider-name">Billetto <span class="badge badge-purple">Runner-up</span></div>
-      <div class="provider-fee">Fee: 3.90% + ~€0.90/ticket (paid by buyer) · Payout in 3–5 days</div>
-      <div class="provider-pros">✓ Lowest fees &nbsp;·&nbsp; ✓ No subscription &nbsp;·&nbsp; ✓ Easy setup &nbsp;·&nbsp; ✓ Social media tools &nbsp;·&nbsp; ✓ QR codes</div>
+      <div class="provider-name">Billetto &nbsp;<span class="badge badge-violet">Runner-up</span></div>
+      <div class="provider-fee">Fee: 3.90% + ~€0.90/ticket (paid by buyer) · Payout 3–5 days</div>
+      <div class="provider-pros">✓ Lowest fees &nbsp;·&nbsp; ✓ No subscription &nbsp;·&nbsp; ✓ Simple setup &nbsp;·&nbsp; ✓ Social media tools &nbsp;·&nbsp; ✓ QR codes</div>
     </div>
 
-    <div style="font-size:0.82rem;color:var(--muted);margin-top:0.5rem">
-      Avoid: Ticketline, BOL, Blueticket — all 6%+ fees, built for large commercial events.
+    <div style="font-size:0.78rem;color:var(--muted)">
+      Avoid: Ticketline, BOL, Blueticket — 6%+ fees, built for large commercial events.
     </div>
   </div>
 
@@ -659,7 +757,7 @@
     <div class="merch-item">
       <div>
         <div class="merch-name">Oversize T-shirt — Black</div>
-        <div class="merch-detail">Lua Nova / Beat Nonstop print · Order 100–150 units · Local Braga printer or Printful</div>
+        <div class="merch-detail">Lua Nova / Beat Nonstop print · 100–150 units · Local Braga printer or Printful</div>
       </div>
       <div class="merch-prices">
         <div class="sell">€25</div>
@@ -670,7 +768,7 @@
     <div class="merch-item">
       <div>
         <div class="merch-name">Tote Bag</div>
-        <div class="merch-detail">Optional · Low cost · Easy to stock</div>
+        <div class="merch-detail">Optional · Low cost · Easy to stock at door</div>
       </div>
       <div class="merch-prices">
         <div class="sell">€12</div>
@@ -678,14 +776,14 @@
       </div>
     </div>
 
-    <div class="merch-item" style="border-bottom:none">
+    <div class="merch-item">
       <div>
         <div class="merch-name">Ticket + T-shirt Bundle</div>
-        <div class="merch-detail">Upsell at ticket checkout · Drives online merch sales</div>
+        <div class="merch-detail">Upsell at checkout · Drives pre-event merch sales</div>
       </div>
       <div class="merch-prices">
         <div class="sell">€30</div>
-        <div class="margin" style="color:var(--accent)">saves buyer €13</div>
+        <div class="margin" style="color:var(--cyan)">saves buyer €13</div>
       </div>
     </div>
   </div>
@@ -694,23 +792,23 @@
   <div class="card">
     <div class="card-header">
       <span class="card-icon">🎛️</span>
-      <span class="card-title">Production Setup</span>
+      <span class="card-title">Production Status</span>
     </div>
     <table>
       <thead>
         <tr><th>Element</th><th>Status</th></tr>
       </thead>
       <tbody>
-        <tr><td>Stage (large)</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>Lighting rig</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>CO2 cannons (5m jets)</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>Smoke machines</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>LED screens</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>Sound system</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>Security team</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>~8 Artists</td><td><span class="badge badge-green">In progress</span></td></tr>
-        <tr><td>Mykina invite</td><td><span class="badge badge-purple">To confirm</span></td></tr>
-        <tr><td>Pre-event barbecue</td><td><span class="badge badge-green">Planned</span></td></tr>
+        <tr><td>Stage (large)</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>Lighting rig</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>CO2 cannons (5m jets)</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>Smoke machines</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>LED screens</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>Sound system</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>Security team</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>~8 Artists</td><td><span class="badge badge-cyan">In progress</span></td></tr>
+        <tr><td>Mykina invite</td><td><span class="badge badge-violet">To confirm</span></td></tr>
+        <tr><td>Pre-event barbecue</td><td><span class="badge badge-cyan">Planned</span></td></tr>
         <tr><td>Social media team</td><td><span class="badge badge-green">Confirmed ✓</span></td></tr>
         <tr><td>After movie</td><td><span class="badge badge-green">Confirmed ✓</span></td></tr>
       </tbody>
@@ -720,40 +818,37 @@
 </div>
 
 <footer>
-  Beat Nonstop — Lua Nova &nbsp;·&nbsp; Updated April 2026 &nbsp;·&nbsp; Open plan.html in your browser to view
+  Beat Nonstop — Lua Nova &nbsp;·&nbsp; Ribeira da Neiva &nbsp;·&nbsp; May 16, 2026
 </footer>
 
 <script>
-  // Countdown
   function updateCountdown() {
     const event = new Date('2026-05-16T18:00:00');
     const now = new Date();
     const diff = event - now;
     if (diff <= 0) {
-      document.getElementById('countdown').innerHTML = '<div style="font-size:2rem;color:var(--accent)">🎉 Tonight\'s the night!</div>';
+      document.getElementById('countdown').innerHTML = '<div style="font-size:2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🎉 Tonight\'s the night!</div>';
       return;
     }
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
     document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-min').textContent = String(m).padStart(2,'0');
-    document.getElementById('cd-sec').textContent = String(s).padStart(2,'0');
+    document.getElementById('cd-min').textContent   = String(m).padStart(2,'0');
+    document.getElementById('cd-sec').textContent   = String(s).padStart(2,'0');
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // Checklist persistence
-  const STORAGE_KEY = 'beatnonstop_checklist';
+  const STORAGE_KEY = 'bns_checklist_v1';
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
 
   document.querySelectorAll('#checklist li').forEach(li => {
     const id = li.dataset.id;
-    const check = li.querySelector('.check');
     if (saved[id]) {
-      check.classList.add('done');
+      li.querySelector('.check').classList.add('done');
       li.classList.add('checked');
     }
   });
