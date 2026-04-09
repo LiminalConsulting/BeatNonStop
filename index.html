@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beat Nonstop — Lua Nova | 16 Mai 2026</title>
+  <meta name="description" content="Beat Nonstop apresenta: Lua Nova. 16 de Maio de 2026, Ribeira da Neiva, Vila Verde, Braga. Das 18h às 4h." />
+  <style>
+    :root {
+      --bg:     #080810;
+      --surface:#0f0f1a;
+      --border: #1e1e35;
+      --cyan:   #4de8d8;
+      --violet: #8b5cf6;
+      --pink:   #d946ef;
+      --text:   #e2e2f0;
+      --muted:  #6b6b8a;
+      --green:  #34d399;
+      --grad:   linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
+      --grad-h: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      display: block;
+      max-height: 380px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 70%;
+      background: linear-gradient(to top, var(--bg), transparent);
+      pointer-events: none;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 1.5rem 2rem 3rem;
+    }
+
+    .logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 16px rgba(77,232,216,0.4));
+    }
+
+    header h1 {
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .edition {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-top: 0.6rem;
+    }
+
+    .divider {
+      width: 100px;
+      height: 2px;
+      background: var(--grad-h);
+      border-radius: 2px;
+      margin: 1.5rem auto;
+      opacity: 0.5;
+    }
+
+    /* ── EVENT INFO PILLS ── */
+    .info-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .pill {
+      background: var(--surface);
+      border: 1px solid #2a2a48;
+      border-radius: 30px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text);
+    }
+
+    .pill .pill-icon { font-size: 1rem; }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .countdown-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .countdown-unit { text-align: center; }
+
+    .countdown-unit .num {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 14px rgba(77,232,216,0.35));
+    }
+
+    .countdown-unit .unit {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-wrap {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 1rem 2.8rem;
+      background: var(--grad-h);
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--bg);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 0 30px rgba(139,92,246,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 45px rgba(139,92,246,0.5);
+    }
+
+    .cta-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.85rem;
+    }
+
+    .cta-note span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    /* ── SECTION ── */
+    section {
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* ── TICKET TIERS ── */
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+
+    .ticket-card {
+      background: var(--surface);
+      border: 1px solid #2a2a48;
+      border-radius: 14px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ticket-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--grad-h);
+      opacity: 0.5;
+    }
+
+    .ticket-card.featured {
+      border-color: var(--violet);
+      box-shadow: 0 0 24px rgba(139,92,246,0.2);
+    }
+
+    .ticket-type {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .ticket-price {
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .ticket-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+
+    .ticket-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      background: rgba(52,211,153,0.12);
+      color: var(--green);
+    }
+
+    /* ── VIP ── */
+    .vip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .vip-card {
+      background: var(--surface);
+      border: 1px solid #2a2a48;
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vip-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--grad-h);
+      opacity: 0.3;
+    }
+
+    .vip-card.featured {
+      border-color: var(--violet);
+      box-shadow: 0 0 24px rgba(139,92,246,0.2);
+    }
+
+    .vip-size {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .vip-price {
+      font-size: 2rem;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .vip-includes {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.6rem;
+      line-height: 1.7;
+    }
+
+    .vip-addons {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 1.25rem;
+    }
+
+    /* ── LOCATION ── */
+    .location-box {
+      background: var(--surface);
+      border: 1px solid #2a2a48;
+      border-radius: 14px;
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .location-box .loc-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .location-box .loc-detail {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 0.4rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      border-top: 1px solid var(--border);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="Banner futurista com ondas sonoras.PNG" alt="Beat Nonstop — Lua Nova" />
+</div>
+
+<!-- HEADER -->
+<header>
+  <img class="logo-img" src="BNS.JPG" alt="BNS Logo" />
+  <h1>Lua Nova</h1>
+  <div class="edition">Beat Nonstop · Edição do Evento</div>
+  <div class="divider"></div>
+
+  <div class="info-pills">
+    <div class="pill"><span class="pill-icon">📅</span> 16 de Maio de 2026</div>
+    <div class="pill"><span class="pill-icon">🕕</span> 18:00 → 04:00</div>
+    <div class="pill"><span class="pill-icon">📍</span> Ribeira da Neiva, Braga</div>
+    <div class="pill"><span class="pill-icon">🎵</span> ~8 Artistas</div>
+  </div>
+
+  <div class="countdown-wrap">
+    <div class="countdown-label">Contagem decrescente / Countdown</div>
+    <div class="countdown">
+      <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit">Dias</div></div>
+      <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit">Horas</div></div>
+      <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit">Min</div></div>
+      <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit">Seg</div></div>
+    </div>
+  </div>
+
+  <div class="cta-wrap">
+    <a href="#tickets" class="cta-btn">Comprar Bilhetes</a>
+    <div class="cta-note">Early Bird disponível agora — <span>apenas 200 lugares @ €12</span></div>
+  </div>
+</header>
+
+<!-- TICKETS -->
+<section id="tickets">
+  <div class="section-title">Bilhetes / Tickets</div>
+  <div class="ticket-grid">
+    <div class="ticket-card">
+      <div class="ticket-type">Early Bird</div>
+      <div class="ticket-price">€12</div>
+      <div class="ticket-badge">Limitado — 200</div>
+      <div class="ticket-note">Lança já · cria urgência</div>
+    </div>
+    <div class="ticket-card featured">
+      <div class="ticket-type">Pré-Venda</div>
+      <div class="ticket-price">€18</div>
+      <div class="ticket-note">Bilhete standard online</div>
+    </div>
+    <div class="ticket-card">
+      <div class="ticket-type">Porta</div>
+      <div class="ticket-price">€25</div>
+      <div class="ticket-note">Disponível no dia</div>
+    </div>
+    <div class="ticket-card">
+      <div class="ticket-type">Pack T-shirt</div>
+      <div class="ticket-price">€30</div>
+      <div class="ticket-note">Bilhete + T-shirt exclusiva</div>
+    </div>
+  </div>
+</section>
+
+<!-- VIP -->
+<section id="vip">
+  <div class="section-title">Mesas VIP</div>
+  <div class="vip-grid">
+    <div class="vip-card">
+      <div class="vip-size">Mesa para 4</div>
+      <div class="vip-price">€200</div>
+      <div class="vip-includes">4 bilhetes<br>1 garrafa<br>Misturadores<br>Snacks</div>
+    </div>
+    <div class="vip-card featured">
+      <div class="vip-size">Mesa para 6 ★</div>
+      <div class="vip-price">€280</div>
+      <div class="vip-includes">6 bilhetes<br>2 garrafas<br>2 misturadores<br>Snacks</div>
+    </div>
+    <div class="vip-card">
+      <div class="vip-size">Mesa para 10</div>
+      <div class="vip-price">€420</div>
+      <div class="vip-includes">10 bilhetes<br>3 garrafas<br>Mesa completa<br>Entrada prioritária</div>
+    </div>
+  </div>
+  <div class="vip-addons">
+    Extras: Garrafa adicional €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Estacionamento reservado €10
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="local">
+  <div class="section-title">Local / Location</div>
+  <div class="location-box">
+    <div class="loc-name">Ribeira da Neiva, Duas Igrejas</div>
+    <div class="loc-detail">Vila Verde · Braga · Portugal</div>
+    <div class="loc-detail" style="margin-top:1rem;font-size:0.82rem">
+      Palco principal · Luzes &amp; CO2 · Ecrãs LED · Zona VIP · Segurança
+    </div>
+  </div>
+</section>
+
+<footer>
+  Beat Nonstop — Lua Nova &nbsp;·&nbsp; 16 de Maio de 2026 &nbsp;·&nbsp; Ribeira da Neiva, Braga
+</footer>
+
+<script>
+  function tick() {
+    const diff = new Date('2026-05-16T18:00:00') - new Date();
+    if (diff <= 0) return;
+    document.getElementById('cd-days').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-min').textContent   = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    document.getElementById('cd-sec').textContent   = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+
+</body>
+</html>
