@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beat Nonstop — Lua Nova | 16 Mai 2026</title>
-  <meta name="description" content="Beat Nonstop apresenta: Lua Nova. 16 de Maio de 2026, Ribeira da Neiva, Vila Verde, Braga. Das 18h às 4h." />
+  <title>Beat Nonstop — Lua Nova | 16 May 2026</title>
+  <meta name="description" content="Beat Nonstop presents: Lua Nova. May 16, 2026, Ribeira da Neiva, Vila Verde, Braga. 18h–4h." />
   <style>
     :root {
       --bg:     #080810;
@@ -375,6 +375,41 @@
       margin-top: 0.4rem;
     }
 
+    /* ── LANG SWITCHER ── */
+    .lang-bar {
+      position: fixed;
+      top: 1rem;
+      right: 1.25rem;
+      z-index: 100;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .lang-btn {
+      background: var(--surface);
+      border: 1px solid #2a2a48;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.7rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover { border-color: var(--violet); color: var(--text); }
+
+    .lang-btn.active {
+      background: var(--grad-h);
+      border-color: transparent;
+      color: var(--bg);
+    }
+
+    [data-lang="pt"] { display: none; }
+    body.pt [data-lang="pt"] { display: revert; }
+    body.pt [data-lang="en"] { display: none; }
+
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -388,6 +423,12 @@
 </head>
 <body>
 
+<!-- LANG SWITCHER -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('pt')">PT</button>
+</div>
+
 <!-- HERO -->
 <div class="hero">
   <img src="Banner futurista com ondas sonoras.PNG" alt="Beat Nonstop — Lua Nova" />
@@ -397,102 +438,145 @@
 <header>
   <img class="logo-img" src="BNS.JPG" alt="BNS Logo" />
   <h1>Lua Nova</h1>
-  <div class="edition">Beat Nonstop · Edição do Evento</div>
+  <div class="edition">
+    <span data-lang="en">Beat Nonstop · Event Edition</span>
+    <span data-lang="pt">Beat Nonstop · Edição do Evento</span>
+  </div>
   <div class="divider"></div>
 
   <div class="info-pills">
-    <div class="pill"><span class="pill-icon">📅</span> 16 de Maio de 2026</div>
+    <div class="pill"><span class="pill-icon">📅</span><span data-lang="en">May 16, 2026</span><span data-lang="pt">16 de Maio de 2026</span></div>
     <div class="pill"><span class="pill-icon">🕕</span> 18:00 → 04:00</div>
     <div class="pill"><span class="pill-icon">📍</span> Ribeira da Neiva, Braga</div>
-    <div class="pill"><span class="pill-icon">🎵</span> ~8 Artistas</div>
+    <div class="pill"><span class="pill-icon">🎵</span><span data-lang="en">~8 Artists</span><span data-lang="pt">~8 Artistas</span></div>
   </div>
 
   <div class="countdown-wrap">
-    <div class="countdown-label">Contagem decrescente / Countdown</div>
+    <div class="countdown-label">
+      <span data-lang="en">Countdown</span>
+      <span data-lang="pt">Contagem Decrescente</span>
+    </div>
     <div class="countdown">
-      <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit">Dias</div></div>
-      <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit">Horas</div></div>
-      <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit">Min</div></div>
-      <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit">Seg</div></div>
+      <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit"><span data-lang="en">Days</span><span data-lang="pt">Dias</span></div></div>
+      <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span></div></div>
+      <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit"><span data-lang="en">Min</span><span data-lang="pt">Min</span></div></div>
+      <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit"><span data-lang="en">Sec</span><span data-lang="pt">Seg</span></div></div>
     </div>
   </div>
 
   <div class="cta-wrap">
-    <a href="#tickets" class="cta-btn">Comprar Bilhetes</a>
-    <div class="cta-note">Early Bird disponível agora — <span>apenas 200 lugares @ €12</span></div>
+    <a href="#tickets" class="cta-btn">
+      <span data-lang="en">Get Tickets</span>
+      <span data-lang="pt">Comprar Bilhetes</span>
+    </a>
+    <div class="cta-note">
+      <span data-lang="en">Early Bird available now — <span>only 200 spots @ €12</span></span>
+      <span data-lang="pt">Early Bird disponível agora — <span>apenas 200 lugares @ €12</span></span>
+    </div>
   </div>
 </header>
 
 <!-- TICKETS -->
 <section id="tickets">
-  <div class="section-title">Bilhetes / Tickets</div>
+  <div class="section-title">
+    <span data-lang="en">Tickets</span>
+    <span data-lang="pt">Bilhetes</span>
+  </div>
   <div class="ticket-grid">
     <div class="ticket-card">
       <div class="ticket-type">Early Bird</div>
       <div class="ticket-price">€12</div>
-      <div class="ticket-badge">Limitado — 200</div>
-      <div class="ticket-note">Lança já · cria urgência</div>
+      <div class="ticket-badge"><span data-lang="en">Limited — 200</span><span data-lang="pt">Limitado — 200</span></div>
+      <div class="ticket-note"><span data-lang="en">Available now · limited spots</span><span data-lang="pt">Disponível agora · lugares limitados</span></div>
     </div>
     <div class="ticket-card featured">
-      <div class="ticket-type">Pré-Venda</div>
+      <div class="ticket-type"><span data-lang="en">Pre-sale</span><span data-lang="pt">Pré-Venda</span></div>
       <div class="ticket-price">€18</div>
-      <div class="ticket-note">Bilhete standard online</div>
+      <div class="ticket-note"><span data-lang="en">Standard online ticket</span><span data-lang="pt">Bilhete standard online</span></div>
     </div>
     <div class="ticket-card">
-      <div class="ticket-type">Porta</div>
+      <div class="ticket-type"><span data-lang="en">Door</span><span data-lang="pt">Porta</span></div>
       <div class="ticket-price">€25</div>
-      <div class="ticket-note">Disponível no dia</div>
+      <div class="ticket-note"><span data-lang="en">Available on the day</span><span data-lang="pt">Disponível no dia</span></div>
     </div>
     <div class="ticket-card">
-      <div class="ticket-type">Pack T-shirt</div>
+      <div class="ticket-type"><span data-lang="en">T-shirt Pack</span><span data-lang="pt">Pack T-shirt</span></div>
       <div class="ticket-price">€30</div>
-      <div class="ticket-note">Bilhete + T-shirt exclusiva</div>
+      <div class="ticket-note"><span data-lang="en">Ticket + exclusive T-shirt</span><span data-lang="pt">Bilhete + T-shirt exclusiva</span></div>
     </div>
   </div>
 </section>
 
 <!-- VIP -->
 <section id="vip">
-  <div class="section-title">Mesas VIP</div>
+  <div class="section-title">
+    <span data-lang="en">VIP Tables</span>
+    <span data-lang="pt">Mesas VIP</span>
+  </div>
   <div class="vip-grid">
     <div class="vip-card">
-      <div class="vip-size">Mesa para 4</div>
+      <div class="vip-size"><span data-lang="en">Table for 4</span><span data-lang="pt">Mesa para 4</span></div>
       <div class="vip-price">€200</div>
-      <div class="vip-includes">4 bilhetes<br>1 garrafa<br>Misturadores<br>Snacks</div>
+      <div class="vip-includes">
+        <span data-lang="en">4 tickets<br>1 bottle<br>Mixers<br>Snacks</span>
+        <span data-lang="pt">4 bilhetes<br>1 garrafa<br>Misturadores<br>Snacks</span>
+      </div>
     </div>
     <div class="vip-card featured">
-      <div class="vip-size">Mesa para 6 ★</div>
+      <div class="vip-size"><span data-lang="en">Table for 6 ★</span><span data-lang="pt">Mesa para 6 ★</span></div>
       <div class="vip-price">€280</div>
-      <div class="vip-includes">6 bilhetes<br>2 garrafas<br>2 misturadores<br>Snacks</div>
+      <div class="vip-includes">
+        <span data-lang="en">6 tickets<br>2 bottles<br>2 mixer trays<br>Snacks</span>
+        <span data-lang="pt">6 bilhetes<br>2 garrafas<br>2 misturadores<br>Snacks</span>
+      </div>
     </div>
     <div class="vip-card">
-      <div class="vip-size">Mesa para 10</div>
+      <div class="vip-size"><span data-lang="en">Table for 10</span><span data-lang="pt">Mesa para 10</span></div>
       <div class="vip-price">€420</div>
-      <div class="vip-includes">10 bilhetes<br>3 garrafas<br>Mesa completa<br>Entrada prioritária</div>
+      <div class="vip-includes">
+        <span data-lang="en">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</span>
+        <span data-lang="pt">10 bilhetes<br>3 garrafas<br>Mesa completa<br>Entrada prioritária</span>
+      </div>
     </div>
   </div>
   <div class="vip-addons">
-    Extras: Garrafa adicional €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Estacionamento reservado €10
+    <span data-lang="en">Add-ons: Extra bottle €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Reserved parking €10</span>
+    <span data-lang="pt">Extras: Garrafa adicional €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Estacionamento reservado €10</span>
   </div>
 </section>
 
 <!-- LOCATION -->
 <section id="local">
-  <div class="section-title">Local / Location</div>
+  <div class="section-title">
+    <span data-lang="en">Location</span>
+    <span data-lang="pt">Local</span>
+  </div>
   <div class="location-box">
     <div class="loc-name">Ribeira da Neiva, Duas Igrejas</div>
     <div class="loc-detail">Vila Verde · Braga · Portugal</div>
     <div class="loc-detail" style="margin-top:1rem;font-size:0.82rem">
-      Palco principal · Luzes &amp; CO2 · Ecrãs LED · Zona VIP · Segurança
+      <span data-lang="en">Main stage · Lights &amp; CO2 · LED screens · VIP area · Security</span>
+      <span data-lang="pt">Palco principal · Luzes &amp; CO2 · Ecrãs LED · Zona VIP · Segurança</span>
     </div>
   </div>
 </section>
 
 <footer>
-  Beat Nonstop — Lua Nova &nbsp;·&nbsp; 16 de Maio de 2026 &nbsp;·&nbsp; Ribeira da Neiva, Braga
+  Beat Nonstop — Lua Nova &nbsp;·&nbsp;
+  <span data-lang="en">May 16, 2026</span>
+  <span data-lang="pt">16 de Maio de 2026</span>
+  &nbsp;·&nbsp; Ribeira da Neiva, Braga
 </footer>
 
 <script>
+  const LANG_KEY = 'bns_lang';
+  function setLang(lang) {
+    document.body.classList.toggle('pt', lang === 'pt');
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+    localStorage.setItem(LANG_KEY, lang);
+  }
+  setLang(localStorage.getItem(LANG_KEY) || 'en');
+
   function tick() {
     const diff = new Date('2026-05-16T18:00:00') - new Date();
     if (diff <= 0) return;
