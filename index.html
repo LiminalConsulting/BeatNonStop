@@ -4,590 +4,298 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beat Nonstop — Lua Nova | 16 May 2026</title>
-  <meta name="description" content="Beat Nonstop presents: Lua Nova. May 16, 2026, Ribeira da Neiva, Vila Verde, Braga. 18h–4h." />
-  <style>
-    :root {
-      --bg:     #080810;
-      --surface:#0f0f1a;
-      --border: #1e1e35;
-      --cyan:   #4de8d8;
-      --violet: #8b5cf6;
-      --pink:   #d946ef;
-      --text:   #e2e2f0;
-      --muted:  #6b6b8a;
-      --green:  #34d399;
-      --grad:   linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
-      --grad-h: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
-    }
+  <meta name="description" content="Beat Nonstop presents: Lua Nova. May 16, 2026. Ribeira da Neiva, Vila Verde, Braga. 18h–4h. New moon. No light. Full sound." />
+  <meta property="og:title" content="Beat Nonstop — Lua Nova" />
+  <meta property="og:description" content="New moon. No light. Full sound. May 16, 2026. Ribeira da Neiva, Braga." />
+  <meta property="og:type" content="website" />
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero img {
-      width: 100%;
-      display: block;
-      max-height: 380px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 70%;
-      background: linear-gradient(to top, var(--bg), transparent);
-      pointer-events: none;
-    }
-
-    /* ── HEADER ── */
-    header {
-      text-align: center;
-      padding: 1.5rem 2rem 3rem;
-    }
-
-    .logo-img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 0 16px rgba(77,232,216,0.4));
-    }
-
-    header h1 {
-      font-size: clamp(2.4rem, 7vw, 4rem);
-      font-weight: 800;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
-      line-height: 1.05;
-    }
-
-    .edition {
-      font-size: 0.72rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--violet);
-      margin-top: 0.6rem;
-    }
-
-    .divider {
-      width: 100px;
-      height: 2px;
-      background: var(--grad-h);
-      border-radius: 2px;
-      margin: 1.5rem auto;
-      opacity: 0.5;
-    }
-
-    /* ── EVENT INFO PILLS ── */
-    .info-pills {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .pill {
-      background: var(--surface);
-      border: 1px solid #2a2a48;
-      border-radius: 30px;
-      padding: 0.5rem 1.2rem;
-      font-size: 0.88rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text);
-    }
-
-    .pill .pill-icon { font-size: 1rem; }
-
-    /* ── COUNTDOWN ── */
-    .countdown-wrap {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .countdown-label {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .countdown-unit { text-align: center; }
-
-    .countdown-unit .num {
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 14px rgba(77,232,216,0.35));
-    }
-
-    .countdown-unit .unit {
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-top: 0.3rem;
-    }
-
-    /* ── CTA BUTTON ── */
-    .cta-wrap {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 1rem 2.8rem;
-      background: var(--grad-h);
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--bg);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      box-shadow: 0 0 30px rgba(139,92,246,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 45px rgba(139,92,246,0.5);
-    }
-
-    .cta-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.85rem;
-    }
-
-    .cta-note span {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
-
-    /* ── SECTION ── */
-    section {
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      padding: 0 2rem;
-    }
-
-    .section-title {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    /* ── TICKET TIERS ── */
-    .ticket-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-    }
-
-    .ticket-card {
-      background: var(--surface);
-      border: 1px solid #2a2a48;
-      border-radius: 14px;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ticket-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: var(--grad-h);
-      opacity: 0.5;
-    }
-
-    .ticket-card.featured {
-      border-color: var(--violet);
-      box-shadow: 0 0 24px rgba(139,92,246,0.2);
-    }
-
-    .ticket-type {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .ticket-price {
-      font-size: 2rem;
-      font-weight: 800;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .ticket-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      line-height: 1.4;
-    }
-
-    .ticket-badge {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.15rem 0.6rem;
-      border-radius: 20px;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      background: rgba(52,211,153,0.12);
-      color: var(--green);
-    }
-
-    /* ── VIP ── */
-    .vip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .vip-card {
-      background: var(--surface);
-      border: 1px solid #2a2a48;
-      border-radius: 14px;
-      padding: 1.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .vip-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: var(--grad-h);
-      opacity: 0.3;
-    }
-
-    .vip-card.featured {
-      border-color: var(--violet);
-      box-shadow: 0 0 24px rgba(139,92,246,0.2);
-    }
-
-    .vip-size {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .vip-price {
-      font-size: 2rem;
-      font-weight: 800;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .vip-includes {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-      line-height: 1.7;
-    }
-
-    .vip-addons {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 1.25rem;
-    }
-
-    /* ── LOCATION ── */
-    .location-box {
-      background: var(--surface);
-      border: 1px solid #2a2a48;
-      border-radius: 14px;
-      padding: 1.75rem;
-      text-align: center;
-    }
-
-    .location-box .loc-name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .location-box .loc-detail {
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-top: 0.4rem;
-    }
-
-    /* ── LANG SWITCHER ── */
-    .lang-bar {
-      position: fixed;
-      top: 1rem;
-      right: 1.25rem;
-      z-index: 100;
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .lang-btn {
-      background: var(--surface);
-      border: 1px solid #2a2a48;
-      border-radius: 6px;
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      padding: 0.35rem 0.7rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .lang-btn:hover { border-color: var(--violet); color: var(--text); }
-
-    .lang-btn.active {
-      background: var(--grad-h);
-      border-color: transparent;
-      color: var(--bg);
-    }
-
-    [data-lang="pt"] { display: none; }
-    body.pt [data-lang="pt"] { display: revert; }
-    body.pt [data-lang="en"] { display: none; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--muted);
-      font-size: 0.75rem;
-      border-top: 1px solid var(--border);
-      letter-spacing: 0.05em;
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/design-system.css" />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
 
-<!-- LANG SWITCHER -->
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('pt')">PT</button>
-</div>
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <img class="nav-logo" src="BNS.JPG" alt="BNS" width="40" height="40" />
+    <ul class="nav-links">
+      <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span></a></li>
+      <li><a href="#lineup"><span data-lang="en">Lineup</span><span data-lang="pt">Lineup</span></a></li>
+      <li><a href="#info"><span data-lang="en">Info</span><span data-lang="pt">Info</span></a></li>
+      <li><a href="#tickets"><span data-lang="en">Tickets</span><span data-lang="pt">Bilhetes</span></a></li>
+      <li class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      </li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <img src="Banner futurista com ondas sonoras.PNG" alt="Beat Nonstop — Lua Nova" />
-</div>
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <img class="hero-logo" src="BNS.JPG" alt="Beat Nonstop" width="72" height="72" loading="lazy" />
+      <h1 class="hero-title">Lua Nova</h1>
+      <p class="hero-subtitle">Beat Nonstop</p>
+      <p class="hero-date">
+        <span data-lang="en">May 16, 2026 — Ribeira da Neiva, Braga</span>
+        <span data-lang="pt">16 de Maio de 2026 — Ribeira da Neiva, Braga</span>
+      </p>
+      <div class="moon-icon"></div>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
 
-<!-- HEADER -->
-<header>
-  <img class="logo-img" src="BNS.JPG" alt="BNS Logo" />
-  <h1>Lua Nova</h1>
-  <div class="edition">
-    <span data-lang="en">Beat Nonstop · Event Edition</span>
-    <span data-lang="pt">Beat Nonstop · Edição do Evento</span>
-  </div>
-  <div class="divider"></div>
+  <!-- ── ABOUT ── -->
+  <section class="section-about" id="about">
+    <div class="about-inner reveal">
+      <div class="section-label">
+        <span data-lang="en">The Event</span>
+        <span data-lang="pt">O Evento</span>
+      </div>
+      <p>
+        <span data-lang="en">New moon. No light. Full sound. A gathering at the river under the darkest sky of the month.</span>
+        <span data-lang="pt">Lua nova. Sem luz. Som total. Um encontro no rio sob o ceu mais escuro do mes.</span>
+      </p>
+      <hr />
+    </div>
+  </section>
 
-  <div class="info-pills">
-    <div class="pill"><span class="pill-icon">📅</span><span data-lang="en">May 16, 2026</span><span data-lang="pt">16 de Maio de 2026</span></div>
-    <div class="pill"><span class="pill-icon">🕕</span> 18:00 → 04:00</div>
-    <div class="pill"><span class="pill-icon">📍</span> Ribeira da Neiva, Braga</div>
-    <div class="pill"><span class="pill-icon">🎵</span><span data-lang="en">~8 Artists</span><span data-lang="pt">~8 Artistas</span></div>
-  </div>
-
-  <div class="countdown-wrap">
-    <div class="countdown-label">
-      <span data-lang="en">Countdown</span>
-      <span data-lang="pt">Contagem Decrescente</span>
-    </div>
-    <div class="countdown">
-      <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit"><span data-lang="en">Days</span><span data-lang="pt">Dias</span></div></div>
-      <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span></div></div>
-      <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit"><span data-lang="en">Min</span><span data-lang="pt">Min</span></div></div>
-      <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit"><span data-lang="en">Sec</span><span data-lang="pt">Seg</span></div></div>
-    </div>
-  </div>
-
-  <div class="cta-wrap">
-    <a href="#tickets" class="cta-btn">
-      <span data-lang="en">Get Tickets</span>
-      <span data-lang="pt">Comprar Bilhetes</span>
-    </a>
-    <div class="cta-note">
-      <span data-lang="en">Early Bird available now — <span>only 200 spots @ €12</span></span>
-      <span data-lang="pt">Early Bird disponível agora — <span>apenas 200 lugares @ €12</span></span>
-    </div>
-  </div>
-</header>
-
-<!-- TICKETS -->
-<section id="tickets">
-  <div class="section-title">
-    <span data-lang="en">Tickets</span>
-    <span data-lang="pt">Bilhetes</span>
-  </div>
-  <div class="ticket-grid">
-    <div class="ticket-card">
-      <div class="ticket-type">Early Bird</div>
-      <div class="ticket-price">€12</div>
-      <div class="ticket-badge"><span data-lang="en">Limited — 200</span><span data-lang="pt">Limitado — 200</span></div>
-      <div class="ticket-note"><span data-lang="en">Available now · limited spots</span><span data-lang="pt">Disponível agora · lugares limitados</span></div>
-    </div>
-    <div class="ticket-card featured">
-      <div class="ticket-type"><span data-lang="en">Pre-sale</span><span data-lang="pt">Pré-Venda</span></div>
-      <div class="ticket-price">€18</div>
-      <div class="ticket-note"><span data-lang="en">Standard online ticket</span><span data-lang="pt">Bilhete standard online</span></div>
-    </div>
-    <div class="ticket-card">
-      <div class="ticket-type"><span data-lang="en">Door</span><span data-lang="pt">Porta</span></div>
-      <div class="ticket-price">€25</div>
-      <div class="ticket-note"><span data-lang="en">Available on the day</span><span data-lang="pt">Disponível no dia</span></div>
-    </div>
-    <div class="ticket-card">
-      <div class="ticket-type"><span data-lang="en">T-shirt Pack</span><span data-lang="pt">Pack T-shirt</span></div>
-      <div class="ticket-price">€30</div>
-      <div class="ticket-note"><span data-lang="en">Ticket + exclusive T-shirt</span><span data-lang="pt">Bilhete + T-shirt exclusiva</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- VIP -->
-<section id="vip">
-  <div class="section-title">
-    <span data-lang="en">VIP Tables</span>
-    <span data-lang="pt">Mesas VIP</span>
-  </div>
-  <div class="vip-grid">
-    <div class="vip-card">
-      <div class="vip-size"><span data-lang="en">Table for 4</span><span data-lang="pt">Mesa para 4</span></div>
-      <div class="vip-price">€200</div>
-      <div class="vip-includes">
-        <span data-lang="en">4 tickets<br>1 bottle<br>Mixers<br>Snacks</span>
-        <span data-lang="pt">4 bilhetes<br>1 garrafa<br>Misturadores<br>Snacks</span>
+  <!-- ── COUNTDOWN ── -->
+  <section class="section-cta" style="padding: 4rem 2rem;">
+    <div class="reveal">
+      <div class="countdown-label">
+        <span data-lang="en">Countdown</span>
+        <span data-lang="pt">Contagem Decrescente</span>
+      </div>
+      <div class="countdown">
+        <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit"><span data-lang="en">Days</span><span data-lang="pt">Dias</span></div></div>
+        <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span></div></div>
+        <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit"><span data-lang="en">Min</span><span data-lang="pt">Min</span></div></div>
+        <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit"><span data-lang="en">Sec</span><span data-lang="pt">Seg</span></div></div>
       </div>
     </div>
-    <div class="vip-card featured">
-      <div class="vip-size"><span data-lang="en">Table for 6 ★</span><span data-lang="pt">Mesa para 6 ★</span></div>
-      <div class="vip-price">€280</div>
-      <div class="vip-includes">
-        <span data-lang="en">6 tickets<br>2 bottles<br>2 mixer trays<br>Snacks</span>
-        <span data-lang="pt">6 bilhetes<br>2 garrafas<br>2 misturadores<br>Snacks</span>
+  </section>
+
+  <!-- ── LINEUP ── -->
+  <section class="section-lineup" id="lineup">
+    <div class="lineup-inner">
+      <div class="section-label reveal">Lineup</div>
+      <div class="reveal">
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
       </div>
     </div>
-    <div class="vip-card">
-      <div class="vip-size"><span data-lang="en">Table for 10</span><span data-lang="pt">Mesa para 10</span></div>
-      <div class="vip-price">€420</div>
-      <div class="vip-includes">
-        <span data-lang="en">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</span>
-        <span data-lang="pt">10 bilhetes<br>3 garrafas<br>Mesa completa<br>Entrada prioritária</span>
+  </section>
+
+  <!-- ── INFO ── -->
+  <section class="section-info" id="info">
+    <div class="info-grid reveal">
+      <div class="info-col">
+        <div class="info-label">
+          <span data-lang="en">Date</span>
+          <span data-lang="pt">Data</span>
+        </div>
+        <div class="info-value">
+          <span data-lang="en">May 16</span>
+          <span data-lang="pt">16 Mai</span>
+        </div>
+      </div>
+      <div class="info-col">
+        <div class="info-label">
+          <span data-lang="en">Location</span>
+          <span data-lang="pt">Local</span>
+        </div>
+        <div class="info-value">Ribeira da Neiva</div>
+      </div>
+      <div class="info-col">
+        <div class="info-label">
+          <span data-lang="en">Doors</span>
+          <span data-lang="pt">Portas</span>
+        </div>
+        <div class="info-value">18:00</div>
       </div>
     </div>
-  </div>
-  <div class="vip-addons">
-    <span data-lang="en">Add-ons: Extra bottle €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Reserved parking €10</span>
-    <span data-lang="pt">Extras: Garrafa adicional €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Estacionamento reservado €10</span>
-  </div>
-</section>
+  </section>
 
-<!-- LOCATION -->
-<section id="local">
-  <div class="section-title">
-    <span data-lang="en">Location</span>
-    <span data-lang="pt">Local</span>
-  </div>
-  <div class="location-box">
-    <div class="loc-name">Ribeira da Neiva, Duas Igrejas</div>
-    <div class="loc-detail">Vila Verde · Braga · Portugal</div>
-    <div class="loc-detail" style="margin-top:1rem;font-size:0.82rem">
-      <span data-lang="en">Main stage · Lights &amp; CO2 · LED screens · VIP area · Security</span>
-      <span data-lang="pt">Palco principal · Luzes &amp; CO2 · Ecrãs LED · Zona VIP · Segurança</span>
+  <!-- ── TICKETS ── -->
+  <section class="section-tickets" id="tickets">
+    <div class="tickets-inner">
+      <div class="section-label reveal">
+        <span data-lang="en">Tickets</span>
+        <span data-lang="pt">Bilhetes</span>
+      </div>
+      <div class="ticket-grid reveal">
+        <div class="ticket-card">
+          <div class="ticket-type">Early Bird</div>
+          <div class="ticket-price">&euro;12</div>
+          <div class="ticket-badge">
+            <span data-lang="en">Limited — 200</span>
+            <span data-lang="pt">Limitado — 200</span>
+          </div>
+          <div class="ticket-note">
+            <span data-lang="en">Available now</span>
+            <span data-lang="pt">Disponivel agora</span>
+          </div>
+        </div>
+        <div class="ticket-card">
+          <div class="ticket-type">
+            <span data-lang="en">Pre-sale</span>
+            <span data-lang="pt">Pre-Venda</span>
+          </div>
+          <div class="ticket-price">&euro;18</div>
+          <div class="ticket-note">
+            <span data-lang="en">Standard online</span>
+            <span data-lang="pt">Bilhete standard</span>
+          </div>
+        </div>
+        <div class="ticket-card">
+          <div class="ticket-type">
+            <span data-lang="en">Door</span>
+            <span data-lang="pt">Porta</span>
+          </div>
+          <div class="ticket-price">&euro;25</div>
+          <div class="ticket-note">
+            <span data-lang="en">On the day</span>
+            <span data-lang="pt">No dia</span>
+          </div>
+        </div>
+        <div class="ticket-card">
+          <div class="ticket-type">
+            <span data-lang="en">T-shirt Pack</span>
+            <span data-lang="pt">Pack T-shirt</span>
+          </div>
+          <div class="ticket-price">&euro;30</div>
+          <div class="ticket-note">
+            <span data-lang="en">Ticket + exclusive tee</span>
+            <span data-lang="pt">Bilhete + T-shirt exclusiva</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  Beat Nonstop — Lua Nova &nbsp;·&nbsp;
-  <span data-lang="en">May 16, 2026</span>
-  <span data-lang="pt">16 de Maio de 2026</span>
-  &nbsp;·&nbsp; Ribeira da Neiva, Braga
-</footer>
+  <!-- ── VIP ── -->
+  <section class="section-vip">
+    <div class="vip-inner">
+      <div class="section-label reveal">
+        <span data-lang="en">VIP Tables</span>
+        <span data-lang="pt">Mesas VIP</span>
+      </div>
+      <div class="vip-grid reveal">
+        <div class="vip-card">
+          <div class="vip-size">
+            <span data-lang="en">Table for 4</span>
+            <span data-lang="pt">Mesa para 4</span>
+          </div>
+          <div class="vip-price">&euro;200</div>
+          <div class="vip-includes">
+            <span data-lang="en">4 tickets &middot; 1 bottle &middot; Mixers &middot; Snacks</span>
+            <span data-lang="pt">4 bilhetes &middot; 1 garrafa &middot; Misturadores &middot; Snacks</span>
+          </div>
+        </div>
+        <div class="vip-card">
+          <div class="vip-size">
+            <span data-lang="en">Table for 6</span>
+            <span data-lang="pt">Mesa para 6</span>
+          </div>
+          <div class="vip-price">&euro;280</div>
+          <div class="vip-includes">
+            <span data-lang="en">6 tickets &middot; 2 bottles &middot; 2 mixer trays &middot; Snacks</span>
+            <span data-lang="pt">6 bilhetes &middot; 2 garrafas &middot; 2 misturadores &middot; Snacks</span>
+          </div>
+        </div>
+        <div class="vip-card">
+          <div class="vip-size">
+            <span data-lang="en">Table for 10</span>
+            <span data-lang="pt">Mesa para 10</span>
+          </div>
+          <div class="vip-price">&euro;420</div>
+          <div class="vip-includes">
+            <span data-lang="en">10 tickets &middot; 3 bottles &middot; Full spread &middot; Priority entry</span>
+            <span data-lang="pt">10 bilhetes &middot; 3 garrafas &middot; Mesa completa &middot; Entrada prioritaria</span>
+          </div>
+        </div>
+      </div>
+      <div class="vip-addons">
+        <span data-lang="en">Add-ons: Extra bottle &euro;40 &middot; Snacks &euro;20 &middot; Reserved parking &euro;10</span>
+        <span data-lang="pt">Extras: Garrafa adicional &euro;40 &middot; Snacks &euro;20 &middot; Estacionamento reservado &euro;10</span>
+      </div>
+    </div>
+  </section>
 
-<script>
-  const LANG_KEY = 'bns_lang';
-  function setLang(lang) {
-    document.body.classList.toggle('pt', lang === 'pt');
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
-    localStorage.setItem(LANG_KEY, lang);
-  }
-  setLang(localStorage.getItem(LANG_KEY) || 'en');
+  <!-- ── CTA ── -->
+  <section class="section-cta">
+    <div class="reveal">
+      <h2 class="cta-heading">
+        <span data-lang="en">Get Your Ticket</span>
+        <span data-lang="pt">Compra o Teu Bilhete</span>
+      </h2>
+      <a href="#tickets" class="btn-primary">
+        <span data-lang="en">Tickets</span>
+        <span data-lang="pt">Bilhetes</span>
+      </a>
+      <div class="cta-note">
+        <span data-lang="en">Early Bird available now — only 200 spots at &euro;12</span>
+        <span data-lang="pt">Early Bird disponivel agora — apenas 200 lugares a &euro;12</span>
+      </div>
+    </div>
+  </section>
 
-  function tick() {
-    const diff = new Date('2026-05-16T18:00:00') - new Date();
-    if (diff <= 0) return;
-    document.getElementById('cd-days').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
-    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
-    document.getElementById('cd-min').textContent   = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
-    document.getElementById('cd-sec').textContent   = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
-  }
-  tick();
-  setInterval(tick, 1000);
-</script>
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <img class="footer-logo" src="BNS.JPG" alt="BNS" width="28" height="28" loading="lazy" />
+    <ul class="footer-links">
+      <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span></a></li>
+      <li><a href="#lineup">Lineup</a></li>
+      <li><a href="#tickets"><span data-lang="en">Tickets</span><span data-lang="pt">Bilhetes</span></a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Beat Nonstop</span>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/stars.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/cursor.js"></script>
 
 </body>
 </html>

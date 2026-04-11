@@ -1,0 +1,467 @@
+/* ═══════════════════════════════════════════════════════
+   BEAT NONSTOP — LUA NOVA
+   Planning Page Styles — Dark Notion aesthetic
+   ═══════════════════════════════════════════════════════ */
+
+.plan-header {
+  text-align: center;
+  padding: 6rem var(--space-md) var(--space-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.plan-header h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-xs);
+}
+
+.plan-header .plan-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-moon-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.plan-header .plan-meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.plan-meta-item {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-moon-dim);
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.8rem;
+}
+
+.plan-meta-item strong {
+  color: var(--color-moon);
+  font-weight: 500;
+}
+
+/* ── GRID ── */
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-sm);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md) var(--space-lg);
+}
+
+/* ── CARD ── */
+.plan-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: var(--space-md);
+}
+
+.plan-card.full-width { grid-column: 1 / -1; }
+
+.plan-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.plan-card-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+}
+
+/* ── COUNTDOWN ── */
+.plan-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: var(--space-xs) 0;
+  flex-wrap: wrap;
+}
+
+.plan-countdown .cd-unit { text-align: center; }
+
+.plan-countdown .cd-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--color-moon);
+  line-height: 1;
+}
+
+.plan-countdown .cd-label {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-moon-dim);
+  margin-top: 0.2rem;
+}
+
+/* ── TIMELINE ── */
+.plan-timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.plan-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.4rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: var(--space-sm);
+}
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -1.28rem;
+  top: 0.42rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: 2px solid var(--color-void);
+}
+
+.tl-item.active::before { background: var(--color-accent-bright); }
+.tl-item.done::before { background: var(--color-accent); }
+
+.tl-week {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+  margin-bottom: 0.15rem;
+}
+
+.tl-task {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-moon);
+}
+
+.tl-item.done .tl-task {
+  color: var(--color-moon-dim);
+  text-decoration: line-through;
+}
+
+/* ── TABLES ── */
+.plan-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+}
+
+.plan-card th {
+  text-align: left;
+  color: var(--color-moon-dim);
+  font-weight: 500;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.plan-card td {
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-moon);
+}
+
+.plan-card tr:last-child td { border-bottom: none; }
+.plan-card tr:hover td { background: rgba(159, 168, 199, 0.03); }
+
+/* ── BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 0.12rem 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-pending {
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.badge-active {
+  border: 1px solid var(--color-accent-bright);
+  color: var(--color-accent-bright);
+}
+
+.badge-done {
+  border: 1px solid var(--color-moon-dim);
+  color: var(--color-moon-dim);
+}
+
+/* ── BUDGET ── */
+.budget-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-sm);
+}
+
+.budget-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-moon);
+}
+
+.budget-bar {
+  background: var(--color-border);
+  height: 4px;
+  margin-top: 0.35rem;
+  width: 100%;
+  max-width: 180px;
+}
+
+.budget-fill {
+  height: 100%;
+  background: var(--color-accent);
+}
+
+.budget-amount {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-moon);
+  white-space: nowrap;
+  margin-left: var(--space-sm);
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+.profit-box {
+  border: 1px solid var(--color-accent);
+  padding: var(--space-sm);
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+.profit-label {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+}
+
+.profit-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-moon);
+  letter-spacing: 0.05em;
+}
+
+/* ── CHECKLIST ── */
+.plan-checklist {
+  list-style: none;
+}
+
+.plan-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+}
+
+.plan-checklist li:last-child { border-bottom: none; }
+
+.check-box {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--color-border);
+  flex-shrink: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: all var(--duration-fast) ease;
+}
+
+.check-box:hover { border-color: var(--color-accent); }
+
+.check-box.done {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.check-box.done::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--color-void);
+}
+
+.plan-checklist li.checked .task-text {
+  color: var(--color-moon-dim);
+  text-decoration: line-through;
+}
+
+/* ── VIP GRID ── */
+.plan-vip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-xs);
+}
+
+.plan-vip-card {
+  border: 1px solid var(--color-border);
+  padding: var(--space-sm);
+  text-align: center;
+}
+
+.plan-vip-size {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-moon-dim);
+  margin-bottom: 0.2rem;
+}
+
+.plan-vip-price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-moon);
+}
+
+.plan-vip-includes {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-moon-dim);
+  margin-top: 0.4rem;
+  line-height: 1.6;
+}
+
+/* ── PROVIDER CARDS ── */
+.provider-card {
+  border: 1px solid var(--color-border);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.provider-card.recommended { border-color: var(--color-accent); }
+
+.provider-name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--color-moon);
+}
+
+.provider-fee {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-moon-dim);
+  margin-top: 0.2rem;
+}
+
+.provider-pros {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-moon-dim);
+  margin-top: 0.35rem;
+  line-height: 1.6;
+}
+
+/* ── MERCH ── */
+.merch-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--space-sm);
+}
+
+.merch-item:last-child { border-bottom: none; }
+
+.merch-name {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--color-moon);
+}
+
+.merch-detail {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-moon-dim);
+  margin-top: 0.1rem;
+}
+
+.merch-prices { text-align: right; flex-shrink: 0; }
+
+.merch-sell {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-moon);
+  letter-spacing: 0.05em;
+}
+
+.merch-margin {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: var(--color-accent);
+}
+
+/* ── PLAN FOOTER ── */
+.plan-footer {
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.plan-footer span {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-moon-dim);
+  letter-spacing: 0.05em;
+}
+
+/* ── LANG TOGGLE IN PLAN ── */
+.plan-lang {
+  position: fixed;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 100;
+  display: flex;
+  gap: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .plan-grid {
+    grid-template-columns: 1fr;
+    padding: 0 var(--space-sm) var(--space-lg);
+  }
+
+  .plan-header { padding-top: 4rem; }
+}

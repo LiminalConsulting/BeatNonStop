@@ -4,928 +4,333 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beat Nonstop — Lua Nova | Event Plan</title>
-  <style>
-    :root {
-      --bg:        #080810;
-      --surface:   #0f0f1a;
-      --surface2:  #161626;
-      --border:    #1e1e35;
-      --border2:   #2a2a48;
-      --cyan:      #4de8d8;
-      --violet:    #8b5cf6;
-      --pink:      #d946ef;
-      --text:      #e2e2f0;
-      --muted:     #6b6b8a;
-      --green:     #34d399;
-      --red:       #f87171;
-      --grad:      linear-gradient(135deg, var(--cyan), var(--violet), var(--pink));
-      --grad-h:    linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    /* ── LANG SWITCHER ── */
-    .lang-bar {
-      position: fixed;
-      top: 1rem;
-      right: 1.25rem;
-      z-index: 100;
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .lang-btn {
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: 6px;
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      padding: 0.35rem 0.7rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .lang-btn:hover { border-color: var(--violet); color: var(--text); }
-
-    .lang-btn.active {
-      background: var(--grad-h);
-      border-color: transparent;
-      color: var(--bg);
-    }
-
-    /* hide/show by lang */
-    [data-lang="pt"] { display: none; }
-    body.pt [data-lang="pt"] { display: revert; }
-    body.pt [data-lang="en"] { display: none; }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero img.banner {
-      width: 100%;
-      display: block;
-      max-height: 320px;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 60%;
-      background: linear-gradient(to top, var(--bg), transparent);
-      pointer-events: none;
-    }
-
-    /* ── HEADER ── */
-    header {
-      text-align: center;
-      padding: 1.5rem 2rem 2rem;
-    }
-
-    header .label {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--violet);
-      margin-bottom: 0.6rem;
-    }
-
-    header h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    header .subtitle {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-      letter-spacing: 0.03em;
-    }
-
-    .divider {
-      width: 120px;
-      height: 2px;
-      background: var(--grad-h);
-      border-radius: 2px;
-      margin: 1.25rem auto;
-      opacity: 0.6;
-    }
-
-    header .meta {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    header .meta-item {
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: 6px;
-      padding: 0.45rem 1rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    header .meta-item span {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 700;
-    }
-
-    /* ── GRID ── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.25rem;
-      max-width: 1400px;
-      margin: 2rem auto 0;
-      padding: 0 2rem 3rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border2);
-      border-radius: 14px;
-      padding: 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: var(--grad-h);
-      opacity: 0.4;
-    }
-
-    .card.full-width { grid-column: 1 / -1; }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .card-icon { font-size: 1.2rem; }
-
-    .card-title {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ── COUNTDOWN ── */
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.75rem 0;
-      flex-wrap: wrap;
-    }
-
-    .countdown-unit { text-align: center; }
-
-    .countdown-unit .num {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 12px rgba(77,232,216,0.3));
-    }
-
-    .countdown-unit .unit {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    /* ── TIMELINE ── */
-    .timeline {
-      position: relative;
-      padding-left: 1.5rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0.42rem;
-      top: 0.5rem;
-      bottom: 0.5rem;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--cyan), var(--violet), var(--pink));
-      opacity: 0.3;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 1.25rem;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -1.27rem;
-      top: 0.42rem;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--border2);
-      border: 2px solid var(--bg);
-    }
-
-    .timeline-item.active::before {
-      background: var(--cyan);
-      box-shadow: 0 0 10px var(--cyan);
-    }
-
-    .timeline-item.done::before { background: var(--green); }
-
-    .timeline-week {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--violet);
-      margin-bottom: 0.15rem;
-    }
-
-    .timeline-task { font-size: 0.88rem; color: var(--text); }
-    .timeline-item.done .timeline-task { color: var(--muted); text-decoration: line-through; }
-
-    /* ── TABLES ── */
-    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-
-    th {
-      text-align: left;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 0.45rem 0.75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: var(--surface2); }
-
-    /* ── BADGES ── */
-    .badge {
-      display: inline-block;
-      padding: 0.15rem 0.55rem;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-
-    .badge-cyan   { background: rgba(77,232,216,0.12);  color: var(--cyan); }
-    .badge-violet { background: rgba(139,92,246,0.15);  color: #a78bfa; }
-    .badge-green  { background: rgba(52,211,153,0.12);  color: var(--green); }
-
-    /* ── BUDGET ── */
-    .budget-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 1rem;
-    }
-
-    .budget-label { font-size: 0.88rem; }
-
-    .budget-bar {
-      background: var(--surface2);
-      border-radius: 4px;
-      height: 5px;
-      margin-top: 0.4rem;
-      overflow: hidden;
-      width: 100%;
-      max-width: 200px;
-    }
-
-    .budget-fill { height: 100%; border-radius: 4px; background: var(--grad-h); }
-
-    .budget-amount {
-      font-weight: 700;
-      font-size: 0.95rem;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      white-space: nowrap;
-      margin-left: 1rem;
-      flex-shrink: 0;
-    }
-
-    .profit-box {
-      background: rgba(52,211,153,0.07);
-      border: 1px solid rgba(52,211,153,0.25);
-      border-radius: 10px;
-      padding: 1rem;
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .profit-box .profit-label {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--green);
-    }
-
-    .profit-box .profit-num {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--green);
-      filter: drop-shadow(0 0 8px rgba(52,211,153,0.4));
-    }
-
-    /* ── CHECKLIST ── */
-    .checklist { list-style: none; }
-
-    .checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 0.55rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
-    }
-
-    .checklist li:last-child { border-bottom: none; }
-
-    .check {
-      width: 17px;
-      height: 17px;
-      border-radius: 4px;
-      border: 1.5px solid var(--border2);
-      flex-shrink: 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 3px;
-      transition: all 0.2s;
-    }
-
-    .check:hover { border-color: var(--cyan); }
-
-    .check.done { background: var(--grad-h); border-color: transparent; }
-    .check.done::after { content: '✓'; font-size: 10px; color: var(--bg); font-weight: 800; }
-
-    .checklist li.checked .task-text { color: var(--muted); text-decoration: line-through; }
-
-    /* ── VIP ── */
-    .vip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 0.85rem;
-    }
-
-    .vip-card {
-      background: var(--surface2);
-      border: 1px solid var(--border2);
-      border-radius: 10px;
-      padding: 1.1rem;
-      text-align: center;
-    }
-
-    .vip-card.featured {
-      border-color: var(--violet);
-      box-shadow: 0 0 20px rgba(139,92,246,0.15);
-    }
-
-    .vip-card .vip-size {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .vip-card .vip-price {
-      font-size: 1.7rem;
-      font-weight: 800;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .vip-card .vip-includes {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
-      line-height: 1.6;
-    }
-
-    /* ── PROVIDERS ── */
-    .provider-card {
-      background: var(--surface2);
-      border: 1px solid var(--border2);
-      border-radius: 10px;
-      padding: 1.1rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .provider-card.recommended {
-      border-color: var(--cyan);
-      box-shadow: 0 0 20px rgba(77,232,216,0.1);
-    }
-
-    .provider-name { font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
-    .provider-fee { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
-    .provider-pros { font-size: 0.78rem; color: var(--muted); margin-top: 0.45rem; line-height: 1.6; }
-
-    /* ── MERCH ── */
-    .merch-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.7rem 0;
-      border-bottom: 1px solid var(--border);
-      gap: 1rem;
-    }
-
-    .merch-item:last-child { border-bottom: none; }
-    .merch-name { font-weight: 600; font-size: 0.9rem; }
-    .merch-detail { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
-    .merch-prices { text-align: right; flex-shrink: 0; }
-
-    .merch-prices .sell {
-      font-weight: 700;
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .merch-prices .margin { font-size: 0.75rem; color: var(--green); }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 1.5rem 2rem 2.5rem;
-      color: var(--muted);
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-  </style>
+  <meta name="description" content="Beat Nonstop — Lua Nova event planning dashboard." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/design-system.css" />
+  <link rel="stylesheet" href="styles/planning.css" />
 </head>
 <body>
 
-<!-- LANG SWITCHER -->
-<div class="lang-bar">
+<!-- LANG TOGGLE -->
+<div class="plan-lang">
   <button class="lang-btn active" onclick="setLang('en')">EN</button>
   <button class="lang-btn" onclick="setLang('pt')">PT</button>
 </div>
 
-<!-- HERO BANNER -->
-<div class="hero">
-  <img class="banner" src="Banner futurista com ondas sonoras.PNG" alt="Beat Nonstop — Lua Nova" />
-</div>
-
 <!-- HEADER -->
-<header>
-  <div class="label">
+<header class="plan-header">
+  <h1>Beat Nonstop</h1>
+  <div class="plan-subtitle">
     <span data-lang="en">Event Planning Dashboard</span>
     <span data-lang="pt">Painel de Planeamento do Evento</span>
   </div>
-  <h1>Beat Nonstop — Lua Nova</h1>
-  <div class="subtitle">Ribeira da Neiva, Vila Verde, Braga &nbsp;·&nbsp; 18:00 → 04:00</div>
-  <div class="divider"></div>
-  <div class="meta">
-    <div class="meta-item">
-      <span data-lang="en">Date </span><span data-lang="pt">Data </span><span>16 Mai 2026</span>
-    </div>
-    <div class="meta-item">
-      <span data-lang="en">Capacity </span><span data-lang="pt">Capacidade </span><span>2.000</span>
-    </div>
-    <div class="meta-item">
-      <span data-lang="en">Artists </span><span data-lang="pt">Artistas </span><span>~8</span>
-    </div>
-    <div class="meta-item">
-      <span data-lang="en">Budget </span><span data-lang="pt">Orçamento </span><span>€10.000</span>
-    </div>
+  <div class="plan-meta">
+    <div class="plan-meta-item"><span data-lang="en">Date </span><span data-lang="pt">Data </span><strong>16 Mai 2026</strong></div>
+    <div class="plan-meta-item"><span data-lang="en">Capacity </span><span data-lang="pt">Capacidade </span><strong>2.000</strong></div>
+    <div class="plan-meta-item"><span data-lang="en">Artists </span><span data-lang="pt">Artistas </span><strong>~8</strong></div>
+    <div class="plan-meta-item"><span data-lang="en">Budget </span><span data-lang="pt">Orcamento </span><strong>&euro;10.000</strong></div>
   </div>
 </header>
 
-<div class="grid">
+<div class="plan-grid">
 
   <!-- COUNTDOWN -->
-  <div class="card full-width" style="text-align:center">
-    <div class="card-header" style="justify-content:center;border-bottom:none;margin-bottom:0.5rem;padding-bottom:0">
-      <span class="card-icon">🌑</span>
-      <span class="card-title">
+  <div class="plan-card full-width" style="text-align:center">
+    <div class="plan-card-header" style="justify-content:center;border-bottom:none;padding-bottom:0">
+      <span class="plan-card-title">
         <span data-lang="en">Time Until Lua Nova</span>
-        <span data-lang="pt">Tempo até à Lua Nova</span>
+        <span data-lang="pt">Tempo ate a Lua Nova</span>
       </span>
     </div>
-    <div class="countdown" id="countdown">
-      <div class="countdown-unit">
-        <div class="num" id="cd-days">--</div>
-        <div class="unit"><span data-lang="en">Days</span><span data-lang="pt">Dias</span></div>
+    <div class="plan-countdown" id="countdown">
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-days">--</div>
+        <div class="cd-label"><span data-lang="en">Days</span><span data-lang="pt">Dias</span></div>
       </div>
-      <div class="countdown-unit">
-        <div class="num" id="cd-hours">--</div>
-        <div class="unit"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span></div>
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-hours">--</div>
+        <div class="cd-label"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span></div>
       </div>
-      <div class="countdown-unit">
-        <div class="num" id="cd-min">--</div>
-        <div class="unit"><span data-lang="en">Minutes</span><span data-lang="pt">Minutos</span></div>
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-min">--</div>
+        <div class="cd-label"><span data-lang="en">Minutes</span><span data-lang="pt">Minutos</span></div>
       </div>
-      <div class="countdown-unit">
-        <div class="num" id="cd-sec">--</div>
-        <div class="unit"><span data-lang="en">Seconds</span><span data-lang="pt">Segundos</span></div>
+      <div class="cd-unit">
+        <div class="cd-num" id="cd-sec">--</div>
+        <div class="cd-label"><span data-lang="en">Seconds</span><span data-lang="pt">Segundos</span></div>
       </div>
     </div>
   </div>
 
   <!-- TIMELINE -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">📅</span>
-      <span class="card-title">
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">37-Day Timeline</span>
         <span data-lang="pt">Cronograma de 37 Dias</span>
       </span>
     </div>
-    <div class="timeline">
-
-      <div class="timeline-item active">
-        <div class="timeline-week">
-          <span data-lang="en">Week 1 — Now</span>
-          <span data-lang="pt">Semana 1 — Agora</span>
-        </div>
-        <div class="timeline-task">
-          <span data-lang="en">Set up Shotgun/Billetto · Launch Early Bird (200 spots @ €12) · Create event page</span>
-          <span data-lang="pt">Criar conta Shotgun/Billetto · Lançar Early Bird (200 lugares @ €12) · Criar página do evento</span>
-        </div>
+    <div class="plan-timeline">
+      <div class="tl-item active">
+        <div class="tl-week"><span data-lang="en">Week 1 — Now</span><span data-lang="pt">Semana 1 — Agora</span></div>
+        <div class="tl-task"><span data-lang="en">Set up Shotgun/Billetto &middot; Launch Early Bird (200 spots @ &euro;12) &middot; Create event page</span><span data-lang="pt">Criar conta Shotgun/Billetto &middot; Lancar Early Bird (200 lugares @ &euro;12) &middot; Criar pagina do evento</span></div>
       </div>
-
-      <div class="timeline-item upcoming">
-        <div class="timeline-week">
-          <span data-lang="en">Week 2 — Apr 16</span>
-          <span data-lang="pt">Semana 2 — 16 Abr</span>
-        </div>
-        <div class="timeline-task">
-          <span data-lang="en">Social media team starts posting · Artist teaser reveals · Location visuals</span>
-          <span data-lang="pt">Equipa de redes sociais começa a publicar · Teasers de artistas · Visuais do local</span>
-        </div>
+      <div class="tl-item">
+        <div class="tl-week"><span data-lang="en">Week 2 — Apr 16</span><span data-lang="pt">Semana 2 — 16 Abr</span></div>
+        <div class="tl-task"><span data-lang="en">Social media team starts posting &middot; Artist teaser reveals &middot; Location visuals</span><span data-lang="pt">Equipa de redes sociais comeca a publicar &middot; Teasers de artistas &middot; Visuais do local</span></div>
       </div>
-
-      <div class="timeline-item upcoming">
-        <div class="timeline-week">
-          <span data-lang="en">Week 3 — Apr 23</span>
-          <span data-lang="pt">Semana 3 — 23 Abr</span>
-        </div>
-        <div class="timeline-task">
-          <span data-lang="en">Close Early Bird · Push Standard (€18) · VIP table push begins · Order merch</span>
-          <span data-lang="pt">Fechar Early Bird · Impulsionar bilhetes Standard (€18) · Início da venda VIP · Encomendar merch</span>
-        </div>
+      <div class="tl-item">
+        <div class="tl-week"><span data-lang="en">Week 3 — Apr 23</span><span data-lang="pt">Semana 3 — 23 Abr</span></div>
+        <div class="tl-task"><span data-lang="en">Close Early Bird &middot; Push Standard (&euro;18) &middot; VIP table push begins &middot; Order merch</span><span data-lang="pt">Fechar Early Bird &middot; Impulsionar bilhetes Standard (&euro;18) &middot; Inicio da venda VIP &middot; Encomendar merch</span></div>
       </div>
-
-      <div class="timeline-item upcoming">
-        <div class="timeline-week">
-          <span data-lang="en">Week 4 — Apr 30</span>
-          <span data-lang="pt">Semana 4 — 30 Abr</span>
-        </div>
-        <div class="timeline-task">
-          <span data-lang="en">Full lineup reveal · Merch available online · Invite Mykina · Pre-event barbecue confirmed</span>
-          <span data-lang="pt">Revelação do alinhamento completo · Merch disponível online · Convidar Mykina · Barbecue pré-evento confirmado</span>
-        </div>
+      <div class="tl-item">
+        <div class="tl-week"><span data-lang="en">Week 4 — Apr 30</span><span data-lang="pt">Semana 4 — 30 Abr</span></div>
+        <div class="tl-task"><span data-lang="en">Full lineup reveal &middot; Merch available online &middot; Invite Mykina &middot; Pre-event barbecue confirmed</span><span data-lang="pt">Revelacao do alinhamento completo &middot; Merch disponivel online &middot; Convidar Mykina &middot; Barbecue pre-evento confirmado</span></div>
       </div>
-
-      <div class="timeline-item upcoming">
-        <div class="timeline-week">
-          <span data-lang="en">Week 5 — May 7</span>
-          <span data-lang="pt">Semana 5 — 7 Mai</span>
-        </div>
-        <div class="timeline-task">
-          <span data-lang="en">"X tickets remaining" urgency campaign · Highlight door price (€25) · Final social push</span>
-          <span data-lang="pt">Campanha de urgência "X bilhetes restantes" · Destaque para bilhete à porta (€25) · Push final nas redes</span>
-        </div>
+      <div class="tl-item">
+        <div class="tl-week"><span data-lang="en">Week 5 — May 7</span><span data-lang="pt">Semana 5 — 7 Mai</span></div>
+        <div class="tl-task"><span data-lang="en">"X tickets remaining" urgency campaign &middot; Highlight door price (&euro;25) &middot; Final social push</span><span data-lang="pt">Campanha de urgencia "X bilhetes restantes" &middot; Destaque para bilhete a porta (&euro;25) &middot; Push final nas redes</span></div>
       </div>
-
-      <div class="timeline-item upcoming">
-        <div class="timeline-week">
-          <span data-lang="en">May 15 — Eve</span>
-          <span data-lang="pt">15 Mai — Véspera</span>
-        </div>
-        <div class="timeline-task">
-          <span data-lang="en">Pre-sale closes · Final headcount · Logistics locked · Crew briefing</span>
-          <span data-lang="pt">Pré-venda encerra · Contagem final · Logística fechada · Briefing à equipa</span>
-        </div>
+      <div class="tl-item">
+        <div class="tl-week"><span data-lang="en">May 15 — Eve</span><span data-lang="pt">15 Mai — Vespera</span></div>
+        <div class="tl-task"><span data-lang="en">Pre-sale closes &middot; Final headcount &middot; Logistics locked &middot; Crew briefing</span><span data-lang="pt">Pre-venda encerra &middot; Contagem final &middot; Logistica fechada &middot; Briefing a equipa</span></div>
       </div>
-
-      <div class="timeline-item upcoming" style="margin-bottom:0">
-        <div class="timeline-week" style="color:var(--cyan)">
-          <span data-lang="en">May 16 — Event Day 🎉</span>
-          <span data-lang="pt">16 Mai — Dia do Evento 🎉</span>
-        </div>
-        <div class="timeline-task">
-          <span data-lang="en">Doors 18:00 · Party until 03:00–04:00</span>
-          <span data-lang="pt">Portas às 18:00 · Festa até às 03:00–04:00</span>
-        </div>
+      <div class="tl-item" style="margin-bottom:0">
+        <div class="tl-week" style="color:var(--color-accent-bright)"><span data-lang="en">May 16 — Event Day</span><span data-lang="pt">16 Mai — Dia do Evento</span></div>
+        <div class="tl-task"><span data-lang="en">Doors 18:00 &middot; Party until 03:00-04:00</span><span data-lang="pt">Portas as 18:00 &middot; Festa ate as 03:00-04:00</span></div>
       </div>
-
     </div>
   </div>
 
   <!-- CHECKLIST -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">✅</span>
-      <span class="card-title">
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">Action Checklist</span>
-        <span data-lang="pt">Lista de Ações</span>
+        <span data-lang="pt">Lista de Acoes</span>
       </span>
     </div>
-    <ul class="checklist" id="checklist">
-      <li data-id="0"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Sign up on Shotgun or Billetto</span><span data-lang="pt">Criar conta no Shotgun ou Billetto</span></span></li>
-      <li data-id="1"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Create event page with full info</span><span data-lang="pt">Criar página do evento com toda a informação</span></span></li>
-      <li data-id="2"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Launch Early Bird tickets (200 max @ €12)</span><span data-lang="pt">Lançar bilhetes Early Bird (máx. 200 @ €12)</span></span></li>
-      <li data-id="3"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Set up VIP table packages</span><span data-lang="pt">Configurar pacotes de mesa VIP</span></span></li>
-      <li data-id="4"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Brief social media team with event link</span><span data-lang="pt">Informar equipa de redes sociais com o link do evento</span></span></li>
-      <li data-id="5"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Design t-shirt / merch artwork</span><span data-lang="pt">Criar design da t-shirt / merch</span></span></li>
-      <li data-id="6"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Find local Braga printer or use Printful</span><span data-lang="pt">Encontrar gráfica local em Braga ou usar Printful</span></span></li>
-      <li data-id="7"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Confirm all ~8 artists on lineup</span><span data-lang="pt">Confirmar todos os ~8 artistas do alinhamento</span></span></li>
-      <li data-id="8"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Invite Mykina + confirm barbecue</span><span data-lang="pt">Convidar Mykina + confirmar barbecue</span></span></li>
-      <li data-id="9"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Book security team</span><span data-lang="pt">Contratar equipa de segurança</span></span></li>
-      <li data-id="10"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Confirm stage, lights, CO2, screens production</span><span data-lang="pt">Confirmar palco, luzes, CO2 e ecrãs</span></span></li>
-      <li data-id="11"><div class="check" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Sort bottle/snack suppliers for VIP tables</span><span data-lang="pt">Arranjar fornecedores de bebidas/snacks para mesas VIP</span></span></li>
+    <ul class="plan-checklist" id="checklist">
+      <li data-id="0"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Sign up on Shotgun or Billetto</span><span data-lang="pt">Criar conta no Shotgun ou Billetto</span></span></li>
+      <li data-id="1"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Create event page with full info</span><span data-lang="pt">Criar pagina do evento com toda a informacao</span></span></li>
+      <li data-id="2"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Launch Early Bird tickets (200 max @ &euro;12)</span><span data-lang="pt">Lancar bilhetes Early Bird (max. 200 @ &euro;12)</span></span></li>
+      <li data-id="3"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Set up VIP table packages</span><span data-lang="pt">Configurar pacotes de mesa VIP</span></span></li>
+      <li data-id="4"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Brief social media team with event link</span><span data-lang="pt">Informar equipa de redes sociais com o link do evento</span></span></li>
+      <li data-id="5"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Design t-shirt / merch artwork</span><span data-lang="pt">Criar design da t-shirt / merch</span></span></li>
+      <li data-id="6"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Find local Braga printer or use Printful</span><span data-lang="pt">Encontrar grafica local em Braga ou usar Printful</span></span></li>
+      <li data-id="7"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Confirm all ~8 artists on lineup</span><span data-lang="pt">Confirmar todos os ~8 artistas do alinhamento</span></span></li>
+      <li data-id="8"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Invite Mykina + confirm barbecue</span><span data-lang="pt">Convidar Mykina + confirmar barbecue</span></span></li>
+      <li data-id="9"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Book security team</span><span data-lang="pt">Contratar equipa de seguranca</span></span></li>
+      <li data-id="10"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Confirm stage, lights, CO2, screens production</span><span data-lang="pt">Confirmar palco, luzes, CO2 e ecras</span></span></li>
+      <li data-id="11"><div class="check-box" onclick="toggleCheck(this)"></div><span class="task-text"><span data-lang="en">Sort bottle/snack suppliers for VIP tables</span><span data-lang="pt">Arranjar fornecedores de bebidas/snacks para mesas VIP</span></span></li>
     </ul>
   </div>
 
   <!-- TICKET PRICING -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">🎟️</span>
-      <span class="card-title">
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">Ticket Pricing</span>
-        <span data-lang="pt">Preços dos Bilhetes</span>
+        <span data-lang="pt">Precos dos Bilhetes</span>
       </span>
     </div>
     <table>
       <thead>
         <tr>
           <th><span data-lang="en">Tier</span><span data-lang="pt">Tipo</span></th>
-          <th><span data-lang="en">Price</span><span data-lang="pt">Preço</span></th>
+          <th><span data-lang="en">Price</span><span data-lang="pt">Preco</span></th>
           <th><span data-lang="en">Notes</span><span data-lang="pt">Notas</span></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Early Bird &nbsp;<span class="badge badge-green"><span data-lang="en">Limited 200</span><span data-lang="pt">Limitado 200</span></span></td>
-          <td style="font-weight:700">€12</td>
-          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Launch now · creates urgency</span><span data-lang="pt">Lançar agora · cria urgência</span></td>
+          <td>Early Bird <span class="badge badge-done"><span data-lang="en">Limited 200</span><span data-lang="pt">Limitado 200</span></span></td>
+          <td>&euro;12</td>
+          <td style="color:var(--color-moon-dim);font-size:0.75rem"><span data-lang="en">Launch now &middot; creates urgency</span><span data-lang="pt">Lancar agora &middot; cria urgencia</span></td>
         </tr>
         <tr>
-          <td><span data-lang="en">Standard Pre-sale</span><span data-lang="pt">Pré-venda Standard</span></td>
-          <td style="font-weight:700">€18</td>
-          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Main volume driver</span><span data-lang="pt">Principal motor de vendas</span></td>
+          <td><span data-lang="en">Standard Pre-sale</span><span data-lang="pt">Pre-venda Standard</span></td>
+          <td>&euro;18</td>
+          <td style="color:var(--color-moon-dim);font-size:0.75rem"><span data-lang="en">Main volume driver</span><span data-lang="pt">Principal motor de vendas</span></td>
         </tr>
         <tr>
           <td><span data-lang="en">Door</span><span data-lang="pt">Porta</span></td>
-          <td style="font-weight:700">€25</td>
-          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Walk-ins + cash flow</span><span data-lang="pt">Entrada direta + cash flow</span></td>
+          <td>&euro;25</td>
+          <td style="color:var(--color-moon-dim);font-size:0.75rem"><span data-lang="en">Walk-ins + cash flow</span><span data-lang="pt">Entrada direta + cash flow</span></td>
         </tr>
         <tr>
           <td><span data-lang="en">Ticket + T-shirt Bundle</span><span data-lang="pt">Bilhete + T-shirt</span></td>
-          <td style="font-weight:700">€30</td>
-          <td style="color:var(--muted);font-size:0.8rem"><span data-lang="en">Saves buyer €13</span><span data-lang="pt">Poupa €13 ao comprador</span></td>
+          <td>&euro;30</td>
+          <td style="color:var(--color-moon-dim);font-size:0.75rem"><span data-lang="en">Saves buyer &euro;13</span><span data-lang="pt">Poupa &euro;13 ao comprador</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <!-- VIP PACKAGES -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">👑</span>
-      <span class="card-title">
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">VIP Table Packages</span>
         <span data-lang="pt">Pacotes de Mesa VIP</span>
       </span>
     </div>
-    <div class="vip-grid">
-      <div class="vip-card">
-        <div class="vip-size"><span data-lang="en">Table for 4</span><span data-lang="pt">Mesa para 4</span></div>
-        <div class="vip-price">€200</div>
-        <div class="vip-includes">
-          <span data-lang="en">4 tickets<br>1 bottle<br>Mixer tray<br>Snack platter</span>
-          <span data-lang="pt">4 bilhetes<br>1 garrafa<br>Tabuleiro de mistura<br>Snacks</span>
-        </div>
+    <div class="plan-vip-grid">
+      <div class="plan-vip-card">
+        <div class="plan-vip-size"><span data-lang="en">Table for 4</span><span data-lang="pt">Mesa para 4</span></div>
+        <div class="plan-vip-price">&euro;200</div>
+        <div class="plan-vip-includes"><span data-lang="en">4 tickets<br>1 bottle<br>Mixer tray<br>Snack platter</span><span data-lang="pt">4 bilhetes<br>1 garrafa<br>Tabuleiro de mistura<br>Snacks</span></div>
       </div>
-      <div class="vip-card featured">
-        <div class="vip-size"><span data-lang="en">Table for 6 ★</span><span data-lang="pt">Mesa para 6 ★</span></div>
-        <div class="vip-price">€280</div>
-        <div class="vip-includes">
-          <span data-lang="en">6 tickets<br>2 bottles<br>2 mixer trays<br>Snack platter</span>
-          <span data-lang="pt">6 bilhetes<br>2 garrafas<br>2 tabuleiros<br>Snacks</span>
-        </div>
+      <div class="plan-vip-card">
+        <div class="plan-vip-size"><span data-lang="en">Table for 6</span><span data-lang="pt">Mesa para 6</span></div>
+        <div class="plan-vip-price">&euro;280</div>
+        <div class="plan-vip-includes"><span data-lang="en">6 tickets<br>2 bottles<br>2 mixer trays<br>Snack platter</span><span data-lang="pt">6 bilhetes<br>2 garrafas<br>2 tabuleiros<br>Snacks</span></div>
       </div>
-      <div class="vip-card">
-        <div class="vip-size"><span data-lang="en">Table for 10</span><span data-lang="pt">Mesa para 10</span></div>
-        <div class="vip-price">€420</div>
-        <div class="vip-includes">
-          <span data-lang="en">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</span>
-          <span data-lang="pt">10 bilhetes<br>3 garrafas<br>Mesa completa<br>Entrada prioritária</span>
-        </div>
+      <div class="plan-vip-card">
+        <div class="plan-vip-size"><span data-lang="en">Table for 10</span><span data-lang="pt">Mesa para 10</span></div>
+        <div class="plan-vip-price">&euro;420</div>
+        <div class="plan-vip-includes"><span data-lang="en">10 tickets<br>3 bottles<br>Full spread<br>Priority entry</span><span data-lang="pt">10 bilhetes<br>3 garrafas<br>Mesa completa<br>Entrada prioritaria</span></div>
       </div>
     </div>
-    <div style="margin-top:1rem;font-size:0.78rem;color:var(--muted)">
-      <span data-lang="en">Add-ons: Extra bottle €40 &nbsp;·&nbsp; Snack platter €20 &nbsp;·&nbsp; Reserved parking €10</span>
-      <span data-lang="pt">Extras: Garrafa adicional €40 &nbsp;·&nbsp; Snacks €20 &nbsp;·&nbsp; Estacionamento reservado €10</span>
+    <div style="margin-top:var(--space-xs);font-family:var(--font-body);font-size:0.72rem;color:var(--color-moon-dim)">
+      <span data-lang="en">Add-ons: Extra bottle &euro;40 &middot; Snack platter &euro;20 &middot; Reserved parking &euro;10</span>
+      <span data-lang="pt">Extras: Garrafa adicional &euro;40 &middot; Snacks &euro;20 &middot; Estacionamento reservado &euro;10</span>
     </div>
   </div>
 
   <!-- BUDGET -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">💶</span>
-      <span class="card-title">
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">Revenue Projection</span>
-        <span data-lang="pt">Projeção de Receitas</span>
+        <span data-lang="pt">Projecao de Receitas</span>
       </span>
     </div>
-
     <div class="budget-row">
       <div style="flex:1">
-        <div class="budget-label"><span data-lang="en">400× Early Bird @ €12</span><span data-lang="pt">400× Early Bird @ €12</span></div>
+        <div class="budget-label"><span data-lang="en">400x Early Bird @ &euro;12</span><span data-lang="pt">400x Early Bird @ &euro;12</span></div>
         <div class="budget-bar"><div class="budget-fill" style="width:20%"></div></div>
       </div>
-      <div class="budget-amount">€4.800</div>
+      <div class="budget-amount">&euro;4.800</div>
     </div>
     <div class="budget-row">
       <div style="flex:1">
-        <div class="budget-label"><span data-lang="en">500× Standard @ €18</span><span data-lang="pt">500× Standard @ €18</span></div>
+        <div class="budget-label"><span data-lang="en">500x Standard @ &euro;18</span><span data-lang="pt">500x Standard @ &euro;18</span></div>
         <div class="budget-bar"><div class="budget-fill" style="width:38%"></div></div>
       </div>
-      <div class="budget-amount">€9.000</div>
+      <div class="budget-amount">&euro;9.000</div>
     </div>
     <div class="budget-row">
       <div style="flex:1">
-        <div class="budget-label"><span data-lang="en">200× Door @ €25</span><span data-lang="pt">200× Porta @ €25</span></div>
+        <div class="budget-label"><span data-lang="en">200x Door @ &euro;25</span><span data-lang="pt">200x Porta @ &euro;25</span></div>
         <div class="budget-bar"><div class="budget-fill" style="width:21%"></div></div>
       </div>
-      <div class="budget-amount">€5.000</div>
+      <div class="budget-amount">&euro;5.000</div>
     </div>
     <div class="budget-row">
       <div style="flex:1">
-        <div class="budget-label"><span data-lang="en">8 VIP Tables (avg €280)</span><span data-lang="pt">8 Mesas VIP (média €280)</span></div>
+        <div class="budget-label"><span data-lang="en">8 VIP Tables (avg &euro;280)</span><span data-lang="pt">8 Mesas VIP (media &euro;280)</span></div>
         <div class="budget-bar"><div class="budget-fill" style="width:12%"></div></div>
       </div>
-      <div class="budget-amount">€2.240</div>
+      <div class="budget-amount">&euro;2.240</div>
     </div>
     <div class="budget-row" style="margin-bottom:0">
       <div style="flex:1">
-        <div class="budget-label"><span data-lang="en">100 T-shirts @ €25</span><span data-lang="pt">100 T-shirts @ €25</span></div>
+        <div class="budget-label"><span data-lang="en">100 T-shirts @ &euro;25</span><span data-lang="pt">100 T-shirts @ &euro;25</span></div>
         <div class="budget-bar"><div class="budget-fill" style="width:11%"></div></div>
       </div>
-      <div class="budget-amount">€2.500</div>
+      <div class="budget-amount">&euro;2.500</div>
     </div>
-
-    <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;justify-content:space-between">
-      <span style="color:var(--muted);font-size:0.88rem"><span data-lang="en">Total Revenue</span><span data-lang="pt">Receita Total</span></span>
-      <span style="font-weight:700">€23.540</span>
+    <div style="margin-top:var(--space-sm);padding-top:var(--space-sm);border-top:1px solid var(--color-border);display:flex;justify-content:space-between;font-family:var(--font-body)">
+      <span style="color:var(--color-moon-dim);font-size:0.82rem"><span data-lang="en">Total Revenue</span><span data-lang="pt">Receita Total</span></span>
+      <span style="font-size:0.82rem">&euro;23.540</span>
     </div>
-    <div style="display:flex;justify-content:space-between;margin-top:0.3rem">
-      <span style="color:var(--muted);font-size:0.88rem"><span data-lang="en">Costs</span><span data-lang="pt">Custos</span></span>
-      <span style="color:var(--red);font-weight:700">−€10.000</span>
+    <div style="display:flex;justify-content:space-between;margin-top:0.25rem;font-family:var(--font-body)">
+      <span style="color:var(--color-moon-dim);font-size:0.82rem"><span data-lang="en">Costs</span><span data-lang="pt">Custos</span></span>
+      <span style="color:var(--color-accent);font-size:0.82rem">-&euro;10.000</span>
     </div>
-
     <div class="profit-box">
       <div class="profit-label"><span data-lang="en">Estimated Profit</span><span data-lang="pt">Lucro Estimado</span></div>
-      <div class="profit-num">€13.540</div>
+      <div class="profit-num">&euro;13.540</div>
     </div>
   </div>
 
   <!-- TICKET PROVIDER -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">🎫</span>
-      <span class="card-title">
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">Ticket Provider</span>
         <span data-lang="pt">Plataforma de Bilhetes</span>
       </span>
     </div>
-
     <div class="provider-card recommended">
-      <div class="provider-name">Shotgun &nbsp;<span class="badge badge-cyan"><span data-lang="en">Recommended</span><span data-lang="pt">Recomendado</span></span></div>
-      <div class="provider-fee"><span data-lang="en">Fee: Not publicly listed — contact directly</span><span data-lang="pt">Taxa: Não publicada — contactar diretamente</span></div>
-      <div class="provider-pros">
-        <span data-lang="en">✓ Built for electronic music &amp; festivals &nbsp;·&nbsp; ✓ Your audience already uses it &nbsp;·&nbsp; ✓ Strong social media integration &nbsp;·&nbsp; ✓ QR codes &nbsp;·&nbsp; ✓ Tiered pricing</span>
-        <span data-lang="pt">✓ Feito para música eletrónica e festivais &nbsp;·&nbsp; ✓ O teu público já usa &nbsp;·&nbsp; ✓ Forte integração nas redes sociais &nbsp;·&nbsp; ✓ Códigos QR &nbsp;·&nbsp; ✓ Preços escalonados</span>
-      </div>
+      <div class="provider-name">Shotgun <span class="badge badge-active"><span data-lang="en">Recommended</span><span data-lang="pt">Recomendado</span></span></div>
+      <div class="provider-fee"><span data-lang="en">Fee: Not publicly listed — contact directly</span><span data-lang="pt">Taxa: Nao publicada — contactar diretamente</span></div>
+      <div class="provider-pros"><span data-lang="en">Built for electronic music &amp; festivals &middot; Your audience already uses it &middot; Strong social media integration &middot; QR codes &middot; Tiered pricing</span><span data-lang="pt">Feito para musica eletronica e festivais &middot; O teu publico ja usa &middot; Forte integracao nas redes sociais &middot; Codigos QR &middot; Precos escalonados</span></div>
     </div>
-
     <div class="provider-card">
-      <div class="provider-name">Billetto &nbsp;<span class="badge badge-violet"><span data-lang="en">Runner-up</span><span data-lang="pt">Alternativa</span></span></div>
-      <div class="provider-fee"><span data-lang="en">Fee: 3.90% + ~€0.90/ticket (paid by buyer) · Payout 3–5 days</span><span data-lang="pt">Taxa: 3,90% + ~€0,90/bilhete (pago pelo comprador) · Pagamento em 3–5 dias</span></div>
-      <div class="provider-pros">
-        <span data-lang="en">✓ Lowest fees &nbsp;·&nbsp; ✓ No subscription &nbsp;·&nbsp; ✓ Simple setup &nbsp;·&nbsp; ✓ Social media tools &nbsp;·&nbsp; ✓ QR codes</span>
-        <span data-lang="pt">✓ Taxas mais baixas &nbsp;·&nbsp; ✓ Sem subscrição &nbsp;·&nbsp; ✓ Configuração simples &nbsp;·&nbsp; ✓ Ferramentas para redes sociais &nbsp;·&nbsp; ✓ Códigos QR</span>
-      </div>
+      <div class="provider-name">Billetto <span class="badge badge-pending"><span data-lang="en">Runner-up</span><span data-lang="pt">Alternativa</span></span></div>
+      <div class="provider-fee"><span data-lang="en">Fee: 3.90% + ~&euro;0.90/ticket (paid by buyer) &middot; Payout 3-5 days</span><span data-lang="pt">Taxa: 3,90% + ~&euro;0,90/bilhete (pago pelo comprador) &middot; Pagamento em 3-5 dias</span></div>
+      <div class="provider-pros"><span data-lang="en">Lowest fees &middot; No subscription &middot; Simple setup &middot; Social media tools &middot; QR codes</span><span data-lang="pt">Taxas mais baixas &middot; Sem subscricao &middot; Configuracao simples &middot; Ferramentas para redes sociais &middot; Codigos QR</span></div>
     </div>
-
-    <div style="font-size:0.78rem;color:var(--muted)">
+    <div style="font-family:var(--font-body);font-size:0.72rem;color:var(--color-moon-dim)">
       <span data-lang="en">Avoid: Ticketline, BOL, Blueticket — 6%+ fees, built for large commercial events.</span>
       <span data-lang="pt">Evitar: Ticketline, BOL, Blueticket — taxas de 6%+, criadas para grandes eventos comerciais.</span>
     </div>
   </div>
 
   <!-- MERCH -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">👕</span>
-      <span class="card-title">
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">Merch Strategy</span>
-        <span data-lang="pt">Estratégia de Merch</span>
+        <span data-lang="pt">Estrategia de Merch</span>
       </span>
     </div>
-
     <div class="merch-item">
       <div>
         <div class="merch-name"><span data-lang="en">Oversize T-shirt — Black</span><span data-lang="pt">T-shirt Oversize — Preta</span></div>
-        <div class="merch-detail"><span data-lang="en">Lua Nova / Beat Nonstop print · 100–150 units · Local Braga printer or Printful</span><span data-lang="pt">Estampa Lua Nova / Beat Nonstop · 100–150 unidades · Gráfica local em Braga ou Printful</span></div>
+        <div class="merch-detail"><span data-lang="en">Lua Nova / Beat Nonstop print &middot; 100-150 units &middot; Local Braga printer or Printful</span><span data-lang="pt">Estampa Lua Nova / Beat Nonstop &middot; 100-150 unidades &middot; Grafica local em Braga ou Printful</span></div>
       </div>
       <div class="merch-prices">
-        <div class="sell">€25</div>
-        <div class="margin"><span data-lang="en">~€15 margin</span><span data-lang="pt">~€15 margem</span></div>
+        <div class="merch-sell">&euro;25</div>
+        <div class="merch-margin"><span data-lang="en">~&euro;15 margin</span><span data-lang="pt">~&euro;15 margem</span></div>
       </div>
     </div>
-
     <div class="merch-item">
       <div>
         <div class="merch-name">Tote Bag</div>
-        <div class="merch-detail"><span data-lang="en">Optional · Low cost · Easy to stock at door</span><span data-lang="pt">Opcional · Baixo custo · Fácil de ter à porta</span></div>
+        <div class="merch-detail"><span data-lang="en">Optional &middot; Low cost &middot; Easy to stock at door</span><span data-lang="pt">Opcional &middot; Baixo custo &middot; Facil de ter a porta</span></div>
       </div>
       <div class="merch-prices">
-        <div class="sell">€12</div>
-        <div class="margin"><span data-lang="en">~€8 margin</span><span data-lang="pt">~€8 margem</span></div>
+        <div class="merch-sell">&euro;12</div>
+        <div class="merch-margin"><span data-lang="en">~&euro;8 margin</span><span data-lang="pt">~&euro;8 margem</span></div>
       </div>
     </div>
-
     <div class="merch-item">
       <div>
         <div class="merch-name"><span data-lang="en">Ticket + T-shirt Bundle</span><span data-lang="pt">Pack Bilhete + T-shirt</span></div>
-        <div class="merch-detail"><span data-lang="en">Upsell at checkout · Drives pre-event merch sales</span><span data-lang="pt">Upsell no checkout · Impulsiona vendas de merch antes do evento</span></div>
+        <div class="merch-detail"><span data-lang="en">Upsell at checkout &middot; Drives pre-event merch sales</span><span data-lang="pt">Upsell no checkout &middot; Impulsiona vendas de merch antes do evento</span></div>
       </div>
       <div class="merch-prices">
-        <div class="sell">€30</div>
-        <div class="margin" style="color:var(--cyan)"><span data-lang="en">saves buyer €13</span><span data-lang="pt">poupa €13 ao comprador</span></div>
+        <div class="merch-sell">&euro;30</div>
+        <div class="merch-margin"><span data-lang="en">saves buyer &euro;13</span><span data-lang="pt">poupa &euro;13 ao comprador</span></div>
       </div>
     </div>
   </div>
 
-  <!-- PRODUCTION -->
-  <div class="card">
-    <div class="card-header">
-      <span class="card-icon">🎛️</span>
-      <span class="card-title">
+  <!-- PRODUCTION STATUS -->
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
         <span data-lang="en">Production Status</span>
-        <span data-lang="pt">Estado da Produção</span>
+        <span data-lang="pt">Estado da Producao</span>
       </span>
     </div>
     <table>
@@ -936,71 +341,76 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td><span data-lang="en">Stage (large)</span><span data-lang="pt">Palco (grande)</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">Lighting rig</span><span data-lang="pt">Estrutura de luzes</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">CO2 cannons (5m jets)</span><span data-lang="pt">Canhões de CO2 (5m)</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">Smoke machines</span><span data-lang="pt">Máquinas de fumo</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">LED screens</span><span data-lang="pt">Ecrãs LED</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">Sound system</span><span data-lang="pt">Sistema de som</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">Security team</span><span data-lang="pt">Equipa de segurança</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">~8 Artists</span><span data-lang="pt">~8 Artistas</span></td><td><span class="badge badge-cyan"><span data-lang="en">In progress</span><span data-lang="pt">Em curso</span></span></td></tr>
-        <tr><td><span data-lang="en">Mykina invite</span><span data-lang="pt">Convite Mykina</span></td><td><span class="badge badge-violet"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
-        <tr><td><span data-lang="en">Pre-event barbecue</span><span data-lang="pt">Barbecue pré-evento</span></td><td><span class="badge badge-cyan"><span data-lang="en">Planned</span><span data-lang="pt">Planeado</span></span></td></tr>
-        <tr><td><span data-lang="en">Social media team</span><span data-lang="pt">Equipa de redes sociais</span></td><td><span class="badge badge-green"><span data-lang="en">Confirmed ✓</span><span data-lang="pt">Confirmado ✓</span></span></td></tr>
-        <tr><td><span data-lang="en">After movie</span><span data-lang="pt">After movie</span></td><td><span class="badge badge-green"><span data-lang="en">Confirmed ✓</span><span data-lang="pt">Confirmado ✓</span></span></td></tr>
+        <tr><td><span data-lang="en">Stage (large)</span><span data-lang="pt">Palco (grande)</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Lighting rig</span><span data-lang="pt">Estrutura de luzes</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">CO2 cannons (5m jets)</span><span data-lang="pt">Canhoes de CO2 (5m)</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Smoke machines</span><span data-lang="pt">Maquinas de fumo</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">LED screens</span><span data-lang="pt">Ecras LED</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Sound system</span><span data-lang="pt">Sistema de som</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Security team</span><span data-lang="pt">Equipa de seguranca</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">~8 Artists</span><span data-lang="pt">~8 Artistas</span></td><td><span class="badge badge-active"><span data-lang="en">In progress</span><span data-lang="pt">Em curso</span></span></td></tr>
+        <tr><td><span data-lang="en">Mykina invite</span><span data-lang="pt">Convite Mykina</span></td><td><span class="badge badge-pending"><span data-lang="en">To confirm</span><span data-lang="pt">A confirmar</span></span></td></tr>
+        <tr><td><span data-lang="en">Pre-event barbecue</span><span data-lang="pt">Barbecue pre-evento</span></td><td><span class="badge badge-active"><span data-lang="en">Planned</span><span data-lang="pt">Planeado</span></span></td></tr>
+        <tr><td><span data-lang="en">Social media team</span><span data-lang="pt">Equipa de redes sociais</span></td><td><span class="badge badge-done"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+        <tr><td><span data-lang="en">After movie</span><span data-lang="pt">After movie</span></td><td><span class="badge badge-done"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
       </tbody>
     </table>
   </div>
 
 </div>
 
-<footer>
-  Beat Nonstop — Lua Nova &nbsp;·&nbsp; Ribeira da Neiva &nbsp;·&nbsp;
-  <span data-lang="en">May 16, 2026</span>
-  <span data-lang="pt">16 de Maio de 2026</span>
+<!-- FOOTER -->
+<footer class="plan-footer">
+  <span>Beat Nonstop — Lua Nova &middot; Ribeira da Neiva &middot;
+    <span data-lang="en">May 16, 2026</span>
+    <span data-lang="pt">16 de Maio de 2026</span>
+  </span>
 </footer>
 
 <script>
-  // ── LANGUAGE ──
-  const LANG_KEY = 'bns_lang';
+  // Language
+  var LANG_KEY = 'bns_lang';
   function setLang(lang) {
     document.body.classList.toggle('pt', lang === 'pt');
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase());
+    });
     localStorage.setItem(LANG_KEY, lang);
   }
   setLang(localStorage.getItem(LANG_KEY) || 'en');
 
-  // ── COUNTDOWN ──
+  // Countdown
   function updateCountdown() {
-    const event = new Date('2026-05-16T18:00:00');
-    const diff = event - new Date();
-    if (diff <= 0) {
-      document.getElementById('countdown').innerHTML = '<div style="font-size:2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">🎉 Tonight\'s the night!</div>';
-      return;
-    }
-    document.getElementById('cd-days').textContent  = String(Math.floor(diff / 86400000)).padStart(2,'0');
-    document.getElementById('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
-    document.getElementById('cd-min').textContent   = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
-    document.getElementById('cd-sec').textContent   = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
+    var diff = new Date('2026-05-16T18:00:00') - new Date();
+    if (diff <= 0) return;
+    var el;
+    el = document.getElementById('cd-days');
+    if (el) el.textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    el = document.getElementById('cd-hours');
+    if (el) el.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    el = document.getElementById('cd-min');
+    if (el) el.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2,'0');
+    el = document.getElementById('cd-sec');
+    if (el) el.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2,'0');
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ── CHECKLIST ──
-  const STORAGE_KEY = 'bns_checklist_v1';
-  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-  document.querySelectorAll('#checklist li').forEach(li => {
+  // Checklist
+  var STORAGE_KEY = 'bns_checklist_v1';
+  var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  document.querySelectorAll('#checklist li').forEach(function(li) {
     if (saved[li.dataset.id]) {
-      li.querySelector('.check').classList.add('done');
+      li.querySelector('.check-box').classList.add('done');
       li.classList.add('checked');
     }
   });
 
   function toggleCheck(el) {
-    const li = el.closest('li');
-    const isDone = el.classList.toggle('done');
+    var li = el.closest('li');
+    var isDone = el.classList.toggle('done');
     li.classList.toggle('checked', isDone);
-    const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    var state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
     if (isDone) state[li.dataset.id] = true; else delete state[li.dataset.id];
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
