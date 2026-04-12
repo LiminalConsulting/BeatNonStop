@@ -26,17 +26,16 @@
   },
   "tickets": {
     "target_sales": 1000,
-    "target_notes": "1000 is aspirational/amazing outcome. Team wants to maximize — open to AI helping estimate optimal number based on all factors. More is better but must be safe.",
-    "early_bird": { "price": 12, "quantity": "~200-300, rough intuition — wants AI to help optimize tier distribution" },
-    "presale": { "price": 18, "quantity": null },
-    "door": { "price": 25 },
-    "tshirt_pack": { "price": 30 },
-    "vip_4": { "price": 200 },
-    "vip_6": { "price": 280 },
-    "vip_10": { "price": 420 },
-    "platform": "Shotgun.live (researched, with fallback identified on planning page)",
-    "launch_date": "2026-04-13 (Monday, 2 days from now)",
-    "scanning_system": "QR code scanning via Shotgun app at door, physical buyers get wristbands — need to source wristbands"
+    "target_notes": "1000 is aspirational. Team wants maximum safe attendance.",
+    "pricing_model": "FLAT — no Early Bird, no Pre-sale, no Door differentiation. Same price from launch through door.",
+    "general": { "price": 15, "note": "Flat rate, all ages 13+, unlimited quantity up to venue cap" },
+    "duo_pack": { "price": 20, "note": "Group ticket of 2 — €10 each. Uses Shotgun Group Ticket feature. Each attendee gets own QR." },
+    "vip": { "status": "DEFERRED — add after stage platform layout confirmed with vendor. Tiago needs to know platform count and size first." },
+    "tshirt_pack": { "status": "DEFERRED — launch later once merch design is finalized" },
+    "platform": "Shotgun.live via embedded widget on beatnonstop.live (own the checkout experience)",
+    "domain": "beatnonstop.live (purchased from GoDaddy, 2026-04-12)",
+    "launch_date": "2026-04-14 (Tuesday)",
+    "scanning_system": "QR code scanning via Shotgun app at door, physical buyers get wristbands"
   },
   "lineup": {
     "total_slots": 7,

@@ -76,20 +76,20 @@
     }
   },
   "income_projections": {
-    "scenario_breakeven_500_tickets": {
-      "early_bird_200_at_12": 2400,
-      "presale_300_at_18": 5400,
+    "pricing_model": "FLAT €15 per ticket. Duo Pack €20 = 2 tickets @ €10 each (blended avg ~€12-14 depending on duo uptake).",
+    "scenario_600_tickets_flat": {
+      "tickets": 600,
+      "avg_price": 13,
       "total": 7800,
-      "covers_costs": "approximately"
+      "covers_costs": "breakeven roughly"
     },
-    "scenario_target_1000_tickets": {
-      "early_bird_200_at_12": 2400,
-      "presale_600_at_18": 10800,
-      "door_200_at_25": 5000,
-      "total": 18200,
-      "net_profit_estimate": 10200
+    "scenario_1000_tickets_flat": {
+      "tickets": 1000,
+      "avg_price": 13,
+      "total": 13000,
+      "net_profit_estimate": 5000
     },
-    "note": "Assumes 70% sellthrough as baseline when reporting. Headline target 1000 = aspirational."
+    "note": "Flat pricing trades max-revenue ceiling for simplicity and early commitment. If duo uptake is high (say 40% of tickets via duo), blended avg drops toward €12. Plan conservatively on €12-13 average."
   },
   "payment_timing": {
     "before_event": {
