@@ -88,7 +88,7 @@ With the Shotgun embed code. Paste right where `<div id="shotgun-widget">` curre
 |---------|-------|
 | Event name | Beat Nonstop: Lua Nova |
 | Date | 16 May 2026, 18:00–04:00 |
-| Venue | Ribeira da Neiva, Duas Igrejas, Vila Verde |
+| Venue | Ribeira do Neiva, Duas Igrejas, Vila Verde |
 | Cover image | BNS logo (until poster is ready) |
 | Description | Paste from `generated/shotgun/event-description.md` (Portuguese) |
 | Age restriction | 13+ |

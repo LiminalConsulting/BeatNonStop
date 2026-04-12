@@ -1,0 +1,29 @@
+{
+  "_comment": "Scheduled messages the bot posts to the group. The Worker cron trigger fires every 15 min and posts any reminder whose `at` is in the past and `posted` is false.",
+  "reminders": [
+    {
+      "id": "r1",
+      "at": "2026-04-13T08:00:00+01:00",
+      "text": "🚀 Ticket launch day. Shotgun event page should go live today. Who's on it?",
+      "posted": false
+    },
+    {
+      "id": "r2",
+      "at": "2026-04-20T09:00:00+01:00",
+      "text": "⚠️ Equipment deposit (€1500) needs a plan this week. Sponsor? Founder loan? Early bird velocity?",
+      "posted": false
+    },
+    {
+      "id": "r3",
+      "at": "2026-05-09T09:00:00+01:00",
+      "text": "7 days to event. Load-in plan locked? Door staff named? First aid plan confirmed?",
+      "posted": false
+    },
+    {
+      "id": "r4",
+      "at": "2026-05-15T10:00:00+01:00",
+      "text": "Eve of event. Final headcount, crew briefing, logistics check.",
+      "posted": false
+    }
+  ]
+}

@@ -10,7 +10,7 @@ Short, direct. Portuguese first (local target). English version for internationa
 
 Olá [nome],
 
-Sou [David / Tiago] da Beat Nonstop. Dia 16 de Maio organizamos um evento de música eletrónica em Ribeira da Neiva — uma noite ao ar livre com 7 artistas (2 rappers, 5 DJs) das 18h às 4h, em parceria com a paróquia de Duas Igrejas.
+Sou [David / Tiago] da Beat Nonstop. Dia 16 de Maio organizamos um evento de música eletrónica em Ribeira do Neiva — uma noite ao ar livre com 7 artistas (2 rappers, 5 DJs) das 18h às 4h, em parceria com a paróquia de Duas Igrejas.
 
 Esperamos entre 500 e 1000 pessoas, maioritariamente da região (Vila Verde, Braga, Barcelos, Amarante) — o público exato de [nome da empresa].
 
@@ -34,7 +34,7 @@ Abraço,
 
 Hi [name],
 
-I'm [David / Tiago] from Beat Nonstop. On May 16 we're running an open-air electronic music event at Ribeira da Neiva — one night, 7 artists (2 rappers, 5 DJs), 18h to 4h, in partnership with the Duas Igrejas parish.
+I'm [David / Tiago] from Beat Nonstop. On May 16 we're running an open-air electronic music event at Ribeira do Neiva — one night, 7 artists (2 rappers, 5 DJs), 18h to 4h, in partnership with the Duas Igrejas parish.
 
 We're expecting 500–1000 attendees, mostly from the region (Vila Verde, Braga, Barcelos, Amarante) — the exact audience of [company name].
 

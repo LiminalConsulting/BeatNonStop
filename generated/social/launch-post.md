@@ -9,13 +9,13 @@ The marketing team handles the visual. These are caption variants they can draw 
 **Caption (EN)**
 Lua Nova.
 New moon. No light. Full sound.
-16 Mai · Ribeira da Neiva
+16 Mai · Ribeira do Neiva
 Early Bird €12 · Link na bio 🌑
 
 **Caption (PT)**
 Lua Nova.
 Sem luz. Som total.
-16 Mai · Ribeira da Neiva
+16 Mai · Ribeira do Neiva
 Early Bird €12 · Link na bio 🌑
 
 ---
@@ -23,7 +23,7 @@ Early Bird €12 · Link na bio 🌑
 ## Variant B — Atmospheric
 
 Dia 16 de Maio abre-se um novo ciclo.
-Ribeira da Neiva · 18h → 4h
+Ribeira do Neiva · 18h → 4h
 Dois rappers. Cinco DJs. House → techno.
 Fogo de artifício à meia-noite.
 
@@ -36,7 +36,7 @@ Link na bio.
 
 200 bilhetes Early Bird a €12.
 Depois: €18.
-16 Mai · Lua Nova · Ribeira da Neiva
+16 Mai · Lua Nova · Ribeira do Neiva
 Link na bio 🌑
 
 ---

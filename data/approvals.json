@@ -1,0 +1,4 @@
+{
+  "_comment": "Tracks votes on outbox items. Keyed by outbox item id. Builder (David) is excluded from quorum — his Telegram user ID is in worker secrets. Any 👎 blocks. 2 distinct 👍 from non-builder users executes.",
+  "votes": {}
+}

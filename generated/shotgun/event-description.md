@@ -8,7 +8,7 @@ Copy everything between the lines and paste into Shotgun's event description fie
 
 **Beat Nonstop apresenta: Lua Nova**
 
-16 de Maio · Ribeira da Neiva, Vila Verde, Braga
+16 de Maio · Ribeira do Neiva, Vila Verde, Braga
 18h → 04h · Ao ar livre
 
 Na noite mais escura do mês, sob o céu da lua nova, juntamos dois rappers e cinco DJs para abrir um novo ciclo. Do house ao techno, sem pausa. Fogo de artifício à meia-noite.
@@ -36,7 +36,7 @@ Centro de Duas Igrejas, a 2 minutos a pé.
 
 - **Event title**: Beat Nonstop: Lua Nova
 - **Date / time**: 16 May 2026, 18:00 → 17 May 2026, 04:00
-- **Venue**: Ribeira da Neiva, Duas Igrejas, Vila Verde, Braga
+- **Venue**: Ribeira do Neiva, Duas Igrejas, Vila Verde, Braga
 - **Cover image**: use the poster once finalised; until then the logo + date frame
 - **Age restriction field**: `13+` (Shotgun has this as a standard field)
 - **Refund policy**: leave as Shotgun default (no refunds except cancellation)

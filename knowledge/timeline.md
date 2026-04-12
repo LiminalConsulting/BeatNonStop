@@ -102,7 +102,7 @@ Tags: `[OWNER]` = specific human · `[TEAM]` = group decision · `[AI]` = can be
 - [ ] `[Tiago]` Confirm sound check schedule with equipment company
 
 ### May 15 (Friday) — SETUP DAY
-- [ ] `[David + Tiago]` Arrive early at Ribeira da Neiva
+- [ ] `[David + Tiago]` Arrive early at Ribeira do Neiva
 - [ ] `[Equipment company]` Full stage + sound + lights install
 - [ ] `[Community]` Decor setup (moon logo, celestial elements)
 - [ ] `[Tiago]` Sound check

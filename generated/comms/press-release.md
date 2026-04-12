@@ -9,9 +9,9 @@ For local Vila Verde / Braga / Minho press. Send after poster is public (Week 2)
 **COMUNICADO DE IMPRENSA**
 **Para publicação imediata · Abril 2026**
 
-### Beat Nonstop regressa com "Lua Nova" · Ribeira da Neiva, 16 de Maio
+### Beat Nonstop regressa com "Lua Nova" · Ribeira do Neiva, 16 de Maio
 
-Vila Verde prepara-se para receber a segunda edição da Beat Nonstop, plataforma local de música eletrónica, desta vez sob o título **Lua Nova** — um evento ao ar livre marcado para 16 de Maio na Ribeira da Neiva, em Duas Igrejas.
+Vila Verde prepara-se para receber a segunda edição da Beat Nonstop, plataforma local de música eletrónica, desta vez sob o título **Lua Nova** — um evento ao ar livre marcado para 16 de Maio na Ribeira do Neiva, em Duas Igrejas.
 
 O evento, organizado em parceria com a paróquia local de Duas Igrejas, reúne sete artistas da região — dois rappers e cinco DJs — numa programação que percorre o house até ao techno, das 18h às 4h. Está previsto fogo de artifício a meio da noite, em sincronização com os momentos-chave da atuação.
 
@@ -31,9 +31,9 @@ Contacto imprensa: [email] · [telefone]
 **PRESS RELEASE**
 **For immediate release · April 2026**
 
-### Beat Nonstop returns with "Lua Nova" · Ribeira da Neiva, May 16
+### Beat Nonstop returns with "Lua Nova" · Ribeira do Neiva, May 16
 
-Vila Verde prepares for the second edition of Beat Nonstop, a local electronic music platform, this time titled **Lua Nova** — an open-air event on May 16 at Ribeira da Neiva, Duas Igrejas.
+Vila Verde prepares for the second edition of Beat Nonstop, a local electronic music platform, this time titled **Lua Nova** — an open-air event on May 16 at Ribeira do Neiva, Duas Igrejas.
 
 Organised in partnership with the local Duas Igrejas parish, the event brings together seven artists from the region — two rappers and five DJs — running from house into techno, 18h to 4h. Fireworks are planned mid-evening, synchronised with key performance moments.
 

@@ -8,7 +8,7 @@
 
 | Time | Task | Owner |
 |------|------|-------|
-| 09:00 | David + Tiago arrive at Ribeira da Neiva | Core |
+| 09:00 | David + Tiago arrive at Ribeira do Neiva | Core |
 | 10:00 | Equipment company begins stage + sound install | Vendor |
 | 12:00 | Municipality delivers stage structure | Parish liaison |
 | 14:00 | Decor team installs moon logo + celestial props | Community |
