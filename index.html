@@ -173,18 +173,56 @@
         <span data-lang="pt">Bilhetes</span>
         <span data-lang="fr">Billets</span>
       </div>
-      <!-- Shotgun embedded checkout -->
-      <div class="shotgun-embed reveal">
-        <iframe src="https://shotgun.live/events/lua-nova?embedded=1&ui=dark&transparentBackground=1" allow="payment" style="width:100%; height:800px; max-height:calc(100vh - 200px); border:0; color-scheme:none"></iframe>
-        <div class="cta-note" style="margin-top: var(--space-sm); text-align:center;">
-          <span data-lang="en">Secure checkout · MB WAY · Card</span>
-          <span data-lang="pt">Checkout seguro · MB WAY · Cartão</span>
-          <span data-lang="fr">Paiement sécurisé · MB WAY · Carte</span>
-        </div>
+      <div class="ticket-grid reveal">
+        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
+          <div class="ticket-type">
+            <span data-lang="en">General</span>
+            <span data-lang="pt">Geral</span>
+            <span data-lang="fr">Général</span>
+          </div>
+          <div class="ticket-price">&euro;15</div>
+          <div class="ticket-note">
+            <span data-lang="en">Flat rate · all ages 13+</span>
+            <span data-lang="pt">Preço único · a partir dos 13 anos</span>
+            <span data-lang="fr">Prix unique · à partir de 13 ans</span>
+          </div>
+        </button>
+        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
+          <div class="ticket-type">
+            <span data-lang="en">Duo Pack</span>
+            <span data-lang="pt">Pack Duo</span>
+            <span data-lang="fr">Pack Duo</span>
+          </div>
+          <div class="ticket-price">&euro;20</div>
+          <div class="ticket-badge">
+            <span data-lang="en">2 tickets</span>
+            <span data-lang="pt">2 bilhetes</span>
+            <span data-lang="fr">2 billets</span>
+          </div>
+          <div class="ticket-note">
+            <span data-lang="en">&euro;10 each · bring a friend</span>
+            <span data-lang="pt">&euro;10 cada · traz um amigo</span>
+            <span data-lang="fr">10 € chacun · amène un ami</span>
+          </div>
+        </button>
       </div>
-      <script src="https://shotgun.live/widget.js"></script>
+      <div class="cta-note reveal" style="margin-top: var(--space-md); text-align:center;">
+        <span data-lang="en">Secure checkout · MB WAY · Card</span>
+        <span data-lang="pt">Checkout seguro · MB WAY · Cartão</span>
+        <span data-lang="fr">Paiement sécurisé · MB WAY · Carte</span>
+      </div>
     </div>
   </section>
+
+  <!-- ── TICKET MODAL ── -->
+  <div class="ticket-modal" id="ticket-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="ticket-modal-backdrop" data-close-modal></div>
+    <div class="ticket-modal-inner">
+      <button type="button" class="ticket-modal-close" data-close-modal aria-label="Close">×</button>
+      <iframe id="ticket-iframe" data-src="https://shotgun.live/events/lua-nova?embedded=1&ui=dark&transparentBackground=1" allow="payment" title="Shotgun checkout"></iframe>
+    </div>
+  </div>
+  <script src="https://shotgun.live/widget.js"></script>
 
   <!-- ── FOOTER ── -->
   <footer class="site-footer">
@@ -202,6 +240,7 @@
   <script src="js/scroll.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/cursor.js"></script>
+  <script src="js/tickets.js"></script>
 
 </body>
 </html>

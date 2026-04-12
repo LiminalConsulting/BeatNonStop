@@ -325,10 +325,86 @@
   border: 1px solid var(--color-border);
   padding: var(--space-md) var(--space-sm);
   text-align: center;
-  transition: border-color var(--duration-fast) ease;
+  transition: border-color var(--duration-fast) ease, background var(--duration-fast) ease;
 }
 
 .ticket-card:hover { border-color: var(--color-accent); }
+
+.ticket-trigger {
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+
+.ticket-trigger:hover { background: rgba(159, 168, 199, 0.04); }
+
+/* ── TICKET MODAL ── */
+.ticket-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+}
+
+.ticket-modal.open { display: flex; }
+
+.ticket-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 8, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ticket-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: min(85vh, 900px);
+  background: var(--color-void);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ticket-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-moon);
+  font-size: 1.3rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast) ease;
+}
+
+.ticket-modal-close:hover {
+  border-color: var(--color-moon);
+  background: var(--color-moon);
+  color: var(--color-void);
+}
+
+.ticket-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  flex: 1;
+  color-scheme: none;
+}
 
 .ticket-type {
   font-family: var(--font-body);
