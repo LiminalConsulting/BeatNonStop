@@ -1,0 +1,59 @@
+{
+  "core_organizers": [
+    {
+      "name": "David Pereira",
+      "role": "Co-lead · money, tickets, logistics, organization",
+      "responsibilities": ["money/accounts", "ticket platform", "entry door strategy", "van/transport", "cash reconciliation"],
+      "assets": ["van (father's work)", "organizational capacity"]
+    },
+    {
+      "name": "Tiago",
+      "role": "Co-lead · artists, stage, sound, music programming",
+      "responsibilities": ["artist communication", "stage + sound coordination", "set order", "artist relations"],
+      "assets": ["artist network", "aluminum/construction materials via employer", "fog machine", "DJ as Pia Zola"]
+    }
+  ],
+  "decision_model": "Joint — both sign off on major decisions. Trust-based, no formal lead.",
+  "marketing_team": [
+    {
+      "role": "Marketing / social / photography",
+      "people": "2 local women (Tiago's high-school friend + her friend)",
+      "fee_total": 1000,
+      "fee_upfront": 500,
+      "fee_balance": 500,
+      "status": "engaged, actively producing content"
+    }
+  ],
+  "community_support": {
+    "organization": "Duas Igrejas parish",
+    "headcount_event_day": 25,
+    "responsibilities": ["bar operation (they keep profits)", "general staffing", "family helpers", "legal umbrella (NIF, permit, alcohol license)", "community setup help"]
+  },
+  "vendors_confirmed": [
+    {
+      "name": "Equipment company (sound + lights + DJ gear)",
+      "contact": "via Tiago",
+      "fee_total": 3000,
+      "fee_upfront": 1500,
+      "fee_balance": 1500,
+      "status": "committed, deposit funded"
+    }
+  ],
+  "vendors_pending": [
+    {
+      "name": "Security company",
+      "contact": "via Tiago (manager quoted verbally)",
+      "status": "awaiting formal quote"
+    },
+    {
+      "name": "First aid",
+      "contact": "TBD",
+      "status": "GAP — needs resolution"
+    }
+  ],
+  "former_organizer": {
+    "status": "Removed from core team Apr 2026",
+    "reason": "Reliability concerns",
+    "current_role": "Optional small-task helper if smooth; no dependencies"
+  }
+}

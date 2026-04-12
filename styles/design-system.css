@@ -120,10 +120,14 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
-/* ── BILINGUAL LANG TOGGLE ── */
-[data-lang="pt"] { display: none; }
+/* ── TRILINGUAL LANG TOGGLE ── */
+[data-lang="pt"], [data-lang="fr"] { display: none; }
+
 body.pt [data-lang="pt"] { display: revert; }
 body.pt [data-lang="en"] { display: none; }
+
+body.fr [data-lang="fr"] { display: revert; }
+body.fr [data-lang="en"] { display: none; }
 
 /* ── CUSTOM CURSOR ── */
 @media (pointer: fine) {

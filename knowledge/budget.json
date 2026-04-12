@@ -1,0 +1,114 @@
+{
+  "currency": "EUR",
+  "last_updated": "2026-04-12",
+  "totals": {
+    "estimated_costs": 8000,
+    "cash_in_hand": 5000,
+    "cash_gap": 3000,
+    "cash_gap_resolved": true,
+    "cash_gap_resolution": "€1500 equipment deposit now funded (2026-04-12). Remaining gap of €1500 to be covered by Early Bird ticket revenue or additional sponsorship."
+  },
+  "costs": {
+    "equipment_package": {
+      "description": "Sound + lights + DJ gear (CDJs, mixer, monitors, lighting rig)",
+      "total": 3000,
+      "deposit": 1500,
+      "deposit_due": "before event",
+      "balance": 1500,
+      "balance_due": "event day",
+      "vendor": "TBD (Tiago's contact)",
+      "status": "committed, deposit funded"
+    },
+    "artists_guaranteed": {
+      "description": "Three paid artists — cash, 50% upfront",
+      "total": 1450,
+      "breakdown": { "Sun_Profile": 300, "Kika_Lewis": 400, "John": 750 },
+      "upfront": 725,
+      "balance": 725,
+      "note": "Verify exact split vs the €1500 Tiago mentioned verbally"
+    },
+    "artist_bonus_pool": {
+      "description": "€100 success bonus to each of 6 artists if event goes well (Tiago excluded)",
+      "total": 600,
+      "conditional": true
+    },
+    "marketing_team": {
+      "description": "Two local women handling social content + photography",
+      "total": 1000,
+      "upfront": 500,
+      "balance": 500,
+      "status": "engaged, deposit pending"
+    },
+    "security": {
+      "description": "Professional security company",
+      "total": "TBD (quote pending from Tiago's contact)",
+      "estimate": 800
+    },
+    "permit_and_insurance": {
+      "description": "Handled via Duas Igrejas parish umbrella",
+      "estimate": 200,
+      "status": "likely minimal / covered"
+    },
+    "stage_structure": {
+      "description": "Stage itself — separate from equipment package",
+      "plan": "Request from municipality president (free)",
+      "estimate": 0
+    },
+    "fireworks": {
+      "description": "Free — municipality",
+      "cost": 0
+    },
+    "bar": {
+      "description": "Handled entirely by Duas Igrejas parish — they keep all bar profits",
+      "cost": 0
+    },
+    "first_aid": {
+      "description": "NOT YET PLANNED — gap",
+      "estimate": 150
+    },
+    "wristbands_scanning": {
+      "description": "Wristbands for age control + QR scanning (Shotgun app)",
+      "estimate": 100
+    },
+    "misc_contingency": {
+      "description": "Van fuel, last-minute purchases, decor materials (logo, props)",
+      "estimate": 400
+    }
+  },
+  "income_projections": {
+    "scenario_breakeven_500_tickets": {
+      "early_bird_200_at_12": 2400,
+      "presale_300_at_18": 5400,
+      "total": 7800,
+      "covers_costs": "approximately"
+    },
+    "scenario_target_1000_tickets": {
+      "early_bird_200_at_12": 2400,
+      "presale_600_at_18": 10800,
+      "door_200_at_25": 5000,
+      "total": 18200,
+      "net_profit_estimate": 10200
+    },
+    "note": "Assumes 70% sellthrough as baseline when reporting. Headline target 1000 = aspirational."
+  },
+  "payment_timing": {
+    "before_event": {
+      "equipment_deposit": 1500,
+      "artist_deposits": 725,
+      "marketing_deposit": 500,
+      "total": 2725
+    },
+    "event_day": {
+      "equipment_balance": 1500,
+      "security": 800,
+      "total": 2300
+    },
+    "after_event": {
+      "artist_balances": 725,
+      "marketing_balance": 500,
+      "artist_bonuses_conditional": 600,
+      "total": 1225
+    }
+  },
+  "critical_cashflow_note": "Shotgun pays out ~24h after event ends. All pre-event costs (€2725) must come from cash-in-hand (€5000) + first sponsor/supporter contributions. Cash-in-hand currently covers this comfortably."
+}

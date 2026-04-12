@@ -46,7 +46,9 @@
 (function() {
   var LANG_KEY = 'bns_lang';
   window.setLang = function(lang) {
-    document.body.classList.toggle('pt', lang === 'pt');
+    document.body.classList.remove('pt', 'fr');
+    if (lang === 'pt') document.body.classList.add('pt');
+    if (lang === 'fr') document.body.classList.add('fr');
     document.querySelectorAll('.lang-btn').forEach(function(b) {
       b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase());
     });
