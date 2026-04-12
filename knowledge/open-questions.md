@@ -63,6 +63,9 @@
 
 - [x] €1500 equipment deposit cashflow — RESOLVED 2026-04-12
 - [x] Age restriction policy — decided 13+ with wristband tiering
-- [x] Ticket platform — Shotgun.live confirmed
+- [x] Ticket platform — Shotgun.live confirmed (via widget on own domain)
 - [x] Launch day — Tuesday Apr 14 (not Monday)
 - [x] Legal/tax structure — via Duas Igrejas parish
+- [x] Ticket pricing model — flat €15 / €20 Duo Pack, VIP + merch deferred
+- [x] Domain — beatnonstop.live purchased from GoDaddy 2026-04-12
+- [x] Monitoring rules established — see `knowledge/monitoring.md`

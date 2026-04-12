@@ -337,6 +337,28 @@ Generate `knowledge/risks.md` with this structure:
 
 ---
 
+## ACTIVE MONITORING RULES
+
+On every session start, read `knowledge/monitoring.md` and check current state against the thresholds listed there. If any threshold is breached, flag it **immediately** at the top of your response (before anything else) using the format:
+
+```
+🚨 FLAG: [threshold name] · [current value] vs [threshold] · [suggested action]
+```
+
+The monitoring file covers:
+- Weekly ticket-sale velocity vs break-even trajectory (475 floor / 577 full / 1000 target)
+- Duo/Geral ratio and blended average price
+- Cost overruns (security quote drift, misc budget overruns)
+- Permit / insurance / first-aid / police notification deadlines
+- Weather (from May 10 onward)
+- Artist status (silent >3 days, drop-outs)
+
+Log every fired flag to `knowledge/monitoring.md` under the "Flag log" section with timestamp and current state — do not delete previous entries.
+
+Even when the user is asking about something unrelated, if a threshold is breached, surface it. This is the one thing you must proactively interrupt for.
+
+---
+
 ## OPERATIONAL PRINCIPLES
 
 **On team conflict:**
