@@ -206,19 +206,16 @@
           </div>
         </div>
       </div>
-      <!-- Shotgun widget placeholder — replace src once event is live -->
-      <div id="shotgun-widget" class="reveal" style="margin-top: var(--space-lg);">
-        <a href="#" id="shotgun-link" class="btn-primary">
-          <span data-lang="en">Buy Tickets</span>
-          <span data-lang="pt">Comprar Bilhetes</span>
-          <span data-lang="fr">Acheter</span>
-        </a>
-        <div class="cta-note" style="margin-top: var(--space-sm);">
-          <span data-lang="en">Secure checkout via Shotgun · MB WAY · Card</span>
-          <span data-lang="pt">Checkout seguro via Shotgun · MB WAY · Cartão</span>
-          <span data-lang="fr">Paiement sécurisé via Shotgun · MB WAY · Carte</span>
+      <!-- Shotgun embedded checkout -->
+      <div class="shotgun-embed reveal" style="margin-top: var(--space-lg);">
+        <iframe src="https://shotgun.live/events/lua-nova?embedded=1&ui=dark" allow="payment" style="width:100%; height:800px; max-height:calc(100vh - 200px); border:0;"></iframe>
+        <div class="cta-note" style="margin-top: var(--space-sm); text-align:center;">
+          <span data-lang="en">Secure checkout · MB WAY · Card</span>
+          <span data-lang="pt">Checkout seguro · MB WAY · Cartão</span>
+          <span data-lang="fr">Paiement sécurisé · MB WAY · Carte</span>
         </div>
       </div>
+      <script src="https://shotgun.live/widget.js"></script>
     </div>
   </section>
 
