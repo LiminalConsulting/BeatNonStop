@@ -1,6 +1,14 @@
 # CLAUDE.md — New Moon Techno Event Website
 ## Identity Anchor · Read this every session before writing a single line of code.
 
+> **⚠️ New session? Read these first:**
+> - `ARCHITECTURE.md` — coordination system map (Telegram bot + /sync + dashboard)
+> - `SETUP.md` — bot deployment checklist
+> - `EVENT_SYSTEM_PROMPT.md` — operating modes
+> - `knowledge/` — canonical event facts · `data/` — live state
+>
+> This file below is the **public website redesign** spec only. The coordination system is a separate concern that shares this repo.
+
 ---
 
 ## 🎯 Project Overview

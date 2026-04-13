@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>[STAGING] Beat Nonstop · Lua Nova | 16 May 2026</title>
+  <meta name="description" content="Beat Nonstop presents Lua Nova — May 16, 2026 at Ribeira do Neiva, Vila Verde, Braga. 18h–4h. New moon. No light. Full sound." />
+  <meta property="og:title" content="Beat Nonstop presents Lua Nova" />
+  <meta property="og:description" content="New moon. No light. Full sound. May 16, 2026. Ribeira do Neiva, Braga." />
+  <meta property="og:image" content="BNS.JPG" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/design-system.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .staging-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #ffb000; color: #000;
+      font-family: 'DM Mono', monospace; font-size: 12px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-align: center; padding: 6px 12px;
+      border-bottom: 1px solid #000;
+    }
+    body { padding-top: 28px; }
+  </style>
+</head>
+<body>
+  <div class="staging-banner">⚠ STAGING · not public · last-modified <span id="staging-ts"></span></div>
+  <script>
+    fetch(location.href, {method:'HEAD'}).then(r=>{
+      const d = r.headers.get('last-modified');
+      if (d) document.getElementById('staging-ts').textContent = new Date(d).toISOString().slice(0,16).replace('T',' ') + 'Z';
+    }).catch(()=>{});
+  </script>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <a href="#hero" class="nav-brand" aria-label="Beat Nonstop">
+      <img class="nav-logo" src="BNS.JPG" alt="BNS" width="44" height="44" />
+      <span class="nav-brand-name">Beat Nonstop</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span><span data-lang="fr">À propos</span></a></li>
+      <li><a href="#lineup"><span data-lang="en">Lineup</span><span data-lang="pt">Lineup</span><span data-lang="fr">Lineup</span></a></li>
+      <li><a href="#info"><span data-lang="en">Info</span><span data-lang="pt">Info</span><span data-lang="fr">Infos</span></a></li>
+      <li><a href="#tickets"><span data-lang="en">Tickets</span><span data-lang="pt">Bilhetes</span><span data-lang="fr">Billets</span></a></li>
+      <li class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      </li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <img class="hero-logo" src="BNS.JPG" alt="Beat Nonstop" width="140" height="140" loading="eager" />
+      <h1 class="hero-title">Beat Nonstop</h1>
+      <div class="hero-edition">
+        <span class="hero-edition-label">
+          <span data-lang="en">presents</span>
+          <span data-lang="pt">apresenta</span>
+          <span data-lang="fr">présente</span>
+        </span>
+        <span class="hero-edition-name">Lua Nova</span>
+      </div>
+      <p class="hero-date">
+        <span data-lang="en">May 16, 2026 — Ribeira do Neiva, Braga</span>
+        <span data-lang="pt">16 de Maio de 2026 — Ribeira do Neiva, Braga</span>
+        <span data-lang="fr">16 mai 2026 — Ribeira do Neiva, Braga</span>
+      </p>
+      <div class="moon-icon"></div>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="section-about" id="about">
+    <div class="about-inner reveal">
+      <div class="section-label">
+        <span data-lang="en">The Event</span>
+        <span data-lang="pt">O Evento</span>
+        <span data-lang="fr">L'Événement</span>
+      </div>
+      <p>
+        <span data-lang="en">New moon. No light. Full sound. A gathering at the river under the darkest sky of the month.</span>
+        <span data-lang="pt">Lua nova. Sem luz. Som total. Um encontro no rio sob o ceu mais escuro do mes.</span>
+        <span data-lang="fr">Nouvelle lune. Pas de lumière. Son total. Un rassemblement au bord de la rivière sous le ciel le plus sombre du mois.</span>
+      </p>
+      <hr />
+    </div>
+  </section>
+
+  <!-- ── COUNTDOWN ── -->
+  <section class="section-cta" style="padding: 4rem 2rem;">
+    <div class="reveal">
+      <div class="countdown-label">
+        <span data-lang="en">Countdown</span>
+        <span data-lang="pt">Contagem Decrescente</span>
+        <span data-lang="fr">Compte à rebours</span>
+      </div>
+      <div class="countdown">
+        <div class="countdown-unit"><div class="num" id="cd-days">--</div><div class="unit"><span data-lang="en">Days</span><span data-lang="pt">Dias</span><span data-lang="fr">Jours</span></div></div>
+        <div class="countdown-unit"><div class="num" id="cd-hours">--</div><div class="unit"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span><span data-lang="fr">Heures</span></div></div>
+        <div class="countdown-unit"><div class="num" id="cd-min">--</div><div class="unit"><span data-lang="en">Min</span><span data-lang="pt">Min</span><span data-lang="fr">Min</span></div></div>
+        <div class="countdown-unit"><div class="num" id="cd-sec">--</div><div class="unit"><span data-lang="en">Sec</span><span data-lang="pt">Seg</span><span data-lang="fr">Sec</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── LINEUP ── -->
+  <section class="section-lineup" id="lineup">
+    <div class="lineup-inner">
+      <div class="section-label reveal">Lineup</div>
+      <div class="reveal">
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+        <div class="lineup-row">
+          <span class="lineup-name">TBA</span>
+          <span class="lineup-time">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INFO ── -->
+  <section class="section-info" id="info">
+    <div class="info-grid reveal">
+      <div class="info-col">
+        <div class="info-label">
+          <span data-lang="en">Date</span>
+          <span data-lang="pt">Data</span>
+          <span data-lang="fr">Date</span>
+        </div>
+        <div class="info-value">
+          <span data-lang="en">May 16</span>
+          <span data-lang="pt">16 Mai</span>
+          <span data-lang="fr">16 Mai</span>
+        </div>
+      </div>
+      <div class="info-col">
+        <div class="info-label">
+          <span data-lang="en">Location</span>
+          <span data-lang="pt">Local</span>
+          <span data-lang="fr">Lieu</span>
+        </div>
+        <div class="info-value">Ribeira do Neiva</div>
+      </div>
+      <div class="info-col">
+        <div class="info-label">
+          <span data-lang="en">Doors</span>
+          <span data-lang="pt">Portas</span>
+          <span data-lang="fr">Portes</span>
+        </div>
+        <div class="info-value">18:00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TICKETS ── -->
+  <section class="section-tickets" id="tickets">
+    <div class="tickets-inner">
+      <div class="section-label reveal">
+        <span data-lang="en">Tickets</span>
+        <span data-lang="pt">Bilhetes</span>
+        <span data-lang="fr">Billets</span>
+      </div>
+      <div class="ticket-grid reveal">
+        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
+          <div class="ticket-type">
+            <span data-lang="en">General</span>
+            <span data-lang="pt">Geral</span>
+            <span data-lang="fr">Général</span>
+          </div>
+          <div class="ticket-price">&euro;15</div>
+          <div class="ticket-note">
+            <span data-lang="en">Flat rate · all ages 13+</span>
+            <span data-lang="pt">Preço único · a partir dos 13 anos</span>
+            <span data-lang="fr">Prix unique · à partir de 13 ans</span>
+          </div>
+        </button>
+        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
+          <div class="ticket-type">
+            <span data-lang="en">Duo Pack</span>
+            <span data-lang="pt">Pack Duo</span>
+            <span data-lang="fr">Pack Duo</span>
+          </div>
+          <div class="ticket-price">&euro;20</div>
+          <div class="ticket-badge">
+            <span data-lang="en">2 tickets</span>
+            <span data-lang="pt">2 bilhetes</span>
+            <span data-lang="fr">2 billets</span>
+          </div>
+          <div class="ticket-note">
+            <span data-lang="en">&euro;10 each · bring a friend</span>
+            <span data-lang="pt">&euro;10 cada · traz um amigo</span>
+            <span data-lang="fr">10 € chacun · amène un ami</span>
+          </div>
+        </button>
+      </div>
+      <div class="cta-note reveal" style="margin-top: var(--space-md); text-align:center;">
+        <span data-lang="en">Secure checkout · MB WAY · Card</span>
+        <span data-lang="pt">Checkout seguro · MB WAY · Cartão</span>
+        <span data-lang="fr">Paiement sécurisé · MB WAY · Carte</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TICKET MODAL ── -->
+  <div class="ticket-modal" id="ticket-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="ticket-modal-backdrop" data-close-modal></div>
+    <div class="ticket-modal-inner">
+      <button type="button" class="ticket-modal-close" data-close-modal aria-label="Close">×</button>
+      <iframe id="ticket-iframe" data-src="https://shotgun.live/events/lua-nova?embedded=1&ui=dark&transparentBackground=1" allow="payment" title="Shotgun checkout"></iframe>
+    </div>
+  </div>
+  <script src="https://shotgun.live/widget.js"></script>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img class="footer-logo" src="BNS.JPG" alt="BNS" width="36" height="36" loading="lazy" />
+      <span class="footer-brand-name">Beat Nonstop</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span><span data-lang="fr">À propos</span></a></li>
+      <li><a href="#lineup">Lineup</a></li>
+      <li><a href="#tickets"><span data-lang="en">Tickets</span><span data-lang="pt">Bilhetes</span><span data-lang="fr">Billets</span></a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Beat Nonstop</span>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/stars.js"></script>
+  <script src="js/scroll.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/tickets.js"></script>
+
+</body>
+</html>

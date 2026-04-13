@@ -1,6 +1,25 @@
-# DreamNode: BeatNonStop
+# Beat Nonstop — Lua Nova
 
-This is a DreamNode - a git repository representing a thought-form or person in the **InterBrain** knowledge management system.
+Event: **16 May 2026 · Ribeira do Neiva, Vila Verde, Braga, Portugal**
+
+This repo holds three things:
+
+1. **Public event site** — `index.html` (GitHub Pages)
+2. **Private planning dashboard** — `plan.html` (same domain, team-only URL)
+3. **Coordination system** — Telegram bot (Cloudflare Worker) + repo-as-database + daily `/sync` slash command funded by Claude Max
+
+## Start here
+
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** — how the coordination system is wired (read this first if you're new)
+- **[SETUP.md](SETUP.md)** — step-by-step bot deployment
+- **[CLAUDE.md](CLAUDE.md)** — website redesign instructions
+- **[EVENT_SYSTEM_PROMPT.md](EVENT_SYSTEM_PROMPT.md)** — operating framing for Claude sessions
+- `knowledge/` — canonical event facts (single source of truth)
+- `data/` — live state of the coordination system (inbox, outbox, dashboard state, reminders)
+
+---
+
+## DreamNode context
 
 ## Universal Dream Description (UDD)
 

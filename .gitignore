@@ -3,3 +3,12 @@ AUDIT.md
 *.swp
 *.swo
 *~
+.env
+.env.*
+!.env.example
+!.env.sync.example
+.secrets.local
+node_modules/
+worker/node_modules/
+worker/.wrangler/
+logs/

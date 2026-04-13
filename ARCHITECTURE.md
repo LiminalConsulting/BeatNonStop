@@ -160,6 +160,42 @@ These are the full list. `wrangler.toml` has comments documenting them, but here
 
 ---
 
+## Staging pipeline (added April 2026)
+
+A `/staging/` folder sits alongside the public site at repo root. GitHub Pages serves it at `beatnonstop.live/staging/` automatically (it's just a subdirectory).
+
+**Flow**:
+1. Team writes feedback (text / photos / screenshots) in the group
+2. Worker logs to `data/inbox.md`; photos + documents land in `data/inbox-media/`
+3. Next `/sync` edits files under `staging/` (never root)
+4. Pages rebuilds; team previews at `/staging/`
+5. When happy, someone runs `/promote` in the group
+6. Bot queues an outbox item with `action.type: "promote_staging"`
+7. 2 non-builder 👍 → `executeOutboxItem` copies every file under `staging/` to repo root via GitHub Contents API
+8. Pages rebuilds public site
+
+Rules:
+- `/staging/README.md` is skipped during promotion
+- Promotion is a full copy, not a diff — if someone edits root directly while staging is pending, root edits are overwritten
+- Staging pages carry `noindex` + a yellow banner; not secret, just semi-private
+
+**Alternative considered**: Cloudflare Pages with per-branch preview URLs. Cleaner long-term but requires migrating off GitHub Pages and teaches the team branches. Deferred. Current folder-based model is ~5 min of plumbing vs. ~half-day migration.
+
+## Multimodal inbox (added April 2026)
+
+`onMessage` now handles:
+- `msg.text` → logged as text (unchanged)
+- `msg.photo` → largest size downloaded via Telegram `getFile` → saved to `data/inbox-media/<timestamp>-photo-<id>.jpg` → referenced in inbox as `📷 photo → <path>`
+- `msg.document` → saved with original extension → referenced as `📎 document <name> → <path>`
+- `msg.caption` → used as the text portion when media is present
+- `msg.video` / `msg.voice` → noted in inbox but NOT downloaded (deferred)
+
+Size cap: 5 MB per file (GitHub Contents API is not for heavy media; move to R2 if needed later).
+
+`/sync` reads image files directly — Claude is natively multimodal for images, so annotated screenshots are understood without a vision API.
+
+**Requires**: bot privacy mode OFF in @BotFather. Otherwise non-command messages don't reach the Worker in groups.
+
 ## Extension points (intentionally deferred)
 
 Clean hooks exist for these — add when needed:

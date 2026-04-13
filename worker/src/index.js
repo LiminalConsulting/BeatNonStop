@@ -69,7 +69,7 @@ async function handleTelegramWebhook(request, env) {
 }
 
 async function onMessage(msg, env) {
-  const text = (msg.text || "").trim();
+  const text = (msg.text || msg.caption || "").trim();
   const chatId = msg.chat.id;
   const fromId = msg.from && msg.from.id;
   const username = (msg.from && (msg.from.username || msg.from.first_name)) || "unknown";
@@ -80,8 +80,8 @@ async function onMessage(msg, env) {
     if (String(fromId) !== String(env.BUILDER_USER_ID)) return;
   }
 
-  // Slash commands
-  if (text.startsWith("/")) {
+  // Slash commands (text-only messages)
+  if (msg.text && text.startsWith("/")) {
     const cmd = text.split(/\s+/)[0].split("@")[0].toLowerCase();
     if (cmd === "/help" || cmd === "/start") {
       return sendMessage(env, chatId, HELP_TEXT, { reply_to: msg.message_id });
@@ -98,16 +98,55 @@ async function onMessage(msg, env) {
     if (cmd === "/pending") {
       return sendPendingApprovals(env, chatId, msg.message_id);
     }
+    if (cmd === "/staging") {
+      return sendStagingInfo(env, chatId, msg.message_id);
+    }
+    if (cmd === "/promote") {
+      return queuePromotion(env, chatId, msg.message_id, username, fromId);
+    }
     // Unknown command — ignore silently
     return;
   }
 
-  // Non-command message in group: append to inbox.md
+  // Non-command message. Handle media if present; always log to inbox.
+  const mediaNotes = [];
+
+  // Photo: Telegram sends an array of sizes; take the largest.
+  if (msg.photo && msg.photo.length) {
+    const largest = msg.photo[msg.photo.length - 1];
+    try {
+      const saved = await saveTelegramFile(env, largest.file_id, "photo", "jpg");
+      mediaNotes.push(`📷 photo → \`${saved.path}\``);
+    } catch (e) {
+      mediaNotes.push(`📷 photo (save failed: ${e.message})`);
+    }
+  }
+
+  // Document (includes screenshots sent as files, PDFs, etc.)
+  if (msg.document) {
+    const doc = msg.document;
+    const ext = (doc.file_name && doc.file_name.includes(".")) ? doc.file_name.split(".").pop() : "bin";
+    try {
+      const saved = await saveTelegramFile(env, doc.file_id, "doc", ext);
+      mediaNotes.push(`📎 document \`${doc.file_name || "(unnamed)"}\` → \`${saved.path}\``);
+    } catch (e) {
+      mediaNotes.push(`📎 document (save failed: ${e.message})`);
+    }
+  }
+
+  // Ignore videos / voice / stickers / animations for now — note their presence.
+  if (msg.video) mediaNotes.push(`🎬 video (not ingested in v1)`);
+  if (msg.voice) mediaNotes.push(`🎤 voice memo (not ingested in v1)`);
+
+  // If nothing to log (e.g. empty reaction edit), bail.
+  if (!text && mediaNotes.length === 0) return;
+
   await appendInbox(env, {
     ts: new Date().toISOString(),
     username,
     from_id: fromId,
     text,
+    media: mediaNotes,
   });
 }
 
@@ -166,9 +205,11 @@ const HELP_TEXT = [
   "/status — event countdown + top open tasks",
   "/inbox — what's queued for David's next /sync",
   "/pending — items waiting for 👍 votes",
+  "/staging — show the staging site URL",
+  "/promote — queue: copy staging → public (needs 2 👍)",
   "/help — this message",
   "",
-  "Just talking in the group? Your messages are logged to the inbox so nothing gets lost.",
+  "Messages + photos + documents are logged to the inbox so nothing gets lost.",
   "",
   "Voting: any 👎 blocks. 2 👍 from team members execute (David excluded).",
 ].join("\n");
@@ -210,6 +251,48 @@ async function sendInboxPreview(env, chatId, replyTo) {
   return sendMessage(env, chatId,
     "📥 Inbox (last 20 lines):\n\n" + body.slice(0, 3500),
     { reply_to: replyTo });
+}
+
+async function sendStagingInfo(env, chatId, replyTo) {
+  const lines = [
+    "🛠 *Staging site*",
+    "",
+    "Preview: https://beatnonstop.live/staging/",
+    "Plan (staging): https://beatnonstop.live/staging/plan.html",
+    "",
+    "Team writes feedback in this group → next /sync edits the staging folder → refresh the URL to see it.",
+    "When happy, run /promote — needs 2 👍 to copy staging over the public site.",
+  ].join("\n");
+  return sendMessage(env, chatId, lines, { reply_to: replyTo, parse_mode: "Markdown" });
+}
+
+async function queuePromotion(env, chatId, replyTo, username, fromId) {
+  const id = "promote-" + new Date().toISOString().replace(/[:.]/g, "-");
+  const item = {
+    id,
+    kind: "promote_staging",
+    summary: `Copy /staging/ → public site root · requested by @${username}`,
+    action: { type: "promote_staging", payload: { requested_by: username, requested_by_id: fromId } },
+  };
+  const voteText = [
+    `🗳 *Approval needed — promote staging to public*`,
+    `*${id}*`,
+    ``,
+    item.summary,
+    ``,
+    `React 👍 to approve (need ${env.APPROVAL_THRESHOLD || 2}) · 👎 to block.`,
+    `Preview first: https://beatnonstop.live/staging/`,
+  ].join("\n");
+  const sent = await sendMessage(env, chatId, voteText, { parse_mode: "Markdown" });
+
+  const { data: outbox, sha } = await getJson(env, "data/outbox.json");
+  outbox.pending = outbox.pending || [];
+  outbox.pending.push({
+    ...item,
+    telegram_message_id: sent.message_id,
+    created_at: new Date().toISOString(),
+  });
+  await putJson(env, "data/outbox.json", outbox, sha, `outbox: queue ${id}`);
 }
 
 async function sendPendingApprovals(env, chatId, replyTo) {
@@ -281,17 +364,56 @@ async function handleSyncOutbox(request, env) {
 // ---------- Outbox execution ----------
 
 async function executeOutboxItem(env, item) {
-  // v1: no outbound channels yet (domain+email not set up). Mark executed, notify group.
-  // Extension point: add `case "email":` here when Resend is wired up.
+  // Dispatch on action type. Default (no handler): record as queued for human / next /sync.
+  const actionType = item.action && item.action.type;
+
+  let result = "queued_for_human_send";
+  let notifyText = `✅ *${item.id}* approved. Action recorded for the next /sync to execute (or human send).`;
+
+  if (actionType === "promote_staging") {
+    try {
+      const summary = await promoteStagingToRoot(env);
+      result = `promoted: ${summary.copied} files copied, ${summary.skipped} skipped`;
+      notifyText = [
+        `✅ *${item.id}* approved — *staging promoted to public.*`,
+        `${summary.copied} files updated. Pages will rebuild in ~60s.`,
+        `Live: https://beatnonstop.live/`,
+      ].join("\n");
+    } catch (e) {
+      result = `promote_failed: ${e.message}`;
+      notifyText = `⚠ *${item.id}* approved but promotion failed: ${e.message}`;
+    }
+  }
+
   const { data: outbox, sha } = await getJson(env, "data/outbox.json");
   outbox.pending = (outbox.pending || []).filter(p => p.id !== item.id);
   outbox.executed = outbox.executed || [];
-  outbox.executed.push({ ...item, executed_at: new Date().toISOString(), result: "queued_for_human_send" });
+  outbox.executed.push({ ...item, executed_at: new Date().toISOString(), result });
   await putJson(env, "data/outbox.json", outbox, sha, `outbox: approve ${item.id}`);
 
-  await sendMessage(env, env.TELEGRAM_CHAT_ID,
-    `✅ *${item.id}* approved. Action recorded for the next /sync to execute (or human send).`,
-    { parse_mode: "Markdown" });
+  await sendMessage(env, env.TELEGRAM_CHAT_ID, notifyText, { parse_mode: "Markdown" });
+}
+
+// Copy every file under /staging/ to the repo root (overwriting), except README.md and the folder itself.
+async function promoteStagingToRoot(env) {
+  const files = await listRepoTree(env, "staging");
+  let copied = 0, skipped = 0;
+  for (const f of files) {
+    // Skip the staging readme and any nested READMEs we don't want at root
+    if (f.path === "staging/README.md") { skipped++; continue; }
+    const destPath = f.path.replace(/^staging\//, "");
+    // Fetch source (raw bytes — may be binary)
+    const src = await getFileRaw(env, f.path);
+    // Fetch existing dest sha (if any) for update
+    let destSha = undefined;
+    try {
+      const head = await ghMetaSha(env, destPath);
+      destSha = head;
+    } catch { /* new file */ }
+    await putFileRaw(env, destPath, src.contentB64, destSha, `promote: ${destPath}`);
+    copied++;
+  }
+  return { copied, skipped };
 }
 
 async function rejectOutboxItem(env, item, byUserId) {
@@ -403,12 +525,91 @@ async function putJson(env, path, data, sha, message) {
 
 async function appendInbox(env, entry) {
   const { text, sha } = await getFile(env, "data/inbox.md");
-  const block = [
+  const lines = [
     ``,
     `## ${entry.ts} — @${entry.username} (${entry.from_id})`,
-    entry.text,
-    `---`,
-    ``,
-  ].join("\n");
-  await putFile(env, "data/inbox.md", text + block, sha, `inbox: @${entry.username}`);
+  ];
+  if (entry.text) lines.push(entry.text);
+  if (entry.media && entry.media.length) {
+    lines.push("");
+    for (const m of entry.media) lines.push(m);
+  }
+  lines.push(`---`, ``);
+  await putFile(env, "data/inbox.md", text + lines.join("\n"), sha, `inbox: @${entry.username}`);
+}
+
+// ---------- Media ingestion ----------
+
+// Download a Telegram file by file_id and store it in data/inbox-media/<timestamp>-<kind>.<ext>
+async function saveTelegramFile(env, fileId, kind, ext) {
+  // 1. Resolve file path via Telegram getFile
+  const meta = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/getFile?file_id=${encodeURIComponent(fileId)}`).then(r => r.json());
+  if (!meta.ok) throw new Error("getFile failed: " + JSON.stringify(meta));
+  const tgPath = meta.result.file_path;
+
+  // 2. Download bytes (cap ~5 MB — repo-as-DB isn't for heavy media)
+  const MAX_BYTES = 5 * 1024 * 1024;
+  if (meta.result.file_size && meta.result.file_size > MAX_BYTES) {
+    throw new Error(`file too large (${meta.result.file_size} bytes, max ${MAX_BYTES})`);
+  }
+  const fileRes = await fetch(`https://api.telegram.org/file/bot${env.TELEGRAM_BOT_TOKEN}/${tgPath}`);
+  if (!fileRes.ok) throw new Error("download failed: " + fileRes.status);
+  const buf = new Uint8Array(await fileRes.arrayBuffer());
+
+  // 3. Base64-encode and commit to repo
+  let bin = "";
+  const chunk = 0x8000;
+  for (let i = 0; i < buf.length; i += chunk) {
+    bin += String.fromCharCode.apply(null, buf.subarray(i, i + chunk));
+  }
+  const contentB64 = btoa(bin);
+
+  const safeExt = (ext || "bin").replace(/[^a-zA-Z0-9]/g, "").slice(0, 6) || "bin";
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const path = `data/inbox-media/${stamp}-${kind}-${fileId.slice(-8)}.${safeExt}`;
+
+  await putFileRaw(env, path, contentB64, undefined, `inbox-media: ${kind}`);
+  return { path };
+}
+
+// ---------- Repo tree / raw file helpers ----------
+
+async function listRepoTree(env, prefix) {
+  // Get the default branch's tree recursively, filter by prefix.
+  const repoMeta = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}`, { headers: await ghHeaders(env) }).then(r => r.json());
+  const branch = repoMeta.default_branch || "main";
+  const branchMeta = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}/branches/${branch}`, { headers: await ghHeaders(env) }).then(r => r.json());
+  const sha = branchMeta.commit && branchMeta.commit.sha;
+  if (!sha) throw new Error("cannot resolve branch head");
+  const tree = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}/git/trees/${sha}?recursive=1`, { headers: await ghHeaders(env) }).then(r => r.json());
+  return (tree.tree || []).filter(n => n.type === "blob" && n.path.startsWith(prefix + "/"));
+}
+
+async function getFileRaw(env, path) {
+  const res = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}/contents/${path}`, { headers: await ghHeaders(env) });
+  if (!res.ok) throw new Error(`getFileRaw ${path} failed: ${res.status}`);
+  const json = await res.json();
+  return { contentB64: (json.content || "").replace(/\n/g, ""), sha: json.sha };
+}
+
+async function ghMetaSha(env, path) {
+  const res = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}/contents/${path}`, { headers: await ghHeaders(env) });
+  if (!res.ok) throw new Error(`meta ${path}: ${res.status}`);
+  const json = await res.json();
+  return json.sha;
+}
+
+async function putFileRaw(env, path, contentB64, sha, message) {
+  const body = { message, content: contentB64 };
+  if (sha) body.sha = sha;
+  const res = await fetch(`${GH_API}/repos/${env.GITHUB_REPO}/contents/${path}`, {
+    method: "PUT",
+    headers: { ...(await ghHeaders(env)), "content-type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const t = await res.text();
+    throw new Error(`putFileRaw ${path} failed: ${res.status} ${t}`);
+  }
+  return res.json();
 }

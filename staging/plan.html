@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[STAGING] Beat Nonstop — Lua Nova | Planning Dashboard</title>
+  <meta name="description" content="Private planning dashboard for Beat Nonstop: Lua Nova · May 16, 2026" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/design-system.css" />
+  <link rel="stylesheet" href="styles/planning.css" />
+</head>
+<body>
+
+<div class="plan-lang">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('pt')">PT</button>
+</div>
+
+<header class="plan-header">
+  <h1>Beat Nonstop · Lua Nova</h1>
+  <div class="plan-subtitle">
+    <span data-lang="en">Planning Dashboard · Updated April 12, 2026</span>
+    <span data-lang="pt">Painel de Planeamento · Atualizado 12 Abril 2026</span>
+  </div>
+  <div class="plan-meta">
+    <div class="plan-meta-item"><span data-lang="en">Date </span><span data-lang="pt">Data </span><strong>16 May 2026</strong></div>
+    <div class="plan-meta-item"><span data-lang="en">Doors </span><span data-lang="pt">Portas </span><strong>18h–04h</strong></div>
+    <div class="plan-meta-item"><span data-lang="en">Venue </span><span data-lang="pt">Local </span><strong>Ribeira do Neiva</strong></div>
+    <div class="plan-meta-item"><span data-lang="en">Artists </span><span data-lang="pt">Artistas </span><strong>7</strong></div>
+    <div class="plan-meta-item"><span data-lang="en">Target </span><span data-lang="pt">Meta </span><strong>1000</strong></div>
+  </div>
+</header>
+
+<div class="plan-grid">
+
+  <div class="plan-card full-width" style="text-align:center">
+    <div class="plan-card-header" style="justify-content:center;border-bottom:none">
+      <span class="plan-card-title">
+        <span data-lang="en">Time Until Lua Nova</span>
+        <span data-lang="pt">Tempo até Lua Nova</span>
+      </span>
+    </div>
+    <div class="plan-countdown">
+      <div class="cd-unit"><div class="cd-num" id="cd-days">--</div><div class="cd-label"><span data-lang="en">Days</span><span data-lang="pt">Dias</span></div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">--</div><div class="cd-label"><span data-lang="en">Hours</span><span data-lang="pt">Horas</span></div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-min">--</div><div class="cd-label">Min</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-sec">--</div><div class="cd-label">Sec</div></div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Status · Next 3 Actions</span>
+        <span data-lang="pt">Estado · Próximas 3 Ações</span>
+      </span>
+    </div>
+    <ul class="plan-checklist">
+      <li><span class="check-box"></span><span class="task-text"><strong>David</strong> · <span data-lang="en">Purchase domain + start Shotgun + Stripe KYC (Mon)</span><span data-lang="pt">Comprar domínio + começar Shotgun + KYC Stripe (2ª)</span></span></li>
+      <li><span class="check-box"></span><span class="task-text"><strong>Tiago</strong> · <span data-lang="en">Send full artist name list + budget photo to Telegram</span><span data-lang="pt">Enviar lista de artistas + foto do orçamento para Telegram</span></span></li>
+      <li><span class="check-box"></span><span class="task-text"><strong>Team</strong> · <span data-lang="en">Launch Shotgun ticket sales Tuesday Apr 14</span><span data-lang="pt">Lançar vendas Shotgun terça 14 Abr</span></span></li>
+    </ul>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Budget · Snapshot</span>
+        <span data-lang="pt">Orçamento · Resumo</span>
+      </span>
+    </div>
+    <div class="budget-row">
+      <div>
+        <div class="budget-label"><span data-lang="en">Estimated total costs</span><span data-lang="pt">Custos totais estimados</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:100%"></div></div>
+      </div>
+      <div class="budget-amount">€8,000</div>
+    </div>
+    <div class="budget-row">
+      <div>
+        <div class="budget-label"><span data-lang="en">Cash in hand</span><span data-lang="pt">Dinheiro disponível</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:62%"></div></div>
+      </div>
+      <div class="budget-amount">€5,000</div>
+    </div>
+    <div class="budget-row">
+      <div>
+        <div class="budget-label"><span data-lang="en">Gap (tickets + sponsors)</span><span data-lang="pt">Lacuna (bilhetes + patrocínios)</span></div>
+        <div class="budget-bar"><div class="budget-fill" style="width:38%;background:var(--color-accent-bright)"></div></div>
+      </div>
+      <div class="budget-amount">€3,000</div>
+    </div>
+    <div class="profit-box">
+      <div class="profit-label"><span data-lang="en">Break-even @ flat €13 avg</span><span data-lang="pt">Equilíbrio @ €13 médio</span></div>
+      <div class="profit-num">~620</div>
+      <div class="profit-label" style="margin-top:.3rem"><span data-lang="en">tickets</span><span data-lang="pt">bilhetes</span></div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Team</span>
+        <span data-lang="pt">Equipa</span>
+      </span>
+    </div>
+    <table>
+      <thead><tr>
+        <th><span data-lang="en">Person</span><span data-lang="pt">Pessoa</span></th>
+        <th><span data-lang="en">Role</span><span data-lang="pt">Papel</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td>David</td><td><span data-lang="en">Money · Tickets · Logistics</span><span data-lang="pt">Dinheiro · Bilhetes · Logística</span></td></tr>
+        <tr><td>Tiago</td><td><span data-lang="en">Artists · Stage · Sound</span><span data-lang="pt">Artistas · Palco · Som</span></td></tr>
+        <tr><td>Bruno</td><td><span data-lang="en">Operations · Production · Support</span><span data-lang="pt">Operações · Produção · Apoio</span></td></tr>
+        <tr><td><span data-lang="en">Marketing team (×2)</span><span data-lang="pt">Equipa marketing (×2)</span></td><td><span data-lang="en">Social · Photo · After-movie</span><span data-lang="pt">Social · Foto · After-movie</span></td></tr>
+        <tr><td>Duas Igrejas</td><td><span data-lang="en">Bar · Legal · ~25 helpers</span><span data-lang="pt">Bar · Jurídico · ~25 ajudantes</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Lineup · 7 Artists · All Local</span>
+        <span data-lang="pt">Lineup · 7 Artistas · Todos locais</span>
+      </span>
+    </div>
+    <table>
+      <thead><tr>
+        <th><span data-lang="en">Artist</span><span data-lang="pt">Artista</span></th>
+        <th><span data-lang="en">Fee</span><span data-lang="pt">Cachet</span></th>
+        <th>Status</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Piazzolla <span style="opacity:.6">(Tiago)</span></td><td>—</td><td><span class="badge badge-active"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+        <tr><td>Mayze &amp; Faria</td><td>—</td><td><span class="badge badge-active"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+        <tr><td>Kika Lewis</td><td>€400</td><td><span class="badge badge-active"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+        <tr><td>SoundProfile</td><td>€300</td><td><span class="badge badge-active"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+        <tr><td>X-Plosion</td><td>—</td><td><span class="badge badge-active"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+        <tr><td>Blz</td><td>—</td><td><span class="badge badge-active"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+        <tr><td>Mufvsza</td><td>—</td><td><span class="badge badge-active"><span data-lang="en">Confirmed</span><span data-lang="pt">Confirmado</span></span></td></tr>
+      </tbody>
+    </table>
+    <div style="font-family:var(--font-body);font-size:.72rem;color:var(--color-moon-dim);margin-top:.8rem;line-height:1.6">
+      <span data-lang="en">2 rappers + 5 DJs · house → techno. 4 artists perform for exposure/logistics only. €100 success bonus to 6 non-Tiago artists if event goes well.</span>
+      <span data-lang="pt">2 rappers + 5 DJs · house → techno. 4 artistas tocam por exposição/logística. Bónus de €100 aos 6 artistas (excl. Tiago) se evento correr bem.</span>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Tickets · Shotgun.live</span>
+        <span data-lang="pt">Bilhetes · Shotgun.live</span>
+      </span>
+    </div>
+    <table>
+      <thead><tr>
+        <th><span data-lang="en">Tier</span><span data-lang="pt">Nível</span></th>
+        <th><span data-lang="en">Price</span><span data-lang="pt">Preço</span></th>
+        <th><span data-lang="en">Qty</span><span data-lang="pt">Qt.</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td><span data-lang="en">General</span><span data-lang="pt">Geral</span></td><td>€15</td><td><span data-lang="en">unlimited</span><span data-lang="pt">ilimitado</span></td></tr>
+        <tr><td>Pack Duo (2x)</td><td>€20</td><td><span data-lang="en">unlimited</span><span data-lang="pt">ilimitado</span></td></tr>
+        <tr><td>VIP <span data-lang="en">(later)</span><span data-lang="pt">(depois)</span></td><td>TBD</td><td>TBD</td></tr>
+        <tr><td>T-shirt pack <span data-lang="en">(later)</span><span data-lang="pt">(depois)</span></td><td>TBD</td><td>TBD</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Age Policy · Wristbands</span>
+        <span data-lang="pt">Política de idade · Pulseiras</span>
+      </span>
+    </div>
+    <ul class="plan-checklist">
+      <li><span class="check-box done"></span><span class="task-text"><span data-lang="en"><strong>18+</strong> · adult wristband · bar access</span><span data-lang="pt"><strong>18+</strong> · pulseira adulto · acesso bar</span></span></li>
+      <li><span class="check-box done"></span><span class="task-text"><span data-lang="en"><strong>13–17</strong> · white wristband · no alcohol · parent consent · free soft drink</span><span data-lang="pt"><strong>13–17</strong> · pulseira branca · sem álcool · consentimento parental · soft drink grátis</span></span></li>
+      <li><span class="check-box done"></span><span class="task-text"><span data-lang="en"><strong>Under 13</strong> · not admitted, no exceptions</span><span data-lang="pt"><strong>Menores de 13</strong> · não entram, sem exceções</span></span></li>
+    </ul>
+  </div>
+
+  <div class="plan-card full-width">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Master Timeline · Week by Week</span>
+        <span data-lang="pt">Cronograma · Semana a semana</span>
+      </span>
+    </div>
+    <div class="plan-timeline">
+      <div class="tl-item active">
+        <div class="tl-week">Apr 13–19 · <span data-lang="en">Ticket launch week 🚨</span><span data-lang="pt">Semana do lançamento 🚨</span></div>
+        <div class="tl-task"><span data-lang="en">Domain + Shotgun + Stripe. Launch tickets Tuesday. Artist reveals daily from Wednesday.</span><span data-lang="pt">Domínio + Shotgun + Stripe. Lançar terça. Revelar artistas um por dia a partir de quarta.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Apr 20–26 · <span data-lang="en">Lineup + operations</span><span data-lang="pt">Lineup + operações</span></div>
+        <div class="tl-task"><span data-lang="en">Release poster. Press outreach. Permit via Duas Igrejas. Pay artist deposits (€725). Security contract. Wristbands ordered.</span><span data-lang="pt">Publicar cartaz. Imprensa. Licença via paróquia. Depósitos artistas (€725). Contrato segurança. Pulseiras.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">Apr 27 – May 3 · <span data-lang="en">Momentum</span><span data-lang="pt">Momento</span></div>
+        <div class="tl-task"><span data-lang="en">Countdown posts. First aid plan resolved. Door staff confirmed. Sponsor outreach starts.</span><span data-lang="pt">Countdown. Primeiros socorros. Staff da porta. Início patrocinadores.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">May 4–10 · <span data-lang="en">Final prep</span><span data-lang="pt">Preparação final</span></div>
+        <div class="tl-task"><span data-lang="en">Site walk-through. Run-of-show published. Police notified. Bar staff briefing scheduled.</span><span data-lang="pt">Visita ao local. Cronograma do dia. Polícia notificada. Briefing bar.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">May 15 · <span data-lang="en">Setup day</span><span data-lang="pt">Montagem</span></div>
+        <div class="tl-task"><span data-lang="en">Full install, sound check, signage, decor. Nothing heavy on event day.</span><span data-lang="pt">Montagem total, teste som, sinalização, decoração. Nada pesado no dia do evento.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">🌑 May 16 · <span data-lang="en">Event day</span><span data-lang="pt">Dia do evento</span></div>
+        <div class="tl-task"><span data-lang="en">Receive artists. Doors 18h. Fireworks at midnight synced with set drop. Close 04h.</span><span data-lang="pt">Receber artistas. Portas 18h. Fogo à meia-noite sincronizado. Fecho 04h.</span></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-week">May 17+ · <span data-lang="en">Post-event</span><span data-lang="pt">Pós-evento</span></div>
+        <div class="tl-task"><span data-lang="en">Shotgun payout. Pay balances + bonuses. After-movie. Post-mortem. Edition 3 planning.</span><span data-lang="pt">Payout Shotgun. Pagar saldos + bónus. After-movie. Retrospectiva. Edição 3.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Top Risks</span>
+        <span data-lang="pt">Riscos principais</span>
+      </span>
+    </div>
+    <table>
+      <thead><tr>
+        <th>Risk</th>
+        <th>Owner</th>
+        <th>By</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><span data-lang="en">First aid plan missing</span><span data-lang="pt">Primeiros socorros em falta</span></td><td>Team</td><td>May 3</td></tr>
+        <tr><td><span data-lang="en">Stripe verification delay</span><span data-lang="pt">Atraso verificação Stripe</span></td><td>David</td><td>Apr 14</td></tr>
+        <tr><td><span data-lang="en">Permit not issued in time</span><span data-lang="pt">Licença não emitida a tempo</span></td><td>Tiago + Parish</td><td>May 3</td></tr>
+        <tr><td><span data-lang="en">Alcohol served to under-18</span><span data-lang="pt">Álcool servido a menor</span></td><td>Bar staff</td><td><span data-lang="en">Ongoing</span><span data-lang="pt">Contínuo</span></td></tr>
+        <tr><td><span data-lang="en">Weather (rain)</span><span data-lang="pt">Chuva</span></td><td>Team</td><td>May 10</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Partners Confirmed</span>
+        <span data-lang="pt">Parceiros confirmados</span>
+      </span>
+    </div>
+    <div class="provider-card recommended">
+      <div class="provider-name">Duas Igrejas <span data-lang="en">(Parish)</span><span data-lang="pt">(Paróquia)</span></div>
+      <div class="provider-fee"><span data-lang="en">Bar · Legal umbrella · Community helpers</span><span data-lang="pt">Bar · Cobertura legal · Ajudantes</span></div>
+      <div class="provider-pros"><span data-lang="en">They keep bar profits. 1 free drink per ticket. ~25 helpers.</span><span data-lang="pt">Recebem lucros do bar. 1 bebida grátis por bilhete. ~25 ajudantes.</span></div>
+    </div>
+    <div class="provider-card recommended">
+      <div class="provider-name"><span data-lang="en">Municipality · Vila Verde</span><span data-lang="pt">Câmara · Vila Verde</span></div>
+      <div class="provider-fee"><span data-lang="en">Free fireworks · Stage request · Mobile toilets</span><span data-lang="pt">Fogo grátis · Pedido palco · WC móveis</span></div>
+    </div>
+    <div class="provider-card">
+      <div class="provider-name"><span data-lang="en">Equipment company</span><span data-lang="pt">Empresa de equipamento</span></div>
+      <div class="provider-fee">€3,000 · €1,500 <span data-lang="en">deposit funded</span><span data-lang="pt">depósito garantido</span></div>
+    </div>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-card-header">
+      <span class="plan-card-title">
+        <span data-lang="en">Open Questions · This Week</span>
+        <span data-lang="pt">Questões · Esta semana</span>
+      </span>
+    </div>
+    <ul class="plan-checklist">
+      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Domain extension: .pt / .earth / .live?</span><span data-lang="pt">Extensão domínio: .pt / .earth / .live?</span></span></li>
+      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Verify artist pay split (€1450 vs €1500)</span><span data-lang="pt">Verificar cachets (€1450 vs €1500)</span></span></li>
+      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">T-shirt pack launched Tuesday or later?</span><span data-lang="pt">Pack T-shirt lança terça ou depois?</span></span></li>
+      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Names &amp; emails for local press contacts</span><span data-lang="pt">Nomes e emails imprensa local</span></span></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="plan-footer">
+  <span>Beat Nonstop · Lua Nova · 🌑 16.05.2026</span>
+</footer>
+
+<script>
+  (function() {
+    function tick() {
+      var diff = new Date('2026-05-16T18:00:00') - new Date();
+      if (diff <= 0) return;
+      var set = function(id, val) { var el = document.getElementById(id); if (el) el.textContent = String(val).padStart(2, '0'); };
+      set('cd-days', Math.floor(diff / 86400000));
+      set('cd-hours', Math.floor((diff % 86400000) / 3600000));
+      set('cd-min', Math.floor((diff % 3600000) / 60000));
+      set('cd-sec', Math.floor((diff % 60000) / 1000));
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  var LANG_KEY = 'bns_plan_lang';
+  function setLang(lang) {
+    document.body.classList.remove('pt', 'fr');
+    if (lang === 'pt') document.body.classList.add('pt');
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase());
+    });
+    localStorage.setItem(LANG_KEY, lang);
+  }
+  setLang(localStorage.getItem(LANG_KEY) || 'en');
+
+  document.querySelectorAll('.check-box').forEach(function(box) {
+    box.addEventListener('click', function() {
+      box.classList.toggle('done');
+      box.parentElement.classList.toggle('checked');
+    });
+  });
+</script>
+
+</body>
+</html>

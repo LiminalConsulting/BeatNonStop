@@ -1,0 +1,194 @@
+/* ═══════════════════════════════════════════════════════
+   BEAT NONSTOP — LUA NOVA
+   Design System · New Moon Aesthetic
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Core palette — extracted from BNS logo + Lua Nova banner
+     Deep void + neon cyan → lavender → magenta gradient */
+  --color-void: #050508;
+  --color-surface: #0d0d16;
+  --color-border: #1e1e34;
+
+  /* Text */
+  --color-moon: #dce4f4;         /* primary text — lavender-tinted silver */
+  --color-moon-dim: #7880a0;     /* muted secondary */
+
+  /* Brand accents (sampled from logo strokes) */
+  --color-cyan: #68e0f8;          /* logo left + "LUA" */
+  --color-lavender: #98c0f8;      /* logo centre fade */
+  --color-magenta: #c080f8;       /* logo right + "NOVA" accent */
+
+  /* Functional accents */
+  --color-accent: var(--color-lavender);
+  --color-accent-bright: var(--color-cyan);
+
+  /* Brand gradient (use sparingly — hero, key CTAs, dividers) */
+  --gradient-brand: linear-gradient(90deg, #68e0f8 0%, #98c0f8 50%, #c080f8 100%);
+
+  /* Typography */
+  --font-display: 'Archivo Black', sans-serif;
+  --font-body: 'DM Mono', 'Space Mono', monospace;
+  --font-ui: 'Helvetica Neue', 'Arial', sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  --space-2xl: 16rem;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+  --duration-fast: 200ms;
+  --duration-med: 500ms;
+  --duration-slow: 1200ms;
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-moon);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+  cursor: default;
+}
+
+img, video { display: block; max-width: 100%; }
+
+a {
+  color: var(--color-accent-bright);
+  text-decoration: none;
+  transition: color var(--duration-fast) ease;
+}
+
+a:hover { color: var(--color-moon); }
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  font-weight: 400; /* Archivo Black only has 400 */
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+/* ── BUTTON ── */
+.btn-primary {
+  display: inline-block;
+  padding: 1.25rem 3rem;
+  border: 1.5px solid var(--color-moon);
+  color: var(--color-moon);
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--duration-fast) ease, color var(--duration-fast) ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--color-moon);
+  color: var(--color-void);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── TRILINGUAL LANG TOGGLE ── */
+[data-lang="pt"], [data-lang="fr"] { display: none; }
+
+body.pt [data-lang="pt"] { display: revert; }
+body.pt [data-lang="en"] { display: none; }
+
+body.fr [data-lang="fr"] { display: revert; }
+body.fr [data-lang="en"] { display: none; }
+
+/* ── CUSTOM CURSOR ── */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-bright);
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
+
+.cursor-dot.cursor-hover {
+  width: 4px;
+  height: 4px;
+  top: -2px;
+  left: -2px;
+  background: var(--color-moon);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: -16px;
+  left: -16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform;
+  transition: opacity 0.3s ease, width 0.35s var(--ease-out-expo), height 0.35s var(--ease-out-expo), top 0.35s var(--ease-out-expo), left 0.35s var(--ease-out-expo), border-color 0.3s ease;
+}
+
+.cursor-ring.cursor-hover {
+  width: 52px;
+  height: 52px;
+  top: -26px;
+  left: -26px;
+  border-color: var(--color-moon);
+  opacity: 0.3;
+}
