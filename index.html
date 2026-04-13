@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beat Nonstop · Lua Nova | 16 May 2026</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <title>[STAGING] Beat Nonstop · Lua Nova | 16 May 2026</title>
   <meta name="description" content="Beat Nonstop presents Lua Nova — May 16, 2026 at Ribeira do Neiva, Vila Verde, Braga. 18h–4h. New moon. No light. Full sound." />
   <meta property="og:title" content="Beat Nonstop presents Lua Nova" />
   <meta property="og:description" content="New moon. No light. Full sound. May 16, 2026. Ribeira do Neiva, Braga." />
@@ -18,8 +19,26 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles/design-system.css" />
   <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .staging-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #ffb000; color: #000;
+      font-family: 'DM Mono', monospace; font-size: 12px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-align: center; padding: 6px 12px;
+      border-bottom: 1px solid #000;
+    }
+    body { padding-top: 28px; }
+  </style>
 </head>
 <body>
+  <div class="staging-banner">⚠ STAGING · not public · last-modified <span id="staging-ts"></span></div>
+  <script>
+    fetch(location.href, {method:'HEAD'}).then(r=>{
+      const d = r.headers.get('last-modified');
+      if (d) document.getElementById('staging-ts').textContent = new Date(d).toISOString().slice(0,16).replace('T',' ') + 'Z';
+    }).catch(()=>{});
+  </script>
 
   <!-- ── NAV ── -->
   <nav class="site-nav">
@@ -33,8 +52,8 @@
       <li><a href="#info"><span data-lang="en">Info</span><span data-lang="pt">Info</span><span data-lang="fr">Infos</span></a></li>
       <li><a href="#tickets"><span data-lang="en">Tickets</span><span data-lang="pt">Bilhetes</span><span data-lang="fr">Billets</span></a></li>
       <li class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn active" onclick="setLang('pt')">PT</button>
         <button class="lang-btn" onclick="setLang('fr')">FR</button>
       </li>
     </ul>
@@ -214,6 +233,19 @@
             <span data-lang="en">&euro;10 each · bring a friend</span>
             <span data-lang="pt">&euro;10 cada · traz um amigo</span>
             <span data-lang="fr">10 € chacun · amène un ami</span>
+          </div>
+        </button>
+        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
+          <div class="ticket-type">
+            <span data-lang="en">VIP</span>
+            <span data-lang="pt">VIP</span>
+            <span data-lang="fr">VIP</span>
+          </div>
+          <div class="ticket-price">&euro;260</div>
+          <div class="ticket-note">
+            <span data-lang="en">Premium experience</span>
+            <span data-lang="pt">Experiência premium</span>
+            <span data-lang="fr">Expérience premium</span>
           </div>
         </button>
       </div>
