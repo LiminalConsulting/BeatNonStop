@@ -135,7 +135,11 @@
 .hero-title {
   font-size: clamp(2.5rem, 10vw, 8rem);
   letter-spacing: 0.15em;
-  color: var(--color-moon);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   margin-bottom: var(--space-xs);
 }
 
@@ -159,15 +163,15 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  box-shadow: inset -12px 0 0 0 var(--color-accent);
+  box-shadow: inset -12px 0 0 0 var(--color-cyan), 0 0 24px rgba(152, 192, 248, 0.3);
   animation: moonbreath 8s ease-in-out infinite;
-  opacity: 0.7;
+  opacity: 0.8;
   margin: var(--space-md) auto 0;
 }
 
 @keyframes moonbreath {
-  0%, 100% { box-shadow: inset -12px 0 0 0 var(--color-accent); opacity: 0.7; }
-  50% { box-shadow: inset -10px 2px 0 0 var(--color-accent-bright); opacity: 0.9; }
+  0%, 100% { box-shadow: inset -12px 0 0 0 var(--color-cyan), 0 0 24px rgba(152, 192, 248, 0.3); opacity: 0.8; }
+  50% { box-shadow: inset -10px 2px 0 0 var(--color-magenta), 0 0 32px rgba(192, 128, 248, 0.4); opacity: 1; }
 }
 
 .scroll-indicator {
@@ -225,7 +229,8 @@
 .section-about hr {
   border: none;
   height: 1px;
-  background: var(--color-border);
+  background: var(--gradient-brand);
+  opacity: 0.6;
   margin: var(--space-md) auto;
   max-width: 120px;
 }

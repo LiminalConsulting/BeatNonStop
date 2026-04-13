@@ -24,6 +24,14 @@
     }
   }
 
+  // Brand-tinted stars: lavender (200,220,245) with occasional cyan/magenta accents
+  function starColor(i) {
+    var mod = i % 13;
+    if (mod === 0) return '104, 224, 248'; // cyan
+    if (mod === 6) return '192, 128, 248'; // magenta
+    return '220, 228, 244';                 // default lavender silver
+  }
+
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var t = Date.now() / 3000;
@@ -32,7 +40,7 @@
       var o = s.opacity + Math.sin(t + s.pulse) * 0.15;
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(200, 200, 212, ' + Math.max(0, o) + ')';
+      ctx.fillStyle = 'rgba(' + starColor(i) + ', ' + Math.max(0, o) + ')';
       ctx.fill();
     }
     requestAnimationFrame(draw);

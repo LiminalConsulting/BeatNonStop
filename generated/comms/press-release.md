@@ -15,11 +15,11 @@ Vila Verde prepara-se para receber a segunda edição da Beat Nonstop, plataform
 
 O evento, organizado em parceria com a paróquia local de Duas Igrejas, reúne sete artistas da região — dois rappers e cinco DJs — numa programação que percorre o house até ao techno, das 18h às 4h. Está previsto fogo de artifício a meio da noite, em sincronização com os momentos-chave da atuação.
 
-"A data não é aleatória. É literalmente a noite da lua nova de Maio," explicam os organizadores David Pereira e Tiago [apelido]. "Queremos marcar o início de um novo ciclo, com uma experiência musical e atmosférica à altura."
+"A data não é aleatória. É literalmente a noite da lua nova de Maio," explicam os organizadores David, Tiago e Bruno. "Queremos marcar o início de um novo ciclo, com uma experiência musical e atmosférica à altura."
 
 A primeira edição da Beat Nonstop aconteceu há três anos, em formato mais íntimo. Esta nova edição aposta num espaço aberto e numa produção significativamente maior, mantendo a parceria próxima com a comunidade local.
 
-**Bilhetes** disponíveis em Shotgun.live desde 14 de Abril, com Early Bird a €12 (limitado a 200 unidades).
+**Bilhetes** disponíveis em beatnonstop.live — €15 bilhete geral, €20 Pack Duo (dois bilhetes).
 
 Mais informação: [website] · Instagram @beatnonstop
 Contacto imprensa: [email] · [telefone]
@@ -37,11 +37,11 @@ Vila Verde prepares for the second edition of Beat Nonstop, a local electronic m
 
 Organised in partnership with the local Duas Igrejas parish, the event brings together seven artists from the region — two rappers and five DJs — running from house into techno, 18h to 4h. Fireworks are planned mid-evening, synchronised with key performance moments.
 
-"The date is not arbitrary. It's literally the new moon of May," explain organisers David Pereira and Tiago. "We want to mark the beginning of a new cycle with a musical and atmospheric experience that matches the moment."
+"The date is not arbitrary. It's literally the new moon of May," explain organisers David, Tiago, and Bruno. "We want to mark the beginning of a new cycle with a musical and atmospheric experience that matches the moment."
 
 The first Beat Nonstop edition ran three years ago in a more intimate format. This new edition steps up significantly in scale, while keeping the close partnership with the local community.
 
-**Tickets** on Shotgun.live from April 14, with Early Bird at €12 (limited to 200).
+**Tickets** on beatnonstop.live — €15 general, €20 Pack Duo (two tickets).
 
 More information: [website] · Instagram @beatnonstop
 Press contact: [email] · [phone]

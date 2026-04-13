@@ -2,21 +2,27 @@
   "core_organizers": [
     {
       "name": "David Pereira",
-      "role": "Co-lead · money, tickets, logistics, organization",
+      "role": "Money, tickets, logistics, organization",
       "responsibilities": ["money/accounts", "ticket platform", "entry door strategy", "van/transport", "cash reconciliation"],
-      "assets": ["van (father's work)", "organizational capacity"]
+      "assets": ["van (via father's work)", "organizational capacity"]
     },
     {
       "name": "Tiago",
-      "role": "Co-lead · artists, stage, sound, music programming",
+      "role": "Artists, stage, sound, music programming",
       "responsibilities": ["artist communication", "stage + sound coordination", "set order", "artist relations"],
-      "assets": ["artist network", "aluminum/construction materials via employer", "fog machine", "DJ as Pia Zola"]
+      "assets": ["artist network", "construction/aluminum materials via employer", "DJ as Pia Zola"]
+    },
+    {
+      "name": "Bruno",
+      "role": "Operations, production, on-site support",
+      "responsibilities": ["production assistance", "event-day operations", "general support across domains"],
+      "assets": ["local community network", "hands-on availability"]
     }
   ],
-  "decision_model": "Joint — both sign off on major decisions. Trust-based, no formal lead.",
+  "decision_model": "Joint — David, Tiago, and Bruno. Decisions coordinated in the Telegram group. Trust-based, no formal lead.",
   "marketing_team": [
     {
-      "role": "Marketing / social / photography",
+      "role": "Marketing, social content, photography, after-movie",
       "people": "2 local women (Tiago's high-school friend + her friend)",
       "fee_total": 1000,
       "fee_upfront": 500,
@@ -27,7 +33,13 @@
   "community_support": {
     "organization": "Duas Igrejas parish",
     "headcount_event_day": 25,
-    "responsibilities": ["bar operation (they keep profits)", "general staffing", "family helpers", "legal umbrella (NIF, permit, alcohol license)", "community setup help"]
+    "responsibilities": [
+      "bar operation (they keep profits)",
+      "general staffing",
+      "family helpers",
+      "legal umbrella (NIF, permit, alcohol license)",
+      "community setup help"
+    ]
   },
   "vendors_confirmed": [
     {
@@ -48,12 +60,7 @@
     {
       "name": "First aid",
       "contact": "TBD",
-      "status": "GAP — needs resolution"
+      "status": "gap — needs resolution"
     }
-  ],
-  "former_organizer": {
-    "status": "Removed from core team Apr 2026",
-    "reason": "Reliability concerns",
-    "current_role": "Optional small-task helper if smooth; no dependencies"
-  }
+  ]
 }

@@ -5,24 +5,23 @@
     "event_end": "2026-05-17T04:00:00+01:00",
     "venue": "Ribeira do Neiva, Duas Igrejas, Vila Verde, Braga, Portugal",
     "capacity": 2000,
+    "domain": "beatnonstop.live",
     "last_sync": null,
     "last_sync_by": null
   },
   "tickets": {
-    "platform": "Shotgun.live",
+    "platform": "Shotgun.live (embedded on beatnonstop.live)",
     "launch_date": "2026-04-13",
+    "status": "LIVE — tickets on sale",
+    "pricing_model": "Flat €15 · Duo Pack €20 (2 tickets, €10 each)",
     "target_sales": 1000,
     "sold": 0,
     "revenue_eur": 0,
     "tiers": [
-      { "name": "Early Bird", "price": 12, "quantity": 250, "sold": 0 },
-      { "name": "Presale", "price": 18, "quantity": null, "sold": 0 },
-      { "name": "Door", "price": 25, "quantity": null, "sold": 0 },
-      { "name": "T-shirt Pack", "price": 30, "quantity": null, "sold": 0 },
-      { "name": "VIP 4", "price": 200, "quantity": null, "sold": 0 },
-      { "name": "VIP 6", "price": 280, "quantity": null, "sold": 0 },
-      { "name": "VIP 10", "price": 420, "quantity": null, "sold": 0 }
-    ]
+      { "name": "Geral", "price": 15, "quantity": null, "sold": 0 },
+      { "name": "Pack Duo", "price": 20, "attendees_per_ticket": 2, "quantity": null, "sold": 0 }
+    ],
+    "deferred": ["VIP tables (pending stage layout)", "T-shirt Pack (pending merch design)"]
   },
   "budget": {
     "currency": "EUR",
@@ -31,46 +30,62 @@
     "cash_gap": 3000,
     "critical_upfront": {
       "amount": 1500,
-      "purpose": "Equipment deposit (sound+lights+DJ) — must be paid BEFORE event",
-      "resolved": false
+      "purpose": "Equipment deposit (sound + lights + DJ) — due before event",
+      "resolved": true,
+      "resolved_date": "2026-04-12"
+    },
+    "break_even": {
+      "floor_tickets": 475,
+      "full_obligations_tickets": 577,
+      "blended_avg_price_eur": 13,
+      "note": "Floor = deposits only. Full = artist balances + bonuses paid (only fires if event sells well)."
     },
     "paid": [],
     "pending_payments": [
-      { "to": "Equipment company", "amount": 1500, "when": "ASAP — blocks equipment reservation" },
-      { "to": "Artists (50% deposits)", "amount": 725, "when": "Before event" },
-      { "to": "Marketing team (50% remaining)", "amount": 500, "when": "After event" },
-      { "to": "Artist success bonuses (if successful)", "amount": 600, "when": "After event" }
+      { "to": "Equipment company deposit", "amount": 1500, "when": "before event" },
+      { "to": "Artist deposits (3 paid artists)", "amount": 725, "when": "before event" },
+      { "to": "Marketing team (50% balance)", "amount": 500, "when": "after event" },
+      { "to": "Equipment company balance", "amount": 1500, "when": "event day" },
+      { "to": "Artist balances (conditional)", "amount": 725, "when": "after event, if successful" },
+      { "to": "Artist success bonuses (conditional)", "amount": 600, "when": "after event, if successful" }
     ]
   },
   "tasks": [
-    { "id": "t1", "title": "Buy domain (beatnonstop.pt or similar)", "owner": "team", "priority": "urgent", "due": "2026-04-12", "status": "open", "category": "infra" },
-    { "id": "t2", "title": "Set up brand email on new domain", "owner": "team", "priority": "high", "due": "2026-04-13", "status": "open", "category": "infra", "blocked_by": "t1" },
-    { "id": "t3", "title": "Confirm Shotgun.live account + event page live", "owner": "David", "priority": "urgent", "due": "2026-04-13", "status": "open", "category": "tickets" },
-    { "id": "t4", "title": "Decide age restriction (affects ticket copy)", "owner": "team", "priority": "urgent", "due": "2026-04-12", "status": "open", "category": "tickets" },
-    { "id": "t5", "title": "Tiago: provide full artist name list", "owner": "Tiago", "priority": "urgent", "due": "2026-04-13", "status": "open", "category": "lineup" },
-    { "id": "t6", "title": "Solve €1500 upfront equipment payment", "owner": "team", "priority": "urgent", "due": "2026-04-20", "status": "open", "category": "budget" },
-    { "id": "t7", "title": "Apply for event permit via Duas Igrejas", "owner": "Tiago", "priority": "high", "due": "2026-04-20", "status": "open", "category": "legal" },
+    { "id": "t1", "title": "Domain beatnonstop.live connected to GitHub Pages", "owner": "David (builder)", "priority": "done", "due": "2026-04-13", "status": "done", "category": "infra" },
+    { "id": "t2", "title": "Shotgun event live with Geral + Pack Duo", "owner": "David", "priority": "done", "due": "2026-04-13", "status": "done", "category": "tickets" },
+    { "id": "t3", "title": "Public site embeds Shotgun widget via modal", "owner": "David (builder)", "priority": "done", "due": "2026-04-13", "status": "done", "category": "infra" },
+    { "id": "t4", "title": "End-to-end test purchase confirmed", "owner": "David (builder)", "priority": "done", "due": "2026-04-13", "status": "done", "category": "tickets" },
+    { "id": "t5", "title": "Instagram launch post (with first artist reveal)", "owner": "Marketing", "priority": "urgent", "due": "2026-04-14", "status": "open", "category": "marketing" },
+    { "id": "t6", "title": "Full artist name list posted to group", "owner": "Tiago", "priority": "urgent", "due": "2026-04-14", "status": "open", "category": "lineup" },
+    { "id": "t7", "title": "Apply for event permit via Duas Igrejas", "owner": "Tiago + Parish", "priority": "high", "due": "2026-04-20", "status": "open", "category": "legal" },
     { "id": "t8", "title": "Arrange stage via municipality president", "owner": "Tiago", "priority": "high", "due": "2026-04-25", "status": "open", "category": "production" },
     { "id": "t9", "title": "Lock security company quote", "owner": "Tiago", "priority": "high", "due": "2026-04-20", "status": "open", "category": "safety" },
-    { "id": "t10", "title": "First aid plan (currently gap)", "owner": "team", "priority": "high", "due": "2026-04-30", "status": "open", "category": "safety" },
-    { "id": "t11", "title": "Confirm mobile toilets (Dixies)", "owner": "Tiago", "priority": "high", "due": "2026-04-25", "status": "open", "category": "production" },
-    { "id": "t12", "title": "Verify insurance under Duas Igrejas umbrella", "owner": "David", "priority": "high", "due": "2026-04-20", "status": "open", "category": "legal" },
+    { "id": "t10", "title": "First aid plan (currently gap)", "owner": "Team", "priority": "high", "due": "2026-05-03", "status": "open", "category": "safety" },
+    { "id": "t11", "title": "Confirm mobile toilets (Dixies) with municipality", "owner": "Tiago", "priority": "high", "due": "2026-04-25", "status": "open", "category": "production" },
+    { "id": "t12", "title": "Verify insurance under Duas Igrejas umbrella", "owner": "David + Parish", "priority": "high", "due": "2026-04-26", "status": "open", "category": "legal" },
     { "id": "t13", "title": "Release poster (marketing team)", "owner": "Marketing", "priority": "high", "due": "2026-04-25", "status": "open", "category": "marketing" },
-    { "id": "t14", "title": "Press outreach (Vila Verde journal + radio)", "owner": "team", "priority": "medium", "due": "2026-04-28", "status": "open", "category": "marketing", "blocked_by": "t13" },
-    { "id": "t15", "title": "Sponsor outreach to close €3000 gap", "owner": "team", "priority": "high", "due": "2026-05-01", "status": "open", "category": "sponsorship" },
-    { "id": "t16", "title": "Source wristbands (for door/walk-ins)", "owner": "David", "priority": "medium", "due": "2026-05-01", "status": "open", "category": "production" },
-    { "id": "t17", "title": "Door staff assignment (trusted friend)", "owner": "team", "priority": "medium", "due": "2026-05-01", "status": "open", "category": "operations" },
-    { "id": "t18", "title": "Set order / run-of-show for 7 artists", "owner": "Tiago", "priority": "medium", "due": "2026-05-05", "status": "open", "category": "lineup" }
+    { "id": "t14", "title": "Press outreach (Vila Verde journal + radio)", "owner": "Team", "priority": "medium", "due": "2026-04-28", "status": "open", "category": "marketing", "blocked_by": "t13" },
+    { "id": "t15", "title": "Sponsor outreach", "owner": "Team", "priority": "medium", "due": "2026-05-01", "status": "open", "category": "sponsorship" },
+    { "id": "t16", "title": "Source wristbands (2 colours: adult + 13–17 white)", "owner": "David", "priority": "medium", "due": "2026-05-01", "status": "open", "category": "production" },
+    { "id": "t17", "title": "Door staff assignment (trusted friend)", "owner": "Team", "priority": "medium", "due": "2026-05-03", "status": "open", "category": "operations" },
+    { "id": "t18", "title": "Set order / run-of-show for 7 artists", "owner": "Tiago", "priority": "medium", "due": "2026-05-05", "status": "open", "category": "lineup" },
+    { "id": "t19", "title": "Pay artist deposits (€725 across 3 artists)", "owner": "David", "priority": "high", "due": "2026-04-26", "status": "open", "category": "budget" },
+    { "id": "t20", "title": "Parent consent form template + print ~50 copies", "owner": "David", "priority": "medium", "due": "2026-05-10", "status": "open", "category": "operations" }
   ],
   "sponsors": {
     "confirmed": [
       { "name": "Duas Igrejas parish", "contribution": "Bar ops + 1 free drink/ticket + community staff + NIF + permit + alcohol license", "in_kind_value_eur": null },
-      { "name": "Municipality", "contribution": "Free fireworks synced to sound" }
+      { "name": "Municipality (Vila Verde)", "contribution": "Free fireworks synced to sound at midnight" }
     ],
     "in_progress": [
       { "name": "Tiago's employer (aluminum/construction)", "contribution": "Materials for stage props / moon logo" }
     ],
-    "pipeline": []
+    "pipeline": [],
+    "tiers_for_pitch": {
+      "200_eur": "Logo on website + 2 tickets",
+      "500_eur": "Logo on stage + 4 tickets + VIP table for 4",
+      "1000_eur": "Title partner mention + 10 tickets + prominent placement"
+    }
   },
   "press": {
     "targets": [
@@ -88,8 +103,9 @@
       { "name": "Pia Zola (Tiago)", "note": "Co-organizer" }
     ],
     "pending_names": 3,
-    "note": "Friend-based, cash, 50% upfront per Tiago's standard. No contracts."
+    "success_bonus_per_non_tiago_artist_eur": 100,
+    "note": "Friend-based, cash, 50% upfront. No contracts. Balances + bonuses only triggered if event succeeds."
   },
   "lineup_locked": false,
-  "age_policy": "undecided"
+  "age_policy": "13+ with wristband tiering — decided 2026-04-12"
 }

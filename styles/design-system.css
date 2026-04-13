@@ -4,14 +4,27 @@
    ═══════════════════════════════════════════════════════ */
 
 :root {
-  /* Core palette — new moon aesthetic */
+  /* Core palette — extracted from BNS logo + Lua Nova banner
+     Deep void + neon cyan → lavender → magenta gradient */
   --color-void: #050508;
-  --color-surface: #0d0d14;
-  --color-border: #1a1a2e;
-  --color-moon: #c8c8d4;
-  --color-moon-dim: #6b6b80;
-  --color-accent: #9fa8c7;
-  --color-accent-bright: #d4d8f0;
+  --color-surface: #0d0d16;
+  --color-border: #1e1e34;
+
+  /* Text */
+  --color-moon: #dce4f4;         /* primary text — lavender-tinted silver */
+  --color-moon-dim: #7880a0;     /* muted secondary */
+
+  /* Brand accents (sampled from logo strokes) */
+  --color-cyan: #68e0f8;          /* logo left + "LUA" */
+  --color-lavender: #98c0f8;      /* logo centre fade */
+  --color-magenta: #c080f8;       /* logo right + "NOVA" accent */
+
+  /* Functional accents */
+  --color-accent: var(--color-lavender);
+  --color-accent-bright: var(--color-cyan);
+
+  /* Brand gradient (use sparingly — hero, key CTAs, dividers) */
+  --gradient-brand: linear-gradient(90deg, #68e0f8 0%, #98c0f8 50%, #c080f8 100%);
 
   /* Typography */
   --font-display: 'Archivo Black', sans-serif;

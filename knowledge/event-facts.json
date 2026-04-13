@@ -87,23 +87,22 @@
   "team": {
     "core_organizers": [
       {
-        "name": "Tiago",
-        "role": "Co-lead — artists, stage, sound, music programming. Also a performing DJ (Pia Zola). Employer has aluminum/construction company — can contribute materials for stage props (e.g., big moon logo).",
-        "brings": ["artist network", "DJ expertise", "construction materials via employer", "fog machine (via equipment company)"]
+        "name": "David Pereira",
+        "role": "Money, tickets, logistics, organization. Van access via father's work.",
+        "brings": ["money management", "logistics", "van for transport", "organizational capacity"]
       },
       {
-        "name": "David",
-        "role": "Co-lead — money, tickets, entry, logistics, organization. Has access to van (from father's work) for equipment transport.",
-        "brings": ["money management", "logistics", "van for transport", "organizational capacity"]
+        "name": "Tiago",
+        "role": "Artists, stage, sound, music programming. Performs as Pia Zola. Employer provides construction materials for stage props.",
+        "brings": ["artist network", "DJ expertise", "construction materials via employer", "fog machine"]
+      },
+      {
+        "name": "Bruno",
+        "role": "Operations, production, on-site support. Cross-functional.",
+        "brings": ["local community network", "hands-on availability", "production support"]
       }
     ],
-    "former_organizer": {
-      "status": "Dropped from core team — reliability concerns",
-      "resolution": "No longer part of decision-making. May help with small tasks if everything goes smoothly, but plan must be independent of his contribution.",
-      "residual_issue": "The €3k cash gap is somehow connected to this dynamic"
-    },
-    "decision_authority": "David + Tiago jointly — no single lead, they trust each other and coordinate",
-    "active_tensions": "RESOLVED — former third organizer situation already navigated. No current blocking disagreements between David and Tiago.",
+    "decision_authority": "Joint — coordinated via the Telegram group.",
     "community_support": {
       "source": "Duas Igrejas parish community",
       "headcount": "~25 people working the event (families, community helpers)",
@@ -111,18 +110,19 @@
     },
     "marketing_team": {
       "headcount": 2,
-      "description": "Two local women — Tiago's high school friend (Sarah?) and her friend",
+      "description": "Two local women — Tiago's high-school friend and her friend",
       "fee": 1000,
-      "payment_structure": "€500 upfront (already committed, may not yet be paid), €500 after event",
-      "status": "Already actively working on marketing"
+      "payment_structure": "€500 upfront, €500 after event",
+      "status": "Engaged, actively producing content"
     },
     "responsibility_map": {
       "money_accounts": "David",
       "artist_communication": "Tiago",
       "venue_liaison_stage_sound_coordination": "Tiago",
-      "social_media": "Marketing team (2 women)",
-      "door_entry": "TBD — needs a trusted friend, ideally female ('a pretty girl' per Tiago)",
-      "bar": "Duas Igrejas parish community (they keep bar profits)"
+      "operations_and_production": "Bruno",
+      "social_media": "Marketing team",
+      "door_entry": "TBD — trusted friend",
+      "bar": "Duas Igrejas parish (they keep bar profits)"
     }
   },
   "venue_technical": {

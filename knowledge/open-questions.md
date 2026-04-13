@@ -1,48 +1,37 @@
 # Open Questions & Pending Info
 
-*Last updated: 2026-04-12*
+*Anything the team still needs to answer. Resolved items move to `decisions.md`.*
 
 ---
 
-## 🚨 URGENT — Before ticket launch (Tuesday Apr 14)
-
-- [ ] **Domain purchased** — which extension? (.pt, .earth, .live, .events)
-- [ ] **Stripe verification complete** (David to start Monday morning with ID + IBAN)
-- [ ] **Shotgun event page live and tested** (one end-to-end test purchase)
-- [ ] **Tiago sends full artist name list** to Telegram group
-- [ ] **Photo of Tiago's handwritten budget** to Telegram group
-- [ ] **Verify exact paid-artist split**: €1450 (300+400+750) vs €1500 Tiago said verbally
-
----
-
-## 🔴 HIGH — This week
+## 🔴 High — This week
 
 - [ ] Event permit application submitted via Duas Igrejas
 - [ ] Stage arrangement confirmed with municipality president
 - [ ] Mobile toilets (Dixies) confirmed with municipality
-- [ ] Security company quote + contract
-- [ ] Marketing team artist-reveal schedule locked in
-- [ ] Poster (Cartache) design finalized
-- [ ] Local press contact list with names + emails
-
----
-
-## 🟡 MEDIUM — Next 2 weeks
-
-- [ ] First aid plan resolved (volunteer vs. paramedic)
+- [ ] Security company formal quote received + signed
 - [ ] Insurance coverage verified via parish
-- [ ] Wristband source (2 colors) — check if Shotgun provides or order separately
-- [ ] Parent consent form drafted + printed
-- [ ] Set order / performance times
-- [ ] Door staff identified (trusted friend)
-- [ ] Sponsor outreach list (local businesses in Braga / Vila Verde)
-- [ ] Decision on T-shirt pack launch timing
+- [ ] First aid plan resolved (volunteer vs. contracted paramedic)
 
 ---
 
-## 🟢 LOW — Nice to resolve before event
+## 🟡 Medium — Next 2 weeks
 
-- [ ] Telegram / WhatsApp community channel plan for future editions
+- [ ] Poster (Cartache) design finalised
+- [ ] Set order / performance times for the 7 artists
+- [ ] Door staff identified (trusted friend)
+- [ ] Wristband sourcing (2 colours: adult + 13–17)
+- [ ] Parent consent form printed (~50 copies)
+- [ ] Local press contact list with names + emails
+- [ ] Sponsor outreach list (local businesses in Braga / Vila Verde)
+- [ ] VIP table configuration (depends on stage vendor platforms)
+- [ ] T-shirt pack launch decision
+
+---
+
+## 🟢 Low — Nice to resolve before event
+
+- [ ] Community channel plan for future editions (WhatsApp / Telegram broadcast)
 - [ ] Drug harm-reduction resources
 - [ ] Accessibility: confirm field is navigable for mobility-limited attendees
 - [ ] Content-capture shot list for marketing team
@@ -51,21 +40,8 @@
 
 ## AI research still open
 
-- [ ] Optimal attendee count for venue (currently 1000 target — can we go higher safely?)
-- [ ] Portuguese event permit requirements for outdoor events in Vila Verde câmara
+- [ ] Optimal safe attendee ceiling for the venue
+- [ ] Portuguese event permit specifics for outdoor events in Vila Verde câmara
 - [ ] Industry-standard set scheduling for rapper + DJ hybrid lineups
-- [ ] Local sponsorship prospects in Braga / Vila Verde area
-- [ ] Local press contacts (Vila Verde journal, Neiva radio) — specific names/emails
-
----
-
-## ✅ Recently resolved
-
-- [x] €1500 equipment deposit cashflow — RESOLVED 2026-04-12
-- [x] Age restriction policy — decided 13+ with wristband tiering
-- [x] Ticket platform — Shotgun.live confirmed (via widget on own domain)
-- [x] Launch day — Tuesday Apr 14 (not Monday)
-- [x] Legal/tax structure — via Duas Igrejas parish
-- [x] Ticket pricing model — flat €15 / €20 Duo Pack, VIP + merch deferred
-- [x] Domain — beatnonstop.live purchased from GoDaddy 2026-04-12
-- [x] Monitoring rules established — see `knowledge/monitoring.md`
+- [ ] Local sponsorship prospect list (Braga / Vila Verde)
+- [ ] Specific press contact names/emails (Vila Verde journal, Neiva radio)
