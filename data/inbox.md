@@ -11,15 +11,3 @@ Format per entry:
 ```
 
 ---
-
-## 2026-04-13T20:11:01.465Z — @David (6100643840)
-@BeatNonStopBot pls add a VIP ticket tier for 260€
----
-
-## 2026-04-13T20:11:16.713Z — @David (6100643840)
-to the website
----
-
-## 2026-04-13T20:12:46.517Z — @DavidPereira99 (768181894)
-@BeatNonStopBot pls add a VIP ticket tier for 260€
----
