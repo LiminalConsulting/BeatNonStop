@@ -28,3 +28,9 @@ Quero que no site o O de Nova fique como está na imagem
 
 📷 photo → `data/inbox-media/2026-04-13T21-01-50-570Z-photo-DeAADOwQ.jpg`
 ---
+
+## 2026-04-13T21:10:52.730Z — @DavidPereira99 (768181894)
+@BeatNonStopBot  Gostava que o o retângulo negro que tem o logo no meio desaparecesse, mas apenas o rectângulo, quero manter o logo!
+
+📷 photo → `data/inbox-media/2026-04-13T21-10-52-081Z-photo-A3kAAzsE.jpg`
+---
