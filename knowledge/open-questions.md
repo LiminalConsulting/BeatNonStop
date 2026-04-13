@@ -45,3 +45,16 @@
 - [ ] Industry-standard set scheduling for rapper + DJ hybrid lineups
 - [ ] Local sponsorship prospect list (Braga / Vila Verde)
 - [ ] Specific press contact names/emails (Vila Verde journal, Neiva radio)
+
+---
+
+## 🤖 Deferred agentic capabilities
+
+*Architecture extension points — not yet implemented. Turn on when the team is ready and there's bandwidth.*
+
+- [ ] **Automated sponsor research + cold outreach** — AI researches candidate local businesses (boutiques, bars, gyms, record stores in Braga/Vila Verde), drafts per-business pitch emails referencing their specific audience fit, queues each via `/api/outbox` for 2-of-N vote, sends via Resend once approved. Needs: domain email (`beatnonstop.live`) verified in Resend, list of target businesses to seed research.
+- [ ] **Press outreach automation** — same pattern: AI researches journalists covering Minho electronic scene, drafts pitches tailored to each outlet, queues for vote. Blocked on: poster release (already in timeline) + press contact list research.
+- [ ] **Live Shotgun sales polling** — Cloudflare Worker cron polls Shotgun API every hour, updates `data/state.json` ticket counts + revenue, triggers monitoring thresholds automatically. Blocked on: Shotgun API credentials + rate limit check.
+- [ ] **Daily morning briefing to the group** — Worker cron at 09:00 posts a 3-line summary: countdown, top 3 tasks due today, any flags. No LLM needed (pure template from state.json). Low effort, high value once team gets used to the bot.
+- [ ] **Weather watch** (from May 10) — Worker cron pulls forecast for May 16, flags if >60% rain probability.
+- [ ] **Outbound email sending** — wire Resend into the Worker's `executeOutboxItem` `case "email"` branch. Currently drafts are written to `generated/comms/` for humans to copy-paste.
