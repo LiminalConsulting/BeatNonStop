@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beat Nonstop — Lua Nova | Planning Dashboard</title>
+  <title>[STAGING] Beat Nonstop — Lua Nova | Planning Dashboard</title>
   <meta name="description" content="Private planning dashboard for Beat Nonstop: Lua Nova · May 16, 2026" />
   <meta name="robots" content="noindex, nofollow" />
 
@@ -17,8 +17,8 @@
 <body>
 
 <div class="plan-lang">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <button class="lang-btn active" onclick="setLang('pt')">PT</button>
 </div>
 
 <header class="plan-header">
@@ -318,7 +318,7 @@
     });
     localStorage.setItem(LANG_KEY, lang);
   }
-  setLang(localStorage.getItem(LANG_KEY) || 'en');
+  setLang(localStorage.getItem(LANG_KEY) || 'pt');
 
   document.querySelectorAll('.check-box').forEach(function(box) {
     box.addEventListener('click', function() {
