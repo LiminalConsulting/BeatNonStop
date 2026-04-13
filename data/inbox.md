@@ -11,3 +11,7 @@ Format per entry:
 ```
 
 ---
+
+## 2026-04-13T21:44:13.479Z — @DavidPereira99 (768181894)
+O rectângulo preto do logo não foi removido! Continua a ter o rectângulo negro com o logo em cima
+---
