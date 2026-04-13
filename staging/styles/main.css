@@ -156,7 +156,7 @@
   border-radius: 0;
   opacity: 1;
   background: transparent;
-  mix-blend-mode: screen;
+  mix-blend-mode: lighten;
   filter: drop-shadow(0 0 40px rgba(152, 192, 248, 0.25));
 }
 .nav-logo, .footer-logo { mix-blend-mode: screen; background: transparent; }
@@ -190,12 +190,13 @@
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 8vw, 5.5rem);
+  font-size: clamp(1.6rem, 7vw, 5.5rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-moon);
   margin-bottom: var(--space-sm);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .hero-edition {
@@ -314,6 +315,21 @@
   color: var(--color-moon);
   line-height: 1.8;
   margin-bottom: var(--space-md);
+}
+
+.section-about .about-lead {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.section-about .about-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-bright);
+  line-height: 2;
 }
 
 .section-about hr {
