@@ -47,7 +47,10 @@ Parse `data/inbox.md`. Entries may include media lines like `📷 photo → data
 For each unprocessed entry (newest to oldest is fine), classify:
 - **Question** (they want an answer) → answer it based on project knowledge, post via `/api/reply`
 - **Information / fact update** (e.g., "Sarah confirmed she'll do the door") → update `data/state.json` and/or `knowledge/event-facts.json` accordingly, acknowledge briefly in group
-- **Site feedback / design tweak** (e.g., "make the headline bigger", or an annotated screenshot of `/staging/`) → edit files **under `staging/`** (never the repo root). Commit. Reply briefly in group: "staging updated — refresh https://beatnonstop.live/staging/". Do NOT promote yourself — the team runs `/promote` when ready.
+- **Site change request** (anything about what the website shows: copy, layout, sections, ticket tiers displayed on the page, colors, images, lineup text, etc.) → edit files **under `staging/`** (never the repo root). Commit. Reply briefly in group: "staging updated — refresh https://beatnonstop.live/staging/". Do NOT promote yourself — the team runs `/promote` when ready.
+  - **Default assumption**: if someone says "add X", "change Y", "make Z bigger", "remove W" and X/Y/Z/W is something visible on the site, it's a staging edit. No need to ask.
+  - **Ambiguous case** — if the request could *also* mean an external system change (e.g., "add a VIP ticket tier €260" → could mean display on site AND/OR create it in Shotgun.live): edit the staging site to reflect it, THEN post to the group: "Updated staging to show VIP €260. Note: this is display-only — the actual tier in Shotgun.live still needs to be created by @DavidPereira99 in pro.shotgun.live. Want me to draft instructions?" Never touch Shotgun or other external systems yourself; those stay human-driven until explicitly wired via an outbox action.
+  - **Tagged at the bot** (`@BeatNonStopBot ...`) is just convention — treat it the same as any request. The @ mention is noise; classify by content.
 - **Proposal / decision request** (e.g., "should we raise early bird to €15?") → present tradeoffs in group, don't decide unilaterally
 - **Noise / chatter** → skip
 
