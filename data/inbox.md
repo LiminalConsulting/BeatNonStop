@@ -41,3 +41,14 @@ Quero que me dês mais 4 recomendações
 
 📷 photo → `data/inbox-media/2026-04-13T21-17-56-404Z-photo-DeQADOwQ.jpg`
 ---
+
+## 2026-04-13T21:27:35.072Z — @DavidPereira99 (768181894)
+@BeatNonStopBot Quero criar uma definição nova! 
+
+Nesse rectângulo vermelho desenhado por mim, quero que coloques um botão a dizer “Bilhetes” que ao ser clicado, automaticamente a página tola até ao fundo onde está a seção de bilhetes. 
+Apenas quero usar isso porque depois vou querer lançar fotografias dos artistas no site e é para facilitar o ultilizador que veio para comprar o bilhete, na ter de passar por todo o site até chegar à bilheteira. 
+
+O botão personaliza conforme o layout do site
+
+📷 photo → `data/inbox-media/2026-04-13T21-27-34-166Z-photo-DeQADOwQ.jpg`
+---
