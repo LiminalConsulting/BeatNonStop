@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beat Nonstop — Lua Nova | 16 May 2026</title>
-  <meta name="description" content="Beat Nonstop presents: Lua Nova. May 16, 2026. Ribeira do Neiva, Vila Verde, Braga. 18h–4h. New moon. No light. Full sound." />
-  <meta property="og:title" content="Beat Nonstop — Lua Nova" />
+  <title>Beat Nonstop · Lua Nova | 16 May 2026</title>
+  <meta name="description" content="Beat Nonstop presents Lua Nova — May 16, 2026 at Ribeira do Neiva, Vila Verde, Braga. 18h–4h. New moon. No light. Full sound." />
+  <meta property="og:title" content="Beat Nonstop presents Lua Nova" />
   <meta property="og:description" content="New moon. No light. Full sound. May 16, 2026. Ribeira do Neiva, Braga." />
+  <meta property="og:image" content="BNS.JPG" />
   <meta property="og:type" content="website" />
 
   <!-- Fonts -->
@@ -22,7 +23,10 @@
 
   <!-- ── NAV ── -->
   <nav class="site-nav">
-    <img class="nav-logo" src="BNS.JPG" alt="BNS" width="40" height="40" />
+    <a href="#hero" class="nav-brand" aria-label="Beat Nonstop">
+      <img class="nav-logo" src="BNS.JPG" alt="BNS" width="44" height="44" />
+      <span class="nav-brand-name">Beat Nonstop</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span><span data-lang="fr">À propos</span></a></li>
       <li><a href="#lineup"><span data-lang="en">Lineup</span><span data-lang="pt">Lineup</span><span data-lang="fr">Lineup</span></a></li>
@@ -43,9 +47,16 @@
   <section class="hero" id="hero">
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
-      <img class="hero-logo" src="BNS.JPG" alt="Beat Nonstop" width="72" height="72" loading="lazy" />
-      <h1 class="hero-title">Lua Nova</h1>
-      <p class="hero-subtitle">Beat Nonstop</p>
+      <img class="hero-logo" src="BNS.JPG" alt="Beat Nonstop" width="140" height="140" loading="eager" />
+      <h1 class="hero-title">Beat Nonstop</h1>
+      <div class="hero-edition">
+        <span class="hero-edition-label">
+          <span data-lang="en">presents</span>
+          <span data-lang="pt">apresenta</span>
+          <span data-lang="fr">présente</span>
+        </span>
+        <span class="hero-edition-name">Lua Nova</span>
+      </div>
       <p class="hero-date">
         <span data-lang="en">May 16, 2026 — Ribeira do Neiva, Braga</span>
         <span data-lang="pt">16 de Maio de 2026 — Ribeira do Neiva, Braga</span>
@@ -226,7 +237,10 @@
 
   <!-- ── FOOTER ── -->
   <footer class="site-footer">
-    <img class="footer-logo" src="BNS.JPG" alt="BNS" width="28" height="28" loading="lazy" />
+    <div class="footer-brand">
+      <img class="footer-logo" src="BNS.JPG" alt="BNS" width="36" height="36" loading="lazy" />
+      <span class="footer-brand-name">Beat Nonstop</span>
+    </div>
     <ul class="footer-links">
       <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span><span data-lang="fr">À propos</span></a></li>
       <li><a href="#lineup">Lineup</a></li>
