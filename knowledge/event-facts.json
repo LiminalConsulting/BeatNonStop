@@ -18,11 +18,18 @@
   "venue": {
     "name": "Ribeira do Neiva",
     "location": "Duas Igrejas, Vila Verde, Braga, Portugal",
+    "maps_url": "https://maps.app.goo.gl/aC4kPkFJXYkEJfN36?g_st=ic",
     "capacity": 2000,
     "confirmed": true,
     "contracted": true,
     "indoor_outdoor": "outdoors (open air), with indoor backstage/private zone",
     "history": "Multiple successful parties thrown at this location before — known quantity"
+  },
+  "payout": {
+    "iban": "PT50001000005497343000178",
+    "iban_holder": "David Pereira (personal)",
+    "shotgun_signup_note": "Signup link for adding organizer was shared 2026-04-13 — beatnonstop@protonmail.com used as the account email",
+    "shotgun_org_email": "beatnonstop@protonmail.com"
   },
   "tickets": {
     "target_sales": 1000,
@@ -42,7 +49,7 @@
     "composition": "2 rappers + 5 DJs (spectrum house → techno, including Tiago himself)",
     "all_local": true,
     "locations": "Amarante, Barcelos, Braga area — all local, no travel needed, all handle own transport",
-    "confirmed": "All 7 artists confirmed — names TBD (Tiago will provide list). Includes: Sun Profile, Kika Lewis, John (paid), Pia Zola (Tiago), plus 3 others",
+    "confirmed": "Lineup confirmed 2026-04-13: Piazzolla (Tiago), Mayze & Faria (duo), Kika Lewis, SoundProfile, X-Plosion, Blz, Mufvsza. Need to map which are the 2 rappers vs 5 DJs. John/Sun Profile from earlier notes likely = SoundProfile.",
     "pending": [],
     "contracts": "NO formal contracts — friend-based/trust arrangement. Tiago is a DJ himself, knows all of them personally",
     "legal_structure": "Event organized through partnership with local parish/church organization (Duas Igrejas) — they use their NIF (tax ID). On paper connected to their August party. This is municipality-sanctioned community organizing, not black market.",

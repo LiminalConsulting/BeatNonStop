@@ -4,10 +4,11 @@
     "event_date": "2026-05-16T18:00:00+01:00",
     "event_end": "2026-05-17T04:00:00+01:00",
     "venue": "Ribeira do Neiva, Duas Igrejas, Vila Verde, Braga, Portugal",
+    "venue_maps": "https://maps.app.goo.gl/aC4kPkFJXYkEJfN36?g_st=ic",
     "capacity": 2000,
     "domain": "beatnonstop.live",
-    "last_sync": null,
-    "last_sync_by": null
+    "last_sync": "2026-04-13T10:55:00Z",
+    "last_sync_by": "claude-code"
   },
   "tickets": {
     "platform": "Shotgun.live (embedded on beatnonstop.live)",
@@ -56,7 +57,9 @@
     { "id": "t3", "title": "Public site embeds Shotgun widget via modal", "owner": "David (builder)", "priority": "done", "due": "2026-04-13", "status": "done", "category": "infra" },
     { "id": "t4", "title": "End-to-end test purchase confirmed", "owner": "David (builder)", "priority": "done", "due": "2026-04-13", "status": "done", "category": "tickets" },
     { "id": "t5", "title": "Instagram launch post (with first artist reveal)", "owner": "Marketing", "priority": "urgent", "due": "2026-04-14", "status": "open", "category": "marketing" },
-    { "id": "t6", "title": "Full artist name list posted to group", "owner": "Tiago", "priority": "urgent", "due": "2026-04-14", "status": "open", "category": "lineup" },
+    { "id": "t6", "title": "Full artist name list posted to group", "owner": "Tiago", "priority": "urgent", "due": "2026-04-14", "status": "done", "category": "lineup", "completed": "2026-04-13" },
+    { "id": "t21", "title": "Confirm which 2 of 7 are rappers vs DJs (and map John/Sun Profile → SoundProfile)", "owner": "Tiago", "priority": "medium", "due": "2026-04-20", "status": "open", "category": "lineup" },
+    { "id": "t22", "title": "Answer @DavidPereira99: QR scanner plan for door (Shotgun Organizer app, 2 phones, flow)", "owner": "Team", "priority": "medium", "due": "2026-05-03", "status": "open", "category": "operations" },
     { "id": "t7", "title": "Apply for event permit via Duas Igrejas", "owner": "Tiago + Parish", "priority": "high", "due": "2026-04-20", "status": "open", "category": "legal" },
     { "id": "t8", "title": "Arrange stage via municipality president", "owner": "Tiago", "priority": "high", "due": "2026-04-25", "status": "open", "category": "production" },
     { "id": "t9", "title": "Lock security company quote", "owner": "Tiago", "priority": "high", "due": "2026-04-20", "status": "open", "category": "safety" },
@@ -94,18 +97,21 @@
     ]
   },
   "artists": {
-    "paid": [
-      { "name": "Sun Profile", "fee_eur": 300, "deposit_paid": false },
-      { "name": "Kika Lewis", "fee_eur": 400, "deposit_paid": false },
-      { "name": "John", "fee_eur": 750, "deposit_paid": false }
+    "lineup": [
+      { "name": "Piazzolla", "role": "DJ", "note": "Tiago" },
+      { "name": "Mayze & Faria", "role": "DJ duo" },
+      { "name": "Kika Lewis", "role": "DJ", "fee_eur": 400, "deposit_paid": false },
+      { "name": "SoundProfile", "role": "DJ", "fee_eur": 300, "deposit_paid": false, "alt_spelling_in_knowledge": "Sun Profile" },
+      { "name": "X-Plosion", "role": "artist" },
+      { "name": "Blz", "role": "artist" },
+      { "name": "Mufvsza", "role": "artist" }
     ],
-    "unpaid": [
-      { "name": "Pia Zola (Tiago)", "note": "Co-organizer" }
-    ],
-    "pending_names": 3,
+    "paid_count": 3,
+    "unpaid_count": 4,
+    "paid_total_eur": 1450,
     "success_bonus_per_non_tiago_artist_eur": 100,
-    "note": "Friend-based, cash, 50% upfront. No contracts. Balances + bonuses only triggered if event succeeds."
+    "note": "Lineup confirmed 2026-04-13 by Tiago. 7 artists (2 rappers + 5 DJs). Friend-based, cash, 50% upfront. Need to verify which role is rapper vs DJ and map John/Sun-Profile to actual names above."
   },
-  "lineup_locked": false,
+  "lineup_locked": true,
   "age_policy": "13+ with wristband tiering — decided 2026-04-12"
 }
