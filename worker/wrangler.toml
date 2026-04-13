@@ -1,0 +1,19 @@
+name = "beatnonstop-bot"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+# Cron: every 15 minutes — posts due reminders, nothing else (free tier friendly)
+[triggers]
+crons = ["*/15 * * * *"]
+
+# Secrets (set via `wrangler secret put <NAME>`):
+#   TELEGRAM_BOT_TOKEN   — from @BotFather
+#   TELEGRAM_CHAT_ID     — the group chat id (negative number for groups)
+#   WEBHOOK_SECRET       — random string; Telegram includes it in header, we verify
+#   SYNC_API_KEY         — random string; /sync command sends this as bearer to post replies
+#   GITHUB_TOKEN         — fine-grained PAT with contents:write on this repo
+#   GITHUB_REPO          — "LiminalConsulting/BeatNonStop" (owner/repo)
+#   BUILDER_USER_ID      — David's Telegram user id (numeric, excluded from vote quorum)
+#   APPROVAL_THRESHOLD   — number of distinct 👍 required to execute (default 2)
+
+# No KV needed — repo is our database. The worker commits via GitHub API.
