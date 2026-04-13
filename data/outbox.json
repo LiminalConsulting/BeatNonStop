@@ -1,5 +1,6 @@
 {
-  "pending": [
+  "pending": [],
+  "executed": [
     {
       "id": "promote-2026-04-13T20-35-11-648Z",
       "kind": "promote_staging",
@@ -12,9 +13,10 @@
         }
       },
       "telegram_message_id": 43,
-      "created_at": "2026-04-13T20:35:11.928Z"
+      "created_at": "2026-04-13T20:35:11.928Z",
+      "executed_at": "2026-04-13T20:37:12.668Z",
+      "result": "promoted: 12 files copied, 1 skipped"
     }
   ],
-  "executed": [],
   "rejected": []
 }
