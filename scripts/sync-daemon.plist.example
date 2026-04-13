@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Template for the auto-sync launchd agent.
+  Install:
+    cp scripts/sync-daemon.plist.example ~/Library/LaunchAgents/live.beatnonstop.sync.plist
+    # Edit paths below to match your machine, then:
+    launchctl load ~/Library/LaunchAgents/live.beatnonstop.sync.plist
+    launchctl list | grep beatnonstop   # verify
+  See ARCHITECTURE.md → "Auto-sync daemon" for full docs.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>live.beatnonstop.sync</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <!-- Absolute path to scripts/sync-daemon.sh in your local clone -->
+    <string>/Users/YOURUSER/path/to/BeatNonStop/scripts/sync-daemon.sh</string>
+  </array>
+
+  <key>StartInterval</key>
+  <integer>120</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/YOURUSER/.beatnonstop-sync.stdout.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/YOURUSER/.beatnonstop-sync.stderr.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>HOME</key>
+    <string>/Users/YOURUSER</string>
+  </dict>
+</dict>
+</plist>

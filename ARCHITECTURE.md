@@ -79,6 +79,32 @@ Defined in `.claude/commands/sync.md`. One command, full loop:
 8. Post status summary to group
 9. `git commit && git push` — dashboard auto-updates within ~30s
 
+### Auto-sync daemon (added April 2026)
+
+`/sync` no longer requires David to be at the terminal. A `launchd` agent on his Mac polls `origin/main` every 120s; when the Worker has pushed new commits (i.e. fresh inbox entries), it runs `claude -p "/sync"` headlessly using the Max subscription (no API key, no per-token cost).
+
+**Files:**
+- `scripts/sync-daemon.sh` — fetch + diff `@` vs `@{u}`; if behind, run `claude -p "/sync" --permission-mode acceptEdits`. Logs to `~/.beatnonstop-sync.log` only when sync actually fires.
+- `~/Library/LaunchAgents/live.beatnonstop.sync.plist` — launchd config. `StartInterval=120`, `RunAtLoad=true`. Survives reboots, auto-loads at login. **Not in repo** (machine-local; see `scripts/sync-daemon.plist.example` for the template).
+
+**Manage it:**
+```bash
+launchctl list | grep beatnonstop                                      # status
+launchctl unload ~/Library/LaunchAgents/live.beatnonstop.sync.plist   # stop
+launchctl load   ~/Library/LaunchAgents/live.beatnonstop.sync.plist   # start
+tail -f ~/.beatnonstop-sync.log                                        # watch
+/Users/davidrug/RealDealVault/BeatNonStop/scripts/sync-daemon.sh       # run once manually
+```
+
+**Caveats:**
+- Mac must be awake — launchd timers pause during sleep, fire on first wake.
+- Two `/sync` runs cannot overlap safely (both would push). If a `/sync` ever takes >120s consistently, wrap the script in `flock -n /tmp/bns-sync.lock` to skip overlapping ticks.
+- Tool calls inside `/sync` (bash for git push, curl to Worker) must be allow-listed in `.claude/settings.json` — otherwise headless mode hangs waiting for permission. `--permission-mode acceptEdits` covers file writes only.
+- If the daemon stops firing: check `~/.beatnonstop-sync.stderr.log` (launchd's own errors) before the app log.
+- The `git pull --rebase` inside `/sync` itself handles the case where the daemon and a manual `/sync` race — last writer wins via rebase.
+
+**Disable temporarily** (e.g., during a manual editing session): `launchctl unload …plist`. Re-enable with `load`.
+
 ---
 
 ## File map

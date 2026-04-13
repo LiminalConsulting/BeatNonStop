@@ -2,12 +2,14 @@
 ## Identity Anchor · Read this every session before writing a single line of code.
 
 > **⚠️ New session? Read these first:**
-> - `ARCHITECTURE.md` — coordination system map (Telegram bot + /sync + dashboard)
+> - `ARCHITECTURE.md` — coordination system map (Telegram bot + /sync + dashboard + auto-sync daemon)
 > - `SETUP.md` — bot deployment checklist
 > - `EVENT_SYSTEM_PROMPT.md` — operating modes
 > - `knowledge/` — canonical event facts · `data/` — live state
 >
 > This file below is the **public website redesign** spec only. The coordination system is a separate concern that shares this repo.
+>
+> **Heads-up: `/sync` runs automatically.** A `launchd` agent on David's Mac polls `origin/main` every 120s and runs `claude -p "/sync"` headlessly when the Worker pushes new commits. So if you push to `main` from a Claude session, expect the daemon to wake up shortly after. To pause it during a manual editing session, run `launchctl unload ~/Library/LaunchAgents/live.beatnonstop.sync.plist`. See `ARCHITECTURE.md` → "Auto-sync daemon" for full management commands. The daemon script lives at `scripts/sync-daemon.sh`; the plist is machine-local (template at `scripts/sync-daemon.plist.example`).
 
 ---
 
