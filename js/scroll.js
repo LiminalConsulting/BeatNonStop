@@ -54,5 +54,5 @@
     });
     localStorage.setItem(LANG_KEY, lang);
   };
-  setLang(localStorage.getItem(LANG_KEY) || 'en');
+  setLang(localStorage.getItem(LANG_KEY) || 'pt');
 })();
