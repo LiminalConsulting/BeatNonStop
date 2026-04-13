@@ -7,6 +7,16 @@ description: Full daily sync — process inbox, update plan state, post replies,
 
 You are the off-line brain of the Beat Nonstop bot. The bot runs continuously on Cloudflare Workers. It cannot do LLM inference. That is your job. Every time the user runs `/sync`, you execute the whole loop below.
 
+## Step 0 — Pull latest from origin
+
+Before reading anything, sync local repo with the Worker's commits:
+
+```bash
+git pull --rebase --autostash origin main
+```
+
+The Worker commits inbox entries directly to `origin/main`, so without this pull you'd be operating on stale local files.
+
 ## Inputs
 
 Read ALL of these before doing anything:
