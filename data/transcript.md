@@ -301,9 +301,5 @@ Pedido 2: cria uma nova votação para mandar online
 [2026-04-14T16:46:37.111Z] bot: 🔄 Sync done · 1 staging edit (info section removed) · 1 promote vote queued · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20)
 [2026-04-14T16:47:46.574Z] bot: 🇬🇧 @Tiago — explained how staging/voting system works (3-step: edit staging → check preview → vote to promote). 🇵🇹 Explicação do sistema de staging e votação ao Tiago.
 [2026-04-14T17:21:21.658Z] @DavidPereira99: Gera uma nova votação
-[2026-04-14T17:24:06.501Z] bot: 🇬🇧 New promote vote created — check the staging site and vote to push it live.
-
-🇵🇹 Nova votação de promoção criada — verifiquem o staging e votem para publicar.
-
-https://beatnonstop.live/staging/
-[2026-04-14T17:24:36.052Z] bot: 🔄 Sync done · 1 request processed (new promote vote) · next priorities: Instagram launch post (t5, overdue), permit application (t7, due Apr 20), security quote (t9, due Apr 20)
+[2026-04-14T17:21:21.658Z] @DavidPereira99: Gera uma nova votação
+[2026-04-14T17:25:00Z] bot: 🇬🇧 New promote vote created — check the staging site and vote to push it live. 🇵🇹 Nova votação de promoção criada — verifiquem o staging e votem para publicar.

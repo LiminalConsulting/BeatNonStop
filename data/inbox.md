@@ -11,7 +11,3 @@ Format per entry:
 ```
 
 ---
-
-## 2026-04-14T17:21:21.658Z — @DavidPereira99 (768181894)
-Gera uma nova votação
----
