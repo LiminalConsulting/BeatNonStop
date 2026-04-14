@@ -11,7 +11,3 @@ Format per entry:
 ```
 
 ---
-
-## 2026-04-14T13:27:28.619Z — @David (6100643840)
-pls apply a circular mask to the BNS logo, keeping everything elsethe same
----

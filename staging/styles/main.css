@@ -32,8 +32,9 @@
 .nav-logo {
   width: 44px;
   height: 44px;
-  object-fit: contain;
-  border-radius: 2px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .nav-brand-name {
@@ -150,10 +151,11 @@
 
 .hero-logo {
   width: clamp(120px, 20vw, 180px);
-  height: auto;
-  object-fit: contain;
+  height: clamp(120px, 20vw, 180px);
+  object-fit: cover;
   margin: 0 auto var(--space-md);
-  border-radius: 0;
+  border-radius: 50%;
+  overflow: hidden;
   opacity: 1;
   background: transparent;
   mix-blend-mode: lighten;
@@ -695,8 +697,9 @@
 .footer-logo {
   width: 36px;
   height: 36px;
-  object-fit: contain;
-  border-radius: 2px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
   opacity: 0.85;
 }
 
