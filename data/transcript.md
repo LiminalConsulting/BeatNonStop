@@ -172,3 +172,4 @@ O que está agora no site:
 • A promoção do staging atualiza a versão automaticamente
 
 Depois de um `/promote`, um refresh normal em qualquer browser (Safari mobile/desktop, Brave, Telegram interno) deve mostrar a nova versão em ~60s após o Pages reconstruir. Se suspeitares de cache: `Cmd+Shift+R` (desktop) ou fechar+reabrir o separador (mobile). No Telegram interno: toca em `⋮` → 'Abrir no browser'.
+[2026-04-14T12:15:26.132Z] @David: this works for both the staging site update and also the main website update after the promote voting happens?
