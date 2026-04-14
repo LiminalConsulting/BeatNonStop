@@ -414,3 +414,30 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 • NIF da paróquia no Shotgun (prazo 20 abr)
 • Depósitos artistas €725 (prazo 26 abr)
 [2026-04-14T19:08:17.534Z] bot: ✅ *Staging promoted to live* — beatnonstop.live now reflects the latest version. Done via owner override since the voting step was getting noisy. Pending vote cleared. 🌑
+[2026-04-14T19:10:45.916Z] bot: 🌑 Sync done · inbox empty, no new messages.
+
+📋 Status:
+• Staging promoted to live ✅ (owner override earlier today)
+• 0 tickets reported sold (day 2 — first threshold check Apr 26)
+• Artist reveals start tomorrow (Apr 15)
+
+⏰ This week:
+• Instagram launch post (t5, overdue)
+• Permit application (t7, due Apr 20)
+• Security quote (t9, due Apr 20)
+• Parish NIF on Shotgun (t23, due Apr 20)
+
+—
+
+🇵🇹 Sync feito · inbox vazio.
+
+📋 Estado:
+• Staging promovido para live ✅
+• 0 bilhetes vendidos reportados (dia 2)
+• Revelação de artistas começa amanhã (15 abr)
+
+⏰ Esta semana:
+• Post Instagram (t5, atrasado)
+• Alvará (t7, prazo 20 abr)
+• Segurança (t9, prazo 20 abr)
+• NIF paróquia no Shotgun (t23, prazo 20 abr)
