@@ -357,3 +357,20 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 [2026-04-14T22:45:00Z] bot [summary]: Sync tick — inbox empty, no new messages. Promote vote (promote-2026-04-14T17-25-00-000Z) still pending, needs 1 more vote. Instagram launch post (t5) overdue. Note: /api/reply returned 403 (Cloudflare error 1010) — status message not delivered to group.
 [2026-04-14T18:20:45.167Z] @DavidPereira99: @Bruno_Veloso
 [2026-04-14T18:20:50.739Z] @DavidPereira99: Mete 👍🏼aqui
+[2026-04-14T18:22:24.724Z] bot: 🇬🇧 Sync done · inbox clear — David P. tagged Bruno for the promote vote, still waiting on 1 more 👍 to push staging → live.
+
+📋 Next priorities:
+• Promote vote — needs 1 more approval
+• Instagram launch post (t5, overdue)
+• Permit application (t7, due Apr 20)
+• Security quote (t9, due Apr 20)
+
+—
+
+🇵🇹 Sync feito · inbox limpo — David P. marcou o Bruno para a votação de promoção, ainda falta 1 👍 para publicar o staging.
+
+📋 Próximas prioridades:
+• Votação de promoção — falta 1 aprovação
+• Post Instagram de lançamento (t5, atrasado)
+• Pedido de alvará (t7, prazo 20 abr)
+• Orçamento segurança (t9, prazo 20 abr)
