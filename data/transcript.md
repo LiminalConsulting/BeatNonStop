@@ -188,3 +188,4 @@ Short version: edit staging → see it immediately. Promote → main site update
 • **Promoção para o site principal** — quando a votação do /promote passa e os ficheiros são copiados para a raiz, a versão vem com eles. Então o site principal (beatnonstop.live) também fica atualizado. O CDN do GitHub Pages reconstrói em ~30-60s; depois disso um refresh normal mostra a versão nova em todo o lado.
 
 Resumo: edita staging → vê logo. Promove → site principal atualiza também. Sem limpar cache manualmente.
+[2026-04-14T12:18:22.879Z] bot: 🔄 Sync done · 1 question answered (cache-busting covers staging + promoted site ✓) · 0 actions queued · next priority: Instagram launch post + artist reveal (t5, due today)
