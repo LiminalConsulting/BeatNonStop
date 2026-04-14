@@ -11,7 +11,3 @@ Format per entry:
 ```
 
 ---
-
-## 2026-04-14T09:56:55.864Z — @DavidPereira99 (768181894)
-Continua em francês
----
