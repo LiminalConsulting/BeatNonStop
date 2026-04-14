@@ -296,3 +296,4 @@ I think it’s ready
 [2026-04-14T16:42:43.974Z] @DavidPereira99: Pedido1: Remove esta parte no site! 
 Pedido 2: cria uma nova votação para mandar online
   📷 photo → `data/inbox-media/2026-04-14T16-42-43-243Z-photo-DeQADOwQ.jpg`
+[2026-04-14T16:43:46.069Z] @Tiago: Não percebo nadinha disto
