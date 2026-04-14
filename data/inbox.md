@@ -11,11 +11,3 @@ Format per entry:
 ```
 
 ---
-
-## 2026-04-14T18:20:45.167Z — @DavidPereira99 (768181894)
-@Bruno_Veloso
----
-
-## 2026-04-14T18:20:50.739Z — @DavidPereira99 (768181894)
-Mete 👍🏼aqui
----
