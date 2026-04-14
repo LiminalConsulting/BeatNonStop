@@ -15,3 +15,7 @@ Format per entry:
 ## 2026-04-14T18:51:54.633Z — @DavidPereira99 (768181894)
 Aqui
 ---
+
+## 2026-04-14T18:52:58.018Z — @DavidPereira99 (768181894)
+Começa de novo a votação mas abre uma caixa de texto nova
+---
