@@ -36,7 +36,8 @@ The 3 organizers are non-technical. They live in Telegram. They need agentic beh
  Cloudflare Worker (worker/src/index.js)
       │  reads/writes via GitHub API
       ▼
- data/inbox.md          ← all group messages queued for LLM processing
+ data/inbox.md          ← group messages queued for LLM processing (cleared each /sync)
+ data/transcript.md     ← permanent append-only chat log (humans + bot replies; never cleared)
  data/outbox.json       ← outbound actions awaiting 2-of-N approval
  data/approvals.json    ← vote tally per outbox item
  data/state.json        ← live dashboard state (tasks, budget, tickets, sponsors)

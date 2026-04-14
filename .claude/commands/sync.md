@@ -20,12 +20,15 @@ The Worker commits inbox entries directly to `origin/main`, so without this pull
 ## Inputs
 
 Read ALL of these before doing anything:
-- `data/inbox.md` — group messages logged since last sync
+- `data/inbox.md` — group messages logged since last sync (the **work queue** — items to process this tick)
+- `data/transcript.md` — permanent append-only chat log (never cleared). Read the **last ~300 lines** for conversational context: standing preferences the team has expressed, ongoing threads, prior bot commitments, user-specific tone cues (e.g., someone asked for bilingual replies last week — still applies). When answering a question in `inbox.md`, cross-reference transcript to avoid contradicting past replies or re-asking things already resolved.
 - `data/outbox.json` — pending/executed/rejected approval items
 - `data/state.json` — the live dashboard source of truth
 - `data/reminders.json` — scheduled reminders
 - `knowledge/event-facts.json`, `knowledge/open-questions.md`, `knowledge/risks.md`, `knowledge/decisions.md` — canonical project memory
 - `CLAUDE.md`, `EVENT_SYSTEM_PROMPT.md` — operational framing
+
+**On transcript.md**: this file is append-only and grows forever. For now just tail it (e.g. `tail -300 data/transcript.md`). If it ever exceeds ~5000 lines, archive the older half to `data/transcript-archive-YYYY-MM.md` and keep the recent tail in `data/transcript.md`.
 
 ## Worker endpoints
 

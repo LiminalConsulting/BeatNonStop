@@ -200,7 +200,7 @@ async function onReaction(reaction, env) {
 // ---------- Commands ----------
 
 const HELP_TEXT = [
-  "Beat Nonstop bot — commands:",
+  "🇬🇧 Beat Nonstop bot — commands:",
   "",
   "/status — event countdown + top open tasks",
   "/inbox — what's queued for David's next /sync",
@@ -210,8 +210,21 @@ const HELP_TEXT = [
   "/help — this message",
   "",
   "Messages + photos + documents are logged to the inbox so nothing gets lost.",
-  "",
   "Voting: any 👎 blocks. 2 👍 from team members execute (David excluded).",
+  "",
+  "—",
+  "",
+  "🇵🇹 Bot Beat Nonstop — comandos:",
+  "",
+  "/status — contagem decrescente + tarefas abertas principais",
+  "/inbox — mensagens em fila para o próximo /sync do David",
+  "/pending — itens à espera de 👍",
+  "/staging — mostra o URL do site de staging",
+  "/promote — pede votação: copiar staging → público (precisa de 2 👍)",
+  "/help — esta mensagem",
+  "",
+  "Mensagens, fotos e documentos ficam guardados no inbox — nada se perde.",
+  "Votação: qualquer 👎 bloqueia. 2 👍 da equipa executam (David não conta).",
 ].join("\n");
 
 async function sendStatus(env, chatId, replyTo) {
@@ -322,6 +335,9 @@ async function handleSyncReply(request, env) {
   const { text, parse_mode } = await request.json();
   if (!text) return new Response("text required", { status: 400 });
   const res = await sendMessage(env, env.TELEGRAM_CHAT_ID, text, { parse_mode: parse_mode || "Markdown" });
+  // Record bot's own turn in the transcript so /sync can see what it previously said
+  const ts = new Date().toISOString();
+  await appendTranscript(env, `[${ts}] bot: ${text}`, "transcript: bot reply");
   return new Response(JSON.stringify({ ok: true, message_id: res.message_id }), {
     headers: { "content-type": "application/json" },
   });
@@ -536,6 +552,30 @@ async function appendInbox(env, entry) {
   }
   lines.push(`---`, ``);
   await putFile(env, "data/inbox.md", text + lines.join("\n"), sha, `inbox: @${entry.username}`);
+
+  // Also append to the permanent transcript (never cleared — provides /sync with conversational history)
+  const tLines = [];
+  const header = `[${entry.ts}] @${entry.username}:`;
+  if (entry.text) {
+    tLines.push(`${header} ${entry.text}`);
+  } else if (entry.media && entry.media.length) {
+    tLines.push(header);
+  }
+  if (entry.media && entry.media.length) {
+    for (const m of entry.media) tLines.push(`  ${m}`);
+  }
+  await appendTranscript(env, tLines.join("\n"), `transcript: @${entry.username}`);
+}
+
+// Append a single block (one or multiple lines) to data/transcript.md. Never cleared.
+async function appendTranscript(env, block, commitMsg) {
+  try {
+    const { text, sha } = await getFile(env, "data/transcript.md");
+    await putFile(env, "data/transcript.md", text + block + "\n", sha, commitMsg);
+  } catch (e) {
+    // Don't let transcript failure block the main message flow — log and move on.
+    console.error("appendTranscript failed:", e && e.message || e);
+  }
 }
 
 // ---------- Media ingestion ----------
