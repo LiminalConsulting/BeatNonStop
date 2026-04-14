@@ -193,24 +193,4 @@ Resumo: edita staging → vê logo. Promove → site principal atualiza também.
 emptying cache doesn't change this
 is there a problem related to our unorthodox approach perhaps with using one gh pages site with "/staging" added at the end perhaps?
 pls figure out how we can have this more reliable, it's important
-[2026-04-14T12:53:58.776Z] bot: 🇬🇧 *Found the bug — fixing now.*
-
-The promote function was copying staging files to root *without stripping staging-only elements* (the yellow banner, the [STAGING] title tag, the noindex meta tag). So the main site was literally showing the staging version with all its markers.
-
-What I just did:
-1. Cleaned root index.html — removed staging banner, [STAGING] tag, noindex, aggressive cache headers
-2. Updated the promote function — future promotions will automatically strip staging markers before copying to root
-
-After GitHub Pages rebuilds (~60s), beatnonstop.live should show a clean page with no staging banner. Hard refresh (Cmd+Shift+R) if needed.
-
-—
-
-🇵🇹 *Encontrei o bug — a corrigir agora.*
-
-A função de promoção copiava os ficheiros do staging para a raiz *sem remover os elementos só de staging* (o banner amarelo, o [STAGING] no título, a meta tag noindex). O site principal mostrava literalmente a versão staging com todos os marcadores.
-
-O que fiz:
-1. Limpei o index.html da raiz — removi banner staging, tag [STAGING], noindex, headers de cache agressivos
-2. Atualizei a função de promoção — futuras promoções vão automaticamente remover os marcadores de staging antes de copiar para a raiz
-
-Depois do GitHub Pages reconstruir (~60s), beatnonstop.live vai mostrar uma página limpa sem banner staging. Hard refresh (Cmd+Shift+R) se necessário.
+[2026-04-14T12:53:58.776Z] bot: 🇬🇧 Found the bug — the promote function was copying staging files to root without stripping staging-only elements (yellow banner, [STAGING] title tag, noindex meta tag). Fixed: cleaned root index.html and updated promote function to auto-strip staging markers on future promotions. 🇵🇹 Encontrei o bug — a função de promoção copiava ficheiros do staging para a raiz sem remover os elementos só de staging. Corrigido: limpei o index.html da raiz e atualizei a função de promoção para remover automaticamente os marcadores de staging.

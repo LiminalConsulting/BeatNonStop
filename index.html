@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>[STAGING] Beat Nonstop · Lua Nova | 16 May 2026</title>
+  <title>Beat Nonstop · Lua Nova | 16 May 2026</title>
   <meta name="description" content="Beat Nonstop presents Lua Nova — May 16, 2026 at Ribeira do Neiva, Vila Verde, Braga. 18h–4h. New moon. No light. Full sound." />
   <meta property="og:title" content="Beat Nonstop presents Lua Nova" />
   <meta property="og:description" content="New moon. No light. Full sound. May 16, 2026. Ribeira do Neiva, Braga." />
@@ -16,34 +15,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Cache control -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-
   <!-- Styles -->
   <link rel="stylesheet" href="styles/design-system.css?v=20260414" />
   <link rel="stylesheet" href="styles/main.css?v=20260414" />
-  <style>
-    .staging-banner {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
-      background: #ffb000; color: #000;
-      font-family: 'DM Mono', monospace; font-size: 12px;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      text-align: center; padding: 6px 12px;
-      border-bottom: 1px solid #000;
-    }
-    body { padding-top: 28px; }
-  </style>
 </head>
 <body>
-  <div class="staging-banner">⚠ STAGING · not public · last-modified <span id="staging-ts"></span></div>
-  <script>
-    fetch(location.href, {method:'HEAD'}).then(r=>{
-      const d = r.headers.get('last-modified');
-      if (d) document.getElementById('staging-ts').textContent = new Date(d).toISOString().slice(0,16).replace('T',' ') + 'Z';
-    }).catch(()=>{});
-  </script>
 
   <!-- ── NAV ── -->
   <nav class="site-nav">

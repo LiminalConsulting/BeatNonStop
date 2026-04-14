@@ -410,23 +410,37 @@ async function executeOutboxItem(env, item) {
   await sendMessage(env, env.TELEGRAM_CHAT_ID, notifyText, { parse_mode: "Markdown" });
 }
 
+// Strip staging-only markers from HTML before promoting to production.
+function stripStagingMarkers(html) {
+  return html
+    .replace(/<meta\s+name="robots"\s+content="noindex,\s*nofollow"\s*\/?>\s*\n?/gi, "")
+    .replace(/\[STAGING\]\s*/g, "")
+    .replace(/<!--\s*Cache control\s*-->\s*\n\s*<meta\s+http-equiv="Cache-Control"[^>]*>\s*\n\s*<meta\s+http-equiv="Pragma"[^>]*>\s*\n\s*<meta\s+http-equiv="Expires"[^>]*>\s*\n?/gi, "")
+    .replace(/<style>\s*\.staging-banner\s*\{[^}]*\}\s*body\s*\{[^}]*\}\s*<\/style>\s*\n?/gs, "")
+    .replace(/<div\s+class="staging-banner">[\s\S]*?<\/div>\s*\n?/g, "")
+    .replace(/<script>\s*fetch\(location\.href[\s\S]*?<\/script>\s*\n?/g, "");
+}
+
 // Copy every file under /staging/ to the repo root (overwriting), except README.md and the folder itself.
 async function promoteStagingToRoot(env) {
   const files = await listRepoTree(env, "staging");
   let copied = 0, skipped = 0;
   for (const f of files) {
-    // Skip the staging readme and any nested READMEs we don't want at root
     if (f.path === "staging/README.md") { skipped++; continue; }
     const destPath = f.path.replace(/^staging\//, "");
-    // Fetch source (raw bytes — may be binary)
     const src = await getFileRaw(env, f.path);
-    // Fetch existing dest sha (if any) for update
+    let contentB64 = src.contentB64;
+    if (destPath.endsWith(".html")) {
+      const decoded = atob(contentB64);
+      const cleaned = stripStagingMarkers(decoded);
+      contentB64 = btoa(cleaned);
+    }
     let destSha = undefined;
     try {
       const head = await ghMetaSha(env, destPath);
       destSha = head;
     } catch { /* new file */ }
-    await putFileRaw(env, destPath, src.contentB64, destSha, `promote: ${destPath}`);
+    await putFileRaw(env, destPath, contentB64, destSha, `promote: ${destPath}`);
     copied++;
   }
   return { copied, skipped };
