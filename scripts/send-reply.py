@@ -14,7 +14,8 @@ req = urllib.request.Request(
     url, data=data,
     headers={
         'Authorization': 'Bearer ' + env['SYNC_API_KEY'],
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'User-Agent': 'beatnonstop-sync/1.0'
     },
     method='POST'
 )
