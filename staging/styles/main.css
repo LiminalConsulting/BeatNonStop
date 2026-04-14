@@ -415,6 +415,18 @@
   color: var(--color-moon);
 }
 
+/* ── MAP SECTION ── */
+.section-map {
+  background: var(--color-void);
+  padding: 6rem var(--space-md);
+  text-align: center;
+}
+
+.map-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* ── TICKETS SECTION ── */
 .section-tickets {
   background: var(--color-void);
