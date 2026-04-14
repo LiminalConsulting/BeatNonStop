@@ -305,3 +305,52 @@ Pedido 2: cria uma nova votação para mandar online
 [2026-04-14T17:25:00Z] bot: 🇬🇧 New promote vote created — check the staging site and vote to push it live. 🇵🇹 Nova votação de promoção criada — verifiquem o staging e votem para publicar.
 [2026-04-14T18:11:58.200Z] @DavidPereira99: Alguém que coloque aqui um 👍🏼
 [2026-04-14T18:14:29.742Z] bot: 🇬🇧 Promote vote is still open — need 2 votes to push staging → live. @Bruno_Veloso @Tiago tap 👍 on the vote message to approve. 🇵🇹 A votação de promoção ainda está aberta — precisamos de 2 votos para publicar o staging. 🔄 Sync done · 0 new actions · promote vote pending · next priorities: Instagram launch post (t5, overdue), permit application (t7, due Apr 20)
+[2026-04-14T18:15:47.052Z] bot: 📄 *Lua Nova · Ticketing legal entity — quick infosheet*
+
+_Just a light reference for tonight's meeting with Duas Igrejas. Not a script — David P. knows how to lead this conversation. Share only what's useful._
+
+---
+
+🇵🇹 *PT*
+
+*Porquê falar disto?* A Shotgun recusou o NIF pessoal — vendas de bilhetes precisam de um NIPC (entidade). Duas Igrejas já é o enquadramento legal do evento (bar, licença, alvará), portanto estender ao bilhete é a continuação natural, não um pedido novo.
+
+*A proposta, em uma frase:*
+_"Gostávamos de passar a venda de bilhetes pela paróquia — mesma estrutura que já combinámos para o bar e o alvará."_
+
+*Fluxo financeiro (simples):*
+Comprador → Shotgun → Stripe → *IBAN da paróquia* → reconciliação pós-evento com o Beat Nonstop.
+
+*O que a paróquia ganha:* 100% do lucro do bar (já combinado) · associação a um evento cultural bem produzido · zero risco financeiro (Shotgun paga ~24h após o evento, custos pré-evento já cobertos pelo Beat Nonstop).
+
+*Se hesitarem, normalmente é por uma destas razões:*
+• _"Quem responde se algo correr mal?"_ → equipa Beat Nonstop, por escrito.
+• _"Parece que estamos a gerir um negócio?"_ → Não. NIPC é usado para _receber_, como na festa de agosto.
+• _"E os impostos sobre a receita?"_ → contabilista da paróquia trata como trata o bar / donativos.
+
+*Se precisarem de um "extra" (só se morno):* logo da paróquia no site/cartaz · ajuda na montagem do bar · 4–6 entradas livres para o conselho.
+
+---
+
+🇬🇧 *EN*
+
+*Why this comes up:* Shotgun rejected the personal NIF — ticket sales need an NIPC (entity). Duas Igrejas is already the legal umbrella (bar, permit, license), so extending to ticketing is continuation, not a new ask.
+
+*The proposal, in one sentence:*
+_"We'd like to run ticket sales through the parish — same structure we already agreed for the bar and the permit."_
+
+*Money flow (simple):*
+Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation with Beat Nonstop.
+
+*What the parish gets:* 100% of bar profit (already agreed) · association with a well-produced cultural event · zero financial risk (Shotgun pays out ~24h after, pre-event costs already covered by Beat Nonstop).
+
+*If they hesitate, usually one of:*
+• _"Who's accountable if something goes wrong?"_ → Beat Nonstop team, in writing.
+• _"Does this look like running a business?"_ → No. NIPC is used to _receive_, same as the August party.
+• _"What about tax on revenue?"_ → parish accountant handles as with bar / donations.
+
+*Sweeteners (only if lukewarm):* parish logo on site/poster · help setting up the bar · 4–6 complimentary tickets for council.
+
+---
+
+*What we need to bring back from the meeting:* parish NIPC + a parish-controlled IBAN → then we can update Shotgun and unblock the launch. 🌑
