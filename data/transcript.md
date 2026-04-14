@@ -250,3 +250,7 @@ Refresh https://beatnonstop.live/staging/ to see it.
 
 Atualiza https://beatnonstop.live/staging/ para ver.
 [2026-04-14T15:23:28.746Z] bot: 🔄 Sync done · 1 staging edit (description copy updated) · 0 actions queued · next priority: Instagram launch post + artist reveal (t5, overdue)
+[2026-04-14T15:23:39.675Z] @David: https://maps.app.goo.gl/8eRmRH6cEZgmpzVq7?g_st=ic
+
+@BeatNonStopBot this is the google maps address of the location
+Can you please add a map element to the site that shows this in the visual style we already have?
