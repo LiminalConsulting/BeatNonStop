@@ -147,3 +147,5 @@ Enquanto isso, para ver mudanças imediatas: Ctrl+Shift+R (ou Cmd+Shift+R no Mac
 
 consider that we are looking at the site from mobile safari, telegram internal browser (opening links from the chat), desktop safari, desktop brave etc.
 is there a unified way to make sure the displayed site is always perfectly in sync with the truth hosted on gh pages?
+
+[2026-04-14T11:45:11Z] bot [summary]: Sync tick — inbox contained a forwarded duplicate of David's caching question (already answered at 11:02Z this session with cache-busting `?v=` query strings). No new action needed. Inbox cleared.
