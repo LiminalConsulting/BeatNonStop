@@ -354,3 +354,4 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 ---
 
 *What we need to bring back from the meeting:* parish NIPC + a parish-controlled IBAN → then we can update Shotgun and unblock the launch. 🌑
+[2026-04-14T22:45:00Z] bot [summary]: Sync tick — inbox empty, no new messages. Promote vote (promote-2026-04-14T17-25-00-000Z) still pending, needs 1 more vote. Instagram launch post (t5) overdue. Note: /api/reply returned 403 (Cloudflare error 1010) — status message not delivered to group.
