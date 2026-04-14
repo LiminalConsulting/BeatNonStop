@@ -11,3 +11,7 @@ Format per entry:
 ```
 
 ---
+
+## 2026-04-14T11:06:48.853Z — @David (6100643840)
+pls always reply in both english and portuguese so all of us can easily understand the answer 🙂
+---
