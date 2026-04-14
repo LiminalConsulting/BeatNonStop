@@ -11,3 +11,7 @@ Format per entry:
 ```
 
 ---
+
+## 2026-04-14T12:15:26.132Z — @David (6100643840)
+this works for both the staging site update and also the main website update after the promote voting happens?
+---
