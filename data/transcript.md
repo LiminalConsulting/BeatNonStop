@@ -291,3 +291,4 @@ is this interfering with our ability to launch the ticket sale? or is it only ab
 [2026-04-14T16:02:10.418Z] @David: Thanks!
 [2026-04-14T16:02:51.116Z] @David: @Bruno_Veloso @DavidPereira99 Tiago  pls check the staging site
 I think it’s ready
+[2026-04-14T16:03:13.725Z] @David: Also added a new VIP ticket to shotgun for 260€ so all set up
