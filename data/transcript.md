@@ -189,3 +189,7 @@ Short version: edit staging → see it immediately. Promote → main site update
 
 Resumo: edita staging → vê logo. Promove → site principal atualiza também. Sem limpar cache manualmente.
 [2026-04-14T12:18:22.879Z] bot: 🔄 Sync done · 1 question answered (cache-busting covers staging + promoted site ✓) · 0 actions queued · next priority: Instagram launch post + artist reveal (t5, due today)
+[2026-04-14T12:51:07.268Z] @David: when I open the main link on my safari desktop browser I see the stagin banner and everything that should only be in the stagin site version
+emptying cache doesn't change this
+is there a problem related to our unorthodox approach perhaps with using one gh pages site with "/staging" added at the end perhaps?
+pls figure out how we can have this more reliable, it's important
