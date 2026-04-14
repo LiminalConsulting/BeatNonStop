@@ -276,3 +276,4 @@ Note: the map pin is set to the Ribeira do Neiva area. If the exact position nee
 Atualiza https://beatnonstop.live/staging/ para ver.
 
 Nota: o pin do mapa está na zona da Ribeira do Neiva. Se a posição exata precisar de ajuste, diz-me.
+[2026-04-14T15:25:44.934Z] bot: 🔄 Sync done · 2 staging edits (description copy + map embed) · 0 actions queued · next priority: Instagram launch post + artist reveal (t5, overdue)
