@@ -413,3 +413,4 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 • Orçamento segurança (prazo 20 abr)
 • NIF da paróquia no Shotgun (prazo 20 abr)
 • Depósitos artistas €725 (prazo 26 abr)
+[2026-04-14T19:08:17.534Z] bot: ✅ *Staging promoted to live* — beatnonstop.live now reflects the latest version. Done via owner override since the voting step was getting noisy. Pending vote cleared. 🌑
