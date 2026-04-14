@@ -23,7 +23,9 @@
       "Write",
       "Edit",
       "Glob",
-      "Grep"
+      "Grep",
+      "WebSearch",
+      "WebFetch"
     ],
     "deny": [
       "Bash(rm -rf:*)",

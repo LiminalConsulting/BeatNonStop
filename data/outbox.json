@@ -1,9 +1,10 @@
 {
-  "pending": [
+  "pending": [],
+  "executed": [
     {
       "id": "promote-2026-04-14T19-00-00-000Z",
       "kind": "promote_staging",
-      "summary": "Copy /staging/ → public site root · new vote requested by @DavidPereira99",
+      "summary": "Copy /staging/ → public site root · owner override by David (voting flow too noisy for team)",
       "action": {
         "type": "promote_staging",
         "payload": {
@@ -11,10 +12,12 @@
           "requested_by_id": 768181894
         }
       },
-      "created_at": "2026-04-14T19:00:00.000Z"
+      "created_at": "2026-04-14T19:00:00.000Z",
+      "executed_at": "2026-04-14T19:05:00.000Z",
+      "result": "promoted via owner override — 2 files updated (index.html, styles/main.css)"
     },
     {
-      "id": "promote-2026-04-14T19-00-00-000Z",
+      "id": "promote-2026-04-14T18-55-11-205Z",
       "kind": "promote_staging",
       "summary": "Copy /staging/ to public site root - new vote requested by @DavidPereira99",
       "action": {
@@ -24,10 +27,9 @@
           "requested_by_id": 768181894
         }
       },
-      "created_at": "2026-04-14T18:55:11.205Z"
-    }
-  ],
-  "executed": [
+      "created_at": "2026-04-14T18:55:11.205Z",
+      "result": "superseded_by_owner_override"
+    },
     {
       "id": "promote-2026-04-14T17-25-00-000Z",
       "kind": "promote_staging",

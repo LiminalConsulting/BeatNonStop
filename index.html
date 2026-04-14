@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beat Nonstop · Lua Nova | 16 May 2026</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <title>[STAGING] Beat Nonstop · Lua Nova | 16 May 2026</title>
   <meta name="description" content="Beat Nonstop presents Lua Nova — May 16, 2026 at Ribeira do Neiva, Vila Verde, Braga. 18h–4h. New moon. No light. Full sound." />
   <meta property="og:title" content="Beat Nonstop presents Lua Nova" />
   <meta property="og:description" content="New moon. No light. Full sound. May 16, 2026. Ribeira do Neiva, Braga." />
@@ -15,22 +16,45 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
+  <!-- Cache control -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
   <!-- Styles -->
   <link rel="stylesheet" href="styles/design-system.css?v=20260414" />
   <link rel="stylesheet" href="styles/main.css?v=20260414" />
+  <style>
+    .staging-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: #ffb000; color: #000;
+      font-family: 'DM Mono', monospace; font-size: 12px;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-align: center; padding: 6px 12px;
+      border-bottom: 1px solid #000;
+    }
+    body { padding-top: 28px; }
+  </style>
 </head>
 <body>
+  <div class="staging-banner">⚠ STAGING · not public · last-modified <span id="staging-ts"></span></div>
+  <script>
+    fetch(location.href, {method:'HEAD'}).then(r=>{
+      const d = r.headers.get('last-modified');
+      if (d) document.getElementById('staging-ts').textContent = new Date(d).toISOString().slice(0,16).replace('T',' ') + 'Z';
+    }).catch(()=>{});
+  </script>
 
   <!-- ── NAV ── -->
   <nav class="site-nav">
     <a href="#hero" class="nav-brand" aria-label="Beat Nonstop">
       <img class="nav-logo" src="BNS.JPG" alt="BNS" width="44" height="44" />
-      <span class="nav-brand-name">Beat Nonstop</span>
+      <span class="nav-brand-name">Beat Non Stop</span>
     </a>
     <ul class="nav-links">
       <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span><span data-lang="fr">À propos</span></a></li>
       <li><a href="#lineup"><span data-lang="en">Lineup</span><span data-lang="pt">Lineup</span><span data-lang="fr">Lineup</span></a></li>
-      <li><a href="#info"><span data-lang="en">Info</span><span data-lang="pt">Info</span><span data-lang="fr">Infos</span></a></li>
+      <li><a href="#map"><span data-lang="en">Location</span><span data-lang="pt">Localização</span><span data-lang="fr">Lieu</span></a></li>
       <li><a href="#tickets"><span data-lang="en">Tickets</span><span data-lang="pt">Bilhetes</span><span data-lang="fr">Billets</span></a></li>
       <li class="lang-toggle">
         <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -48,20 +72,30 @@
     <canvas id="hero-canvas"></canvas>
     <div class="hero-content">
       <img class="hero-logo" src="BNS.JPG" alt="Beat Nonstop" width="140" height="140" loading="eager" />
-      <h1 class="hero-title">Beat Nonstop</h1>
+      <h1 class="hero-title">Beat Non Stop</h1>
       <div class="hero-edition">
         <span class="hero-edition-label">
           <span data-lang="en">presents</span>
           <span data-lang="pt">apresenta</span>
           <span data-lang="fr">présente</span>
         </span>
-        <span class="hero-edition-name">Lua Nova</span>
+        <span class="hero-edition-name">Lua N<span class="moon-o" aria-hidden="true"></span><span class="visually-hidden">o</span>va</span>
       </div>
       <p class="hero-date">
-        <span data-lang="en">May 16, 2026 — Ribeira do Neiva, Braga</span>
-        <span data-lang="pt">16 de Maio de 2026 — Ribeira do Neiva, Braga</span>
-        <span data-lang="fr">16 mai 2026 — Ribeira do Neiva, Braga</span>
+        <span data-lang="en">May 16, 2026</span>
+        <span data-lang="pt">16 de Maio de 2026</span>
+        <span data-lang="fr">16 mai 2026</span>
       </p>
+      <p class="hero-date hero-location">
+        <span data-lang="en">Ribeira do Neiva, Braga</span>
+        <span data-lang="pt">Ribeira do Neiva, Braga</span>
+        <span data-lang="fr">Ribeira do Neiva, Braga</span>
+      </p>
+      <a href="#tickets" class="btn-primary hero-cta" data-scroll-tickets>
+        <span data-lang="en">Tickets</span>
+        <span data-lang="pt">Bilhetes</span>
+        <span data-lang="fr">Billets</span>
+      </a>
       <div class="moon-icon"></div>
     </div>
     <div class="scroll-indicator"></div>
@@ -75,10 +109,20 @@
         <span data-lang="pt">O Evento</span>
         <span data-lang="fr">L'Événement</span>
       </div>
-      <p>
-        <span data-lang="en">New moon. No light. Full sound. A gathering at the river under the darkest sky of the month.</span>
-        <span data-lang="pt">Lua nova. Sem luz. Som total. Um encontro no rio sob o ceu mais escuro do mes.</span>
-        <span data-lang="fr">Nouvelle lune. Pas de lumière. Son total. Un rassemblement au bord de la rivière sous le ciel le plus sombre du mois.</span>
+      <p class="about-lead">
+        <span data-lang="en">Not everything needs to be understood…<br>some things need to be felt.</span>
+        <span data-lang="pt">Nem tudo precisa de ser entendido…<br>algumas coisas precisam de ser sentidas.</span>
+        <span data-lang="fr">Tout n'a pas besoin d'être compris…<br>certaines choses doivent être ressenties.</span>
+      </p>
+      <p class="about-tagline">
+        <span data-lang="en">New Moon. New cycle. New frequency.</span>
+        <span data-lang="pt">Lua Nova. Novo ciclo. Nova frequência.</span>
+        <span data-lang="fr">Nouvelle Lune. Nouveau cycle. Nouvelle fréquence.</span>
+      </p>
+      <p class="about-tagline" style="margin-top: 1.5rem;">
+        <span data-lang="en">Keep the beat alive</span>
+        <span data-lang="pt">Keep the beat alive</span>
+        <span data-lang="fr">Keep the beat alive</span>
       </p>
       <hr />
     </div>
@@ -142,37 +186,30 @@
     </div>
   </section>
 
-  <!-- ── INFO ── -->
-  <section class="section-info" id="info">
-    <div class="info-grid reveal">
-      <div class="info-col">
-        <div class="info-label">
-          <span data-lang="en">Date</span>
-          <span data-lang="pt">Data</span>
-          <span data-lang="fr">Date</span>
-        </div>
-        <div class="info-value">
-          <span data-lang="en">May 16</span>
-          <span data-lang="pt">16 Mai</span>
-          <span data-lang="fr">16 Mai</span>
-        </div>
+  <!-- ── MAP ── -->
+  <section class="section-map" id="map">
+    <div class="map-inner reveal">
+      <div class="section-label">
+        <span data-lang="en">Location</span>
+        <span data-lang="pt">Localização</span>
+        <span data-lang="fr">Lieu</span>
       </div>
-      <div class="info-col">
-        <div class="info-label">
-          <span data-lang="en">Location</span>
-          <span data-lang="pt">Local</span>
-          <span data-lang="fr">Lieu</span>
-        </div>
-        <div class="info-value">Ribeira do Neiva</div>
+      <p class="map-subtitle" style="font-family: var(--font-body); color: var(--color-moon-dim); font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: var(--space-md);">
+        Ribeira do Neiva · Duas Igrejas, Vila Verde, Braga
+      </p>
+      <div class="map-container" style="position: relative; width: 100%; max-width: 900px; margin: 0 auto; border: 1px solid var(--color-border); overflow: hidden;">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-8.4415%2C41.6430%2C-8.4315%2C41.6500&layer=mapnik&marker=41.6462%2C-8.4365"
+          style="width: 100%; height: 350px; border: 0; filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.1);"
+          loading="lazy"
+          title="Ribeira do Neiva — Beat Non Stop venue">
+        </iframe>
       </div>
-      <div class="info-col">
-        <div class="info-label">
-          <span data-lang="en">Doors</span>
-          <span data-lang="pt">Portas</span>
-          <span data-lang="fr">Portes</span>
-        </div>
-        <div class="info-value">18:00</div>
-      </div>
+      <a href="https://maps.app.goo.gl/8eRmRH6cEZgmpzVq7?g_st=ic" target="_blank" rel="noopener" class="btn-primary" style="margin-top: var(--space-md); display: inline-block;">
+        <span data-lang="en">Open in Google Maps</span>
+        <span data-lang="pt">Abrir no Google Maps</span>
+        <span data-lang="fr">Ouvrir dans Google Maps</span>
+      </a>
     </div>
   </section>
 
@@ -252,7 +289,7 @@
   <footer class="site-footer">
     <div class="footer-brand">
       <img class="footer-logo" src="BNS.JPG" alt="BNS" width="36" height="36" loading="lazy" />
-      <span class="footer-brand-name">Beat Nonstop</span>
+      <span class="footer-brand-name">Beat Non Stop</span>
     </div>
     <ul class="footer-links">
       <li><a href="#about"><span data-lang="en">About</span><span data-lang="pt">Sobre</span><span data-lang="fr">À propos</span></a></li>
