@@ -1,20 +1,6 @@
 {
   "pending": [
     {
-      "id": "promote-2026-04-14T16-03-19-794Z",
-      "kind": "promote_staging",
-      "summary": "Copy /staging/ → public site root · requested by @David",
-      "action": {
-        "type": "promote_staging",
-        "payload": {
-          "requested_by": "David",
-          "requested_by_id": 6100643840
-        }
-      },
-      "telegram_message_id": 103,
-      "created_at": "2026-04-14T16:03:20.035Z"
-    },
-    {
       "id": "promote-2026-04-14T16-50-00-000Z",
       "kind": "promote_staging",
       "summary": "Copy /staging/ → public site root · requested by @DavidPereira99 (info section removed)",
@@ -25,6 +11,7 @@
           "requested_by_id": 768181894
         }
       },
+      "telegram_message_id": 103,
       "created_at": "2026-04-14T16:46:02.813Z"
     }
   ],

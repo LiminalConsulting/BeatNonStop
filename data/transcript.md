@@ -297,32 +297,6 @@ I think it’s ready
 Pedido 2: cria uma nova votação para mandar online
   📷 photo → `data/inbox-media/2026-04-14T16-42-43-243Z-photo-DeQADOwQ.jpg`
 [2026-04-14T16:43:46.069Z] @Tiago: Não percebo nadinha disto
-[2026-04-14T16:45:56.235Z] bot: 🇬🇧 Done — Info section (Date / Location / Doors) removed from staging. The hero and map already cover that info. Nav link updated to point to Location/Map.
-
-New promote vote created — check staging and vote to push live.
-
-Refresh https://beatnonstop.live/staging/ to see it.
-
-—
-
-🇵🇹 Feito — secção Info (Data / Local / Portas) removida do staging. O hero e o mapa já têm essa informação.
-
-Nova votação de promoção criada — verifiquem o staging e votem para publicar.
+[2026-04-14T16:45:56.235Z] bot: 🇬🇧 Done — Info section (Date / Location / Doors) removed from staging. The hero and map already cover that info. Nav link updated to point to Location/Map. New promote vote created — check staging and vote to push live. Refresh https://beatnonstop.live/staging/ to see it. — 🇵🇹 Feito — secção Info (Data / Local / Portas) removida do staging. O hero e o mapa já têm essa informação. Nova votação de promoção criada — verifiquem o staging e votem para publicar.
 [2026-04-14T16:46:37.111Z] bot: 🔄 Sync done · 1 staging edit (info section removed) · 1 promote vote queued · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20)
-[2026-04-14T16:47:46.574Z] bot: 🇬🇧 @Tiago No worries! Quick summary of how this works:
-
-1. When someone asks for a change to the website, I edit a preview version ("staging")
-2. You can check the preview at beatnonstop.live/staging/
-3. When the team is happy, vote ✅ on the promote poll to push it live to the real site
-
-Right now there is a vote open to push the latest changes live. Just vote ✅ if the staging site looks good to you!
-
-—
-
-🇵🇹 @Tiago Tranquilo! Resumo rápido de como funciona:
-
-1. Quando alguém pede uma alteração ao site, eu edito uma versão de pré-visualização ("staging")
-2. Podes ver a pré-visualização em beatnonstop.live/staging/
-3. Quando a equipa estiver satisfeita, votem ✅ na votação para publicar no site real
-
-Neste momento há uma votação aberta para publicar as últimas alterações. Vota ✅ se o staging te parecer bem!
+[2026-04-14T16:47:46.574Z] bot: 🇬🇧 @Tiago — explained how staging/voting system works (3-step: edit staging → check preview → vote to promote). 🇵🇹 Explicação do sistema de staging e votação ao Tiago.
