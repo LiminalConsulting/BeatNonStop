@@ -20,3 +20,7 @@ Thanks!
 @Bruno_Veloso @DavidPereira99 Tiago  pls check the staging site
 I think it’s ready
 ---
+
+## 2026-04-14T16:03:13.725Z — @David (6100643840)
+Also added a new VIP ticket to shotgun for 260€ so all set up
+---
