@@ -198,3 +198,5 @@ pls figure out how we can have this more reliable, it's important
 [2026-04-14T13:27:28.619Z] @David: pls apply a circular mask to the BNS logo, keeping everything elsethe same
 [2026-04-14T13:27:28.619Z] @David: pls apply a circular mask to the BNS logo, keeping everything else the same
 [2026-04-14T16:00:00Z] bot: 🇬🇧 Done — circular mask applied to the BNS logo across the whole staging site (nav, hero, footer). Everything else unchanged. Refresh https://beatnonstop.live/staging/ to see it. 🇵🇹 Feito — máscara circular aplicada ao logo BNS em todo o site staging (nav, hero, footer). Tudo o resto mantém-se igual. 🔄 Sync done · 1 staging edit (circular logo mask) · 0 actions queued · next priority: Instagram launch post + artist reveal (t5, overdue)
+[2026-04-14T13:41:33.787Z] @David: @DavidPereira99 @Bruno_Veloso @DavidPereira99 what do you think about this approach? it's much simpler than making the logo transparent and this way it looks like a full moon / solar eclipse which fits the theme
+  📎 document `Screenshot 2026-04-14 at 14.40.38.png` → `data/inbox-media/2026-04-14T13-41-32-477Z-doc-b2wuPTsE.png`
