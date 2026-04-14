@@ -377,3 +377,7 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 [2026-04-15T00:15:00Z] bot [summary]: Sync tick — inbox had 2 noise entries (David P. tagging Bruno for promote vote). No actionable items. Promote vote (promote-2026-04-14T17-25-00-000Z) still pending 1 more approval. Inbox cleared.
 [2026-04-14T18:51:54.633Z] @DavidPereira99: Aqui
 [2026-04-14T18:52:58.018Z] @DavidPereira99: Começa de novo a votação mas abre uma caixa de texto nova
+[2026-04-14T19:00:00Z] bot: 🇬🇧 New promote vote created — @DavidPereira99 requested a fresh vote. Check staging and vote 👍 to push live. Previous vote superseded.
+
+🇵🇹 Nova votação de promoção criada — @DavidPereira99 pediu uma votação nova. Verifiquem o staging e votem 👍 para publicar. Votação anterior anulada.
+[2026-04-14T19:00:10Z] bot [summary]: Sync done · 2 inbox entries processed (1 noise "Aqui", 1 request for new promote vote) · new promote vote created · inbox cleared.
