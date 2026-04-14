@@ -304,8 +304,4 @@ Pedido 2: cria uma nova votação para mandar online
 [2026-04-14T17:21:21.658Z] @DavidPereira99: Gera uma nova votação
 [2026-04-14T17:25:00Z] bot: 🇬🇧 New promote vote created — check the staging site and vote to push it live. 🇵🇹 Nova votação de promoção criada — verifiquem o staging e votem para publicar.
 [2026-04-14T18:11:58.200Z] @DavidPereira99: Alguém que coloque aqui um 👍🏼
-[2026-04-14T18:14:29.742Z] bot: 🇬🇧 Promote vote is still open — need 2 votes to push staging → live. @Bruno_Veloso @Tiago tap 👍 on the vote message to approve.
-
-🇵🇹 A votação de promoção ainda está aberta — precisamos de 2 votos para publicar o staging. @Bruno_Veloso @Tiago toquem 👍 na mensagem de votação para aprovar.
-
-🔄 Sync done · 0 new actions · promote vote pending · next priorities: Instagram launch post (t5, overdue), permit application (t7, due Apr 20)
+[2026-04-14T18:14:29.742Z] bot: 🇬🇧 Promote vote is still open — need 2 votes to push staging → live. @Bruno_Veloso @Tiago tap 👍 on the vote message to approve. 🇵🇹 A votação de promoção ainda está aberta — precisamos de 2 votos para publicar o staging. 🔄 Sync done · 0 new actions · promote vote pending · next priorities: Instagram launch post (t5, overdue), permit application (t7, due Apr 20)

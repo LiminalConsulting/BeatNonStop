@@ -14,7 +14,12 @@
 ### 2026-04-12 · Ticket platform = Shotgun.live
 **Decision**: Use Shotgun.live for ticket sales via embedded widget on beatnonstop.live.
 **Rationale**: European focus, MB WAY support (~45% of PT payments), fair fees, widget keeps checkout on our domain.
-**Implication**: David holds the Stripe account under his personal NIF + IBAN. After the event, he settles any shared expenses with the parish via standard bank transfer.
+**Implication**: Shotgun organizer account under Duas Igrejas parish NIPC + parish IBAN (see 2026-04-14 entry below, which supersedes the earlier personal-NIF plan).
+
+### 2026-04-14 · Shotgun legal entity = Duas Igrejas parish NIPC (supersedes personal-NIF plan)
+**Decision**: The Shotgun organizer account and connected Stripe payout run under the Duas Igrejas parish NIPC with a parish-controlled IBAN. All ticket revenue flows to the parish account; Beat Nonstop reconciles with the parish post-event.
+**Rationale**: Shotgun rejected the initial submission because a personal NIF cannot legally front commercial ticket sales at this scale without the seller being registered as sole trader (*recibos verdes*) — which would reshape David Pereira's tax/social-security position for a one-off event. The parish is already the legal umbrella for the bar, permit, and alcohol license (2026-04-12 decision), so extending that umbrella to ticketing is the coherent move.
+**Implication**: Parish is the merchant of record on Shotgun. Event branding stays Beat Nonstop, operations stay with the team, but legal/financial flow runs through the parish. Tonight's meeting (2026-04-14) is the decision point — parish NIPC + IBAN must be gathered and Shotgun organizer fields updated before ticket launch can proceed.
 
 ### 2026-04-12 · Event concept
 **Decision**: "Lua Nova" — celebrate the actual new moon of May 16. Cosmic / celestial aesthetic.
