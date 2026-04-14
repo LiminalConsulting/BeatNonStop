@@ -284,3 +284,6 @@ is this interfering with our ability to launch the ticket sale? or is it only ab
 🇵🇹 O NIPC está incompleto mas o Stripe já está feito. A venda de bilhetes muito provavelmente NÃO está bloqueada. O NIPC é necessário para gerar faturas e pode atrasar pagamentos para a conta bancária. Ação: adicionar o NIF da paróquia de Duas Igrejas no dashboard do Shotgun. Resumo: vendam bilhetes agora, adicionem o NIPC em breve para faturação/levantamentos.
 [2026-04-14T16:00:15.567Z] bot: test ping from David session
 [2026-04-14T16:00:44.223Z] bot: python test 2
+[2026-04-14T16:01:06.341Z] bot: 🇬🇧 Re: NIPC on Shotgun — the incomplete NIF does NOT block ticket sales (Stripe handles payments independently). NIPC only affects invoice generation + may delay payouts. Task t23 added: insert Duas Igrejas parish NIF in Shotgun dashboard (due Apr 20).
+
+🇵🇹 Re: NIPC no Shotgun — o NIF incompleto NÃO bloqueia a venda de bilhetes (o Stripe processa pagamentos de forma independente). O NIPC só afeta faturação e pode atrasar transferências. Tarefa t23 criada: inserir NIF da freguesia de Duas Igrejas no painel Shotgun (prazo 20 abr).
