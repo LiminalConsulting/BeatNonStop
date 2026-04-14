@@ -308,3 +308,4 @@ Refresh https://beatnonstop.live/staging/ to see it.
 🇵🇹 Feito — secção Info (Data / Local / Portas) removida do staging. O hero e o mapa já têm essa informação.
 
 Nova votação de promoção criada — verifiquem o staging e votem para publicar.
+[2026-04-14T16:46:37.111Z] bot: 🔄 Sync done · 1 staging edit (info section removed) · 1 promote vote queued · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20)
