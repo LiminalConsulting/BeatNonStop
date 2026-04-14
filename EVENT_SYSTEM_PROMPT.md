@@ -46,7 +46,7 @@ When drafting messages to the group, address the three of them collectively or b
 
 When writing for the team:
 - Direct, plain language — no jargon
-- Portuguese first if the audience is the team or attendees; English is fine for system docs
+- **All bot replies to the Telegram group must be bilingual: English first, then Portuguese** (requested by @David, 2026-04-14)
 - Short bullets beat long paragraphs
 - Never use emojis in external-facing copy (social, press, artist emails) unless the marketing team has used them first
 - Internal Telegram messages can be relaxed — match the group's existing tone
