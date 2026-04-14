@@ -292,14 +292,4 @@ is this interfering with our ability to launch the ticket sale? or is it only ab
 [2026-04-14T16:02:51.116Z] @David: @Bruno_Veloso @DavidPereira99 Tiago  pls check the staging site
 I think it’s ready
 [2026-04-14T16:03:13.725Z] @David: Also added a new VIP ticket to shotgun for 260€ so all set up
-[2026-04-14T16:05:37.673Z] bot: 🇬🇧 VIP tier (€260) noted — Shotgun is set up ✓ State updated.
-
-Staging promote vote is live — @Bruno_Veloso @DavidPereira99 @Tiago, check the staging site and vote to push it to production when ready.
-
-—
-
-🇵🇹 Tier VIP (€260) registado — Shotgun configurado ✓ Estado atualizado.
-
-Votação de promoção do staging está ativa — @Bruno_Veloso @DavidPereira99 @Tiago, vejam o staging e votem para publicar quando estiverem prontos.
-
-🔄 Sync done · 1 fact update (VIP tier on Shotgun) · promote vote pending · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20)
+[2026-04-14T16:05:37.673Z] bot: 🇬🇧 VIP tier (€260) noted — Shotgun is set up ✓ State updated. Staging promote vote is live — @Bruno_Veloso @DavidPereira99 @Tiago, check the staging site and vote to push it to production when ready. 🇵🇹 Tier VIP (€260) registado — Shotgun configurado ✓ Votação de promoção do staging está ativa. 🔄 Sync done · 1 fact update (VIP tier on Shotgun) · promote vote pending · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20)
