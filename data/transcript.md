@@ -149,3 +149,26 @@ consider that we are looking at the site from mobile safari, telegram internal b
 is there a unified way to make sure the displayed site is always perfectly in sync with the truth hosted on gh pages?
 
 [2026-04-14T11:45:11Z] bot [summary]: Sync tick — inbox contained a forwarded duplicate of David's caching question (already answered at 11:02Z this session with cache-busting `?v=` query strings). No new action needed. Inbox cleared.
+[2026-04-14T12:14:18.221Z] bot: 🇬🇧 *Cross-browser caching — how we handle it*
+
+Yes, caching is real. Three layers were hitting us: GitHub Pages CDN (~10 min), browser cache, and Telegram's in-app browser (most aggressive).
+
+What's now in place on the site:
+• `?v=YYYYMMDD` query strings on every CSS/JS link — browsers treat each promotion as a fresh file
+• `Cache-Control` meta tags on HTML → HTML itself never caches stale
+• Staging promotion auto-bumps the version string
+
+So after a `/promote`, a normal refresh on any browser (Safari mobile/desktop, Brave, Telegram in-app) should show the new version within ~60s of Pages rebuilding. If you ever suspect staleness: `Cmd+Shift+R` (desktop) or close+reopen the tab (mobile). Telegram in-app: tap the `⋮` menu → 'Open in browser'.
+
+—
+
+🇵🇹 *Cache entre browsers — como está resolvido*
+
+Sim, o cache era real. Três camadas afetavam-nos: CDN do GitHub Pages (~10 min), cache do browser, e o browser interno do Telegram (o mais agressivo).
+
+O que está agora no site:
+• `?v=YYYYMMDD` em todos os links de CSS/JS — o browser trata cada promoção como ficheiro novo
+• Meta tags `Cache-Control` no HTML → o próprio HTML nunca fica em cache desatualizado
+• A promoção do staging atualiza a versão automaticamente
+
+Depois de um `/promote`, um refresh normal em qualquer browser (Safari mobile/desktop, Brave, Telegram interno) deve mostrar a nova versão em ~60s após o Pages reconstruir. Se suspeitares de cache: `Cmd+Shift+R` (desktop) ou fechar+reabrir o separador (mobile). No Telegram interno: toca em `⋮` → 'Abrir no browser'.
