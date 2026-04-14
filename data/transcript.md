@@ -173,3 +173,18 @@ O que está agora no site:
 
 Depois de um `/promote`, um refresh normal em qualquer browser (Safari mobile/desktop, Brave, Telegram interno) deve mostrar a nova versão em ~60s após o Pages reconstruir. Se suspeitares de cache: `Cmd+Shift+R` (desktop) ou fechar+reabrir o separador (mobile). No Telegram interno: toca em `⋮` → 'Abrir no browser'.
 [2026-04-14T12:15:26.132Z] @David: this works for both the staging site update and also the main website update after the promote voting happens?
+[2026-04-14T12:17:57.172Z] bot: 🇬🇧 Yes — the cache-busting covers both flows:
+
+• **Staging edits** — every time /sync commits a change to staging/, the CSS/JS links already have ?v=YYYYMMDD. You see updates on beatnonstop.live/staging/ after a normal refresh.
+• **Promote to main** — when the /promote vote passes and files get copied to root, the version string comes with them. So the main site (beatnonstop.live) also gets fresh cache after promotion. GitHub Pages CDN rebuilds in ~30-60s; after that a normal refresh shows the new version everywhere.
+
+Short version: edit staging → see it immediately. Promote → main site updates too. No manual cache clearing needed.
+
+—
+
+🇵🇹 Sim — o cache-busting cobre os dois fluxos:
+
+• **Edições no staging** — cada vez que o /sync faz commit no staging/, os links de CSS/JS já têm ?v=YYYYMMDD. Vês as atualizações em beatnonstop.live/staging/ com um refresh normal.
+• **Promoção para o site principal** — quando a votação do /promote passa e os ficheiros são copiados para a raiz, a versão vem com eles. Então o site principal (beatnonstop.live) também fica atualizado. O CDN do GitHub Pages reconstrói em ~30-60s; depois disso um refresh normal mostra a versão nova em todo o lado.
+
+Resumo: edita staging → vê logo. Promove → site principal atualiza também. Sem limpar cache manualmente.
