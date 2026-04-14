@@ -222,3 +222,30 @@ Keep the beat alive
 „
 
 Make sure this reads nicely in the other two languages as well
+[2026-04-14T15:23:22.120Z] bot: 🇬🇧 Done — staging description updated with the new copy:
+
+*Not everything needs to be understood…*
+*some things need to be felt.*
+
+*New Moon. New cycle. New frequency.*
+
+*Keep the beat alive*
+
+"Keep the beat alive" stays in English across all three languages — it works as the brand tagline. The poetic lines above it are translated into each language (EN/PT/FR).
+
+Refresh https://beatnonstop.live/staging/ to see it.
+
+—
+
+🇵🇹 Feito — descrição do staging atualizada com o novo texto:
+
+*Nem tudo precisa de ser entendido…*
+*algumas coisas precisam de ser sentidas.*
+
+*Lua Nova. Novo ciclo. Nova frequência.*
+
+*Keep the beat alive*
+
+"Keep the beat alive" fica em inglês nas três línguas — funciona como tagline da marca. As linhas poéticas acima estão traduzidas em cada língua (EN/PT/FR).
+
+Atualiza https://beatnonstop.live/staging/ para ver.
