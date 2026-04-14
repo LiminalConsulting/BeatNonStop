@@ -381,3 +381,8 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 
 🇵🇹 Nova votação de promoção criada — @DavidPereira99 pediu uma votação nova. Verifiquem o staging e votem 👍 para publicar. Votação anterior anulada.
 [2026-04-14T19:00:10Z] bot [summary]: Sync done · 2 inbox entries processed (1 noise "Aqui", 1 request for new promote vote) · new promote vote created · inbox cleared.
+[2026-04-14T18:55:18.163Z] bot: 🇬🇧 New promote vote created — @DavidPereira99 requested a fresh vote. Check staging and vote 👍 to push live. Previous vote superseded.
+
+🇵🇹 Nova votação de promoção criada — @DavidPereira99 pediu votação nova. Verifiquem o staging e votem 👍 para publicar. Votação anterior anulada.
+
+🔄 Sync done · 2 inbox entries processed · new promote vote created · next: Instagram post (t5, overdue), permit (t7, Apr 20)
