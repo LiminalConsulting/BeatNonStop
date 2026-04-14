@@ -309,3 +309,20 @@ Refresh https://beatnonstop.live/staging/ to see it.
 
 Nova votação de promoção criada — verifiquem o staging e votem para publicar.
 [2026-04-14T16:46:37.111Z] bot: 🔄 Sync done · 1 staging edit (info section removed) · 1 promote vote queued · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20)
+[2026-04-14T16:47:46.574Z] bot: 🇬🇧 @Tiago No worries! Quick summary of how this works:
+
+1. When someone asks for a change to the website, I edit a preview version ("staging")
+2. You can check the preview at beatnonstop.live/staging/
+3. When the team is happy, vote ✅ on the promote poll to push it live to the real site
+
+Right now there is a vote open to push the latest changes live. Just vote ✅ if the staging site looks good to you!
+
+—
+
+🇵🇹 @Tiago Tranquilo! Resumo rápido de como funciona:
+
+1. Quando alguém pede uma alteração ao site, eu edito uma versão de pré-visualização ("staging")
+2. Podes ver a pré-visualização em beatnonstop.live/staging/
+3. Quando a equipa estiver satisfeita, votem ✅ na votação para publicar no site real
+
+Neste momento há uma votação aberta para publicar as últimas alterações. Vota ✅ se o staging te parecer bem!
