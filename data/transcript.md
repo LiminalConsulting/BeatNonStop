@@ -289,3 +289,5 @@ is this interfering with our ability to launch the ticket sale? or is it only ab
 🇵🇹 Re: NIPC no Shotgun — o NIF incompleto NÃO bloqueia a venda de bilhetes (o Stripe processa pagamentos de forma independente). O NIPC só afeta faturação e pode atrasar transferências. Tarefa t23 criada: inserir NIF da freguesia de Duas Igrejas no painel Shotgun (prazo 20 abr).
 [2026-04-14T16:01:29.741Z] bot: 🔄 Sync done · inbox empty, no new messages · 0 actions queued · next priorities: Instagram launch post (t5, overdue), permit application (t7, due Apr 20), security quote (t9, due Apr 20)
 [2026-04-14T16:02:10.418Z] @David: Thanks!
+[2026-04-14T16:02:51.116Z] @David: @Bruno_Veloso @DavidPereira99 Tiago  pls check the staging site
+I think it’s ready
