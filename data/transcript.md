@@ -297,3 +297,14 @@ I think it’s ready
 Pedido 2: cria uma nova votação para mandar online
   📷 photo → `data/inbox-media/2026-04-14T16-42-43-243Z-photo-DeQADOwQ.jpg`
 [2026-04-14T16:43:46.069Z] @Tiago: Não percebo nadinha disto
+[2026-04-14T16:45:56.235Z] bot: 🇬🇧 Done — Info section (Date / Location / Doors) removed from staging. The hero and map already cover that info. Nav link updated to point to Location/Map.
+
+New promote vote created — check staging and vote to push live.
+
+Refresh https://beatnonstop.live/staging/ to see it.
+
+—
+
+🇵🇹 Feito — secção Info (Data / Local / Portas) removida do staging. O hero e o mapa já têm essa informação.
+
+Nova votação de promoção criada — verifiquem o staging e votem para publicar.
