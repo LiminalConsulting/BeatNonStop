@@ -12,10 +12,6 @@ Format per entry:
 
 ---
 
-## 2026-04-14T10:59:24.445Z — @David (6100643840)
-@BeatNonStopBot can it be that there are browser caching issues making the website appear to be not updated even when it has been changed? if so how could we mitigate this issue as it seriously interferes with our ability to iterate on the website?
----
-
 ## 2026-04-14T11:00:52.183Z — @David (6100643840)
 consider that we are looking at the site from mobile safari, telegram internal browser (opening links from the chat), desktop safari, desktop brave etc.
 is there a unified way to make sure the displayed site is always perfectly in sync with the truth hosted on gh pages?
