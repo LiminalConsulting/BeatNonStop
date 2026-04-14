@@ -376,3 +376,4 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 • Orçamento segurança (t9, prazo 20 abr)
 [2026-04-15T00:15:00Z] bot [summary]: Sync tick — inbox had 2 noise entries (David P. tagging Bruno for promote vote). No actionable items. Promote vote (promote-2026-04-14T17-25-00-000Z) still pending 1 more approval. Inbox cleared.
 [2026-04-14T18:51:54.633Z] @DavidPereira99: Aqui
+[2026-04-14T18:52:58.018Z] @DavidPereira99: Começa de novo a votação mas abre uma caixa de texto nova
