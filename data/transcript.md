@@ -386,3 +386,30 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 🇵🇹 Nova votação de promoção criada — @DavidPereira99 pediu votação nova. Verifiquem o staging e votem 👍 para publicar. Votação anterior anulada.
 
 🔄 Sync done · 2 inbox entries processed · new promote vote created · next: Instagram post (t5, overdue), permit (t7, Apr 20)
+[2026-04-14T18:58:53.706Z] bot: 🇬🇧 Sync done · inbox empty, no new messages.
+
+📋 Status:
+• Promote vote still pending — needs approval to push staging → live
+• 0 tickets reported sold yet (day 2 of sales)
+• Artist reveals start tomorrow (Apr 15) — Instagram launch post (t5) still overdue
+
+⏰ Upcoming deadlines:
+• Permit application (due Apr 20)
+• Security quote (due Apr 20)
+• Parish NIF on Shotgun (due Apr 20)
+• Artist deposits €725 (due Apr 26)
+
+—
+
+🇵🇹 Sync feito · inbox vazio, sem mensagens novas.
+
+📋 Estado:
+• Votação de promoção ainda pendente — falta aprovação
+• 0 bilhetes reportados vendidos (dia 2 de vendas)
+• Revelação de artistas começa amanhã (15 abr) — post Instagram (t5) ainda atrasado
+
+⏰ Prazos próximos:
+• Pedido de alvará (prazo 20 abr)
+• Orçamento segurança (prazo 20 abr)
+• NIF da paróquia no Shotgun (prazo 20 abr)
+• Depósitos artistas €725 (prazo 26 abr)
