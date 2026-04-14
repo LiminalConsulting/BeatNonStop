@@ -141,3 +141,9 @@ Enquanto isso, para ver mudanças imediatas: Ctrl+Shift+R (ou Cmd+Shift+R no Mac
 [2026-04-14T11:09:47Z] bot [summary]: Preference recorded · /sync instructed to reply bilingually (EN + PT) going forward. Inbox cleared.
 
 <!-- end of git-reconstruction · append-only from here -->
+[2026-04-14T11:45:11.517Z] @David: David Rug, [14. Apr 2026 at 11:59:24]:
+@BeatNonStopBot can it be that there are browser caching issues making the website appear to be not updated even when it has been changed? if so how could we mitigate this issue as it seriously interferes with our ability to iterate on the website?
+
+
+consider that we are looking at the site from mobile safari, telegram internal browser (opening links from the chat), desktop safari, desktop brave etc.
+is there a unified way to make sure the displayed site is always perfectly in sync with the truth hosted on gh pages?
