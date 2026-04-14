@@ -306,3 +306,4 @@ Pedido 2: cria uma nova votação para mandar online
 🇵🇹 Nova votação de promoção criada — verifiquem o staging e votem para publicar.
 
 https://beatnonstop.live/staging/
+[2026-04-14T17:24:36.052Z] bot: 🔄 Sync done · 1 request processed (new promote vote) · next priorities: Instagram launch post (t5, overdue), permit application (t7, due Apr 20), security quote (t9, due Apr 20)
