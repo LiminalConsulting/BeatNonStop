@@ -211,3 +211,14 @@ Keep the beat alive
 „
 
 Make sure this reads nicely in the other two languages as well
+[2026-04-14T15:19:18.068Z] @David: @BeatNonStopBot update the description on the website pls to say this in Portuguese:
+„
+Nem tudo precisa de ser entendido…
+algumas coisas precisam de ser sentidas.
+
+Lua Nova. Novo ciclo. Nova frequência.
+ 
+Keep the beat alive
+„
+
+Make sure this reads nicely in the other two languages as well
