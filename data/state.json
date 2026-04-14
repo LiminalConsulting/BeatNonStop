@@ -7,7 +7,7 @@
     "venue_maps": "https://maps.app.goo.gl/aC4kPkFJXYkEJfN36?g_st=ic",
     "capacity": 2000,
     "domain": "beatnonstop.live",
-    "last_sync": "2026-04-14T15:30:00Z",
+    "last_sync": "2026-04-14T16:15:00Z",
     "last_sync_by": "claude-code"
   },
   "tickets": {
@@ -73,7 +73,8 @@
     { "id": "t17", "title": "Door staff assignment (trusted friend)", "owner": "Team", "priority": "medium", "due": "2026-05-03", "status": "open", "category": "operations" },
     { "id": "t18", "title": "Set order / run-of-show for 7 artists", "owner": "Tiago", "priority": "medium", "due": "2026-05-05", "status": "open", "category": "lineup" },
     { "id": "t19", "title": "Pay artist deposits (€725 across 3 artists)", "owner": "David", "priority": "high", "due": "2026-04-26", "status": "open", "category": "budget" },
-    { "id": "t20", "title": "Parent consent form template + print ~50 copies", "owner": "David", "priority": "medium", "due": "2026-05-10", "status": "open", "category": "operations" }
+    { "id": "t20", "title": "Parent consent form template + print ~50 copies", "owner": "David", "priority": "medium", "due": "2026-05-10", "status": "open", "category": "operations" },
+    { "id": "t23", "title": "Add Duas Igrejas parish NIF (NIPC) to Shotgun dashboard for invoicing/payouts", "owner": "David", "priority": "high", "due": "2026-04-20", "status": "open", "category": "tickets" }
   ],
   "sponsors": {
     "confirmed": [
