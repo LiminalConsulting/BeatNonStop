@@ -13,6 +13,19 @@
       },
       "telegram_message_id": 103,
       "created_at": "2026-04-14T16:46:02.813Z"
+    },
+    {
+      "id": "promote-2026-04-14T17-25-00-000Z",
+      "kind": "promote_staging",
+      "summary": "Copy /staging/ → public site root · new vote requested by @DavidPereira99",
+      "action": {
+        "type": "promote_staging",
+        "payload": {
+          "requested_by": "DavidPereira99",
+          "requested_by_id": 768181894
+        }
+      },
+      "created_at": "2026-04-14T17:24:00.452Z"
     }
   ],
   "executed": [
