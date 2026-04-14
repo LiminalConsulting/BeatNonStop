@@ -255,3 +255,24 @@ Atualiza https://beatnonstop.live/staging/ para ver.
 @BeatNonStopBot this is the google maps address of the location
 Can you please add a map element to the site that shows this in the visual style we already have?
 [2026-04-14T15:23:39.675Z] @David: https://maps.app.goo.gl/8eRmRH6cEZgmpzVq7?g_st=ic @BeatNonStopBot this is the google maps address of the location. Can you please add a map element to the site that shows this in the visual style we already have?
+[2026-04-14T15:25:37.405Z] bot: 🇬🇧 Done — map added to the staging site between the Info and Tickets sections.
+
+• Dark-themed OpenStreetMap embed (inverted colors to match the site palette)
+• "Open in Google Maps" button below — links to the exact pin you shared
+• Trilingual labels (EN/PT/FR)
+
+Refresh https://beatnonstop.live/staging/ to see it.
+
+Note: the map pin is set to the Ribeira do Neiva area. If the exact position needs adjusting, let me know.
+
+—
+
+🇵🇹 Feito — mapa adicionado ao staging entre as secções Info e Bilhetes.
+
+• Mapa OpenStreetMap com tema escuro (cores invertidas para combinar com o site)
+• Botão "Abrir no Google Maps" por baixo — com o link exato que partilhaste
+• Labels trilingues (EN/PT/FR)
+
+Atualiza https://beatnonstop.live/staging/ para ver.
+
+Nota: o pin do mapa está na zona da Ribeira do Neiva. Se a posição exata precisar de ajuste, diz-me.
