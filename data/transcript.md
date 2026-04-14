@@ -277,3 +277,6 @@ Atualiza https://beatnonstop.live/staging/ para ver.
 
 Nota: o pin do mapa está na zona da Ribeira do Neiva. Se a posição exata precisar de ajuste, diz-me.
 [2026-04-14T15:25:44.934Z] bot: 🔄 Sync done · 2 staging edits (description copy + map embed) · 0 actions queued · next priority: Instagram launch post + artist reveal (t5, overdue)
+[2026-04-14T15:43:45.088Z] @David: @BeatNonStopBot help us navigate this issue on shotgun.live
+is this interfering with our ability to launch the ticket sale? or is it only about moving the money to our bank account later?
+  📷 photo → `data/inbox-media/2026-04-14T15-43-44-340Z-photo-N5AAM7BA.jpg`
