@@ -441,3 +441,17 @@ Buyer → Shotgun → Stripe → *parish IBAN* → post-event reconciliation wit
 • Alvará (t7, prazo 20 abr)
 • Segurança (t9, prazo 20 abr)
 • NIF paróquia no Shotgun (t23, prazo 20 abr)
+[2026-04-15T12:56:34.136Z] @DavidPereira99: Adiciona uma secação no /Plan que foi criado, que diga Recinto/decoração. Adiciona então
+- pano preto
+- Lua
+- Leds (ver medidas com xaninho) 
+- Cenário instagramavel 
+- Entrada com lâmpadas 
+- Balcão Check-in 
+- Casas de banho
+- Palco 
+- Estrato VIP 
+- Adereços para o público 
+- Barreiras 
+- Letras luminosas BNS
+- Intro
