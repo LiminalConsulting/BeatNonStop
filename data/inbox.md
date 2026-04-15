@@ -21,3 +21,7 @@ LINEUP · 7 ARTISTAS · TODOS LOCAIS
 Coloca no plano uma nova secção a dizer David 
 Coloca na minha secção ( David ) - “Falar com Gabriel para patrocínio”
 ---
+
+## 2026-04-15T20:47:18.515Z — @Tiago (8452168195)
+Remover preços dos artistas
+---
