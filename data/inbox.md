@@ -29,3 +29,11 @@ Remover preços dos artistas
 ## 2026-04-15T20:47:21.603Z — @DavidPereira99 (768181894)
 @BeatNonStopBot
 ---
+
+## 2026-04-15T20:50:53.984Z — @DavidPereira99 (768181894)
+É aqui que quero que faças as alterações que foram pedidas 
+
+https://beatnonstop.live/plan
+
+É aqui que quero que faças as alterações
+---
