@@ -28,3 +28,13 @@ Adiciona uma secação no /Plan que foi criado, que diga Recinto/decoração. Ad
 - Letras luminosas BNS
 - Intro
 ---
+
+## 2026-04-15T12:58:52.286Z — @DavidPereira99 (768181894)
+Elimina o “estado - próximas 3 ações 
+Elimina a Equipa 
+Elimina os Bilhetes 
+Política de idades 
+O cronograma 
+Os risco principais 
+E Questões esta semana
+---
