@@ -470,3 +470,4 @@ https://beatnonstop.live/plan
 LINEUP · 7 ARTISTAS · TODOS LOCAIS
 [2026-04-15T20:39:35.660Z] @DavidPereira99: Coloca no plano uma nova secção a dizer David 
 Coloca na minha secção ( David ) - “Falar com Gabriel para patrocínio”
+[2026-04-15T20:47:18.515Z] @Tiago: Remover preços dos artistas
