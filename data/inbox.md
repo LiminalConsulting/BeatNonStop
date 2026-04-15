@@ -16,3 +16,8 @@ Format per entry:
 Elimina do plano 
 LINEUP · 7 ARTISTAS · TODOS LOCAIS
 ---
+
+## 2026-04-15T20:39:35.660Z — @DavidPereira99 (768181894)
+Coloca no plano uma nova secção a dizer David 
+Coloca na minha secção ( David ) - “Falar com Gabriel para patrocínio”
+---
