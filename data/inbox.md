@@ -11,3 +11,8 @@ Format per entry:
 ```
 
 ---
+
+## 2026-04-15T18:23:37.411Z — @DavidPereira99 (768181894)
+Elimina do plano 
+LINEUP · 7 ARTISTAS · TODOS LOCAIS
+---
