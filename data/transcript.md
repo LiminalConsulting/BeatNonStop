@@ -466,3 +466,5 @@ E Questões esta semana
 [2026-04-15T13:01:27.470Z] @DavidPereira99: É aqui que quero que faças as alterações que foram pedidas 
 
 https://beatnonstop.live/plan
+[2026-04-15T18:23:37.411Z] @DavidPereira99: Elimina do plano 
+LINEUP · 7 ARTISTAS · TODOS LOCAIS
