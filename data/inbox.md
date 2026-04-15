@@ -12,20 +12,6 @@ Format per entry:
 
 ---
 
-## 2026-04-15T12:58:52.286Z — @DavidPereira99 (768181894)
-Elimina o "estado - próximas 3 ações 
-Elimina a Equipa 
-Elimina os Bilhetes 
-Política de idades 
-O cronograma 
-Os risco principais 
-E Questões esta semana
----
-
-## 2026-04-15T12:58:56.127Z — @DavidPereira99 (768181894)
-@BeatNonStopBot
----
-
 ## 2026-04-15T13:01:27.470Z — @DavidPereira99 (768181894)
 É aqui que quero que faças as alterações que foram pedidas 
 
