@@ -11,9 +11,3 @@ Format per entry:
 ```
 
 ---
-
-## 2026-04-15T13:01:27.470Z — @DavidPereira99 (768181894)
-É aqui que quero que faças as alterações que foram pedidas 
-
-https://beatnonstop.live/plan
----
