@@ -472,3 +472,8 @@ LINEUP · 7 ARTISTAS · TODOS LOCAIS
 Coloca na minha secção ( David ) - “Falar com Gabriel para patrocínio”
 [2026-04-15T20:47:18.515Z] @Tiago: Remover preços dos artistas
 [2026-04-15T20:47:21.603Z] @DavidPereira99: @BeatNonStopBot
+[2026-04-15T20:50:53.984Z] @DavidPereira99: É aqui que quero que faças as alterações que foram pedidas 
+
+https://beatnonstop.live/plan
+
+É aqui que quero que faças as alterações
