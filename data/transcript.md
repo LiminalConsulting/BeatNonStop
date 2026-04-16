@@ -493,3 +493,4 @@ Refresh https://beatnonstop.live/plan to see it (~60s for GitHub Pages).
 • Preços dos artistas também saíram — a secção inteira foi removida, portanto o pedido do @Tiago fica coberto
 
 Atualizem https://beatnonstop.live/plan para verem (~60s).
+[2026-04-16T08:00:47.879Z] bot: 🌑 Sync done · 3 plan edits applied · 0 actions queued · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20), parish NIF on Shotgun (t23, due Apr 20)
