@@ -495,3 +495,9 @@ Refresh https://beatnonstop.live/plan to see it (~60s for GitHub Pages).
 Atualizem https://beatnonstop.live/plan para verem (~60s).
 [2026-04-16T08:00:47.879Z] bot: 🌑 Sync done · 3 plan edits applied · 0 actions queued · next priorities: Instagram launch post (t5, overdue), permit (t7, due Apr 20), security quote (t9, due Apr 20), parish NIF on Shotgun (t23, due Apr 20)
 [2026-04-16T10:11:13.620Z] @Tiago: Coloca no plano de Tiago , falar com a casa do povo por causa do barulho no dia e levar suplementos que estejam em necessidade
+[2026-04-16T10:39:24.673Z] @DavidPereira99: Coloca no plano, na seção David 
+-Falar com Gonzaga 
+- Falar com Carlos so madeiras 
+- Falar com Manuel Moreira 
+- Falar com Pedro Verde Relâmpago 
+- Falar com o Azevedo Carpintaria
