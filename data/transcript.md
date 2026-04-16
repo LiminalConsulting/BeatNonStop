@@ -478,3 +478,18 @@ https://beatnonstop.live/plan
 
 É aqui que quero que faças as alterações
 [2026-04-16T00:00:00Z] bot [summary]: Sync tick — processed 5 inbox entries from @DavidPereira99 + @Tiago. Applied 3 plan.html edits: removed Lineup card (David P.), added new "David" section with "Falar com Gabriel para patrocínio" task (David P.), artist fees removed as side-effect of lineup card removal (Tiago's request). Next promote vote not needed — /plan updates hit live directly per the pattern established on 2026-04-15.
+[2026-04-16T08:00:31.964Z] bot: 🇬🇧 Done on /plan:
+• Removed the *Lineup · 7 Artists* card (@DavidPereira99)
+• Added new *David* card with task: _Talk to Gabriel about sponsorship_ (@DavidPereira99)
+• Artist fees gone too — the whole card was removed, so @Tiago's request is covered
+
+Refresh https://beatnonstop.live/plan to see it (~60s for GitHub Pages).
+
+—
+
+🇵🇹 Feito no /plan:
+• Removida a secção *Lineup · 7 Artistas* (@DavidPereira99)
+• Adicionada secção *David* com a tarefa: _Falar com Gabriel para patrocínio_ (@DavidPereira99)
+• Preços dos artistas também saíram — a secção inteira foi removida, portanto o pedido do @Tiago fica coberto
+
+Atualizem https://beatnonstop.live/plan para verem (~60s).
