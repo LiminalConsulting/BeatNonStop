@@ -60,10 +60,11 @@ Parse `data/inbox.md`. Entries may include media lines like `📷 photo → data
 For each unprocessed entry (newest to oldest is fine), classify:
 - **Question** (they want an answer) → answer it based on project knowledge, post via `/api/reply`
 - **Information / fact update** (e.g., "Sarah confirmed she'll do the door") → update `data/state.json` and/or `knowledge/event-facts.json` accordingly, acknowledge briefly in group
-- **Site change request** (anything about what the website shows: copy, layout, sections, ticket tiers displayed on the page, colors, images, lineup text, etc.) → edit files **under `staging/`** (never the repo root). Commit. Reply briefly in group: "staging updated — refresh https://beatnonstop.live/staging/". Do NOT promote yourself — the team runs `/promote` when ready.
-  - **Default assumption**: if someone says "add X", "change Y", "make Z bigger", "remove W" and X/Y/Z/W is something visible on the site, it's a staging edit. No need to ask.
+- **Public-site change request** (anything about the *public* event site at `beatnonstop.live/`: hero copy, lineup display, tickets section, layout, colors, images, nav, etc.) → edit files **under `staging/`** (never the repo root). Commit. Reply briefly in group: "staging updated — refresh https://beatnonstop.live/staging/". Do NOT promote yourself — the team runs `/promote` when ready.
+  - **Default assumption**: if someone says "add X", "change Y", "make Z bigger", "remove W" and X/Y/Z/W is something visible on the public site, it's a staging edit. No need to ask.
   - **Ambiguous case** — if the request could *also* mean an external system change (e.g., "add a VIP ticket tier €260" → could mean display on site AND/OR create it in Shotgun.live): edit the staging site to reflect it, THEN post to the group: "Updated staging to show VIP €260. Note: this is display-only — the actual tier in Shotgun.live still needs to be created by @DavidPereira99 in pro.shotgun.live. Want me to draft instructions?" Never touch Shotgun or other external systems yourself; those stay human-driven until explicitly wired via an outbox action.
   - **Tagged at the bot** (`@BeatNonStopBot ...`) is just convention — treat it the same as any request. The @ mention is noise; classify by content.
+- **Plan-dashboard change request** (anything about the internal planning page at `beatnonstop.live/plan`: adding/removing sections, checklist items, todo entries, budget numbers shown, team info — "add X to the plan", "adiciona ao /plan", "remove Y from the dashboard") → edit `plan.html` at **repo root directly**. Do NOT touch `staging/`. Plan dashboard is an internal tool for 3 people; changes land live on next `/sync` within ~1 min (no vote, no preview). Also update `data/state.json` to keep LLM memory aligned with what the dashboard shows. Bilingual: update both `<span data-lang="en">` and `<span data-lang="pt">` blocks. Reply: "plan dashboard updated — refresh https://beatnonstop.live/plan".
 - **Proposal / decision request** (e.g., "should we raise early bird to €15?") → present tradeoffs in group, don't decide unilaterally
 - **Noise / chatter** → skip
 
@@ -92,7 +93,7 @@ For each item in `outbox.executed` with `result === "queued_for_human_send"`:
 - Update `result` to `"draft_ready"` and timestamp
 
 ### 6. Update planning dashboard
-The dashboard (`plan.html`) reads `data/state.json` live — no separate update needed. Just make sure state.json is coherent.
+The dashboard (`plan.html` at repo root) is currently **static HTML**, not a live renderer of `state.json`. If this tick surfaced changes the team needs to see on `beatnonstop.live/plan` (new tasks, checklist items, numbers), edit `plan.html` directly at root — never via `staging/`. Also update `state.json` so the LLM's memory stays aligned with the dashboard. (Future phase: make `plan.html` a thin renderer of `state.json` so divergence is structurally impossible — not yet done.)
 
 ### 7. Status message to group
 Post a terse summary: "Sync done · N questions answered · M actions queued · K drafts ready · next priority: <top urgent task>".

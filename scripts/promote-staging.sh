@@ -18,10 +18,14 @@ skipped=0
 
 while IFS= read -r -d '' src; do
   rel="${src#staging/}"
-  if [[ "$rel" == "README.md" ]]; then
-    skipped=$((skipped+1))
-    continue
-  fi
+  # Skip staging-only files and plan-dashboard assets (plan.html is edited live
+  # at root — not staged). Must match PROMOTE_SKIP_PATHS in worker/src/index.js.
+  case "$rel" in
+    README.md|plan.html|styles/planning.css)
+      skipped=$((skipped+1))
+      continue
+      ;;
+  esac
 
   dest="$rel"
   mkdir -p "$(dirname "$dest")"

@@ -421,12 +421,19 @@ function stripStagingMarkers(html) {
     .replace(/<script>\s*fetch\(location\.href[\s\S]*?<\/script>\s*\n?/g, "");
 }
 
-// Copy every file under /staging/ to the repo root (overwriting), except README.md and the folder itself.
+// Copy every file under /staging/ to the repo root (overwriting), except README.md,
+// plan-dashboard assets (plan.html is edited live at root — never staged), and the
+// folder itself.
+const PROMOTE_SKIP_PATHS = new Set([
+  "staging/README.md",
+  "staging/plan.html",
+  "staging/styles/planning.css",
+]);
 async function promoteStagingToRoot(env) {
   const files = await listRepoTree(env, "staging");
   let copied = 0, skipped = 0;
   for (const f of files) {
-    if (f.path === "staging/README.md") { skipped++; continue; }
+    if (PROMOTE_SKIP_PATHS.has(f.path)) { skipped++; continue; }
     const destPath = f.path.replace(/^staging\//, "");
     const src = await getFileRaw(env, f.path);
     let contentB64 = src.contentB64;

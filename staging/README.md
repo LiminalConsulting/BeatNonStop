@@ -1,6 +1,6 @@
-# /staging — preview of the public site
+# /staging — preview of the **public** site
 
-This folder is a full copy of the public site, served at `beatnonstop.live/staging/`.
+This folder is a preview of the public event site, served at `beatnonstop.live/staging/`. **Scope: public site only** (`index.html` + its assets). Never the plan dashboard.
 
 **Flow**
 1. Team posts feedback / ideas / annotated screenshots in Telegram.
@@ -10,6 +10,7 @@ This folder is a full copy of the public site, served at `beatnonstop.live/stagi
 5. Bot posts a vote request. 2 👍 (non-builder) → files are copied from `/staging/` to repo root. 👎 blocks.
 
 **Rules**
-- Never edit files at repo root directly. Always edit in `/staging/` first.
-- `/promote` overwrites root with staging — it's a full folder copy, not a diff.
-- Staging is `noindex`'d and has a yellow banner; it's semi-private, not secret.
+- Public-site changes → edit in `/staging/` first. Never edit public-site files at repo root directly.
+- **Plan dashboard is NOT staged.** Edit `plan.html` at repo root directly — it's an internal tool for 3 people, changes should land live immediately on next `/sync`. Do not copy plan.html into staging.
+- `/promote` overwrites root with staging, but explicitly skips `plan.html` and `styles/planning.css` (see `PROMOTE_SKIP_PATHS` in `worker/src/index.js` and the matching list in `scripts/promote-staging.sh`).
+- Staging pages get a `noindex` + yellow banner; it's semi-private, not secret.
