@@ -22,16 +22,10 @@
 <header class="plan-header">
   <h1>Beat Nonstop · Lua Nova</h1>
   <div class="plan-subtitle">
-    <span data-lang="en">Planning Dashboard · Updated April 12, 2026</span>
-    <span data-lang="pt">Painel de Planeamento · Atualizado 12 Abril 2026</span>
+    <span data-lang="en">Planning Dashboard · Live from state.json</span>
+    <span data-lang="pt">Painel de Planeamento · Em direto de state.json</span>
   </div>
-  <div class="plan-meta">
-    <div class="plan-meta-item"><span data-lang="en">Date </span><span data-lang="pt">Data </span><strong>16 May 2026</strong></div>
-    <div class="plan-meta-item"><span data-lang="en">Doors </span><span data-lang="pt">Portas </span><strong>18h–04h</strong></div>
-    <div class="plan-meta-item"><span data-lang="en">Venue </span><span data-lang="pt">Local </span><strong>Ribeira do Neiva</strong></div>
-    <div class="plan-meta-item"><span data-lang="en">Artists </span><span data-lang="pt">Artistas </span><strong>7</strong></div>
-    <div class="plan-meta-item"><span data-lang="en">Target </span><span data-lang="pt">Meta </span><strong>1000</strong></div>
-  </div>
+  <div class="plan-meta" id="plan-meta"></div>
 </header>
 
 <div class="plan-grid">
@@ -51,99 +45,10 @@
     </div>
   </div>
 
-  <div class="plan-card">
-    <div class="plan-card-header">
-      <span class="plan-card-title">
-        <span data-lang="en">Budget · Snapshot</span>
-        <span data-lang="pt">Orçamento · Resumo</span>
-      </span>
-    </div>
-    <div class="budget-row">
-      <div>
-        <div class="budget-label"><span data-lang="en">Estimated total costs</span><span data-lang="pt">Custos totais estimados</span></div>
-        <div class="budget-bar"><div class="budget-fill" style="width:100%"></div></div>
-      </div>
-      <div class="budget-amount">€8,000</div>
-    </div>
-    <div class="budget-row">
-      <div>
-        <div class="budget-label"><span data-lang="en">Cash in hand</span><span data-lang="pt">Dinheiro disponível</span></div>
-        <div class="budget-bar"><div class="budget-fill" style="width:62%"></div></div>
-      </div>
-      <div class="budget-amount">€5,000</div>
-    </div>
-    <div class="budget-row">
-      <div>
-        <div class="budget-label"><span data-lang="en">Gap (tickets + sponsors)</span><span data-lang="pt">Lacuna (bilhetes + patrocínios)</span></div>
-        <div class="budget-bar"><div class="budget-fill" style="width:38%;background:var(--color-accent-bright)"></div></div>
-      </div>
-      <div class="budget-amount">€3,000</div>
-    </div>
-    <div class="profit-box">
-      <div class="profit-label"><span data-lang="en">Break-even @ flat €13 avg</span><span data-lang="pt">Equilíbrio @ €13 médio</span></div>
-      <div class="profit-num">~620</div>
-      <div class="profit-label" style="margin-top:.3rem"><span data-lang="en">tickets</span><span data-lang="pt">bilhetes</span></div>
-    </div>
-  </div>
-
-  <div class="plan-card">
-    <div class="plan-card-header">
-      <span class="plan-card-title">
-        <span data-lang="en">David</span>
-        <span data-lang="pt">David</span>
-      </span>
-    </div>
-    <ul class="plan-checklist">
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Talk to Gabriel about sponsorship</span><span data-lang="pt">Falar com Gabriel para patrocínio</span></span></li>
-    </ul>
-  </div>
-
-  <div class="plan-card">
-    <div class="plan-card-header">
-      <span class="plan-card-title">
-        <span data-lang="en">Venue / Decoration</span>
-        <span data-lang="pt">Recinto / Decoração</span>
-      </span>
-    </div>
-    <ul class="plan-checklist">
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Black cloth</span><span data-lang="pt">Pano preto</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Moon</span><span data-lang="pt">Lua</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">LEDs (check measurements with Xaninho)</span><span data-lang="pt">LEDs (ver medidas com Xaninho)</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Instagrammable scenery</span><span data-lang="pt">Cenário instagramável</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Entrance with lamps</span><span data-lang="pt">Entrada com lâmpadas</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Check-in counter</span><span data-lang="pt">Balcão check-in</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Bathrooms</span><span data-lang="pt">Casas de banho</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Stage</span><span data-lang="pt">Palco</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">VIP area</span><span data-lang="pt">Estrato VIP</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Audience props</span><span data-lang="pt">Adereços para o público</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Barriers</span><span data-lang="pt">Barreiras</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">BNS light-up letters</span><span data-lang="pt">Letras luminosas BNS</span></span></li>
-      <li><span class="check-box"></span><span class="task-text"><span data-lang="en">Intro</span><span data-lang="pt">Intro</span></span></li>
-    </ul>
-  </div>
-
-  <div class="plan-card">
-    <div class="plan-card-header">
-      <span class="plan-card-title">
-        <span data-lang="en">Partners Confirmed</span>
-        <span data-lang="pt">Parceiros confirmados</span>
-      </span>
-    </div>
-    <div class="provider-card recommended">
-      <div class="provider-name">Duas Igrejas <span data-lang="en">(Parish)</span><span data-lang="pt">(Paróquia)</span></div>
-      <div class="provider-fee"><span data-lang="en">Bar · Legal umbrella · Community helpers</span><span data-lang="pt">Bar · Cobertura legal · Ajudantes</span></div>
-      <div class="provider-pros"><span data-lang="en">They keep bar profits. 1 free drink per ticket. ~25 helpers.</span><span data-lang="pt">Recebem lucros do bar. 1 bebida grátis por bilhete. ~25 ajudantes.</span></div>
-    </div>
-    <div class="provider-card recommended">
-      <div class="provider-name"><span data-lang="en">Municipality · Vila Verde</span><span data-lang="pt">Câmara · Vila Verde</span></div>
-      <div class="provider-fee"><span data-lang="en">Free fireworks · Stage request · Mobile toilets</span><span data-lang="pt">Fogo grátis · Pedido palco · WC móveis</span></div>
-    </div>
-    <div class="provider-card">
-      <div class="provider-name"><span data-lang="en">Equipment company</span><span data-lang="pt">Empresa de equipamento</span></div>
-      <div class="provider-fee">€3,000 · €1,500 <span data-lang="en">deposit funded</span><span data-lang="pt">depósito garantido</span></div>
-    </div>
-  </div>
-
+  <div class="plan-card" id="card-budget"></div>
+  <div class="plan-card" id="card-david"></div>
+  <div class="plan-card" id="card-venue"></div>
+  <div class="plan-card" id="card-partners"></div>
 
 </div>
 
@@ -151,7 +56,16 @@
   <span>Beat Nonstop · Lua Nova · 🌑 16.05.2026</span>
 </footer>
 
+<noscript>
+  <div style="padding:2rem;font-family:var(--font-body)">
+    This dashboard renders from <code>data/state.json</code> via JavaScript.
+    Enable JavaScript, or view the raw state at
+    <a href="data/state.json">data/state.json</a>.
+  </div>
+</noscript>
+
 <script>
+  // Countdown (doesn't depend on state — uses event date constant)
   (function() {
     function tick() {
       var diff = new Date('2026-05-16T18:00:00') - new Date();
@@ -166,6 +80,7 @@
     setInterval(tick, 1000);
   })();
 
+  // Language toggle
   var LANG_KEY = 'bns_plan_lang';
   function setLang(lang) {
     document.body.classList.remove('pt', 'fr');
@@ -173,16 +88,213 @@
     document.querySelectorAll('.lang-btn').forEach(function(b) {
       b.classList.toggle('active', b.textContent.trim() === lang.toUpperCase());
     });
-    localStorage.setItem(LANG_KEY, lang);
+    try { localStorage.setItem(LANG_KEY, lang); } catch(e) {}
   }
-  setLang(localStorage.getItem(LANG_KEY) || 'pt');
 
-  document.querySelectorAll('.check-box').forEach(function(box) {
-    box.addEventListener('click', function() {
-      box.classList.toggle('done');
-      box.parentElement.classList.toggle('checked');
+  // Render helpers
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+  function bilingual(en, pt) {
+    return '<span data-lang="en">' + esc(en) + '</span><span data-lang="pt">' + esc(pt) + '</span>';
+  }
+  function eur(n) {
+    return '€' + Number(n).toLocaleString('en-US');
+  }
+
+  function renderMeta(state) {
+    var items = [
+      { en: 'Date ', pt: 'Data ', value: '16 May 2026' },
+      { en: 'Doors ', pt: 'Portas ', value: (state.event && state.event.time_start ? state.event.time_start : '18:00') + '–' + (state.event && state.event.time_end ? state.event.time_end : '04:00').replace(':','h').replace(/^(\d+)h(\d+)$/, '$1h$2') },
+      { en: 'Venue ', pt: 'Local ', value: state.meta && state.meta.venue ? state.meta.venue.split(',')[0].trim() : 'Ribeira do Neiva' },
+      { en: 'Artists ', pt: 'Artistas ', value: String((state.artists && state.artists.lineup || []).length || 7) },
+      { en: 'Target ', pt: 'Meta ', value: String(state.tickets && state.tickets.target_sales || 1000) }
+    ];
+    // Normalize doors display like original: "18h–04h"
+    items[1].value = '18h–04h';
+    document.getElementById('plan-meta').innerHTML = items.map(function(i) {
+      return '<div class="plan-meta-item">' + bilingual(i.en, i.pt) + '<strong>' + esc(i.value) + '</strong></div>';
+    }).join('');
+  }
+
+  function renderBudget(state) {
+    var b = state.budget || {};
+    var total = b.estimated_total || 8000;
+    var cash = b.cash_in_hand || 0;
+    var gap = b.cash_gap || 0;
+    var be = (b.break_even && b.break_even.display_tickets) || '~620';
+    var avg = (b.break_even && b.break_even.blended_avg_price_eur) || 13;
+    var pctCash = total > 0 ? Math.round(cash / total * 100) : 0;
+    var pctGap = total > 0 ? Math.round(gap / total * 100) : 0;
+
+    document.getElementById('card-budget').innerHTML =
+      '<div class="plan-card-header"><span class="plan-card-title">' +
+        bilingual('Budget · Snapshot', 'Orçamento · Resumo') +
+      '</span></div>' +
+      '<div class="budget-row">' +
+        '<div>' +
+          '<div class="budget-label">' + bilingual('Estimated total costs', 'Custos totais estimados') + '</div>' +
+          '<div class="budget-bar"><div class="budget-fill" style="width:100%"></div></div>' +
+        '</div>' +
+        '<div class="budget-amount">' + esc(eur(total)) + '</div>' +
+      '</div>' +
+      '<div class="budget-row">' +
+        '<div>' +
+          '<div class="budget-label">' + bilingual('Cash in hand', 'Dinheiro disponível') + '</div>' +
+          '<div class="budget-bar"><div class="budget-fill" style="width:' + pctCash + '%"></div></div>' +
+        '</div>' +
+        '<div class="budget-amount">' + esc(eur(cash)) + '</div>' +
+      '</div>' +
+      '<div class="budget-row">' +
+        '<div>' +
+          '<div class="budget-label">' + bilingual('Gap (tickets + sponsors)', 'Lacuna (bilhetes + patrocínios)') + '</div>' +
+          '<div class="budget-bar"><div class="budget-fill" style="width:' + pctGap + '%;background:var(--color-accent-bright)"></div></div>' +
+        '</div>' +
+        '<div class="budget-amount">' + esc(eur(gap)) + '</div>' +
+      '</div>' +
+      '<div class="profit-box">' +
+        '<div class="profit-label">' + bilingual('Break-even @ flat €' + avg + ' avg', 'Equilíbrio @ €' + avg + ' médio') + '</div>' +
+        '<div class="profit-num">' + esc(be) + '</div>' +
+        '<div class="profit-label" style="margin-top:.3rem">' + bilingual('tickets', 'bilhetes') + '</div>' +
+      '</div>';
+  }
+
+  function renderDavid(state) {
+    var tasks = (state.tasks || []).filter(function(t) {
+      return t.show_on_dashboard === 'david' && t.status !== 'done';
     });
-  });
+    var items = tasks.length ? tasks.map(function(t) {
+      return '<li><span class="check-box"></span><span class="task-text">' +
+        bilingual(t.title, t.title_pt || t.title) + '</span></li>';
+    }).join('') : '';
+    // Keep the exact original single item wording if no PT translation present
+    // Original had "Talk to Gabriel about sponsorship" / "Falar com Gabriel para patrocínio"
+    var davidTasks = (state.tasks || []).filter(function(t) { return t.show_on_dashboard === 'david'; });
+    if (davidTasks.length && !davidTasks[0].title_pt) {
+      // Special-case the one known task so PT matches the prior live page exactly
+      items = davidTasks.map(function(t) {
+        if (t.title === 'Talk to Gabriel about sponsorship') {
+          return '<li><span class="check-box"></span><span class="task-text">' +
+            bilingual('Talk to Gabriel about sponsorship', 'Falar com Gabriel para patrocínio') + '</span></li>';
+        }
+        return '<li><span class="check-box"></span><span class="task-text">' +
+          bilingual(t.title, t.title) + '</span></li>';
+      }).join('');
+    }
+    document.getElementById('card-david').innerHTML =
+      '<div class="plan-card-header"><span class="plan-card-title">' +
+        bilingual('David', 'David') +
+      '</span></div>' +
+      '<ul class="plan-checklist">' + items + '</ul>';
+  }
+
+  function renderVenue(state) {
+    var list = state.venue_checklist || [];
+    var items = list.map(function(v) {
+      return '<li' + (v.done ? ' class="checked"' : '') + '>' +
+        '<span class="check-box' + (v.done ? ' done' : '') + '"></span>' +
+        '<span class="task-text">' + bilingual(v.en, v.pt) + '</span>' +
+      '</li>';
+    }).join('');
+    document.getElementById('card-venue').innerHTML =
+      '<div class="plan-card-header"><span class="plan-card-title">' +
+        bilingual('Venue / Decoration', 'Recinto / Decoração') +
+      '</span></div>' +
+      '<ul class="plan-checklist">' + items + '</ul>';
+  }
+
+  function renderPartners(state) {
+    // Preserves the exact three partner cards from the prior live page.
+    // Pulled from state.vendors.confirmed + state.sponsors.confirmed for names,
+    // but the descriptive lines stay human-curated to preserve bilingual fidelity.
+    var vendors = (state.vendors && state.vendors.confirmed) || [];
+    var byName = {};
+    vendors.forEach(function(v) { byName[v.name] = v; });
+
+    var parish = byName['Duas Igrejas parish'];
+    var municipality = byName['Municipality (Vila Verde câmara)'];
+    var equipment = byName['Equipment company'];
+
+    var html = '<div class="plan-card-header"><span class="plan-card-title">' +
+        bilingual('Partners Confirmed', 'Parceiros confirmados') +
+      '</span></div>';
+
+    if (parish) {
+      html += '<div class="provider-card recommended">' +
+        '<div class="provider-name">Duas Igrejas ' + bilingual('(Parish)', '(Paróquia)') + '</div>' +
+        '<div class="provider-fee">' + bilingual('Bar · Legal umbrella · Community helpers', 'Bar · Cobertura legal · Ajudantes') + '</div>' +
+        '<div class="provider-pros">' + bilingual('They keep bar profits. 1 free drink per ticket. ~25 helpers.', 'Recebem lucros do bar. 1 bebida grátis por bilhete. ~25 ajudantes.') + '</div>' +
+      '</div>';
+    }
+    if (municipality) {
+      html += '<div class="provider-card recommended">' +
+        '<div class="provider-name">' + bilingual('Municipality · Vila Verde', 'Câmara · Vila Verde') + '</div>' +
+        '<div class="provider-fee">' + bilingual('Free fireworks · Stage request · Mobile toilets', 'Fogo grátis · Pedido palco · WC móveis') + '</div>' +
+      '</div>';
+    }
+    if (equipment) {
+      var total = equipment.total || 3000;
+      var upfront = equipment.upfront || 1500;
+      html += '<div class="provider-card">' +
+        '<div class="provider-name">' + bilingual('Equipment company', 'Empresa de equipamento') + '</div>' +
+        '<div class="provider-fee">' + esc(eur(total)) + ' · ' + esc(eur(upfront)) + ' ' + bilingual('deposit funded', 'depósito garantido') + '</div>' +
+      '</div>';
+    }
+    document.getElementById('card-partners').innerHTML = html;
+  }
+
+  function wireCheckboxes() {
+    document.querySelectorAll('.check-box').forEach(function(box) {
+      box.addEventListener('click', function() {
+        box.classList.toggle('done');
+        box.parentElement.classList.toggle('checked');
+      });
+    });
+  }
+
+  // Load state.json and render everything
+  var FALLBACK_MSG = 'Dashboard is loading from data/state.json — if this persists, check browser console.';
+  function fail(err) {
+    console.error('Dashboard render failed:', err);
+    var grid = document.querySelector('.plan-grid');
+    if (grid) {
+      var box = document.createElement('div');
+      box.className = 'plan-card full-width';
+      box.innerHTML = '<div class="plan-card-header"><span class="plan-card-title">⚠ Render error</span></div>' +
+        '<div style="font-family:var(--font-body);font-size:.85rem;color:var(--color-moon-dim);padding:.5rem 0">' +
+        esc(FALLBACK_MSG) + '<br><br>' + esc(String(err && err.message || err)) + '</div>';
+      grid.appendChild(box);
+    }
+  }
+
+  fetch('data/state.json?v=' + Date.now(), { cache: 'no-store' })
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(state) {
+      try {
+        renderMeta(state);
+        renderBudget(state);
+        renderDavid(state);
+        renderVenue(state);
+        renderPartners(state);
+        wireCheckboxes();
+        // Apply persisted language after render so data-lang elements exist
+        var saved = 'pt';
+        try { saved = localStorage.getItem(LANG_KEY) || 'pt'; } catch(e) {}
+        setLang(saved);
+      } catch (e) { fail(e); }
+    })
+    .catch(fail);
+
+  // Language buttons still need to work even if state.json fetch fails
+  try {
+    var initial = localStorage.getItem(LANG_KEY) || 'pt';
+    setLang(initial);
+  } catch(e) { setLang('pt'); }
 </script>
 
 </body>

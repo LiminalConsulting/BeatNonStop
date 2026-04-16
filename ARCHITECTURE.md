@@ -70,7 +70,7 @@ Threshold is configurable via the `APPROVAL_THRESHOLD` Worker secret.
 
 Defined in `.claude/commands/sync.md`. One command, full loop:
 
-1. Read `data/inbox.md` + `data/outbox.json` + `data/state.json` + `knowledge/`
+1. Read `data/inbox.md` + `data/outbox.json` + `data/state.json` + `knowledge/monitoring.md`
 2. Classify each inbox entry (question / info update / proposal / noise)
 3. Answer questions → POST to Worker `/api/reply`
 4. Update state from reported facts → edit `data/state.json`
@@ -113,12 +113,16 @@ tail -f ~/.beatnonstop-sync.log                                        # watch
 ```
 /
 ├── index.html                    public event site
-├── plan.html                     private team dashboard (reads data/*.json live)
+├── plan.html                     private team dashboard — thin renderer that fetches data/state.json
 ├── styles/, js/, assets/         site frontend
 │
 ├── data/                         COORDINATION SYSTEM DATABASE
-│   ├── state.json                live dashboard state (tasks, budget, tickets, sponsors, artists)
+│   ├── state.json                SINGLE SOURCE OF TRUTH — event facts, tickets, budget, tasks,
+│   │                             artists, team, vendors, sponsors, press, decisions, risks,
+│   │                             open questions, timeline, venue checklist. plan.html renders
+│   │                             from this; LLM reads/writes this; Worker's /status reads this.
 │   ├── inbox.md                  group messages queued for next /sync
+│   ├── transcript.md             permanent append-only chat log (never cleared)
 │   ├── outbox.json               outbound actions: pending (awaiting vote) / executed / rejected
 │   ├── approvals.json            vote tallies per outbox item
 │   └── reminders.json            scheduled reminders (Worker cron reads this)
@@ -131,10 +135,10 @@ tail -f ~/.beatnonstop-sync.log                                        # watch
 ├── .claude/commands/
 │   └── sync.md                   THE BRAIN TICK — full daily loop spec
 │
-├── knowledge/                    CANONICAL PROJECT MEMORY (pre-existed this system)
-│   ├── event-facts.json          single source of truth for all event details
-│   ├── team.json, budget.json, vendors.json
-│   ├── open-questions.md, risks.md, decisions.md, timeline.md
+├── knowledge/                    LLM-ONLY OPERATIONAL RULES
+│   └── monitoring.md             threshold rules the LLM evaluates each tick (ticket velocity,
+│                                 cost baselines). NOT rendered to the dashboard, NOT event
+│                                 facts — event facts live in data/state.json now.
 │
 ├── generated/                    outputs from /sync — email drafts, posts, press releases
 │   └── comms/                    (created as needed)

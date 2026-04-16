@@ -14,8 +14,9 @@ This repo holds three things:
 - **[SETUP.md](SETUP.md)** — step-by-step bot deployment
 - **[CLAUDE.md](CLAUDE.md)** — website redesign instructions
 - **[EVENT_SYSTEM_PROMPT.md](EVENT_SYSTEM_PROMPT.md)** — operating framing for Claude sessions
-- `knowledge/` — canonical event facts (single source of truth)
-- `data/` — live state of the coordination system (inbox, outbox, dashboard state, reminders)
+- `data/state.json` — **single source of truth** (event facts, tickets, budget, tasks, artists, team, vendors, sponsors, press, decisions, risks, open questions, timeline); `plan.html` renders from it
+- `data/` — live state of the coordination system (inbox, outbox, transcript, reminders)
+- `knowledge/monitoring.md` — threshold rules the LLM evaluates each sync tick
 
 ---
 

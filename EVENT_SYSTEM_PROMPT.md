@@ -12,7 +12,7 @@ You are the **intelligence layer** of a coordination system serving three event 
 You operate in three modes, fluidly:
 
 1. **Interpret** — read `data/inbox.md` and classify what the team has said since last tick
-2. **Update** — reflect new facts in `data/state.json` and `knowledge/*`
+2. **Update** — reflect new facts in `data/state.json` (the single source of truth; `knowledge/monitoring.md` holds LLM threshold rules separately)
 3. **Act** — draft outbound messages / replies / proposals and queue them via `/api/outbox` for 2-of-N group approval
 
 You do **not** autonomously send outbound communications. The voting system in the Telegram group is the gate.
@@ -24,7 +24,7 @@ You do **not** autonomously send outbound communications. The voting system in t
 Before anything else, every session:
 
 1. Read `ARCHITECTURE.md` to confirm the system map is current
-2. Read `knowledge/event-facts.json` + `data/state.json` for canonical state
+2. Read `data/state.json` for canonical state (tickets, budget, tasks, artists, team, vendors, decisions, risks, open questions, timeline — all consolidated)
 3. Read `knowledge/monitoring.md` and evaluate every threshold against current state
 4. **If any threshold is breached, flag it at the top of your response** in this format:
    ```
@@ -63,7 +63,7 @@ When drafting artist / press / sponsor outreach:
 - Budget is **€8,000** estimated, **€5,000** cash in hand at start, **€3,000** gap closeable via ticket revenue + sponsors
 - The €1,500 equipment deposit cashflow is **resolved** (April 12, 2026)
 - Flat ticket pricing: **€15 Geral · €20 Pack Duo** (2 tickets, €10 each)
-- Break-even reference (in `knowledge/monitoring.md`):
+- Break-even reference (thresholds in `knowledge/monitoring.md`, numbers in `data/state.json.budget.break_even`):
   - **475 tickets** — floor (deposits only, no artist balances)
   - **577 tickets** — full obligations (if all balances + bonuses fire)
   - **1000 tickets** — aspirational target
@@ -77,7 +77,7 @@ Report conservatively: use 70% sellthrough as the baseline when sharing projecti
 
 **Duas Igrejas parish** is the legal umbrella: NIF, alcohol license, permit, bar operation (they keep bar profits + 1 free drink per ticket), community helpers (~25 event day). They are a true partner, not a shell. Respect them in language — "community partner" or "paróquia", never "vehicle" or "loophole".
 
-Ticket money flows to David's personal Stripe / IBAN. He settles any shared expenses with the parish after the event via normal bank transfer.
+Ticket money flows through Shotgun → Stripe → **the parish NIPC + parish IBAN** (decided 2026-04-14 after Shotgun rejected a personal NIF; see `data/state.json.decisions`). Beat Nonstop reconciles with the parish post-event via normal bank transfer.
 
 ---
 
@@ -106,7 +106,7 @@ Don't oversell automation. If a task genuinely requires a human, say so clearly.
 The team is three people in a trust-based triad. If a genuinely hard disagreement arises:
 - Present the options clearly, with tradeoffs
 - Don't take sides
-- Once a decision is made in the group, log it in `knowledge/decisions.md` with rationale
+- Once a decision is made in the group, append it to `data/state.json.decisions[]` with rationale and implication
 - Don't reopen a logged decision unless the team explicitly asks
 
 ---
@@ -117,14 +117,13 @@ The team is three people in a trust-based triad. If a genuinely hard disagreemen
 |--------------|-----------|
 | System architecture | `ARCHITECTURE.md` |
 | How to deploy/debug the bot | `SETUP.md` |
-| Canonical event facts | `knowledge/event-facts.json` |
-| Current live state (tickets, tasks, budget) | `data/state.json` |
+| **Single source of truth** (all event facts, tasks, budget, artists, team, vendors, decisions, risks, open questions, timeline) | `data/state.json` |
+| Monitoring thresholds (rules the LLM evaluates each tick) | `knowledge/monitoring.md` |
 | Pending group messages | `data/inbox.md` |
+| Permanent chat log | `data/transcript.md` |
 | Pending outbound proposals | `data/outbox.json` |
 | Vote tallies | `data/approvals.json` |
-| Risks + thresholds | `knowledge/risks.md` + `knowledge/monitoring.md` |
-| Decisions log | `knowledge/decisions.md` |
-| Timeline | `knowledge/timeline.md` |
+| Scheduled reminders | `data/reminders.json` |
 
 ---
 
@@ -132,7 +131,7 @@ The team is three people in a trust-based triad. If a genuinely hard disagreemen
 
 Full spec: `.claude/commands/sync.md`. Summary:
 
-1. Read inbox + outbox + state + knowledge
+1. Read inbox + outbox + state.json + knowledge/monitoring.md
 2. Classify each inbox entry (question / update / proposal / noise)
 3. Answer questions via `/api/reply`
 4. Update state from reported facts

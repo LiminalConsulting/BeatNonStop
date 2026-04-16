@@ -23,9 +23,9 @@ Read ALL of these before doing anything:
 - `data/inbox.md` — group messages logged since last sync (the **work queue** — items to process this tick)
 - `data/transcript.md` — permanent append-only chat log (never cleared). Read the **last ~300 lines** for conversational context: standing preferences the team has expressed, ongoing threads, prior bot commitments, user-specific tone cues (e.g., someone asked for bilingual replies last week — still applies). When answering a question in `inbox.md`, cross-reference transcript to avoid contradicting past replies or re-asking things already resolved.
 - `data/outbox.json` — pending/executed/rejected approval items
-- `data/state.json` — the live dashboard source of truth
+- `data/state.json` — **single source of truth**: event facts, tickets, budget, tasks, artists, team, vendors, sponsors, press, decisions, risks, open questions, timeline, venue checklist. Also what `plan.html` renders from. Read the whole thing before acting.
 - `data/reminders.json` — scheduled reminders
-- `knowledge/event-facts.json`, `knowledge/open-questions.md`, `knowledge/risks.md`, `knowledge/decisions.md` — canonical project memory
+- `knowledge/monitoring.md` — LLM threshold rules (ticket velocity, cost monitoring). Evaluate every tick.
 - `CLAUDE.md`, `EVENT_SYSTEM_PROMPT.md` — operational framing
 
 **On transcript.md**: this file is append-only and grows forever. For now just tail it (e.g. `tail -300 data/transcript.md`). If it ever exceeds ~5000 lines, archive the older half to `data/transcript-archive-YYYY-MM.md` and keep the recent tail in `data/transcript.md`.
@@ -59,12 +59,13 @@ Parse `data/inbox.md`. Entries may include media lines like `📷 photo → data
 
 For each unprocessed entry (newest to oldest is fine), classify:
 - **Question** (they want an answer) → answer it based on project knowledge, post via `/api/reply`
-- **Information / fact update** (e.g., "Sarah confirmed she'll do the door") → update `data/state.json` and/or `knowledge/event-facts.json` accordingly, acknowledge briefly in group
+- **Information / fact update** (e.g., "Sarah confirmed she'll do the door") → update the appropriate field in `data/state.json` (tasks, sponsors, vendors, team, decisions, etc. — all live there now), acknowledge briefly in group. No separate knowledge files to update.
 - **Public-site change request** (anything about the *public* event site at `beatnonstop.live/`: hero copy, lineup display, tickets section, layout, colors, images, nav, etc.) → edit files **under `staging/`** (never the repo root). Commit. Reply briefly in group: "staging updated — refresh https://beatnonstop.live/staging/". Do NOT promote yourself — the team runs `/promote` when ready.
   - **Default assumption**: if someone says "add X", "change Y", "make Z bigger", "remove W" and X/Y/Z/W is something visible on the public site, it's a staging edit. No need to ask.
   - **Ambiguous case** — if the request could *also* mean an external system change (e.g., "add a VIP ticket tier €260" → could mean display on site AND/OR create it in Shotgun.live): edit the staging site to reflect it, THEN post to the group: "Updated staging to show VIP €260. Note: this is display-only — the actual tier in Shotgun.live still needs to be created by @DavidPereira99 in pro.shotgun.live. Want me to draft instructions?" Never touch Shotgun or other external systems yourself; those stay human-driven until explicitly wired via an outbox action.
   - **Tagged at the bot** (`@BeatNonStopBot ...`) is just convention — treat it the same as any request. The @ mention is noise; classify by content.
-- **Plan-dashboard change request** (anything about the internal planning page at `beatnonstop.live/plan`: adding/removing sections, checklist items, todo entries, budget numbers shown, team info — "add X to the plan", "adiciona ao /plan", "remove Y from the dashboard") → edit `plan.html` at **repo root directly**. Do NOT touch `staging/`. Plan dashboard is an internal tool for 3 people; changes land live on next `/sync` within ~1 min (no vote, no preview). Also update `data/state.json` to keep LLM memory aligned with what the dashboard shows. Bilingual: update both `<span data-lang="en">` and `<span data-lang="pt">` blocks. Reply: "plan dashboard updated — refresh https://beatnonstop.live/plan".
+- **Plan-dashboard change request** (anything about the internal planning page at `beatnonstop.live/plan`: adding/removing checklist items, todo entries, budget numbers, team/partner info — "add X to the plan", "adiciona ao /plan", "remove Y from the dashboard") → edit the corresponding field in `data/state.json` at **repo root**. The dashboard (`plan.html`) renders from `state.json` via `fetch()` — any change to state.json is visible on next browser refresh once pushed. Do NOT touch `staging/`. Do NOT edit `plan.html` for content changes (only for structural/UX changes to the renderer itself). Bilingual items use `en`/`pt` fields in state.json (see `venue_checklist[]` for the pattern). Reply: "plan dashboard updated — refresh https://beatnonstop.live/plan".
+  - For **new sections** (something the dashboard doesn't show yet): this requires both a `state.json` field AND a small render function addition in `plan.html`. Propose to the user before acting — these are UX decisions, not pure data.
 - **Proposal / decision request** (e.g., "should we raise early bird to €15?") → present tradeoffs in group, don't decide unilaterally
 - **Noise / chatter** → skip
 
@@ -80,7 +81,7 @@ Based on anything learned this tick, update `data/state.json`:
 - Set `meta.last_sync` to now, `meta.last_sync_by` to "claude-code"
 
 ### 4. Draft outbound actions
-Check `knowledge/open-questions.md` and `data/state.json` for things that require outbound communication: sponsor outreach, press outreach, vendor quotes, artist confirmations.
+Check `data/state.json.open_questions` and `data/state.json.tasks[]` for things that require outbound communication: sponsor outreach, press outreach, vendor quotes, artist confirmations.
 
 For each, if the action is non-trivial (sends email, makes commitment, spends money), queue it via `/api/outbox` for 2-of-N approval. Use distinct ids: `ob-YYYYMMDD-01`, `-02`, etc.
 
@@ -93,14 +94,14 @@ For each item in `outbox.executed` with `result === "queued_for_human_send"`:
 - Update `result` to `"draft_ready"` and timestamp
 
 ### 6. Update planning dashboard
-The dashboard (`plan.html` at repo root) is currently **static HTML**, not a live renderer of `state.json`. If this tick surfaced changes the team needs to see on `beatnonstop.live/plan` (new tasks, checklist items, numbers), edit `plan.html` directly at root — never via `staging/`. Also update `state.json` so the LLM's memory stays aligned with the dashboard. (Future phase: make `plan.html` a thin renderer of `state.json` so divergence is structurally impossible — not yet done.)
+The dashboard (`plan.html` at repo root) is a **thin renderer** of `data/state.json` — it fetches the JSON on page load and templates the DOM. So if you've kept `state.json` accurate in steps 1–4, the dashboard is already up to date; no separate file edit needed. Structural or UX changes to the renderer itself (new sections, layout) are rare — propose first.
 
 ### 7. Status message to group
 Post a terse summary: "Sync done · N questions answered · M actions queued · K drafts ready · next priority: <top urgent task>".
 
 ### 8. Commit & push
 ```bash
-git add data/ knowledge/ generated/
+git add data/ knowledge/ generated/ plan.html
 git commit -m "sync: <short summary of what changed>"
 git push origin main
 ```
