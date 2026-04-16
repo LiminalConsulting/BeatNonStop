@@ -477,3 +477,4 @@ Coloca na minha secção ( David ) - “Falar com Gabriel para patrocínio”
 https://beatnonstop.live/plan
 
 É aqui que quero que faças as alterações
+[2026-04-16T00:00:00Z] bot [summary]: Sync tick — processed 5 inbox entries from @DavidPereira99 + @Tiago. Applied 3 plan.html edits: removed Lineup card (David P.), added new "David" section with "Falar com Gabriel para patrocínio" task (David P.), artist fees removed as side-effect of lineup card removal (Tiago's request). Next promote vote not needed — /plan updates hit live directly per the pattern established on 2026-04-15.
