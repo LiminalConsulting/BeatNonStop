@@ -509,3 +509,16 @@ Coloca no plano, na seção David
 - Falar com Manuel Moreira 
 - Falar com Pedro Verde Relâmpago 
 - Falar com o Azevedo Carpintaria
+[2026-04-18T16:31:42.418Z] bot: 🇬🇧 Done on /plan:
+• *David* section — added 5 tasks: Gonzaga, Carlos (Só Madeiras), Manuel Moreira, Pedro (Verde Relâmpago), Azevedo Carpintaria (@DavidPereira99)
+• *New Tiago* section — added: Talk to Casa do Povo about noise · Bring supplements as needed (@Tiago)
+
+Refresh https://beatnonstop.live/plan (~60s for GitHub Pages).
+
+—
+
+🇵🇹 Feito no /plan:
+• Secção *David* — adicionadas 5 tarefas: Gonzaga, Carlos (Só Madeiras), Manuel Moreira, Pedro (Verde Relâmpago), Azevedo Carpintaria (@DavidPereira99)
+• Nova secção *Tiago* — adicionadas: Falar com a Casa do Povo sobre o barulho · Levar suplementos que estejam em necessidade (@Tiago)
+
+Atualizem https://beatnonstop.live/plan (~60s).
