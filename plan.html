@@ -47,6 +47,7 @@
 
   <div class="plan-card" id="card-budget"></div>
   <div class="plan-card" id="card-david"></div>
+  <div class="plan-card" id="card-tiago"></div>
   <div class="plan-card" id="card-venue"></div>
   <div class="plan-card" id="card-partners"></div>
 
@@ -190,6 +191,21 @@
       '<ul class="plan-checklist">' + items + '</ul>';
   }
 
+  function renderTiago(state) {
+    var tasks = (state.tasks || []).filter(function(t) {
+      return t.show_on_dashboard === 'tiago' && t.status !== 'done';
+    });
+    var items = tasks.map(function(t) {
+      return '<li><span class="check-box"></span><span class="task-text">' +
+        bilingual(t.title, t.title_pt || t.title) + '</span></li>';
+    }).join('');
+    document.getElementById('card-tiago').innerHTML =
+      '<div class="plan-card-header"><span class="plan-card-title">' +
+        bilingual('Tiago', 'Tiago') +
+      '</span></div>' +
+      '<ul class="plan-checklist">' + items + '</ul>';
+  }
+
   function renderVenue(state) {
     var list = state.venue_checklist || [];
     var items = list.map(function(v) {
@@ -279,6 +295,7 @@
         renderMeta(state);
         renderBudget(state);
         renderDavid(state);
+        renderTiago(state);
         renderVenue(state);
         renderPartners(state);
         wireCheckboxes();
