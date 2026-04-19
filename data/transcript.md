@@ -557,3 +557,8 @@ Atualizem https://beatnonstop.live/plan (~60s).
 [2026-04-19T11:47:37.303Z] @DavidPereira99: Haaaa okok i understood. 
 There is a way that when I ask you to add something in the plan, just execute in the moment without the intervention of @InterfaceGuy?
 [2026-04-19T11:48:18.280Z] @DavidPereira99: Sem acumular sync, processar diretamente sem ter que abrir o laptop
+[2026-04-19T11:54:49.593Z] bot: @DavidPereira99 — boa pergunta 🙏 A verdade é que *já funciona assim* por design: existe um daemon (`launchd`) no Mac do @InterfaceGuy que faz poll ao repo de 2 em 2 minutos e corre /sync automaticamente quando chegam mensagens novas — sem ninguém precisar de abrir terminal nenhum. Requisito único: Mac acordado.
+
+O bloqueio *agora* não é a automação — é o push para o GitHub que está 403 (credenciais sem acesso de escrita). Por isso os sync ticks acontecem, processam tudo localmente, mas os commits ficam empilhados no laptop e nunca chegam ao live. Quando o @InterfaceGuy arranjar o auth, o fluxo que pedes passa a funcionar: escreves no grupo → ~2min depois o /plan live está atualizado, zero intervenção humana.
+
+TL;DR: a automação existe, falta só reparar o push. Ping no @InterfaceGuy para isso. 🛠️
