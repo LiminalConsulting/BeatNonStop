@@ -549,3 +549,4 @@ Atualizem https://beatnonstop.live/plan (~60s).
 [2026-04-18T19:32:33.998Z] @InterfaceGuy: @BeatNonStopBot pls adjust your behavior that you only ever send a sync message when anything meaningful happens otherwise you are spamming the group unnecessarily
 [2026-04-18T19:33:38.811Z] @DavidPereira99: Yeah bro 🤣
 [2026-04-18T19:39:24.270Z] bot: @InterfaceGuy @DavidPereira99 — got it, sorry for the noise 🙏 From now on /sync stays silent on idle ticks. Only pings the group when something actually happened (reply, /plan edit, /staging edit, outbox action, or an anomaly to flag). Heartbeat is the git log, not your phones.
+[2026-04-19T11:37:14.883Z] @DavidPereira99: @BeatNonStopBot it’s not adding anything to the plan. Hold the last information we asked you to add in the plan, it didn’t show up
