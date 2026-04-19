@@ -562,3 +562,4 @@ There is a way that when I ask you to add something in the plan, just execute in
 O bloqueio *agora* não é a automação — é o push para o GitHub que está 403 (credenciais sem acesso de escrita). Por isso os sync ticks acontecem, processam tudo localmente, mas os commits ficam empilhados no laptop e nunca chegam ao live. Quando o @InterfaceGuy arranjar o auth, o fluxo que pedes passa a funcionar: escreves no grupo → ~2min depois o /plan live está atualizado, zero intervenção humana.
 
 TL;DR: a automação existe, falta só reparar o push. Ping no @InterfaceGuy para isso. 🛠️
+[2026-04-19T11:56:13.650Z] @DavidPereira99: Coloca em inglês e menciona-o
