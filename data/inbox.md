@@ -59,3 +59,8 @@ The last information*
 ## 2026-04-19T11:43:12.698Z — @DavidPereira99 (768181894)
 Still the same like it was 😭
 ---
+
+## 2026-04-19T11:47:37.303Z — @DavidPereira99 (768181894)
+Haaaa okok i understood. 
+There is a way that when I ask you to add something in the plan, just execute in the moment without the intervention of @InterfaceGuy?
+---
