@@ -1,13 +1,13 @@
 {
   "meta": {
-    "event_name": "Beat Nonstop — Lua Nova",
+    "event_name": "Beat Nonstop \u2014 Lua Nova",
     "event_date": "2026-05-16T18:00:00+01:00",
     "event_end": "2026-05-17T04:00:00+01:00",
     "venue": "Ribeira do Neiva, Duas Igrejas, Vila Verde, Braga, Portugal",
     "venue_maps": "https://maps.app.goo.gl/aC4kPkFJXYkEJfN36?g_st=ic",
     "capacity": 2000,
     "domain": "beatnonstop.live",
-    "last_sync": "2026-04-19T18:23:44Z",
+    "last_sync": "2026-04-19T18:26:36Z",
     "last_sync_by": "claude-code",
     "edition": 2,
     "series_name": "Beat Nonstop",
@@ -18,7 +18,7 @@
     "time_start": "18:00",
     "time_end": "04:00",
     "concept": {
-      "core": "New moon — event falls on the actual new moon date",
+      "core": "New moon \u2014 event falls on the actual new moon date",
       "themes": [
         "cosmic",
         "celestial",
@@ -39,29 +39,29 @@
       "maps_url": "https://maps.app.goo.gl/aC4kPkFJXYkEJfN36?g_st=ic",
       "capacity": 2000,
       "indoor_outdoor": "outdoors (open air), with indoor backstage/private zone",
-      "history": "Multiple successful parties thrown at this location before — known quantity",
+      "history": "Multiple successful parties thrown at this location before \u2014 known quantity",
       "parking": "Large parking area in village, ~2 min walk to venue."
     },
     "venue_technical": {
-      "sound_system": "Rented via equipment company (part of €3000 package)",
-      "power_primary": "Tap from power lines — cables provided by stage crew. Common local practice.",
+      "sound_system": "Rented via equipment company (part of \u20ac3000 package)",
+      "power_primary": "Tap from power lines \u2014 cables provided by stage crew. Common local practice.",
       "power_backup": "Generator available via municipality president if needed",
-      "stage_plan": "Request from municipality president — they have a new stage to lend. Tiago needs to talk to president.",
+      "stage_plan": "Request from municipality president \u2014 they have a new stage to lend. Tiago needs to talk to president.",
       "toilets": "Some onsite, mobile Dixies requested from municipality",
-      "bar_kitchen": "Handled entirely by Duas Igrejas — they keep profits. Includes 1 free drink per ticket holder.",
-      "alcohol_license": "Held by Duas Igrejas parish organization — their NIF, their license"
+      "bar_kitchen": "Handled entirely by Duas Igrejas \u2014 they keep profits. Includes 1 free drink per ticket holder.",
+      "alcohol_license": "Held by Duas Igrejas parish organization \u2014 their NIF, their license"
     },
     "success_definition": {
-      "tiago_priority": "FULL ROOM — non-negotiable, primary emotional goal.",
+      "tiago_priority": "FULL ROOM \u2014 non-negotiable, primary emotional goal.",
       "david_priority": "Break-even minimum + full room + community feeling",
-      "synthesis": "Full room is the headline goal. Break-even is a floor. Profit → Edition 3."
+      "synthesis": "Full room is the headline goal. Break-even is a floor. Profit \u2192 Edition 3."
     }
   },
   "tickets": {
     "platform": "Shotgun.live (embedded on beatnonstop.live)",
     "launch_date": "2026-04-13",
-    "status": "LIVE — tickets on sale",
-    "pricing_model": "Flat €15 · Duo Pack €20 (2 tickets, €10 each)",
+    "status": "LIVE \u2014 tickets on sale",
+    "pricing_model": "Flat \u20ac15 \u00b7 Duo Pack \u20ac20 (2 tickets, \u20ac10 each)",
     "target_sales": 1000,
     "sold": 0,
     "revenue_eur": 0,
@@ -93,7 +93,7 @@
     "scanning_system": "QR code scanning via Shotgun app at door, physical buyers get wristbands",
     "payout": {
       "iban": "PT50001000005497343000178",
-      "iban_holder": "David Pereira (personal) — to be migrated to parish IBAN per 2026-04-14 decision",
+      "iban_holder": "David Pereira (personal) \u2014 to be migrated to parish IBAN per 2026-04-14 decision",
       "shotgun_org_email": "beatnonstop@protonmail.com"
     }
   },
@@ -104,7 +104,7 @@
     "cash_gap": 3000,
     "critical_upfront": {
       "amount": 1500,
-      "purpose": "Equipment deposit (sound + lights + DJ) — due before event",
+      "purpose": "Equipment deposit (sound + lights + DJ) \u2014 due before event",
       "resolved": true,
       "resolved_date": "2026-04-12"
     },
@@ -131,12 +131,12 @@
           "Kika_Lewis": 400,
           "John": 750
         },
-        "note": "Verify split vs the €1500 Tiago mentioned verbally"
+        "note": "Verify split vs the \u20ac1500 Tiago mentioned verbally"
       },
       "artist_bonus_pool": {
         "total": 600,
         "conditional": true,
-        "note": "€100 × 6 non-Tiago artists if event succeeds"
+        "note": "\u20ac100 \u00d7 6 non-Tiago artists if event succeeds"
       },
       "marketing_team": {
         "total": 1000,
@@ -154,7 +154,7 @@
       },
       "first_aid": {
         "estimate": 150,
-        "status": "NOT YET PLANNED — gap"
+        "status": "NOT YET PLANNED \u2014 gap"
       },
       "wristbands_scanning": {
         "estimate": 100
@@ -215,7 +215,7 @@
         "when": "after event, if successful"
       }
     ],
-    "critical_cashflow_note": "Shotgun pays out ~24h after event ends. All pre-event costs (€2725) come from cash-in-hand (€5000)."
+    "critical_cashflow_note": "Shotgun pays out ~24h after event ends. All pre-event costs (\u20ac2725) come from cash-in-hand (\u20ac5000)."
   },
   "tasks": [
     {
@@ -275,7 +275,7 @@
     },
     {
       "id": "t21",
-      "title": "Confirm which 2 of 7 are rappers vs DJs (and map John/Sun Profile → SoundProfile)",
+      "title": "Confirm which 2 of 7 are rappers vs DJs (and map John/Sun Profile \u2192 SoundProfile)",
       "owner": "Tiago",
       "priority": "medium",
       "due": "2026-04-20",
@@ -375,7 +375,7 @@
     },
     {
       "id": "t16",
-      "title": "Source wristbands (2 colours: adult + 13–17 white)",
+      "title": "Source wristbands (2 colours: adult + 13\u201317 white)",
       "owner": "David",
       "priority": "medium",
       "due": "2026-05-01",
@@ -402,7 +402,7 @@
     },
     {
       "id": "t19",
-      "title": "Pay artist deposits (€725 across 3 artists)",
+      "title": "Pay artist deposits (\u20ac725 across 3 artists)",
       "owner": "David",
       "priority": "high",
       "due": "2026-04-26",
@@ -450,8 +450,8 @@
     },
     {
       "id": "d3",
-      "title": "Talk to Carlos (Só Madeiras)",
-      "title_pt": "Falar com Carlos (Só Madeiras)",
+      "title": "Talk to Carlos (S\u00f3 Madeiras)",
+      "title_pt": "Falar com Carlos (S\u00f3 Madeiras)",
       "owner": "David",
       "priority": "medium",
       "due": null,
@@ -472,8 +472,8 @@
     },
     {
       "id": "d5",
-      "title": "Talk to Pedro (Verde Relâmpago)",
-      "title_pt": "Falar com Pedro (Verde Relâmpago)",
+      "title": "Talk to Pedro (Verde Rel\u00e2mpago)",
+      "title_pt": "Falar com Pedro (Verde Rel\u00e2mpago)",
       "owner": "David",
       "priority": "medium",
       "due": null,
@@ -545,10 +545,10 @@
       "streetwear boutiques",
       "record shops",
       "tattoo studios",
-      "bars/cafés",
+      "bars/caf\u00e9s",
       "gyms",
       "local beer brands",
-      "câmara cultural budget"
+      "c\u00e2mara cultural budget"
     ]
   },
   "press": {
@@ -605,13 +605,13 @@
     "unpaid_count": 4,
     "paid_total_eur": 1450,
     "success_bonus_per_non_tiago_artist_eur": 100,
-    "composition": "2 rappers + 5 DJs (spectrum house → techno, including Tiago himself)",
+    "composition": "2 rappers + 5 DJs (spectrum house \u2192 techno, including Tiago himself)",
     "all_local": true,
-    "contracts": "NO formal contracts — friend-based/trust arrangement",
+    "contracts": "NO formal contracts \u2014 friend-based/trust arrangement",
     "note": "Lineup confirmed 2026-04-13 by Tiago. 7 artists. Need to verify which role is rapper vs DJ."
   },
   "lineup_locked": true,
-  "age_policy": "13+ with wristband tiering — decided 2026-04-12",
+  "age_policy": "13+ with wristband tiering \u2014 decided 2026-04-12",
   "team": {
     "core_organizers": [
       {
@@ -645,7 +645,7 @@
         ]
       }
     ],
-    "decision_authority": "Joint — coordinated via the Telegram group. Trust-based, no formal lead.",
+    "decision_authority": "Joint \u2014 coordinated via the Telegram group. Trust-based, no formal lead.",
     "marketing_team": {
       "headcount": 2,
       "description": "Two local women (Tiago's high-school friend + her friend)",
@@ -671,7 +671,7 @@
       "venue_liaison_stage_sound": "Tiago",
       "operations_and_production": "Bruno",
       "social_media": "Marketing team",
-      "door_entry": "TBD — trusted friend",
+      "door_entry": "TBD \u2014 trusted friend",
       "bar": "Duas Igrejas parish"
     }
   },
@@ -710,7 +710,7 @@
         "status": "confirmed partner"
       },
       {
-        "name": "Municipality (Vila Verde câmara)",
+        "name": "Municipality (Vila Verde c\u00e2mara)",
         "category": "stage + fireworks + toilets + generator",
         "contact": "president (via Tiago)",
         "cost_to_event": 0,
@@ -737,7 +737,7 @@
         "category": "medical",
         "contact": null,
         "estimate": 150,
-        "status": "GAP — research + book by May 3"
+        "status": "GAP \u2014 research + book by May 3"
       },
       {
         "name": "Wristband supplier",
@@ -770,19 +770,19 @@
     {
       "id": "vc4",
       "en": "Instagrammable scenery",
-      "pt": "Cenário instagramável",
+      "pt": "Cen\u00e1rio instagram\u00e1vel",
       "done": false
     },
     {
       "id": "vc5",
       "en": "Entrance with lamps",
-      "pt": "Entrada com lâmpadas",
+      "pt": "Entrada com l\u00e2mpadas",
       "done": false
     },
     {
       "id": "vc6",
       "en": "Check-in counter",
-      "pt": "Balcão check-in",
+      "pt": "Balc\u00e3o check-in",
       "done": false
     },
     {
@@ -806,7 +806,7 @@
     {
       "id": "vc10",
       "en": "Audience props",
-      "pt": "Adereços para o público",
+      "pt": "Adere\u00e7os para o p\u00fablico",
       "done": false
     },
     {
@@ -847,12 +847,12 @@
       "date": "2026-04-14",
       "title": "Shotgun legal entity = Duas Igrejas parish NIPC (supersedes personal-NIF plan)",
       "decision": "The Shotgun organizer account and connected Stripe payout run under the Duas Igrejas parish NIPC with a parish-controlled IBAN. All ticket revenue flows to the parish account; Beat Nonstop reconciles with the parish post-event.",
-      "rationale": "Shotgun rejected the initial submission because a personal NIF cannot legally front commercial ticket sales at this scale without the seller being registered as sole trader (recibos verdes) — which would reshape David Pereira's tax/social-security position for a one-off event. The parish is already the legal umbrella for the bar, permit, and alcohol license, so extending that umbrella to ticketing is the coherent move.",
+      "rationale": "Shotgun rejected the initial submission because a personal NIF cannot legally front commercial ticket sales at this scale without the seller being registered as sole trader (recibos verdes) \u2014 which would reshape David Pereira's tax/social-security position for a one-off event. The parish is already the legal umbrella for the bar, permit, and alcohol license, so extending that umbrella to ticketing is the coherent move.",
       "implication": "Parish is the merchant of record on Shotgun. Event branding stays Beat Nonstop, operations stay with the team, but legal/financial flow runs through the parish."
     },
     {
       "date": "2026-04-12",
-      "title": "Event concept — Lua Nova",
+      "title": "Event concept \u2014 Lua Nova",
       "decision": "Celebrate the actual new moon of May 16. Cosmic / celestial aesthetic.",
       "rationale": "Genuine coincidence with the astronomical new moon. Theme hasn't been done locally.",
       "implication": "Decor + marketing lean celestial. Spiritual/manifestation language kept for community context, not on the public site."
@@ -860,21 +860,21 @@
     {
       "date": "2026-04-12",
       "title": "Age policy: 13+ with wristband tiering",
-      "decision": "Admission from age 13. White wristband for 13–17 (no alcohol, free soft drink). Adult wristband for 18+. Under-13 not admitted, no exceptions.",
+      "decision": "Admission from age 13. White wristband for 13\u201317 (no alcohol, free soft drink). Adult wristband for 18+. Under-13 not admitted, no exceptions.",
       "rationale": "Families with teens are normal in Vila Verde culture. 18+ would cut real attendees. Wristband system protects the parish alcohol license.",
-      "implication": "Door team ID-checks anyone who looks under 25. Bar staff briefed: 'no wristband or white wristband = no alcohol, no exceptions.' Parent consent form for 13–17."
+      "implication": "Door team ID-checks anyone who looks under 25. Bar staff briefed: 'no wristband or white wristband = no alcohol, no exceptions.' Parent consent form for 13\u201317."
     },
     {
       "date": "2026-04-12",
       "title": "Artist payment structure",
-      "decision": "Cash, no contracts. 3 artists paid (Sun Profile €300, Kika Lewis €400, John €750). 4 artists unpaid. 50% upfront. €100 success bonus to 6 non-Tiago artists if event succeeds.",
+      "decision": "Cash, no contracts. 3 artists paid (Sun Profile \u20ac300, Kika Lewis \u20ac400, John \u20ac750). 4 artists unpaid. 50% upfront. \u20ac100 success bonus to 6 non-Tiago artists if event succeeds.",
       "rationale": "Friend-based network. Contracts would add bureaucracy incompatible with this culture.",
       "implication": "Daily contact with artists is the substitute for legal enforceability. Trust is the mechanism."
     },
     {
       "date": "2026-04-13",
       "title": "Flat pricing (no Early Bird)",
-      "decision": "Single price €15 from launch through door. Duo Pack €20 (2 tickets, €10 each). VIP and T-shirt pack deferred until stage layout + merch design are ready.",
+      "decision": "Single price \u20ac15 from launch through door. Duo Pack \u20ac20 (2 tickets, \u20ac10 each). VIP and T-shirt pack deferred until stage layout + merch design are ready.",
       "rationale": "Simplifies marketing. Scarcity driver is the event itself, not ticket tiers.",
       "implication": "Break-even trajectory tracked vs 475 (floor) / 577 (full) / 1000 (target)."
     },
@@ -890,7 +890,7 @@
       "title": "Coordination system = Telegram bot + /sync + repo",
       "decision": "Deploy the bot architecture described in ARCHITECTURE.md. Telegram is the team's interface; the dashboard is the human view on the shared state; /sync runs once a day.",
       "rationale": "Non-technical team, need agentic behavior, cost-controlled via Claude Max subscription.",
-      "implication": "Every outbound action from the bot requires 2 👍 votes from non-builder members."
+      "implication": "Every outbound action from the bot requires 2 \ud83d\udc4d votes from non-builder members."
     }
   ],
   "pending_decisions": [
@@ -902,7 +902,7 @@
     },
     {
       "title": "First aid arrangement",
-      "options": "Trained volunteer vs. contracted paramedic (~€150).",
+      "options": "Trained volunteer vs. contracted paramedic (~\u20ac150).",
       "owner": "Team",
       "deadline": "2026-05-03"
     },
@@ -925,21 +925,21 @@
         "risk": "First aid plan missing",
         "likelihood": "Medium",
         "impact": "Legal + human: injury without response. Parish license on the line.",
-        "mitigation": "Secure volunteer first-aider or contract a paramedic by May 3. Budget €150.",
+        "mitigation": "Secure volunteer first-aider or contract a paramedic by May 3. Budget \u20ac150.",
         "owner": "Team"
       },
       {
         "risk": "Alcohol served to under-18",
         "likelihood": "Medium",
         "impact": "Parish loses license, fines, reputation damage",
-        "mitigation": "Strict wristband system (white 13–17, adult 18+). ID check at entry. Bar staff briefing before doors.",
+        "mitigation": "Strict wristband system (white 13\u201317, adult 18+). ID check at entry. Bar staff briefing before doors.",
         "owner": "David + Parish"
       }
     ],
     "medium": [
       {
         "risk": "Artist no-show (no contracts)",
-        "likelihood": "Low–Medium",
+        "likelihood": "Low\u2013Medium",
         "impact": "Lineup gap, audience disappointment",
         "mitigation": "50% upfront deposit creates commitment. Daily contact. Have 1 backup DJ identified.",
         "owner": "Tiago"
@@ -952,8 +952,8 @@
         "owner": "Tiago + Parish"
       },
       {
-        "risk": "Weather — rain on open-air event",
-        "likelihood": "Low–Medium",
+        "risk": "Weather \u2014 rain on open-air event",
+        "likelihood": "Low\u2013Medium",
         "impact": "Attendance drop, equipment damage",
         "mitigation": "Tarp contingency for equipment. 'Rain or shine' in ticket terms. Monitor forecast from May 10.",
         "owner": "Team"
@@ -982,7 +982,7 @@
       {
         "risk": "Duo Pack dominates sales",
         "likelihood": "Medium",
-        "impact": "Blended avg €/ticket drops, break-even shifts up",
+        "impact": "Blended avg \u20ac/ticket drops, break-even shifts up",
         "mitigation": "Track Duo/Geral ratio weekly. If >60% Duo by Apr 26, consider limited premium tier.",
         "owner": "Team"
       }
@@ -993,7 +993,7 @@
         "likelihood": "Low",
         "impact": "Minor audience split",
         "mitigation": "Different target audience, small party. No action needed.",
-        "owner": "—"
+        "owner": "\u2014"
       },
       {
         "risk": "Power failure (grid tap)",
@@ -1026,7 +1026,7 @@
     ],
     "resolved": [
       {
-        "risk": "€1500 equipment deposit cashflow",
+        "risk": "\u20ac1500 equipment deposit cashflow",
         "resolution_date": "2026-04-12",
         "notes": "Funds now available."
       },
@@ -1050,7 +1050,7 @@
       "Poster (Cartache) design finalised",
       "Set order / performance times for the 7 artists",
       "Door staff identified (trusted friend)",
-      "Wristband sourcing (2 colours: adult + 13–17)",
+      "Wristband sourcing (2 colours: adult + 13\u201317)",
       "Parent consent form printed (~50 copies)",
       "Local press contact list with names + emails",
       "Sponsor outreach list (local businesses in Braga / Vila Verde)",
@@ -1065,7 +1065,7 @@
     ],
     "ai_research": [
       "Optimal safe attendee ceiling for the venue",
-      "Portuguese event permit specifics for outdoor events in Vila Verde câmara",
+      "Portuguese event permit specifics for outdoor events in Vila Verde c\u00e2mara",
       "Industry-standard set scheduling for rapper + DJ hybrid lineups",
       "Local sponsorship prospect list (Braga / Vila Verde)",
       "Specific press contact names/emails (Vila Verde journal, Neiva radio)"
@@ -1083,37 +1083,37 @@
     "ticket_launch": "2026-04-14",
     "weeks": [
       {
-        "label": "WEEK 1 · Apr 14–20 · LAUNCH + LINEUP REVEAL",
+        "label": "WEEK 1 \u00b7 Apr 14\u201320 \u00b7 LAUNCH + LINEUP REVEAL",
         "items": [
           "[Marketing] Tuesday: Instagram launch post + first artist reveal",
           "[Tiago] Send full artist name list to the group",
           "[Marketing] Artist reveals one-per-day, Wed through next Mon",
           "[David] Monitor first-week sales velocity against thresholds",
           "[Tiago] Begin coordination with municipality president (stage, toilets)",
-          "[Tiago + Parish] Submit event permit application to câmara",
+          "[Tiago + Parish] Submit event permit application to c\u00e2mara",
           "[Tiago] Confirm security company quote"
         ]
       },
       {
-        "label": "WEEK 2 · Apr 21–27 · POSTER + OPERATIONS",
+        "label": "WEEK 2 \u00b7 Apr 21\u201327 \u00b7 POSTER + OPERATIONS",
         "items": [
-          "[Marketing] Release full poster (Cartache) — climax of artist rollout",
+          "[Marketing] Release full poster (Cartache) \u2014 climax of artist rollout",
           "[Marketing] Post poster across channels",
           "[Tiago] Send poster to local press (Vila Verde journal + regional radio)",
-          "[Team] Sponsor outreach — first wave of 10 local businesses",
-          "[David] Pay artist 50% deposits (€725 across 3 artists)",
-          "[David] Purchase wristbands (2 colours: adult + 13–17 white)",
+          "[Team] Sponsor outreach \u2014 first wave of 10 local businesses",
+          "[David] Pay artist 50% deposits (\u20ac725 across 3 artists)",
+          "[David] Purchase wristbands (2 colours: adult + 13\u201317 white)",
           "[David] Order parent-consent forms (1-page template, ~50 copies)",
           "[Tiago] Confirm mobile toilets (Dixies) with municipality",
           "[David + Parish] Confirm insurance coverage via parish umbrella"
         ]
       },
       {
-        "label": "WEEK 3 · Apr 28 – May 4 · MOMENTUM",
+        "label": "WEEK 3 \u00b7 Apr 28 \u2013 May 4 \u00b7 MOMENTUM",
         "items": [
           "[Marketing] Countdown posts begin",
-          "[Tiago] Confirm permit issued by câmara",
-          "[Team] Resolve first aid plan (volunteer OR paramedic ~€150)",
+          "[Tiago] Confirm permit issued by c\u00e2mara",
+          "[Team] Resolve first aid plan (volunteer OR paramedic ~\u20ac150)",
           "[Team] Recruit door staff (trusted friend)",
           "[Team] Confirm ~25 community helpers via Duas Igrejas",
           "[Tiago] Propose set order / running schedule",
@@ -1121,7 +1121,7 @@
         ]
       },
       {
-        "label": "WEEK 4 · May 5–11 · FINAL PREP",
+        "label": "WEEK 4 \u00b7 May 5\u201311 \u00b7 FINAL PREP",
         "items": [
           "[Tiago] Confirm all artist arrival times + logistics",
           "[David] Publish run-of-show to the group",
@@ -1133,30 +1133,30 @@
         ]
       },
       {
-        "label": "WEEK 5 · May 12–15 · HOMESTRETCH",
+        "label": "WEEK 5 \u00b7 May 12\u201315 \u00b7 HOMESTRETCH",
         "items": [
           "[Team] Daily micro-updates in Telegram",
           "[Tiago] Sound check schedule with equipment company",
-          "[May 15] SETUP DAY — Equipment install, decor setup, sound check, signage, cash boxes. Everything must be done today."
+          "[May 15] SETUP DAY \u2014 Equipment install, decor setup, sound check, signage, cash boxes. Everything must be done today."
         ]
       },
       {
-        "label": "MAY 16 · EVENT DAY 🌑",
+        "label": "MAY 16 \u00b7 EVENT DAY \ud83c\udf11",
         "items": [
           "[Tiago] Receive artists, dinner, drinks",
           "[David] Final entry check: tickets, wristbands, parent forms, cash float",
           "[Bruno] Last-minute production checks across stage, bar, door",
-          "18:00 — DOORS OPEN · door team scans QR, ID-checks under-18s, assigns wristbands",
-          "Rappers opening → fireworks at midnight → DJs house → techno progression",
-          "04:00 — CLOSE · pay artist balances, reconcile cash, equipment load-out, cleanup"
+          "18:00 \u2014 DOORS OPEN \u00b7 door team scans QR, ID-checks under-18s, assigns wristbands",
+          "Rappers opening \u2192 fireworks at midnight \u2192 DJs house \u2192 techno progression",
+          "04:00 \u2014 CLOSE \u00b7 pay artist balances, reconcile cash, equipment load-out, cleanup"
         ]
       },
       {
-        "label": "POST-EVENT · May 17–23",
+        "label": "POST-EVENT \u00b7 May 17\u201323",
         "items": [
           "[David] Confirm Shotgun payout received (~24h)",
           "[David] Pay all final balances (artists, marketing, equipment)",
-          "[David] Pay artist success bonuses if event was successful (€100 × 6 = €600)",
+          "[David] Pay artist success bonuses if event was successful (\u20ac100 \u00d7 6 = \u20ac600)",
           "[Marketing] Publish thank-you post + teaser of after-movie",
           "[Marketing] Deliver full after-movie within 2 weeks",
           "[Team] Post-mortem meeting",
