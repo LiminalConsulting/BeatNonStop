@@ -556,3 +556,4 @@ Atualizem https://beatnonstop.live/plan (~60s).
 [2026-04-19T11:44:17.960Z] bot: Correção 🙏 — as edições estão commitadas localmente mas o push para o GitHub está a falhar (403, credenciais sem acesso a LiminalConsulting/BeatNonStop). Ou seja, a raiz do problema é que os sync ticks dos últimos dias acumularam no laptop sem ir ao origin. O site live em /plan só vai atualizar quando o David conseguir fazer push (ou quando arranjarmos as credenciais). Flag ao @InterfaceGuy para resolver o auth.
 [2026-04-19T11:47:37.303Z] @DavidPereira99: Haaaa okok i understood. 
 There is a way that when I ask you to add something in the plan, just execute in the moment without the intervention of @InterfaceGuy?
+[2026-04-19T11:48:18.280Z] @DavidPereira99: Sem acumular sync, processar diretamente sem ter que abrir o laptop
