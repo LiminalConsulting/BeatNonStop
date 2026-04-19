@@ -563,3 +563,10 @@ O bloqueio *agora* não é a automação — é o push para o GitHub que está 4
 
 TL;DR: a automação existe, falta só reparar o push. Ping no @InterfaceGuy para isso. 🛠️
 [2026-04-19T11:56:13.650Z] @DavidPereira99: Coloca em inglês e menciona-o
+[2026-04-19T11:59:30.669Z] bot: @InterfaceGuy — David asked me to translate my previous reply for you 🙏
+
+Good question from David: the answer is that *it already works that way* by design. There is a `launchd` daemon on @InterfaceGuy's Mac that polls the repo every 2 minutes and runs /sync automatically when new messages arrive — no one needs to open a terminal. Only requirement: Mac awake.
+
+The blocker *right now* is not the automation — it's the GitHub push, which is failing 403 (credentials without write access). So /sync ticks happen, everything is processed locally, but commits pile up on the laptop and never reach the live site. Once @InterfaceGuy fixes the auth, the flow David wants works: write in the group → ~2min later /plan live is updated, zero human intervention.
+
+TL;DR: the automation exists, just need the push fixed. Pinging @InterfaceGuy to handle it. 🛠️
