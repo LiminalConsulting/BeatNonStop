@@ -570,3 +570,4 @@ Good question from David: the answer is that *it already works that way* by desi
 The blocker *right now* is not the automation — it's the GitHub push, which is failing 403 (credentials without write access). So /sync ticks happen, everything is processed locally, but commits pile up on the laptop and never reach the live site. Once @InterfaceGuy fixes the auth, the flow David wants works: write in the group → ~2min later /plan live is updated, zero human intervention.
 
 TL;DR: the automation exists, just need the push fixed. Pinging @InterfaceGuy to handle it. 🛠️
+[2026-04-20T10:58:30.631Z] @DavidPereira99: 1500 it’s already done!
