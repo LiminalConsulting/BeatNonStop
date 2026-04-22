@@ -571,3 +571,14 @@ The blocker *right now* is not the automation — it's the GitHub push, which is
 
 TL;DR: the automation exists, just need the push fixed. Pinging @InterfaceGuy to handle it. 🛠️
 [2026-04-20T10:58:30.631Z] @DavidPereira99: 1500 it’s already done!
+[2026-04-22T09:59:53.361Z] bot: 🛠️ *Push auth fixed* — 221 backlogged commits just flushed to GitHub. Everything the group asked for over the last week (David section with 5 outreach tasks, Tiago section with Casa do Povo + supplements, plan edits, deposit updates) is now live on /plan. Refresh https://beatnonstop.live/plan in ~60s.
+
+🇬🇧 *Updates from this sync:*
+• @DavidPereira99 confirmed the €1500 equipment deposit is paid → moved from pending to paid in budget.
+• Flag: insurance under Duas Igrejas umbrella (t12) was due Apr 20 — now 2 days overdue. Who's pushing this? @DavidPereira99 @Tiago @Bruno_Veloso
+
+🇵🇹 *Sync de hoje:*
+• O depósito de €1500 do equipamento está pago (confirmado pelo @DavidPereira99) → movido para "pago" no orçamento.
+• Alerta: verificação do seguro pela paróquia (t12) tinha prazo 20 abr — já 2 dias em atraso. Quem trata?
+
+📋 Próximas prioridades: Instagram post (t5, atrasado) · alvará (t7, prazo 20 abr) · orçamento segurança (t9, prazo 20 abr) · NIF paróquia Shotgun (t23, prazo 20 abr) · seguro (t12, atrasado)
