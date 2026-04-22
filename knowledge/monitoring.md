@@ -1,6 +1,18 @@
 # Monitoring Rules · Weekly Checks
 
-*The AI planning system actively watches these. Flag to the Telegram group when a threshold is hit.*
+*The AI planning system watches these and may surface them during /sync.*
+
+## ⚠️ Scope note (2026-04-22)
+
+The thresholds and deadlines below were drafted by an earlier AI session based on a mega-festival (50k+) production timeline. **The team (David, Tiago, Bruno) has NOT explicitly agreed to any of these dates.** This event is ~1–2k people, edition 2 — the operating scale is different.
+
+**How /sync should treat these rules until the team confirms them:**
+- **OK to surface as gentle suggestions** ("heads up — this was on the suggested timeline, still want it?"). Ideally ask only once per item, not every tick.
+- **Do NOT post as "overdue" / 🔴 / "deadline missed"** unless the team has explicitly committed to that date in the group or in `data/state.json`.
+- When in doubt: ask the team ("is this still on your list?") rather than flag.
+- When the team says "drop X" / "push Y to [date]" / "this isn't on us", update `data/state.json` and stop surfacing that item.
+
+**Team-committed items** (safe to flag firmly if missed): ticket velocity thresholds below, Shotgun NIPC (t23, David flagged it himself), event date 2026-05-16, cash in/out tracked in state.budget. Everything else → treat as suggestion.
 
 ---
 
