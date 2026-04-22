@@ -7,7 +7,7 @@
     "venue_maps": "https://maps.app.goo.gl/aC4kPkFJXYkEJfN36?g_st=ic",
     "capacity": 2000,
     "domain": "beatnonstop.live",
-    "last_sync": "2026-04-20T00:00:00Z",
+    "last_sync": "2026-04-22T00:00:00Z",
     "last_sync_by": "claude-code",
     "edition": 2,
     "series_name": "Beat Nonstop",
@@ -182,13 +182,16 @@
         "total": 1225
       }
     },
-    "paid": [],
-    "pending_payments": [
+    "paid": [
       {
         "to": "Equipment company deposit",
         "amount": 1500,
-        "when": "before event"
-      },
+        "paid_on": "2026-04-20",
+        "confirmed_by": "DavidPereira99",
+        "note": "Confirmed in group 2026-04-20 in reply to r2 reminder"
+      }
+    ],
+    "pending_payments": [
       {
         "to": "Artist deposits (3 paid artists)",
         "amount": 725,
