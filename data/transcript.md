@@ -592,3 +592,5 @@ Everything I post is a suggestion, not a commitment. If a reminder doesn't match
 
 Tudo o que eu posto são sugestões, não compromissos. Se um lembrete não for o que realmente querem fazer, ou o timing não encaixar na escala em que estão a trabalhar, digam no grupo — "tira o seguro", "empurra o alvará para maio", "isto não é connosco", o que for — e eu atualizo. O plano deve refletir o que *vocês* querem fazer.
 [2026-04-23T21:57:26.882Z] @DavidPereira99: Adiciona aqui na parte do David “F ver as casas de banho”
+[2026-04-24T19:03:15.312Z] @Tiago: Stand bye nos preços do evento, não devemos indicar opção de compra e sim ter um botão de ação para a conta do Instagram e falar com alguém responsável-nome da conta do Instagram @beat_non_stop.
+Nesse espaço dos bilhetes podes meter uma caixa relacionada com a nossa marca e com o texto “Bilhetes brevemente disponível”
