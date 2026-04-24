@@ -20,3 +20,9 @@ Adiciona aqui na parte do David “F ver as casas de banho”
 Stand bye nos preços do evento, não devemos indicar opção de compra e sim ter um botão de ação para a conta do Instagram e falar com alguém responsável-nome da conta do Instagram @beat_non_stop.
 Nesse espaço dos bilhetes podes meter uma caixa relacionada com a nossa marca e com o texto “Bilhetes brevemente disponível”
 ---
+
+## 2026-04-24T20:36:06.777Z — @DavidPereira99 (768181894)
+@BeatNonStopBot 
+Elimina no site toda a secção dos Bilhetes! Ou seja! 
+Vais manter o botão a dizer “Bilhetes”,  e elimina todos os precários, ou seja, o bilhete geral o pack duo, e o VIP
+---
