@@ -15,3 +15,8 @@ Format per entry:
 ## 2026-04-23T21:57:26.882Z — @DavidPereira99 (768181894)
 Adiciona aqui na parte do David “F ver as casas de banho”
 ---
+
+## 2026-04-24T19:03:15.312Z — @Tiago (8452168195)
+Stand bye nos preços do evento, não devemos indicar opção de compra e sim ter um botão de ação para a conta do Instagram e falar com alguém responsável-nome da conta do Instagram @beat_non_stop.
+Nesse espaço dos bilhetes podes meter uma caixa relacionada com a nossa marca e com o texto “Bilhetes brevemente disponível”
+---
