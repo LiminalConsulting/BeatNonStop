@@ -26,3 +26,8 @@ Nesse espaço dos bilhetes podes meter uma caixa relacionada com a nossa marca e
 Elimina no site toda a secção dos Bilhetes! Ou seja! 
 Vais manter o botão a dizer “Bilhetes”,  e elimina todos os precários, ou seja, o bilhete geral o pack duo, e o VIP
 ---
+
+## 2026-04-27T22:53:31.262Z — @DavidPereira99 (768181894)
+@BeatNonStopBot elimina o https://beatnonstop.live/plan - elimina esse link do plan! Mas só o plan, não o site por favor! 
+Apenas o plan
+---
