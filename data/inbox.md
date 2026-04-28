@@ -40,3 +40,7 @@ Apenas o plan
 ## 2026-04-28T09:08:11.900Z — @InterfaceGuy (6100643840)
 qr code pointing to beatnonstop.live for social media posts 🙂
 ---
+
+## 2026-04-28T09:27:42.761Z — @InterfaceGuy (6100643840)
+@DavidPereira99 you want the link beatnonstop.live/plan to no longer be accessible from the web? but still keep the planning information? pls clarify 🙂
+---
