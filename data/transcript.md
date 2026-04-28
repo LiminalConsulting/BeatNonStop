@@ -601,3 +601,4 @@ Vais manter o botão a dizer “Bilhetes”,  e elimina todos os precários, ou 
 Apenas o plan
 [2026-04-28T09:07:50.224Z] @InterfaceGuy:
   📎 document `qr.png` → `data/inbox-media/2026-04-28T09-07-49-149Z-doc-AAclfOwQ.png`
+[2026-04-28T09:08:11.900Z] @InterfaceGuy: qr code pointing to beatnonstop.live for social media posts 🙂
