@@ -31,3 +31,8 @@ Vais manter o botão a dizer “Bilhetes”,  e elimina todos os precários, ou 
 @BeatNonStopBot elimina o https://beatnonstop.live/plan - elimina esse link do plan! Mas só o plan, não o site por favor! 
 Apenas o plan
 ---
+
+## 2026-04-28T09:07:50.224Z — @InterfaceGuy (6100643840)
+
+📎 document `qr.png` → `data/inbox-media/2026-04-28T09-07-49-149Z-doc-AAclfOwQ.png`
+---
