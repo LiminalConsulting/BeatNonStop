@@ -606,3 +606,6 @@ Apenas o plan
 [2026-05-01T11:06:55.979Z] @DavidPereira99: Thanks David! Amazing
 [2026-05-01T11:07:35.097Z] @DavidPereira99: @BeatNonStopBot - se eu vê enviar uma imagem para aqui, tu consegues colocá-la no site onde eu quiser?
 [2026-05-01T12:38:19.242Z] @DavidPereira99: @BeatNonStopBot
+[2026-05-01T12:38:40.245Z] @DavidPereira99: Este é o cartaz do nosso evento. 
+Queremos colocar no site, em imagem, na zona da " LINEUP ".
+  📎 document (save failed: getFile failed: {"ok":false,"error_code":400,"description":"Bad Request: file is too big"})
