@@ -56,3 +56,10 @@ Thanks David! Amazing
 ## 2026-05-01T12:38:19.242Z — @DavidPereira99 (768181894)
 @BeatNonStopBot
 ---
+
+## 2026-05-01T12:38:40.245Z — @DavidPereira99 (768181894)
+Este é o cartaz do nosso evento. 
+Queremos colocar no site, em imagem, na zona da " LINEUP ".
+
+📎 document (save failed: getFile failed: {"ok":false,"error_code":400,"description":"Bad Request: file is too big"})
+---
