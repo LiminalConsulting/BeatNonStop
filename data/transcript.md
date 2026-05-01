@@ -605,3 +605,4 @@ Apenas o plan
 [2026-04-28T09:27:42.761Z] @InterfaceGuy: @DavidPereira99 you want the link beatnonstop.live/plan to no longer be accessible from the web? but still keep the planning information? pls clarify 🙂
 [2026-05-01T11:06:55.979Z] @DavidPereira99: Thanks David! Amazing
 [2026-05-01T11:07:35.097Z] @DavidPereira99: @BeatNonStopBot - se eu vê enviar uma imagem para aqui, tu consegues colocá-la no site onde eu quiser?
+[2026-05-01T12:38:19.242Z] @DavidPereira99: @BeatNonStopBot
