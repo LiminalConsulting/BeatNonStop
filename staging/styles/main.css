@@ -461,6 +461,34 @@
   margin-bottom: var(--space-lg);
 }
 
+.ticket-widget-wrap {
+  margin: var(--space-md) auto var(--space-lg);
+  max-width: 720px;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: var(--space-sm);
+}
+
+.ticket-widget-wrap .tt-widget,
+.ticket-widget-wrap .tt-widget iframe {
+  width: 100% !important;
+  display: block;
+  border: 0;
+  background: transparent;
+}
+
+.ticket-widget-wrap .tt-widget-fallback {
+  font-family: var(--font-body);
+  color: var(--color-moon-dim);
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.ticket-widget-wrap .tt-widget-fallback a {
+  color: var(--color-accent-bright);
+}
+
 .ticket-card {
   border: 1px solid var(--color-border);
   padding: var(--space-md) var(--space-sm);
