@@ -12,3 +12,6 @@ node_modules/
 worker/node_modules/
 worker/.wrangler/
 logs/
+
+# Source poster (heavy, optimised variants live in assets/img/)
+CARTAZFINAL.pdf
