@@ -489,6 +489,52 @@
   color: var(--color-accent-bright);
 }
 
+.ticket-meta {
+  margin-top: var(--space-md);
+  text-align: center;
+  font-family: var(--font-body);
+  color: var(--color-moon-dim);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.ticket-meta-line {
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.ticket-meta-line + .ticket-meta-line {
+  margin-top: var(--space-sm);
+}
+
+.ticket-meta-age {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.ticket-meta-vip a {
+  color: var(--color-moon);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+  transition: color var(--duration-fast) ease, text-decoration-color var(--duration-fast) ease;
+}
+
+.ticket-meta-vip a:hover {
+  color: var(--color-accent-bright);
+  text-decoration-color: var(--color-accent);
+}
+
+.ticket-meta-checkout {
+  color: var(--color-moon-dim);
+  opacity: 0.75;
+  font-size: 0.75rem;
+}
+
 .ticket-card {
   border: 1px solid var(--color-border);
   padding: var(--space-md) var(--space-sm);
