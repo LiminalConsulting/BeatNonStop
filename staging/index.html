@@ -22,8 +22,8 @@
   <meta http-equiv="Expires" content="0" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles/design-system.css?v=20260414" />
-  <link rel="stylesheet" href="styles/main.css?v=20260414" />
+  <link rel="stylesheet" href="styles/design-system.css?v=20260502" />
+  <link rel="stylesheet" href="styles/main.css?v=20260502" />
   <style>
     .staging-banner {
       position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
@@ -222,7 +222,7 @@
         <span data-lang="fr">Billets</span>
       </div>
       <div class="ticket-grid reveal">
-        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
+        <a class="ticket-card" href="https://www.tickettailor.com/events/bns/2156053" target="_blank" rel="noopener">
           <div class="ticket-type">
             <span data-lang="en">General</span>
             <span data-lang="pt">Geral</span>
@@ -234,8 +234,8 @@
             <span data-lang="pt">Preço único · a partir dos 13 anos</span>
             <span data-lang="fr">Prix unique · à partir de 13 ans</span>
           </div>
-        </button>
-        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
+        </a>
+        <a class="ticket-card" href="https://www.tickettailor.com/events/bns/2156053" target="_blank" rel="noopener">
           <div class="ticket-type">
             <span data-lang="en">Duo Pack</span>
             <span data-lang="pt">Pack Duo</span>
@@ -252,20 +252,7 @@
             <span data-lang="pt">&euro;10 cada · traz um amigo</span>
             <span data-lang="fr">10 € chacun · amène un ami</span>
           </div>
-        </button>
-        <button type="button" class="ticket-card ticket-trigger" data-open-tickets>
-          <div class="ticket-type">
-            <span data-lang="en">VIP</span>
-            <span data-lang="pt">VIP</span>
-            <span data-lang="fr">VIP</span>
-          </div>
-          <div class="ticket-price">&euro;260</div>
-          <div class="ticket-note">
-            <span data-lang="en">Premium experience</span>
-            <span data-lang="pt">Experiência premium</span>
-            <span data-lang="fr">Expérience premium</span>
-          </div>
-        </button>
+        </a>
       </div>
       <div class="cta-note reveal" style="margin-top: var(--space-md); text-align:center;">
         <span data-lang="en">Secure checkout · MB WAY · Card</span>
@@ -274,16 +261,6 @@
       </div>
     </div>
   </section>
-
-  <!-- ── TICKET MODAL ── -->
-  <div class="ticket-modal" id="ticket-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="ticket-modal-backdrop" data-close-modal></div>
-    <div class="ticket-modal-inner">
-      <button type="button" class="ticket-modal-close" data-close-modal aria-label="Close">×</button>
-      <iframe id="ticket-iframe" data-src="https://shotgun.live/events/lua-nova?embedded=1&ui=dark&transparentBackground=1" allow="payment" title="Shotgun checkout"></iframe>
-    </div>
-  </div>
-  <script src="https://shotgun.live/widget.js"></script>
 
   <!-- ── FOOTER ── -->
   <footer class="site-footer">
@@ -300,11 +277,10 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/stars.js?v=20260414"></script>
-  <script src="js/scroll.js?v=20260414"></script>
-  <script src="js/nav.js?v=20260414"></script>
-  <script src="js/cursor.js?v=20260414"></script>
-  <script src="js/tickets.js?v=20260414"></script>
+  <script src="js/stars.js?v=20260502"></script>
+  <script src="js/scroll.js?v=20260502"></script>
+  <script src="js/nav.js?v=20260502"></script>
+  <script src="js/cursor.js?v=20260502"></script>
 
 </body>
 </html>

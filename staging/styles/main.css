@@ -451,6 +451,10 @@
   padding: var(--space-md) var(--space-sm);
   text-align: center;
   transition: border-color var(--duration-fast) ease, background var(--duration-fast) ease;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .ticket-card:hover { border-color: var(--color-accent); }
