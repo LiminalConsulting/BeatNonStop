@@ -461,6 +461,80 @@
   margin-bottom: var(--space-lg);
 }
 
+.ticket-widget-wrap {
+  margin: var(--space-md) auto var(--space-lg);
+  max-width: 720px;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: var(--space-sm);
+}
+
+.ticket-widget-wrap .tt-widget,
+.ticket-widget-wrap .tt-widget iframe {
+  width: 100% !important;
+  display: block;
+  border: 0;
+  background: transparent;
+}
+
+.ticket-widget-wrap .tt-widget-fallback {
+  font-family: var(--font-body);
+  color: var(--color-moon-dim);
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.ticket-widget-wrap .tt-widget-fallback a {
+  color: var(--color-accent-bright);
+}
+
+.ticket-meta {
+  margin-top: var(--space-md);
+  text-align: center;
+  font-family: var(--font-body);
+  color: var(--color-moon-dim);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+.ticket-meta-line {
+  margin: 0 auto;
+  max-width: 560px;
+}
+
+.ticket-meta-line + .ticket-meta-line {
+  margin-top: var(--space-sm);
+}
+
+.ticket-meta-age {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.ticket-meta-vip a {
+  color: var(--color-moon);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+  transition: color var(--duration-fast) ease, text-decoration-color var(--duration-fast) ease;
+}
+
+.ticket-meta-vip a:hover {
+  color: var(--color-accent-bright);
+  text-decoration-color: var(--color-accent);
+}
+
+.ticket-meta-checkout {
+  color: var(--color-moon-dim);
+  opacity: 0.75;
+  font-size: 0.75rem;
+}
+
 .ticket-card {
   border: 1px solid var(--color-border);
   padding: var(--space-md) var(--space-sm);
@@ -474,7 +548,81 @@
 
 .ticket-card:hover { border-color: var(--color-accent); }
 
+.ticket-trigger {
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+}
 
+.ticket-trigger:hover { background: rgba(159, 168, 199, 0.04); }
+
+/* ── TICKET MODAL ── */
+.ticket-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+}
+
+.ticket-modal.open { display: flex; }
+
+.ticket-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 8, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ticket-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: min(85vh, 900px);
+  background: var(--color-void);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ticket-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-moon);
+  font-size: 1.3rem;
+  font-family: var(--font-body);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast) ease;
+}
+
+.ticket-modal-close:hover {
+  border-color: var(--color-moon);
+  background: var(--color-moon);
+  color: var(--color-void);
+}
+
+.ticket-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  flex: 1;
+  color-scheme: none;
+}
 
 .ticket-type {
   font-family: var(--font-body);
