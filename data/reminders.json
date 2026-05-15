@@ -26,7 +26,8 @@
       "id": "r4",
       "at": "2026-05-15T10:00:00+01:00",
       "text": "Eve of event. Final headcount, crew briefing, logistics check.",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-05-15T09:00:19.162Z"
     }
   ]
 }
